@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "pnpm start",
+    "build": "pnpm build:open",
+    "preview": "vite preview --mode open",
     "start": "node copy-docs.js && vite --mode open",
     "build:open": "node copy-docs.js && vite build --mode open",
     "analyze": "node copy-docs.js &&  vite build --mode analyze",

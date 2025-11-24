@@ -77,10 +77,7 @@ export default defineConfig(({ command, mode }) => {
     define: {
       'process.env': { TINY_MODE: 'pc' }
     },
-    base:
-      command === 'build'
-        ? `${process.env.static_url_prefix}/tinyui-design/${process.env.staticReleaseVersion}/home/`
-        : '/',
+    base: process.env.VITE_BASE || '/',
     build: {
       outDir: '../../dist/home',
       commonjsOptions: {
