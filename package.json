@@ -1,0 +1,7 @@
+{
+  "name": "root-opentiny-design",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -F opentiny-design-home dev"
+  }
+}
