@@ -38,7 +38,8 @@ jobs:
       - name: Build common
         run: pnpm build:common
       - name: Get home version
-        run: echo "VERSION=$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
+        run: |
+          echo "VERSION=$(node -p "require('./packages/home/package.json').version")" >> $GITHUB_ENV
       - name: Build home
         run: pnpm build
         env:
@@ -46,7 +47,7 @@ jobs:
           VITE_BASE: /opentiny.design/
       - name: Copy files
         run: |
-          cp dist/${{ env.VERSION }}/common/tinyui-design-common.iife.js dist/${{ env.VERSION }}/home
+          cp dist/common/tinyui-design-common.iife.js dist/home
       # ===== 下载 obsutil =====
       - name: Install obsutil
         run: |
@@ -64,4 +65,5 @@ jobs:
                          -e=${{ env.HUAWEI_CLOUD_ENDPOINT }}
 
           # 把本地 dist/ 目录整站同步到桶根目录
-          obsutil cp dist/${{ env.VERSION }}/ obs://${{ env.HUAWEI_CLOUD_BUCKET }}/opentiny-design/ -r -f
+          mv dist ${{ env.VERSION }}
+          obsutil cp ${{ env.VERSION }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/opentiny-design/${{ env.VERSION }}/ -r -f

@@ -11,7 +11,6 @@ import importPlugin from '@opentiny/vue-vite-import'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import path from 'path'
-import packageJson from './package.json'
 
 function _resolve(dir) {
   return path.resolve(__dirname, dir)
@@ -70,7 +69,7 @@ export default defineConfig(({ command, mode }) => {
         targets: [
           {
             src: '../home/public/downloadFile/*',
-            dest: `dist/${packageJson.version}/home/downloadFile`
+            dest: `dist/home/downloadFile`
           }
         ]
       })
@@ -80,7 +79,7 @@ export default defineConfig(({ command, mode }) => {
     },
     base: process.env.VITE_BASE || '/',
     build: {
-      outDir: `../../dist/${packageJson.version}/home`,
+      outDir: `../../dist/home`,
       commonjsOptions: {
         transformMixedEsModules: true
       },
