@@ -20,6 +20,7 @@ import { router } from './router'
 import App from './App.vue'
 import { $t, $t2 } from './i18n'
 import { $pub, $recal } from './tools'
+import { inertDepsVersion } from './insert-deps-version'
 
 // 覆盖默认的github markdown样式
 import './assets/custom-markdown.css'
@@ -42,3 +43,5 @@ if (import.meta.env.DEV) {
 } else {
   mountApp(window.TDCommon)
 }
+
+inertDepsVersion()
