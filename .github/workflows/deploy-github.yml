@@ -33,6 +33,7 @@ jobs:
       - name: Copy files
         run: |
           cp dist/common/tinyui-design-common.iife.js dist/home
+          cp dist/home/index.html dist/home/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
