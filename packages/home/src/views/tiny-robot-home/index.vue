@@ -28,9 +28,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           >
         </div>
       </div>
-      <div class="scroll-indicator">
-        <span>↓</span>
-      </div>
     </header>
 
     <!-- Feature 1: 丰富的 AI 组件 -->
@@ -49,24 +46,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
         </div>
       </div>
     </section>
-
-    <!-- Feature 2: OpenTiny Design 体系 -->
-    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
-      <div class="feature-content">
-        <div class="feature-text">
-          <h2 class="section-title light">OpenTiny Design 体系</h2>
-          <p class="feature-desc">
-            完全符合 OpenTiny Design 设计规范。<br />
-            统一的视觉风格和交互体验。<br />
-            与 TinyVue 等其他 OpenTiny 产品无缝集成。
-          </p>
-        </div>
-        <div class="feature-visual">
-          <img :src="tinyrobotDesign" alt="设计体系" class="floating-img delay-1" />
-        </div>
-      </div>
-    </section>
-
     <!-- Feature 3: 简单易用 -->
     <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
@@ -179,6 +158,8 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  line-height: 1.2;
+  padding-bottom: 10px;
 }
 
 .subtitle {
@@ -234,18 +215,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   transform: translateY(-3px);
   border-color: var(--primary-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-secondary);
-  font-size: 40px;
-  animation: bounce 2s infinite;
-  z-index: 2;
-  opacity: 0.6;
 }
 
 /* Feature Sections */
@@ -442,7 +411,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 }
 @media (max-width: 768px) {
   .title {
-    font-size: 48px;
+    font-size: 36px;
     margin-top: -60px;
   }
 
@@ -472,7 +441,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   }
 
   .section-title.light {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .section-title.light::after {

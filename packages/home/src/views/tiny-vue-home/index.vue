@@ -26,9 +26,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           >
         </div>
       </div>
-      <div class="scroll-indicator">
-        <span>↓</span>
-      </div>
     </header>
 
     <!-- Feature 1: 跨端跨框架 -->
@@ -245,7 +242,10 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  line-height: 1.2;
+  padding-bottom: 10px;
 }
 
 .subtitle {
@@ -301,18 +301,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   transform: translateY(-3px);
   border-color: var(--primary-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-secondary);
-  font-size: 40px;
-  animation: bounce 2s infinite;
-  z-index: 2;
-  opacity: 0.6;
 }
 
 /* Feature Sections */
@@ -542,7 +530,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 }
 @media (max-width: 768px) {
   .title {
-    font-size: 48px;
+    font-size: 36px;
     margin-top: -60px; /* Adjust for smaller screen */
   }
 
@@ -572,7 +560,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   }
 
   .section-title.light {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .section-title.light::after {

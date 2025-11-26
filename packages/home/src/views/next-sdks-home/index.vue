@@ -26,9 +26,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           >
         </div>
       </div>
-      <div class="scroll-indicator">
-        <span>↓</span>
-      </div>
     </header>
 
     <!-- Feature 1: 四步接入 -->
@@ -79,23 +76,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
         </div>
         <div class="feature-visual">
           <img :src="nextsdkRemoter" alt="TinyRemoter 遥控器" class="floating-img delay-2" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature 4: 多场景支持 -->
-    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
-      <div class="feature-content">
-        <div class="feature-text">
-          <h2 class="section-title light">多场景支持</h2>
-          <p class="feature-desc">
-            支持接入三方 AI 应用（Claude Desktop、Cline 等）。<br />
-            支持 Electron 应用和 uni-app 应用接入。<br />
-            支持本地连接和 WebAgent 私有化部署。
-          </p>
-        </div>
-        <div class="feature-visual">
-          <img :src="nextsdkMultiScenario" alt="多场景支持" class="floating-img delay-3" />
         </div>
       </div>
     </section>
@@ -168,7 +148,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 }
 
 .title {
-  font-size: 88px;
+  font-size: 72px;
   font-weight: 800;
   margin-bottom: 24px;
   margin-top: -120px;
@@ -177,7 +157,10 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  line-height: 1.2;
+  padding-bottom: 10px;
 }
 
 .subtitle {
@@ -233,18 +216,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   transform: translateY(-3px);
   border-color: var(--primary-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-secondary);
-  font-size: 40px;
-  animation: bounce 2s infinite;
-  z-index: 2;
-  opacity: 0.6;
 }
 
 /* Feature Sections */
@@ -461,7 +432,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 }
 @media (max-width: 768px) {
   .title {
-    font-size: 48px;
+    font-size: 36px;
     margin-top: -60px;
   }
 
@@ -491,7 +462,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   }
 
   .section-title.light {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .section-title.light::after {

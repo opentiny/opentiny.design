@@ -337,6 +337,8 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  padding-bottom: 10px;
 }
 
 .subtitle {
@@ -549,7 +551,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 
 @media (max-width: 768px) {
   .title {
-    font-size: 48px;
+    font-size: 36px;
     margin-top: -60px;
   }
   .subtitle {
@@ -583,7 +585,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   }
 
   .section-title {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .feature-desc {
