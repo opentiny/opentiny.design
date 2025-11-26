@@ -94,7 +94,9 @@ function jumpToApp(app) {
 function checkUnderlineMenu() {
   setTimeout(() => {
     state.headerInfo.forEach(level1 => {
-      level1.underlined = level1.isUnderline()
+      if(level1.isUnderline){
+        level1.underlined = level1.isUnderline()
+      }
     })
   }, 200);
 }
