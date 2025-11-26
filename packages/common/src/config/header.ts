@@ -16,11 +16,55 @@ export default [
     isUnderline: () => false
   },
   {
+    name: 'TinyVue',
+    url: '/tiny-vue-home',
+    children: [],
+    logo: tinyVue,
+    github: 'https://github.com/opentiny/tiny-vue',
+    isUnderline: () => location.pathname === '/tiny-vue-home'
+  },
+  {
+    name: 'TinyRobot',
+    url: '/tiny-robot-home',
+    children: [],
+    logo: tinyRobot,
+    hide: false,
+    github: 'https://github.com/opentiny/tiny-robot',
+    isUnderline: () => location.pathname === '/tiny-robot-home'
+  },
+  {
+    name: 'NextSDks',
+    url: '/next-sdks-home',
+    children: [],
+    logo: tinyRobot,
+    hide: false,
+    github: 'https://github.com/opentiny/tiny-robot',
+    isUnderline: () => location.pathname === '/next-sdks-home'
+  },
+  {
+    name: 'AIExtension',
+    url: '/ai-extension-home',
+    children: [],
+    logo: tinyRobot,
+    hide: false,
+    github: 'https://github.com/opentiny/tiny-robot',
+    isUnderline: () => location.pathname === '/ai-extension-home'
+  },
+  {
+    name: 'TinyEngine',
+    url: '/tiny-engine',
+    children: [],
+    logo: tinyEngine,
+    github: 'https://github.com/opentiny/tiny-engine',
+    isUnderline: () => location.pathname.startsWith('/tiny-engine')
+  },
+  {
     name: '技术学院',
     url: '/opentiny-design/tech',
     children: [],
     isUnderline: () => location.pathname.startsWith('/opentiny-design/tech')
   },
+
   {
     name: '关于我们',
     url: '/opentiny-design/about',
@@ -32,36 +76,12 @@ export default [
     url: '',
     children: [
       {
-        title: 'TinyRobot',
-        desc: 'AI智能助手',
-        href: '//agent.opentiny.design/tiny-robot/',
-        logo: tinyRobot,
-        hide: false,
-        github: 'https://github.com/opentiny/tiny-robot'
-      },
-      {
-        title: 'TinyVue',
-        desc: '智能组件库',
-        href: '/tiny-vue',
-        logo: tinyVue,
-        hide: false,
-        github: 'https://github.com/opentiny/tiny-vue'
-      },
-      {
         title: 'TinyPro',
         desc: '中后台最佳实践',
         href: '/pro',
         logo: tinyPro,
         hide: true,
         github: 'https://github.com/opentiny/tiny-cli'
-      },
-      // { title: 'TinyTheme', desc: '主题配置系统', href: '/designtheme/home', logo: tinyTheme },
-      {
-        title: 'TinyEngine',
-        desc: '低代码引擎',
-        href: '/tiny-engine',
-        logo: tinyEngine,
-        github: 'https://github.com/opentiny/tiny-engine'
       },
       {
         title: 'TinyCharts',
@@ -88,14 +108,8 @@ export default [
       }
     ],
     isUnderline: () =>
-      [
-        'tiny-cli',
-        'tiny-charts',
-        'designtheme',
-        'pro',
-        'tiny-engine',
-        'tiny-ng',
-        'tiny-vue-mobile',
-      ].some((app) => location.pathname.includes(app))
+      ['tiny-cli', 'tiny-charts', 'designtheme', 'pro', 'tiny-engine', 'tiny-ng', 'tiny-vue-mobile'].some((app) =>
+        location.pathname.includes(app)
+      )
   }
 ]

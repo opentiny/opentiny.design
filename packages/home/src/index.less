@@ -1,13 +1,5 @@
-@import './mixin.less';
-// 重置代码
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  font-size: 12px;
-}
+@import "./mixin.less";
+
 * {
   box-sizing: border-box;
 }
@@ -63,6 +55,27 @@ body {
   --tiny-main-container-width: 1200px;
   --tiny-main-container-padding-horizontal: 60px;
   --tiny-mobie-break-point: 814px;
+
+  --bg-color: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #5c6975;
+  --primary-color: #5e7ce2;
+  --primary-gradient: linear-gradient(135deg, #5e7ce2 0%, #9f5ee2 100%);
+  --accent-color: #00aaff;
+  --font-family: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    sans-serif;
+}
+
+// 重置代码
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .theme-dark {
@@ -70,7 +83,7 @@ body {
   --border-color: #6b6a6a;
 }
 
-[draggable='true'] {
+[draggable="true"] {
   user-select: none;
 }
 

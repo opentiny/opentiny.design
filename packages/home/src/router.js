@@ -18,6 +18,10 @@ const About = () => import('@/views/about/index.vue')
 const Developing = () => import('@/views/developing/index.vue')
 const Tools = () => import('@/views/tools/index.vue')
 const IconPage = () => import('@/views/icon/index.vue')
+const tinyVueHome = () => import('@/views/tiny-vue-home/index.vue')
+const tinyRobotHome = () => import('@/views/tiny-robot-home/index.vue')
+const aiExtensionHome = () => import('@/views/ai-extension-home/index.vue')
+const nextSdksHome = () => import('@/views/next-sdks-home/index.vue')
 const langKey = computed(() => $t2('zh-CN', 'en-US'))
 
 export const rootRoutes = [
@@ -32,18 +36,46 @@ export const rootRoutes = [
         meta: { title: geneTitle('') }
       },
       {
+        path: 'tiny-vue-home',
+        component: tinyVueHome,
+        name: 'tiny-vue-home',
+        meta: { title: geneTitle('') }
+      },
+      {
+        path: 'tiny-robot-home',
+        component: tinyRobotHome,
+        name: 'tiny-robot-home',
+        meta: { title: geneTitle('') }
+      },
+      {
+        path: 'ai-extension-home',
+        component: aiExtensionHome,
+        name: 'ai-extension-home',
+        meta: { title: geneTitle('') }
+      },
+      {
+        path: 'next-sdks-home',
+        component: nextSdksHome,
+        name: 'next-sdks-home',
+        meta: { title: geneTitle('') }
+      },
+      {
         path: 'opentiny-design',
         children: [
           {
             path: '',
-            redirect: { path: `${VITE_CONTEXT}opentiny-design/design-principle` }
+            redirect: {
+              path: `${VITE_CONTEXT}opentiny-design/design-principle`
+            }
           },
           {
             path: 'guide',
             children: [
               {
                 path: '',
-                redirect: { path: `${VITE_CONTEXT}opentiny-design/guide/installation` }
+                redirect: {
+                  path: `${VITE_CONTEXT}opentiny-design/guide/installation`
+                }
               },
               {
                 path: ':docId',
