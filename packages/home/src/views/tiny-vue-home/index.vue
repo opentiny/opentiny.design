@@ -21,7 +21,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
         </p>
         <div class="cta-group">
           <a href="https://opentiny.design/tiny-vue" target="_blank" class="btn primary">开始使用</a>
-          <a href="https://opentiny.design/tiny-vue/zh-CN/os-theme/docs/overview" target="_blank" class="btn secondary"
+          <a href="https://docs.opentiny.design/tiny-vue/guide/introduce.html" target="_blank" class="btn secondary"
             >查看文档</a
           >
         </div>
