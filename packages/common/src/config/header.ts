@@ -10,53 +10,39 @@ import tinyRobot from '../assets/appIcon/tiny-robot.svg'
 
 export default [
   {
-    name: '开发文档',
-    url: '//docs.opentiny.design/',
-    children: [],
-    isUnderline: () => false
-  },
-  {
     name: 'TinyVue',
-    url: '/tiny-vue-home',
+    url: '/tiny-vue',
     children: [],
     logo: tinyVue,
     github: 'https://github.com/opentiny/tiny-vue',
-    isUnderline: () => location.pathname === '/tiny-vue-home'
+    isUnderline: () => location.pathname === '/tiny-vue'
   },
   {
     name: 'TinyRobot',
-    url: '/tiny-robot-home',
+    url: '/tiny-robot',
     children: [],
     logo: tinyRobot,
     hide: false,
     github: 'https://github.com/opentiny/tiny-robot',
-    isUnderline: () => location.pathname === '/tiny-robot-home'
+    isUnderline: () => location.pathname === '/tiny-robot'
   },
   {
-    name: 'NextSDks',
-    url: '/next-sdks-home',
+    name: 'NEXT-SDKs',
+    url: '/next-sdks',
     children: [],
     logo: tinyRobot,
     hide: false,
     github: 'https://github.com/opentiny/tiny-robot',
-    isUnderline: () => location.pathname === '/next-sdks-home'
+    isUnderline: () => location.pathname === '/next-sdks'
   },
   {
-    name: 'AIExtension',
-    url: '/ai-extension-home',
+    name: 'AI-Extension',
+    url: '/ai-extension',
     children: [],
     logo: tinyRobot,
     hide: false,
     github: 'https://github.com/opentiny/tiny-robot',
-    isUnderline: () => location.pathname === '/ai-extension-home'
-  },
-  {
-    name: 'TinyEngine',
-    url: '/tiny-engine',
-    children: [],
-    logo: tinyEngine,
-    github: 'https://github.com/opentiny/tiny-engine',
-    isUnderline: () => location.pathname.startsWith('/tiny-engine')
+    isUnderline: () => location.pathname === '/ai-extension'
   },
   {
     name: '技术学院',
