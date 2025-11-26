@@ -193,7 +193,17 @@ export default defineComponent({
       scope.stop()
     })
     const { menuTitle } = useData()
-    return { ...toRefs(state), hljs, appData, ...appFn, ...fn, currentMenus, LeftMenu, TinyImage, menuTitle } // appData：使用到里面的lang / configMode
+    return {
+      ...toRefs(state),
+      hljs,
+      appData,
+      ...appFn,
+      ...fn,
+      currentMenus,
+      LeftMenu,
+      TinyImage,
+      menuTitle
+    } // appData：使用到里面的lang / configMode
   },
   mounted() {
     // 添加尾部导航
@@ -321,6 +331,8 @@ export default defineComponent({
 
 .grow1 {
   flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
 }
 #doc-layout {
   flex-grow: 1;

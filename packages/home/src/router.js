@@ -1,26 +1,28 @@
-import { computed } from "vue";
-import { createRouter, createWebHistory } from "vue-router";
-import Layout from "@/views/layout/layout.vue";
-import { VITE_CONTEXT, isTinyCloud, menuPathMap } from "./shared";
-import { $t, $t2, geneTitle, getI18n, pathJoin } from "./tools";
-const Resource = () => import("@/views/resource/index.vue");
-const Guide = () => import("@/views/guide/index.vue");
-const ComponentOverview = () => import("@/views/overview/overview.vue");
-const HomePage = () => import("@/views/home/index.vue");
+import { computed } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import Layout from '@/views/layout/layout.vue'
+import { VITE_CONTEXT, isTinyCloud, menuPathMap } from './shared'
+import { $t, $t2, geneTitle, getI18n, pathJoin } from './tools'
+const Resource = () => import('@/views/resource/index.vue')
+const Guide = () => import('@/views/guide/index.vue')
+const ComponentOverview = () => import('@/views/overview/overview.vue')
+const HomePage = () => import('@/views/home/index.vue')
 
-const Docs = () => import("@/views/docs/docs.vue");
-const Tech = () => import("@/views/tech/index.vue");
-const Article = () => import("@/views/tech/components/article-detail-page.vue");
-const Video = () => import("@/views/tech/components/video-page.vue");
-const Write = () => import("@/views/tech/components/article-page.vue");
-const Events = () => import("@/views/tech/components/activity-page.vue");
-const About = () => import("@/views/about/index.vue");
-const Developing = () => import("@/views/developing/index.vue");
-const Tools = () => import("@/views/tools/index.vue");
-const IconPage = () => import("@/views/icon/index.vue");
-const tinyVueHome = () => import("@/views/tiny-vue-home/index.vue");
-const tinyRobotHome = () => import("@/views/tiny-robot-home/index.vue");
-const langKey = computed(() => $t2("zh-CN", "en-US"));
+const Docs = () => import('@/views/docs/docs.vue')
+const Tech = () => import('@/views/tech/index.vue')
+const Article = () => import('@/views/tech/components/article-detail-page.vue')
+const Video = () => import('@/views/tech/components/video-page.vue')
+const Write = () => import('@/views/tech/components/article-page.vue')
+const Events = () => import('@/views/tech/components/activity-page.vue')
+const About = () => import('@/views/about/index.vue')
+const Developing = () => import('@/views/developing/index.vue')
+const Tools = () => import('@/views/tools/index.vue')
+const IconPage = () => import('@/views/icon/index.vue')
+const tinyVueHome = () => import('@/views/tiny-vue-home/index.vue')
+const tinyRobotHome = () => import('@/views/tiny-robot-home/index.vue')
+const aiExtensionHome = () => import('@/views/ai-extension-home/index.vue')
+const nextSdksHome = () => import('@/views/next-sdks-home/index.vue')
+const langKey = computed(() => $t2('zh-CN', 'en-US'))
 
 export const rootRoutes = [
   {
@@ -28,163 +30,173 @@ export const rootRoutes = [
     component: Layout,
     children: [
       {
-        path: "",
+        path: '',
         component: HomePage,
-        name: "home",
-        meta: { title: geneTitle("") },
+        name: 'home',
+        meta: { title: geneTitle('') }
       },
       {
-        path: "tiny-vue-home",
+        path: 'tiny-vue-home',
         component: tinyVueHome,
-        name: "tiny-vue-home",
-        meta: { title: geneTitle("") },
+        name: 'tiny-vue-home',
+        meta: { title: geneTitle('') }
       },
       {
-        path: "tiny-robot-home",
+        path: 'tiny-robot-home',
         component: tinyRobotHome,
-        name: "tiny-robot-home",
-        meta: { title: geneTitle("") },
+        name: 'tiny-robot-home',
+        meta: { title: geneTitle('') }
       },
       {
-        path: "opentiny-design",
+        path: 'ai-extension-home',
+        component: aiExtensionHome,
+        name: 'ai-extension-home',
+        meta: { title: geneTitle('') }
+      },
+      {
+        path: 'next-sdks-home',
+        component: nextSdksHome,
+        name: 'next-sdks-home',
+        meta: { title: geneTitle('') }
+      },
+      {
+        path: 'opentiny-design',
         children: [
           {
-            path: "",
+            path: '',
             redirect: {
-              path: `${VITE_CONTEXT}opentiny-design/design-principle`,
-            },
+              path: `${VITE_CONTEXT}opentiny-design/design-principle`
+            }
           },
           {
-            path: "guide",
+            path: 'guide',
             children: [
               {
-                path: "",
+                path: '',
                 redirect: {
-                  path: `${VITE_CONTEXT}opentiny-design/guide/installation`,
-                },
+                  path: `${VITE_CONTEXT}opentiny-design/guide/installation`
+                }
               },
               {
-                path: ":docId",
+                path: ':docId',
                 component: Guide,
-                name: "guide",
-                meta: { title: geneTitle("指南") },
+                name: 'guide',
+                meta: { title: geneTitle('指南') },
                 props: (route) => {
                   const {
-                    params: { docId },
-                  } = route;
+                    params: { docId }
+                  } = route
 
                   return {
-                    mdPath: `tinydoc-design/guide/${langKey.value}/${docId}.md`,
-                  };
-                },
-              },
+                    mdPath: `tinydoc-design/guide/${langKey.value}/${docId}.md`
+                  }
+                }
+              }
             ],
-            meta: { title: geneTitle("指南") },
+            meta: { title: geneTitle('指南') },
             props: (route) => {
               const {
                 params: { docId },
-                path,
-              } = route;
-              const { mdPath } = menuPathMap.value.get(path) || {};
+                path
+              } = route
+              const { mdPath } = menuPathMap.value.get(path) || {}
               return {
-                mdPath: getI18n(mdPath),
-              };
-            },
+                mdPath: getI18n(mdPath)
+              }
+            }
           },
           {
-            path: "tech",
-            name: "tech",
+            path: 'tech',
+            name: 'tech',
             component: Tech,
             children: [
               {
-                path: "write",
-                name: "write",
+                path: 'write',
+                name: 'write',
                 component: Write,
-                meta: { title: geneTitle("技术文章") },
+                meta: { title: geneTitle('技术文章') }
               },
               {
-                path: "video",
-                name: "video",
+                path: 'video',
+                name: 'video',
                 component: Video,
-                meta: { title: geneTitle("视频课程") },
+                meta: { title: geneTitle('视频课程') }
               },
               {
-                path: "events",
-                name: "events",
+                path: 'events',
+                name: 'events',
                 component: Events,
-                meta: { title: geneTitle("热门活动") },
-              },
+                meta: { title: geneTitle('热门活动') }
+              }
             ],
-            meta: { title: geneTitle("技术学院") },
+            meta: { title: geneTitle('技术学院') }
           },
           {
             path: `article/:mode/:type/:serial`,
-            name: "article",
+            name: 'article',
             component: Article,
-            meta: { title: geneTitle("文章详情") },
+            meta: { title: geneTitle('文章详情') }
           },
           {
             path: `article/:mode/:serial`,
-            name: "articleWithoutType",
+            name: 'articleWithoutType',
             component: Article,
-            meta: { title: geneTitle("文章详情") },
+            meta: { title: geneTitle('文章详情') }
           },
           {
-            path: "about",
+            path: 'about',
             component: About,
-            meta: { title: geneTitle("关于我们") },
-          },
-        ],
+            meta: { title: geneTitle('关于我们') }
+          }
+        ]
       },
       {
-        name: "not-found",
-        path: ":pathMatch(.*)*",
+        name: 'not-found',
+        path: ':pathMatch(.*)*',
         redirect: ({ path }) => {
-          if (sessionStorage.getItem("opentiny_design_reloaded") !== "true") {
-            sessionStorage.setItem("opentiny_design_reloaded", "true");
-            return location.reload();
+          if (sessionStorage.getItem('opentiny_design_reloaded') !== 'true') {
+            sessionStorage.setItem('opentiny_design_reloaded', 'true')
+            return location.reload()
           }
-          sessionStorage.removeItem("opentiny_design_reloaded");
-          return { path: VITE_CONTEXT };
-        },
-      },
-    ],
-  },
-];
+          sessionStorage.removeItem('opentiny_design_reloaded')
+          return { path: VITE_CONTEXT }
+        }
+      }
+    ]
+  }
+]
 const router = createRouter({
-  mode: "history",
+  mode: 'history',
   history: createWebHistory(),
   routes: rootRoutes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return { selector: to.hash };
+      return { selector: to.hash }
     } else {
-      return { x: 0, y: 0 };
+      return { x: 0, y: 0 }
     }
-  },
-});
+  }
+})
 
 const removeEmptyHash = async () => {
-  const originReplaceState = history.replaceState;
+  const originReplaceState = history.replaceState
   function replaceState(...args) {
-    const urlIndex = 2;
-    if (typeof args[urlIndex] === "string") {
-      args[urlIndex] = args[urlIndex].replace(/#\/?$/, "");
+    const urlIndex = 2
+    if (typeof args[urlIndex] === 'string') {
+      args[urlIndex] = args[urlIndex].replace(/#\/?$/, '')
     }
-    return originReplaceState.apply(this, args);
+    return originReplaceState.apply(this, args)
   }
-  history.replaceState = replaceState;
-};
+  history.replaceState = replaceState
+}
 
-removeEmptyHash();
+removeEmptyHash()
 
 // 为浏览器添加title
 router.afterEach((to, from) => {
   if (to.meta?.title) {
-    document.title = to.meta.title;
+    document.title = to.meta.title
   }
-  isTinyCloud.value = to.path.startsWith(
-    `${VITE_CONTEXT}opentiny-design/design-develop/console/tiny-cloud/`
-  );
-});
-export { router };
+  isTinyCloud.value = to.path.startsWith(`${VITE_CONTEXT}opentiny-design/design-develop/console/tiny-cloud/`)
+})
+export { router }

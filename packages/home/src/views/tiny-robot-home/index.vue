@@ -1,21 +1,18 @@
 <script setup>
 // 导入图片资源
-import heroBgWhite from "@/assets/images/home/hero_bg_white.png";
-import tinyrobotComponents from "@/assets/images/home/tinyrobot_components.png";
-import tinyrobotDesign from "@/assets/images/home/tinyrobot_design.png";
-import tinyrobotEasyUse from "@/assets/images/home/tinyrobot_easy_use.png";
-import tinyrobotToolsDemos from "@/assets/images/home/tinyrobot_tools_demos.png";
-import featureBgWhite1 from "@/assets/images/home/feature_bg_white_1.png";
-import featureBgWhite2 from "@/assets/images/home/feature_bg_white_2.png";
-import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
+import heroBgWhite from '@/assets/images/home/hero_bg_white.png'
+import tinyrobotComponents from '@/assets/images/home/tinyrobot_components.png'
+import tinyrobotDesign from '@/assets/images/home/tinyrobot_design.png'
+import tinyrobotEasyUse from '@/assets/images/home/tinyrobot_easy_use.png'
+import tinyrobotToolsDemos from '@/assets/images/home/tinyrobot_tools_demos.png'
+import featureBgWhite1 from '@/assets/images/home/feature_bg_white_1.png'
+import featureBgWhite2 from '@/assets/images/home/feature_bg_white_2.png'
+import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 </script>
 
 <template>
   <div class="container">
-    <header
-      class="hero section"
-      :style="{ backgroundImage: `url(${heroBgWhite})` }"
-    >
+    <header class="hero section" :style="{ backgroundImage: `url(${heroBgWhite})` }">
       <div class="hero-content">
         <h1 class="title">TinyRobot AI 组件库</h1>
         <p class="subtitle">
@@ -23,16 +20,10 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           丰富的 AI 交互组件，助力快速构建 AI 应用
         </p>
         <div class="cta-group">
-          <a
-            href="https://docs.opentiny.design/tiny-robot/guide/quick-start.html"
-            target="_blank"
-            class="btn primary"
+          <a href="https://docs.opentiny.design/tiny-robot/guide/quick-start.html" target="_blank" class="btn primary"
             >快速开始</a
           >
-          <a
-            href="https://docs.opentiny.design/tiny-robot/components/bubble.html"
-            target="_blank"
-            class="btn secondary"
+          <a href="https://docs.opentiny.design/tiny-robot/components/bubble.html" target="_blank" class="btn secondary"
             >组件文档</a
           >
         </div>
@@ -43,10 +34,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
     </header>
 
     <!-- Feature 1: 丰富的 AI 组件 -->
-    <section
-      class="feature-section section bg-tech-1"
-      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
-    >
+    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">丰富的 AI 交互组件</h2>
@@ -63,10 +51,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
     </section>
 
     <!-- Feature 2: OpenTiny Design 体系 -->
-    <section
-      class="feature-section section bg-tech-2 reverse"
-      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
-    >
+    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">OpenTiny Design 体系</h2>
@@ -77,20 +62,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="tinyrobotDesign"
-            alt="设计体系"
-            class="floating-img delay-1"
-          />
+          <img :src="tinyrobotDesign" alt="设计体系" class="floating-img delay-1" />
         </div>
       </div>
     </section>
 
     <!-- Feature 3: 简单易用 -->
-    <section
-      class="feature-section section bg-tech-1"
-      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
-    >
+    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">简单易用</h2>
@@ -101,20 +79,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="tinyrobotEasyUse"
-            alt="简单易用"
-            class="floating-img delay-2"
-          />
+          <img :src="tinyrobotEasyUse" alt="简单易用" class="floating-img delay-2" />
         </div>
       </div>
     </section>
 
     <!-- Feature 4: 工具与演示 -->
-    <section
-      class="feature-section section bg-tech-2 reverse"
-      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
-    >
+    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">工具与演示</h2>
@@ -125,39 +96,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="tinyrobotToolsDemos"
-            alt="工具演示"
-            class="floating-img delay-3"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <section
-      class="footer-section section"
-      :style="{ backgroundImage: `url(${mcpBgWhite})` }"
-    >
-      <div class="footer-content">
-        <h2>准备好构建 AI 应用了吗？</h2>
-        <p>立即开始使用 TinyRobot AI 组件库</p>
-        <div class="cta-group">
-          <a
-            href="https://docs.opentiny.design/tiny-robot/guide/quick-start.html"
-            target="_blank"
-            class="btn primary"
-            >查看文档</a
-          >
-          <a
-            href="https://docs.opentiny.design/tiny-robot/examples/assistant.html"
-            target="_blank"
-            class="btn secondary"
-            >查看演示</a
-          >
-        </div>
-        <div class="footer-mini">
-          <p>TinyRobot - 让 AI 应用开发更简单</p>
+          <img :src="tinyrobotToolsDemos" alt="工具演示" class="floating-img delay-3" />
         </div>
       </div>
     </section>
@@ -167,17 +106,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 <style scoped>
 .container {
   width: 100%;
-  height: calc(100vh - 60px);
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
   background-color: var(--bg-color);
 }
 
 .section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  scroll-snap-align: start;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -213,7 +148,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 .hero::before,
 .feature-section::before,
 .footer-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -347,7 +282,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 }
 
 .section-title.light::after {
-  content: "";
+  content: '';
   display: block;
   width: 80px;
   height: 6px;

@@ -1,21 +1,18 @@
 <script setup>
 // 导入图片资源
-import heroBgWhite from "@/assets/images/home/hero_bg_white.png";
-import featureCrossPlatform from "@/assets/images/home/feature_cross_platform.png";
-import illustrationRichComponents from "@/assets/images/home/illustration_rich_components.png";
-import illustrationUniqueComponents from "@/assets/images/home/illustration_unique_components.png";
-import tinyvueThemeCustomization from "@/assets/images/home/tinyvue_theme_customization.png";
-import featureBgWhite1 from "@/assets/images/home/feature_bg_white_1.png";
-import featureBgWhite2 from "@/assets/images/home/feature_bg_white_2.png";
-import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
+import heroBgWhite from '@/assets/images/home/hero_bg_white.png'
+import featureCrossPlatform from '@/assets/images/home/feature_cross_platform.png'
+import illustrationRichComponents from '@/assets/images/home/illustration_rich_components.png'
+import illustrationUniqueComponents from '@/assets/images/home/illustration_unique_components.png'
+import tinyvueThemeCustomization from '@/assets/images/home/tinyvue_theme_customization.png'
+import featureBgWhite1 from '@/assets/images/home/feature_bg_white_1.png'
+import featureBgWhite2 from '@/assets/images/home/feature_bg_white_2.png'
+import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 </script>
 
 <template>
   <div class="container">
-    <header
-      class="hero section"
-      :style="{ backgroundImage: `url(${heroBgWhite})` }"
-    >
+    <header class="hero section" :style="{ backgroundImage: `url(${heroBgWhite})` }">
       <div class="hero-content">
         <h1 class="title">OpenTiny Vue</h1>
         <p class="subtitle">
@@ -23,16 +20,8 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           轻量、高性能、智能化
         </p>
         <div class="cta-group">
-          <a
-            href="https://opentiny.design/tiny-vue"
-            target="_blank"
-            class="btn primary"
-            >开始使用</a
-          >
-          <a
-            href="https://opentiny.design/tiny-vue/zh-CN/os-theme/docs/overview"
-            target="_blank"
-            class="btn secondary"
+          <a href="https://opentiny.design/tiny-vue" target="_blank" class="btn primary">开始使用</a>
+          <a href="https://opentiny.design/tiny-vue/zh-CN/os-theme/docs/overview" target="_blank" class="btn secondary"
             >查看文档</a
           >
         </div>
@@ -43,10 +32,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
     </header>
 
     <!-- Feature 1: 跨端跨框架 -->
-    <section
-      class="feature-section section bg-tech-1"
-      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
-    >
+    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">跨端跨框架</h2>
@@ -56,20 +42,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="featureCrossPlatform"
-            alt="跨端跨框架"
-            class="floating-img"
-          />
+          <img :src="featureCrossPlatform" alt="跨端跨框架" class="floating-img" />
         </div>
       </div>
     </section>
 
     <!-- Feature 2: 丰富的组件 -->
-    <section
-      class="feature-section section bg-tech-2 reverse"
-      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
-    >
+    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">丰富的组件</h2>
@@ -79,20 +58,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="illustrationRichComponents"
-            alt="丰富的组件"
-            class="floating-img delay-1"
-          />
+          <img :src="illustrationRichComponents" alt="丰富的组件" class="floating-img delay-1" />
         </div>
       </div>
     </section>
 
     <!-- Feature 3: 配置式组件 -->
-    <section
-      class="feature-section section bg-tech-1"
-      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
-    >
+    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">配置式组件</h2>
@@ -102,20 +74,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="illustrationUniqueComponents"
-            alt="配置式组件"
-            class="floating-img delay-2"
-          />
+          <img :src="illustrationUniqueComponents" alt="配置式组件" class="floating-img delay-2" />
         </div>
       </div>
     </section>
 
     <!-- Feature 4: 强大的主题定制 -->
-    <section
-      class="feature-section section bg-tech-2 reverse"
-      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
-    >
+    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">强大的主题定制</h2>
@@ -125,33 +90,20 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="tinyvueThemeCustomization"
-            alt="主题定制"
-            class="floating-img delay-3"
-          />
+          <img :src="tinyvueThemeCustomization" alt="主题定制" class="floating-img delay-3" />
         </div>
       </div>
     </section>
 
     <!-- MCP Section -->
-    <section
-      class="mcp-section section"
-      :style="{ backgroundImage: `url(${mcpBgWhite})` }"
-    >
+    <section class="mcp-section section" :style="{ backgroundImage: `url(${mcpBgWhite})` }">
       <div class="mcp-content">
         <h2 class="section-title light">智能化生成式 UI</h2>
-        <p class="mcp-desc">
-          全新升级的 TinyVue，引入 AI 智能化能力，让组件开发更智能、更高效
-        </p>
+        <p class="mcp-desc">全新升级的 TinyVue，引入 AI 智能化能力，让组件开发更智能、更高效</p>
         <div class="feature-grid">
           <div class="feature-card">
             <div class="feature-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
                 />
@@ -162,11 +114,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </div>
           <div class="feature-card">
             <div class="feature-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                 />
@@ -177,11 +125,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </div>
           <div class="feature-card">
             <div class="feature-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"
                 />
@@ -192,11 +136,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </div>
           <div class="feature-card">
             <div class="feature-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
                 />
@@ -207,9 +147,6 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </div>
         </div>
       </div>
-      <div class="footer-mini">
-        <p>TinyVue - 企业级 Vue 组件库</p>
-      </div>
     </section>
   </div>
 </template>
@@ -217,17 +154,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 <style scoped>
 .container {
   width: 100%;
-  height: calc(100vh - 60px);
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
   background-color: var(--bg-color);
 }
 
 .section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  scroll-snap-align: start;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -282,7 +215,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 .hero::before,
 .feature-section::before,
 .mcp-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -416,7 +349,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 }
 
 .section-title.light::after {
-  content: "";
+  content: '';
   display: block;
   width: 80px;
   height: 6px;

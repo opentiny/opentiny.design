@@ -1,21 +1,18 @@
 <script setup>
 // 导入图片资源
-import heroBgWhite from "@/assets/images/home/hero_bg_white.png";
-import nextsdkFourSteps from "@/assets/images/home/nextsdk_four_steps.png";
-import nextsdkMcpProtocol from "@/assets/images/home/nextsdk_mcp_protocol.png";
-import nextsdkRemoter from "@/assets/images/home/nextsdk_remoter.png";
-import nextsdkMultiScenario from "@/assets/images/home/nextsdk_multi_scenario.png";
-import featureBgWhite1 from "@/assets/images/home/feature_bg_white_1.png";
-import featureBgWhite2 from "@/assets/images/home/feature_bg_white_2.png";
-import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
+import heroBgWhite from '@/assets/images/home/hero_bg_white.png'
+import nextsdkFourSteps from '@/assets/images/home/nextsdk_four_steps.png'
+import nextsdkMcpProtocol from '@/assets/images/home/nextsdk_mcp_protocol.png'
+import nextsdkRemoter from '@/assets/images/home/nextsdk_remoter.png'
+import nextsdkMultiScenario from '@/assets/images/home/nextsdk_multi_scenario.png'
+import featureBgWhite1 from '@/assets/images/home/feature_bg_white_1.png'
+import featureBgWhite2 from '@/assets/images/home/feature_bg_white_2.png'
+import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 </script>
 
 <template>
   <div class="container">
-    <header
-      class="hero section"
-      :style="{ backgroundImage: `url(${heroBgWhite})` }"
-    >
+    <header class="hero section" :style="{ backgroundImage: `url(${heroBgWhite})` }">
       <div class="hero-content">
         <h1 class="title">OpenTiny NEXT-SDKs</h1>
         <p class="subtitle">
@@ -23,16 +20,8 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           只需四步，即可接入 AI 能力
         </p>
         <div class="cta-group">
-          <a
-            href="https://docs.opentiny.design/next-sdk/guide/"
-            target="_blank"
-            class="btn primary"
-            >快速开始</a
-          >
-          <a
-            href="https://docs.opentiny.design/next-sdk/guide/api-client.html"
-            target="_blank"
-            class="btn secondary"
+          <a href="https://docs.opentiny.design/next-sdk/guide/" target="_blank" class="btn primary">快速开始</a>
+          <a href="https://docs.opentiny.design/next-sdk/guide/api-client.html" target="_blank" class="btn secondary"
             >API 文档</a
           >
         </div>
@@ -43,10 +32,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
     </header>
 
     <!-- Feature 1: 四步接入 -->
-    <section
-      class="feature-section section bg-tech-1"
-      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
-    >
+    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">四步让应用智能化</h2>
@@ -64,10 +50,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
     </section>
 
     <!-- Feature 2: MCP 协议 -->
-    <section
-      class="feature-section section bg-tech-2 reverse"
-      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
-    >
+    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">基于 MCP 协议</h2>
@@ -78,20 +61,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="nextsdkMcpProtocol"
-            alt="MCP 协议"
-            class="floating-img delay-1"
-          />
+          <img :src="nextsdkMcpProtocol" alt="MCP 协议" class="floating-img delay-1" />
         </div>
       </div>
     </section>
 
     <!-- Feature 3: TinyRemoter 遥控器 -->
-    <section
-      class="feature-section section bg-tech-1"
-      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
-    >
+    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">TinyRemoter 遥控器</h2>
@@ -102,20 +78,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="nextsdkRemoter"
-            alt="TinyRemoter 遥控器"
-            class="floating-img delay-2"
-          />
+          <img :src="nextsdkRemoter" alt="TinyRemoter 遥控器" class="floating-img delay-2" />
         </div>
       </div>
     </section>
 
     <!-- Feature 4: 多场景支持 -->
-    <section
-      class="feature-section section bg-tech-2 reverse"
-      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
-    >
+    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">多场景支持</h2>
@@ -126,39 +95,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
           </p>
         </div>
         <div class="feature-visual">
-          <img
-            :src="nextsdkMultiScenario"
-            alt="多场景支持"
-            class="floating-img delay-3"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <section
-      class="footer-section section"
-      :style="{ backgroundImage: `url(${mcpBgWhite})` }"
-    >
-      <div class="footer-content">
-        <h2>准备好让应用智能化了吗？</h2>
-        <p>立即开始使用 OpenTiny NEXT-SDKs</p>
-        <div class="cta-group">
-          <a
-            href="https://docs.opentiny.design/next-sdk/guide/"
-            target="_blank"
-            class="btn primary"
-            >查看文档</a
-          >
-          <a
-            href="https://github.com/opentiny/tiny-engine"
-            target="_blank"
-            class="btn secondary"
-            >GitHub</a
-          >
-        </div>
-        <div class="footer-mini">
-          <p>OpenTiny NEXT-SDKs - 让前端应用智能化</p>
+          <img :src="nextsdkMultiScenario" alt="多场景支持" class="floating-img delay-3" />
         </div>
       </div>
     </section>
@@ -168,17 +105,13 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 <style scoped>
 .container {
   width: 100%;
-  height: calc(100vh - 60px);
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
   background-color: var(--bg-color);
 }
 
 .section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  scroll-snap-align: start;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -214,7 +147,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 .hero::before,
 .feature-section::before,
 .footer-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -348,7 +281,7 @@ import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 }
 
 .section-title.light::after {
-  content: "";
+  content: '';
   display: block;
   width: 80px;
   height: 6px;
