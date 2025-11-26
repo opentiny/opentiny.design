@@ -39,11 +39,12 @@ jobs:
       - name: Build home
         run: pnpm build
         env:
-          VITE_CONTEXT: /opentiny.design/
-          VITE_BASE: /opentiny.design/
+          VITE_CONTEXT: /
+          VITE_BASE: //opentiny-assets.obs.cn-north-4.myhuaweicloud.com/tinyui-design/${{ env.VERSION }}/home/
       - name: Copy files
         run: |
           cp dist/common/tinyui-design-common.iife.js dist/home
+          cp dist/home/index.html dist/home/404.html
       # ===== 下载 obsutil =====
       - name: Install obsutil
         run: |
@@ -62,4 +63,4 @@ jobs:
 
           # 把本地 dist/ 目录整站同步到桶根目录
           mv dist ${{ env.VERSION }}
-          obsutil cp ${{ env.VERSION }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/opentiny-design/${{ env.VERSION }}/ -r -f
+          obsutil cp ${{ env.VERSION }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/tinyui-design/ -r -f
