@@ -198,5 +198,7 @@ router.afterEach((to, from) => {
     document.title = to.meta.title
   }
   isTinyCloud.value = to.path.startsWith(`${VITE_CONTEXT}opentiny-design/design-develop/console/tiny-cloud/`)
+
+  window.__checkUnderlineMenu() // 更新header中的下划线
 })
 export { router }

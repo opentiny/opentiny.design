@@ -100,6 +100,7 @@ function checkUnderlineMenu() {
     })
   }, 200);
 }
+window.__checkUnderlineMenu=checkUnderlineMenu // 全局隐藏变量
 
 onMounted(() => checkUnderlineMenu())
 
@@ -166,7 +167,7 @@ function clickMobileMenu(level1) {
     level1.m_active = !level1.m_active
   }
 
-  checkUnderlineMenu()
+  // checkUnderlineMenu()
 }
 
 useClickOutside(['.nav-mobile'], () => {
@@ -310,8 +311,7 @@ const toggleTheme = (event: MouseEvent) => {
       <!-- 居中渲染一级目录 -->
       <template v-for="level1 in state.headerInfo">
         <div class="top-menu flex-center" :class="{ active: level1.active, underlined: level1.underlined }"
-          v-if="!level1.hide" :key="level1.name" @mouseenter="enterTopMenu(level1)" @mouseleave="leaveTopMenu(level1)"
-          @click="checkUnderlineMenu">
+          v-if="!level1.hide" :key="level1.name" @mouseenter="enterTopMenu(level1)" @mouseleave="leaveTopMenu(level1)">
           <a v-if="level1.url" :href="level1.url"> {{ level1.name }} </a>
           <span v-else>{{ level1.name }} </span>
           <svg v-if="level1.children?.length" class="top-menu-svg hand" width="20" height="20" viewBox="0 0 20 20"
