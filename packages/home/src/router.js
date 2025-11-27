@@ -36,30 +36,6 @@ export const rootRoutes = [
         meta: { title: geneTitle('') }
       },
       {
-        path: 'tiny-vue',
-        component: tinyVueHome,
-        name: 'tiny-vue',
-        meta: { title: geneTitle('') }
-      },
-      {
-        path: 'tiny-robot',
-        component: tinyRobotHome,
-        name: 'tiny-robot',
-        meta: { title: geneTitle('') }
-      },
-      {
-        path: 'ai-extension',
-        component: aiExtensionHome,
-        name: 'ai-extension',
-        meta: { title: geneTitle('') }
-      },
-      {
-        path: 'next-sdks',
-        component: nextSdksHome,
-        name: 'next-sdks',
-        meta: { title: geneTitle('') }
-      },
-      {
         path: 'opentiny-design',
         children: [
           {
@@ -67,6 +43,30 @@ export const rootRoutes = [
             redirect: {
               path: `${VITE_CONTEXT}opentiny-design/design-principle`
             }
+          },
+          {
+            path: 'tiny-vue',
+            component: tinyVueHome,
+            name: 'tiny-vue',
+            meta: { title: geneTitle('') }
+          },
+          {
+            path: 'tiny-robot',
+            component: tinyRobotHome,
+            name: 'tiny-robot',
+            meta: { title: geneTitle('') }
+          },
+          {
+            path: 'ai-extension',
+            component: aiExtensionHome,
+            name: 'ai-extension',
+            meta: { title: geneTitle('') }
+          },
+          {
+            path: 'next-sdks',
+            component: nextSdksHome,
+            name: 'next-sdks',
+            meta: { title: geneTitle('') }
           },
           {
             path: 'guide',
