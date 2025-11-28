@@ -1,8 +1,11 @@
-name: Deploy to github.io
+name: Deploy home to github.io
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+    paths:
+      - 'packages/common/**'
+      - 'packages/home/**'
 
   workflow_dispatch: {}
 

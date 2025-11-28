@@ -1,11 +1,10 @@
-name: Deploy home to Huawei OBS
+name: Deploy docs to Huawei OBS
 
 on:
   push:
     branches: [main]
     paths:
-      - 'packages/common/**'
-      - 'packages/home/**'
+      - 'packages/opentiny-docs/**'
 
   workflow_dispatch:
 
@@ -34,20 +33,16 @@ jobs:
           version: 9
       - name: Install deps
         run: pnpm i
-      - name: Build common
-        run: pnpm build:common
-      - name: Get home version
+      - name: Get docs version
         run: |
-          echo "VERSION=$(node -p "require('./packages/home/package.json').version")" >> $GITHUB_ENV
-      - name: Build home
-        run: pnpm build
+          echo "VERSION=$(node -p "require('./packages/opentiny-docs/package.json').version")" >> $GITHUB_ENV
+      - name: Build docs
+        run: pnpm -F opentiny-docs build
         env:
-          VITE_CONTEXT: /
-          VITE_BASE: //opentiny-assets.obs.cn-north-4.myhuaweicloud.com/tinyui-design/${{ env.VERSION }}/home/
+          VITE_BASE: //opentiny-assets.obs.cn-north-4.myhuaweicloud.com/tiny-openTiny-docs/${{ env.VERSION }}/
       - name: Copy files
         run: |
-          cp dist/common/tinyui-design-common.iife.js dist/home
-          cp dist/home/index.html dist/home/404.html
+          cp packages/opentiny-docs/dist/index.html packages/opentiny-docs/dist/404.html
       # ===== 下载 obsutil =====
       - name: Install obsutil
         run: |
@@ -65,5 +60,5 @@ jobs:
                          -e=${{ env.HUAWEI_CLOUD_ENDPOINT }}
 
           # 把本地 dist/ 目录整站同步到桶根目录
-          mv dist ${{ env.VERSION }}
-          obsutil cp ${{ env.VERSION }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/tinyui-design/ -r -f
+          mv packages/opentiny-docs/dist ${{ env.VERSION }}
+          obsutil cp ${{ env.VERSION }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/tiny-openTiny-docs/ -r -f

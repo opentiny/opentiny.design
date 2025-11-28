@@ -8,7 +8,7 @@ export default mergeConfig(
   {
     mode: 'docs',
     mock: true,
-    base: `${process.env.static_url_prefix}/tiny-openTiny-docs/${process.env.staticReleaseVersion}/openTiny-docs`,
+    base: process.env.VITE_BASE || '/',
     plugins: [
       configCompressPlugin('gzip'),
       configVisualizerPlugin(),
