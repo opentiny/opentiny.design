@@ -20,8 +20,8 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           让 AI 助手与网页智能交互
         </p>
         <div class="cta-group">
-          <a href="https://ai.opentiny.design/extension.zip" class="btn primary">下载扩展</a>
-          <a href="/src/ai-extension-install.md" target="_blank" class="btn secondary">安装指南</a>
+          <a href="https://docs.opentiny.design/download/extension.zip" class="btn primary">下载扩展</a>
+          <a href="https://docs.opentiny.design/next-sdk/guide/ai-extension-install" target="_blank" class="btn secondary">安装指南</a>
         </div>
       </div>
     </header>
