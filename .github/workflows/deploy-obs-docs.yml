@@ -42,7 +42,7 @@ jobs:
           VITE_BASE: //opentiny-assets.obs.cn-north-4.myhuaweicloud.com/tiny-openTiny-docs/${{ env.VERSION }}/
       - name: Copy files
         run: |
-          cp packages/opentiny-docs/dist/index.html packages/opentiny-docs/dist/404.html
+          cp packages/opentiny-docs/dist/openTiny-docs/index.html packages/opentiny-docs/dist/openTiny-docs/404.html
       # ===== 下载 obsutil =====
       - name: Install obsutil
         run: |
