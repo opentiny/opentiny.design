@@ -62,7 +62,7 @@ function toggleLink(link: any) {
       </div>
     </div>
     <div class="copyright">
-      <p>Copyright © Huawei Technologies Co., Ltd. 2023-2025. All rights reserved.</p>
+      <p>Copyright © Huawei Technologies Co., Ltd. 2023-{{new Date().getFullYear()}}. All rights reserved.</p>
       <p>粤ICP备2022156931号-1</p>
     </div>
   </div>
