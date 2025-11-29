@@ -12,8 +12,8 @@ export default {
           'href': 'https://cn.vuejs.org/'
         },
         {
-          'title': 'ionicons 图标库',
-          'href': 'https://ionic.io/ionicons'
+          'title': 'OpenTiny Icons 图标库',
+          'href': 'https://opentiny.github.io/icons/'
         }
       ]
     },
@@ -61,8 +61,8 @@ export default {
           'href': 'https://cn.vuejs.org/'
         },
         {
-          'title': 'ionicons 图标库',
-          'href': 'https://ionic.io/ionicons'
+          'title': 'OpenTiny Icons 图标库',
+          'href': 'https://opentiny.github.io/icons/'
         }
       ]
     },

@@ -20,7 +20,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           丰富的 AI 交互组件，助力快速构建 AI 应用
         </p>
         <div class="cta-group">
-          <a href="https://docs.opentiny.design/tiny-robot/guide/quick-start.html" target="_blank" class="btn primary"
+          <a href="https://chat.opentiny.design/" target="_blank" class="btn primary"
             >快速开始</a
           >
           <a href="https://docs.opentiny.design/tiny-robot/components/bubble.html" target="_blank" class="btn secondary"
