@@ -18,6 +18,14 @@ export default [
     isUnderline: () => location.pathname === '/opentiny-design/tiny-vue'
   },
   {
+    name: 'TinyEngine',
+    url: 'https://opentiny.design/tiny-engine',
+    children: [],
+    logo: tinyEngine,
+    github: 'https://github.com/opentiny/tiny-engine',
+    isUnderline: () => location.pathname === '/tiny-engine'
+  },
+  {
     name: 'TinyRobot',
     url: '/opentiny-design/tiny-robot',
     children: [],
@@ -36,15 +44,6 @@ export default [
     isUnderline: () => location.pathname === '/opentiny-design/next-sdks'
   },
   {
-    name: 'AI-Extension',
-    url: '/opentiny-design/ai-extension',
-    children: [],
-    logo: tinyRobot,
-    hide: false,
-    github: 'https://github.com/opentiny/tiny-robot',
-    isUnderline: () => location.pathname === '/opentiny-design/ai-extension'
-  },
-  {
     name: '技术学院',
     url: '/opentiny-design/tech',
     children: [],
@@ -61,6 +60,14 @@ export default [
     name: '生态产品',
     url: '',
     children: [
+      {
+        title: 'AI-Extension',
+        desc: 'AI 扩展插件',
+        href: '/opentiny-design/ai-extension',
+        logo: tinyRobot,
+        hide: false,
+        github: 'https://github.com/opentiny/tiny-robot'
+      },
       {
         title: 'TinyPro',
         desc: '中后台最佳实践',
@@ -91,7 +98,7 @@ export default [
         logo: tinyCli,
         hide: true,
         github: 'https://github.com/opentiny/tiny-cli'
-      }
+      },
     ],
     isUnderline: () =>
       ['tiny-cli', 'tiny-charts', 'designtheme', 'pro', 'tiny-engine', 'tiny-ng', 'tiny-vue-mobile'].some((app) =>
