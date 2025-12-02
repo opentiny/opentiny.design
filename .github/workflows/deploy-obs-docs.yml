@@ -43,6 +43,7 @@ jobs:
       - name: Copy files
         run: |
           cp packages/opentiny-docs/dist/openTiny-docs/index.html packages/opentiny-docs/dist/openTiny-docs/404.html
+          ls packages/opentiny-docs/dist/openTiny-docs/
       # ===== 下载 obsutil =====
       - name: Install obsutil
         run: |
