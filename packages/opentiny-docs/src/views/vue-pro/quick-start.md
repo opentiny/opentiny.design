@@ -19,7 +19,7 @@ tiny init pro
 * 请选择您希望使用的服务端技术栈： Nest.js
 * 请选择你想要的构建工具:  Vite
 * 请确保已安装数据库服务（参考文档
-https://opentiny.design/tiny-cli/docs/toolkits/pro#database）：
+https://www.opentiny.design/tiny-cli/docs/toolkits/pro#database）：
 已完成数据库服务安装，开始配置
 * 请选择数据库类型： MySql
 * 请输入数据库地址： localhost
@@ -58,7 +58,7 @@ DATABASE_PASSWORD = 'root'
 DATABASE_NAME = 'ospp-nest'
 # 请阅读: https://www.typeorm.org/migrations
 # 线上环境请关闭
-DATABASE_SYNCHRONIZE = true
+DATABASE_SYNCHRONIZE = false
 DATABASE_AUTOLOADENTITIES = true
 # jwt secret
 AUTH_SECRET = 'secret'
@@ -120,7 +120,7 @@ DATABASE_PASSWORD = 'root'
 DATABASE_NAME = 'ospp-nest'
 # 请阅读: https://www.typeorm.org/migrations
 # 线上环境请关闭
-DATABASE_SYNCHRONIZE = true
+DATABASE_SYNCHRONIZE = false
 DATABASE_AUTOLOADENTITIES = true
 # jwt secret
 AUTH_SECRET = 'secret'
@@ -144,7 +144,8 @@ PAGINATION_LIMIT = 10
 - [ ] MySQL服务可以正常访问
 - [ ] Redis服务可以正常访问
 - [ ] MySQL中存在`.env`文件中`DATABASE_NAME`字段定义的数据库，且该数据库为空
-- [ ] `.env`文件中`DATABASE_SYNCHRONIZE`为`true`
+- [ ] 您已经运行了 `node migrate.js` 命令且出现了 `Now you can safely launched the project` 字样。
+- [ ] `.env`文件中`DATABASE_SYNCHRONIZE`为`false`
 - [ ] `tiny-pro`后端依赖已经安装
 
 完成上述检查后，您可以在`tiny-pro/nestJs`下执行`npm run start`.
@@ -175,7 +176,7 @@ npm i
 
 上述列表全部检查完成后，运行 `npm run start` 即可启动前端服务，浏览器会自行打开项目，当出现下图时则代表启动成功。
 
-![](/src/assets/images/vue-pro/tiny-pro-show.png)
+![启动成功](./images/tiny-pro-show.png)
 
 ## 前端打包
 
@@ -201,7 +202,7 @@ npm i
 
 ### 后端docker启动时出现 `Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -> 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.`
 
-这是因为宿主机的某些应用占用了`3306`端口，请先释放宿主机该端口后手动启动MySQL服务
+这是因为宿主机的某些应用占用了`3306`端口, 请先释放宿主机该端口后手动启动MySQL服务
 
 ### 后端使用`docker compose up -d`启动时候，出现I/O timeout错误
 
@@ -221,11 +222,16 @@ docker pull node:lts
 
 ### docker 部署时数据库超时
 
-`docker-compose.yaml`实际上配置了`depends_on`字段，但`mysql`镜像并没有提供对应的健康检查。如果服务挂掉，可以等待`mysql`启动成功后手动重启后端服务
+在新版本中我们加入了 `wait4x` 来检查 `mysql` 容器情况。但这并不能完全避免因为 `mysql` 启动过慢而导致的容器启动失败。在业务容器中我们设定的轮询时间为2s, 最多等待60s. 如果超时请按照如下检查表逐一排查
+
+1. MySQL容器是否启动成功?
+2. MySQL容器是否初始化成功?
+3. 业务容器环境变量是否正确?
+
 
 ### 前端跨域问题如何解决
 
-对于开发环境来说，可以直接修改`dev-server`的`proxy`。例如`vite`工具的`server.proxy`
+对于开发环境来说，可以直接修改`dev-server`的`proxy`. 例如`vite`工具的`server.proxy`
 
 ### 代码无法提交
 

@@ -113,6 +113,26 @@ const vueProMenuIcon = [
     icon: null,
     id: 'BackEnd',
   },
+  {
+    value: '后端设计架构',
+    icon: null,
+    id: 'Back-End Architecture',
+  },
+  {
+    value: '后端接口规格说明书',
+    icon: null,
+    id: 'Back-End API Specification',
+  },
+  {
+    value: 'Spring Boot 后端开发指南',
+    icon: null,
+    id: 'Back-End Guide Spring Boot',
+  },
+  {
+    value: '响应式适配指南',
+    icon: null,
+    id: 'Responsive Adaptation Guide',
+  },
 ];
 const vueProMenuIconUs = [
   {

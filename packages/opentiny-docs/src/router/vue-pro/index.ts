@@ -102,11 +102,11 @@ const routerList = [
     },
   },
   {
-    path: 'internationa',
-    name: 'Internationa',
-    id: 'Internationa',
+    path: 'international',
+    name: 'International',
+    id: 'International',
     label: '国际化',
-    component: () => import('@src/views/vue-pro/internation.md'),
+    component: () => import('@src/views/vue-pro/international.md'),
     meta: {
       requiresAuth: true,
       order: 6,
@@ -222,6 +222,46 @@ const routerList = [
           requiresAuth: true,
         },
       },
+      {
+        path: 'back-end-architecture',
+        name: 'Back-End Architecture',
+        id: 'Back-End Architecture',
+        label: '后端设计架构',
+        component: () => import('@src/views/vue-pro/back-end-design.md'),
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      {
+        path: 'back-end-api-specification',
+        name: 'Back-End API Specification',
+        id: 'Back-End API Specification',
+        label: '后端接口规格说明书',
+        component: () => import('@src/views/vue-pro/back-end-api-specification.md'),
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      {
+        path: 'back-end-guide-spring-boot',
+        name: 'Back-End Guide Spring Boot',
+        id: 'Back-End Guide Spring Boot',
+        label: 'Spring Boot 后端开发指南',
+        component: () => import('@src/views/vue-pro/back-end-guide-spring-boot.md'),
+        meta: {
+          requiresAuth: true,
+        },
+      },
+      {
+        path: 'responsive-adaptation-guide',
+        name: 'Responsive Adaptation Guide',
+        id: 'Responsive Adaptation Guide',
+        label: '响应式适配指南',
+        component: () => import('@src/views/vue-pro/responsive-adaptation-guide.md'),
+        meta: {
+          requiresAuth: true,
+        },
+      },
     ],
   },
 ];
@@ -267,7 +307,7 @@ const routerListUs = [
     name: '',
     id: '',
     label: 'Internationalization',
-    component: () => import('@src/views/vue-pro/internation-us.md'),
+    component: () => import('@src/views/vue-pro/international-us.md'),
   },
   {
     path: '',
