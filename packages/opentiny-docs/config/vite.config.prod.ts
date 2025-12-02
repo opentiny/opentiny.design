@@ -10,7 +10,6 @@ export default mergeConfig(
     mock: true,
     base: process.env.VITE_BASE || '/',
     plugins: [
-      configCompressPlugin('gzip'),
       configVisualizerPlugin(),
       configTinyResolverPlugin(),
     ],
