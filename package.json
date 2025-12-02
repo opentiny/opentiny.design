@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm -F opentiny-design-home dev",
+    "dev:docs": "pnpm -F opentiny-docs start",
     "build:common": "pnpm -F opentiny-design-common build:open",
     "build": "pnpm -F opentiny-design-home build"
   }

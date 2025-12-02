@@ -6,11 +6,11 @@
 
 ## 项目初始化
 
-[快速上手](./quick-start)
+[快速开始](./quick-start)
 
 ## 后端启动
 
-开发阶段通常不会使用docker进行启动，更多的是本地启动。首先我们要配置环境变量文件，也就是`.env`文件
+开发阶段通常不会使用docker进行启动，更多的是本地启动。首先我们要配置环境变量文件, 也就是`.env`文件.
 
 ```properties
 # 数据库IP (一般是本地)
@@ -61,10 +61,35 @@ LOG [NestApplication] Nest application successfully started +11ms
 Application is running on: http://[::1]:3000
 ```
 
+### 生成迁移文件
+
+有时，我们需要改动数据库结构。在修改完成后**必须**执行`pnpm run migrate:gen`来生成迁移文件。在运行该命令期间，请确保开发环境数据库可以访问。
+
+#### 修改表结构
+
+假设我们修改了 `User` 表. 它位于 `nestJs/libs/models/src` 下.
+
+```diff
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number;
+  @Column()
+  name: string;
+  @Column()
++ nickName: string;
+}
+```
+
+#### 运行迁移文件生成指令
+
+1. 请确保你在`.env`文件中设置的`DATABASE_HOST`为开发数据库。
+2. 运行 `pnpm run migrate:gen`
+3. 当出现`Success! Migration file created at migrations/1752296660591-TinyPro.js`命令后则表示歉意文件生成成功
+4. 运行 `pnpm run mirgate:run`指令或`node migrate.js`来应用迁移文件。当出现了 `Now you can safely launched the project` 字样。表示迁移文件已经被安全的应用到了数据库中。
 
 ## 初始化数据
 
-有些时候我们需要自动初始化一些数据(比如前端的默认国际化字段)，这些逻辑**均需**写在`App.module.ts`中`AppModule`类中的`onModuleInit`函数中。
+有些时候我们需要自动初始化一些数据(比如前端的默认国际化字段). 这些逻辑**均需**写在`App.module.ts`中`AppModule`类中的`onModuleInit`函数中。
 
 ## 国际化
 
@@ -136,7 +161,7 @@ export class PolicyService {
 
 如果一个接口没有被`Permission`修饰器进行修饰，那么这个接口是**允许**所有**已经登录**的用户访问。如果一个接口**被**`Permission`修饰器进行修饰，那么该接口**仅允许**拥有该权限的用户访问，其余用户会返回**403**错误代码
 
-默认`admin`用户存在超级权限`(*)`，拥有该权限且已经登陆的用户可以访问任何接口。
+默认`admin`用户存在超级权限`(*)`, 拥有该权限且已经登陆的用户可以访问任何接口。
 
 例如
 
