@@ -39,7 +39,7 @@ jobs:
       - name: Build docs
         run: pnpm -F opentiny-docs build
         env:
-          VITE_BASE: //opentiny-assets.obs.cn-north-4.myhuaweicloud.com/tiny-openTiny-docs/${{ env.VERSION }}/openTiny-docs/
+          VITE_BASE: //res-static.opentiny.design/tiny-openTiny-docs/${{ env.VERSION }}/openTiny-docs/
       - name: Copy files
         run: |
           cp packages/opentiny-docs/dist/openTiny-docs/index.html packages/opentiny-docs/dist/openTiny-docs/404.html
