@@ -8,7 +8,7 @@ const { isMobile } = useWindowSize()
 const TinyIconFilletExternalLink = iconFilletExternalLink()
 
 const onTinyRobot = () => {
-  window.open('https://agent.opentiny.design/tiny-robot', '_blank', 'noopener,noreferrer')
+  window.open('https://chat.opentiny.design/', '_blank', 'noopener,noreferrer')
 }
 
 const onLinkClick = () => {
