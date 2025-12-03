@@ -11,10 +11,6 @@ const onTinyRobot = () => {
   window.open('https://chat.opentiny.design/', '_blank', 'noopener,noreferrer')
 }
 
-const onLinkClick = () => {
-  window.open('https://docs.opentiny.design/tiny-robot/guide/quick-start.html', '_blank', 'noopener,noreferrer')
-}
-
 const cardList = [
   {
     title: '快速实施',
@@ -61,8 +57,8 @@ const cardList = [
       </div>
       <div class="footer">
         <div class="operation">
-          <tiny-button class="button" @click="onTinyRobot">即刻体验</tiny-button>
-          <tiny-link class="link" @click="onLinkClick">
+          <tiny-button class="button" @click="onTinyRobot" target="_blank">即刻体验</tiny-button>
+          <tiny-link class="link" href="https://docs.opentiny.design/tiny-robot/guide/quick-start.html" target="_blank">
             <template #icon>
               <TinyIconFilletExternalLink></TinyIconFilletExternalLink>
             </template>

@@ -19,7 +19,7 @@ export const bannerList = [
   },
   {
     title: 'TinyVue 推出 Space 组件',
-    description: '不止按钮和表格  直接搞定「弹性+间距」布局,',
+    description: '不止按钮和表格  直接搞定「弹性+间距」布局',
     icon: $pub('images/tiny-vue.svg'),
     iconTitle: 'TinyVue',
     bg: $pub('images/home/slogan/bg4.webp'),

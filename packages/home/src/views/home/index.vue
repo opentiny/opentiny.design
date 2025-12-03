@@ -110,6 +110,7 @@ onUnmounted(() => {
     .pcRem( right,90);
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2;
   }
   .anchor-item {
     width: 14px;

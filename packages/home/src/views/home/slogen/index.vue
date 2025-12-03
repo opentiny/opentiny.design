@@ -2,7 +2,10 @@
   <div class="home-slogan">
     <tiny-carousel height="550px" arrow="never" :interval="4000">
       <tiny-carousel-item class="carousel-item-demo">
-        <div class="home-slogan-top-wrap" :style="{ background: `no-repeat center/cover url(${$pub('images/home/slogan/bg1.webp')})` }">
+        <div
+          class="banner-item-wrap home-slogan-top-wrap "
+          :style="{ background: `no-repeat center/cover url(${$pub('images/home/slogan/bg1.webp')})` }"
+        >
           <div class="home-slogan-top">
             <img class="home-title-svg" :src="$pub('images/home-title.svg')" />
             <div class="home-title">企业智能前端开发解决方案</div>
@@ -17,7 +20,7 @@
                 :size="isMobile ? 'small' : 'medium'"
                 type="primary"
                 class="link-button"
-                @click="onLearnMore"
+                @click="onDocs"
               >
                 开发文档 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow.svg')" />
               </tiny-button>
@@ -32,12 +35,17 @@
         <div class="banner-item-wrap" :style="{ background: `no-repeat center/cover url(${item.bg})` }">
           <div class="banner-item">
             <div class="banner-item-logo">
-              <img :src="item.icon" class="banner-item-logo-icon"  />
+              <img :src="item.icon" class="banner-item-logo-icon" />
               <div :class="`banner-item-logo-title-${idx}`">{{ item.iconTitle }}</div>
             </div>
             <div class="banner-item-title">{{ item.title }}</div>
             <div class="banner-item-description">{{ item.description }}</div>
-            <tiny-button ghost :size="isMobile ? 'small' : 'medium'" class="link-button" @click="onLearnMore">
+            <tiny-button
+              ghost
+              :size="isMobile ? 'small' : 'medium'"
+              class="link-button"
+              @click="onLearnMore(item.link)"
+            >
               了解更多
               <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow-black.svg')" />
             </tiny-button>
@@ -98,10 +106,11 @@ import { bannerList } from './config'
 const { isMobile } = useWindowSize()
 const IconArrowRight = iconArrowRight()
 const videoRef = ref(null)
-const onLearnMore = () => window.open('https://docs.opentiny.design', '_blank', 'noopener')
+const onDocs = () => window.open('https://docs.opentiny.design', '_blank', 'noopener')
 const handleExperience = () => window.open('https://ai.opentiny.design/tar/', '_blank', 'noopener')
 const postUrl = $pub('images/home/slogan/video_poster.webp')
 const onLinkClick = () => window.open('https://www.bilibili.com/video/BV1YnCKBLE4V', '_blank', 'noopener')
+const onLearnMore = (link) => window.open(link, '_blank', 'noopener')
 onMounted(() => {
   const posterImg = new Image()
   posterImg.src = postUrl
@@ -127,12 +136,6 @@ watchEffect(() => {
     .pcPadding(0, 150);
   }
   .home-slogan-top-wrap {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     .home-slogan-top {
       max-width: 1280px;
       width: 100%;
@@ -209,10 +212,10 @@ watchEffect(() => {
       .pcRem(font-size, 32);
       .pcRem(line-height, 45);
       font-weight: 600;
-      .banner-item-logo-title-0, .banner-item-logo-title-1 {
+      .banner-item-logo-title-0,
+      .banner-item-logo-title-1 {
         margin-top: -20px;
       }
-   
     }
     .banner-item-title {
       .pcRem(font-size, 60);
