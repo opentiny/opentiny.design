@@ -1,24 +1,59 @@
 <template>
-  <div class="home-slogen">
-    <div>
-      <div class="home-slogan-top">
-        <img class="home-title-svg" :src="$pub('images/home-title.svg')" />
-        <div class="home-title">企业智能前端开发解决方案</div>
-        <div class="home-title-description">
-          以生成式 UI <span>+</span> WebMCP 两大自主核心技术为基础，加速企业应用的智能化改造
+  <div class="home-slogan">
+    <tiny-carousel height="550px" arrow="never" :interval="4000">
+      <tiny-carousel-item class="carousel-item-demo">
+        <div
+          class="banner-item-wrap home-slogan-top-wrap "
+          :style="{ background: `no-repeat center/cover url(${$pub('images/home/slogan/bg1.webp')})` }"
+        >
+          <div class="home-slogan-top">
+            <img class="home-title-svg" :src="$pub('images/home-title.svg')" />
+            <div class="home-title">企业智能前端开发解决方案</div>
+            <div class="home-title-description">
+              以生成式 UI <span>+</span> WebMCP 两大自主核心技术为基础，加速企业应用的智能化改造
+            </div>
+            <div class="home-title-description1">
+              传统应用引入 OpenTiny NEXT 进行智能化改造后，可通过自然语言让智能体代替人自主完成任务
+            </div>
+            <div class="home-title-buttons">
+              <tiny-button
+                :size="isMobile ? 'small' : 'medium'"
+                type="primary"
+                class="link-button"
+                @click="onDocs"
+              >
+                开发文档 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow.svg')" />
+              </tiny-button>
+              <tiny-button ghost :size="isMobile ? 'small' : 'medium'" class="link-button" @click="handleExperience">
+                立即体验 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow-black.svg')" />
+              </tiny-button>
+            </div>
+          </div>
         </div>
-        <div class="home-title-description1">
-          传统应用引入 OpenTiny NEXT 进行智能化改造后，可通过自然语言让智能体代替人自主完成任务
+      </tiny-carousel-item>
+      <tiny-carousel-item v-for="(item, idx) in bannerList" :key="item.title">
+        <div class="banner-item-wrap" :style="{ background: `no-repeat center/cover url(${item.bg})` }">
+          <div class="banner-item">
+            <div class="banner-item-logo">
+              <img :src="item.icon" class="banner-item-logo-icon" />
+              <div :class="`banner-item-logo-title-${idx}`">{{ item.iconTitle }}</div>
+            </div>
+            <div class="banner-item-title">{{ item.title }}</div>
+            <div class="banner-item-description">{{ item.description }}</div>
+            <tiny-button
+              ghost
+              :size="isMobile ? 'small' : 'medium'"
+              class="link-button"
+              @click="onLearnMore(item.link)"
+            >
+              了解更多
+              <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow-black.svg')" />
+            </tiny-button>
+          </div>
         </div>
-        <div class="home-title-buttons">
-          <tiny-button :size="isMobile ? 'small' : 'medium'" type="primary" class="link-button" @click="onLearnMore">
-            开发文档 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow.svg')" />
-          </tiny-button>
-          <tiny-button :size="isMobile ? 'small' : 'medium'" class="link-button" @click="handleExperience">
-            立即体验 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow-black.svg')" />
-          </tiny-button>
-        </div>
-      </div>
+      </tiny-carousel-item>
+    </tiny-carousel>
+    <div class="home-slogan-content">
       <div class="home-video-wrap">
         <div class="home-video-tag">以企业出差场景为例</div>
         <div class="home-video-content">
@@ -61,19 +96,21 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyLink } from '@opentiny/vue'
+import { TinyButton, TinyLink, TinyCarousel, TinyCarouselItem } from '@opentiny/vue'
 import { $pub } from '../../../tools/utils'
 import useWindowSize from '@/tools/useWindowSize.js'
 import { onMounted, ref, watchEffect } from 'vue'
 import { iconArrowRight } from '@opentiny/vue-icon'
+import { bannerList } from './config'
 
 const { isMobile } = useWindowSize()
 const IconArrowRight = iconArrowRight()
 const videoRef = ref(null)
-const onLearnMore = () => window.open('https://docs.opentiny.design', '_blank', 'noopener')
+const onDocs = () => window.open('https://docs.opentiny.design', '_blank', 'noopener')
 const handleExperience = () => window.open('https://ai.opentiny.design/tar/', '_blank', 'noopener')
 const postUrl = $pub('images/home/slogan/video_poster.webp')
 const onLinkClick = () => window.open('https://www.bilibili.com/video/BV1YnCKBLE4V', '_blank', 'noopener')
+const onLearnMore = (link) => window.open(link, '_blank', 'noopener')
 onMounted(() => {
   const posterImg = new Image()
   posterImg.src = postUrl
@@ -94,92 +131,134 @@ watchEffect(() => {
 <style scoped lang="less">
 @import '@/mixin.less';
 
-.home-slogen {
-  & > div {
-    max-width: 1280px;
-    margin: 0 auto;
+.home-slogan {
+  & > .home-slogan-content {
+    .pcPadding(0, 150);
   }
-  .home-slogan-top {
-    .home-title {
-      .pcRem(font-size, 52);
-      font-weight: 600;
-      background: linear-gradient(90deg, rgba(203, 67, 168, 1), rgba(44, 95, 239, 1) 56%);
-      color: transparent;
-      background-clip: text;
-    }
-
-    .home-title-svg {
-      .pcRem(width, 532);
-      .pcPadding(80, 0, 28);
-    }
-
-    .home-title-description {
-      .pcRem(font-size, 24);
-      line-height: 32px;
-      .pcMargin(20, auto, 10);
-      > span {
-        color: #1476ff;
+  .home-slogan-top-wrap {
+    .home-slogan-top {
+      max-width: 1280px;
+      width: 100%;
+      .home-title {
+        .pcRem(font-size, 52);
+        font-weight: 600;
+        background: linear-gradient(90deg, rgba(203, 67, 168, 1), rgba(44, 95, 239, 1) 56%);
+        color: transparent;
+        background-clip: text;
       }
-    }
-    .home-title-description1 {
-      color: rgba(128, 128, 128, 1);
-      .pcRem(font-size, 18);
-      .pcRem(margin-bottom, 32);
-      font-weight: 300;
-      line-height: 28px;
-    }
-    .link-button:hover .home-title-arrow-icon {
-      animation: arrow 1s linear infinite;
-    }
-    @keyframes arrow {
-      0% {
-        transform: translate(0);
-      }
-
-      50% {
-        transform: translate(8px);
-      }
-      100% {
-        transform: translate(0);
-      }
-    }
-    .link-button {
-      gap: 8px;
-    }
-
-    @media screen and (max-width: @break-point) {
-      text-align: center;
 
       .home-title-svg {
-        width: 280px;
-        .mobilePadding(60, 0, 14);
-      }
-
-      .home-title {
-        font-size: 20px;
+        .pcRem(width, 532);
+        padding-bottom: 28px;
       }
 
       .home-title-description {
-        font-size: 16px;
-        line-height: 20px;
-        margin: 12px 0;
-        font-weight: 200;
+        .pcRem(font-size, 24);
+        line-height: 32px;
+        .pcMargin(20, auto, 10);
+        > span {
+          color: #1476ff;
+        }
       }
       .home-title-description1 {
-        display: none;
+        color: rgba(128, 128, 128, 1);
+        .pcRem(font-size, 18);
+        .pcRem(margin-bottom, 32);
+        font-weight: 300;
+        line-height: 28px;
       }
+
+      @media screen and (max-width: @break-point) {
+        text-align: center;
+
+        .home-title-svg {
+          width: 280px;
+          .mobilePadding(60, 0, 14);
+        }
+
+        .home-title {
+          font-size: 20px;
+        }
+
+        .home-title-description {
+          font-size: 16px;
+          line-height: 20px;
+          margin: 12px 0;
+          font-weight: 200;
+        }
+        .home-title-description1 {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .banner-item-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .pcPadding(0, 150);
+    .banner-item {
+      max-width: 1280px;
+      width: 100%;
+    }
+    .banner-item-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      .pcRem(font-size, 32);
+      .pcRem(line-height, 45);
+      font-weight: 600;
+      .banner-item-logo-title-0,
+      .banner-item-logo-title-1 {
+        margin-top: -20px;
+      }
+    }
+    .banner-item-title {
+      .pcRem(font-size, 60);
+      .pcRem(line-height, 70);
+      font-weight: 900;
+      margin: 45px 0 20px;
+    }
+    .banner-item-description {
+      .pcRem(font-size, 28);
+      .pcRem(line-height, 32);
+      font-weight: 400;
+      color: rgba(89, 89, 89, 1);
+      .pcRem(margin-bottom, 28);
     }
   }
 
   .btn-container {
     cursor: pointer;
   }
+  .link-button:hover .home-title-arrow-icon {
+    animation: arrow 1s linear infinite;
+  }
+  @keyframes arrow {
+    0% {
+      transform: translate(0);
+    }
+
+    50% {
+      transform: translate(8px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  .link-button {
+    gap: 8px;
+  }
 
   background: no-repeat bottom url(@/assets/images/home_slogan_bg.webp);
   background-size: 100%;
-  .pcPadding(38, 150, 100);
-
   .home-video-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
     box-sizing: border-box;
     border-radius: 24.03px;
     .home-video-tag {

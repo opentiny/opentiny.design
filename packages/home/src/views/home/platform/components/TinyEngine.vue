@@ -28,7 +28,7 @@
         <div v-if="!isMobile" class="wait">智能化版本敬请期待...</div>
         <div class="operation">
           <tiny-button class="button" @click="onTinyEngine">即刻体验</tiny-button>
-          <tiny-link class="link" @click="onLinkClick">
+          <tiny-link class="link" href="/tiny-engine#/help-center/course/engine/introduction" target="_blank">
             <template #icon>
               <TinyIconFilletExternalLink></TinyIconFilletExternalLink>
             </template>
@@ -51,10 +51,6 @@ const { isMobile } = useWindowSize()
 
 const onTinyEngine = () => {
   window.open('/tiny-engine#/home', '_blank', 'noopener,noreferrer')
-}
-
-const onLinkClick = () => {
-  window.open('/tiny-engine#/help-center/course/engine/introduction')
 }
 </script>
 
