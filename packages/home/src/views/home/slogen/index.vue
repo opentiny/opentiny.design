@@ -24,7 +24,7 @@
               >
                 开发文档 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow.svg')" />
               </tiny-button>
-              <tiny-button :size="isMobile ? 'small' : 'medium'" class="link-button" @click="handleExperience">
+              <tiny-button ghost :size="isMobile ? 'small' : 'medium'" class="link-button" @click="handleExperience">
                 立即体验 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow-black.svg')" />
               </tiny-button>
             </div>

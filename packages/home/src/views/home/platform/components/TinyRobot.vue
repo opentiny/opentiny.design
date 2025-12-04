@@ -57,7 +57,7 @@ const cardList = [
       </div>
       <div class="footer">
         <div class="operation">
-          <tiny-button class="button" @click="onTinyRobot" target="_blank">即刻体验</tiny-button>
+          <tiny-button class="button" @click="onTinyRobot">即刻体验</tiny-button>
           <tiny-link class="link" href="https://docs.opentiny.design/tiny-robot/guide/quick-start.html" target="_blank">
             <template #icon>
               <TinyIconFilletExternalLink></TinyIconFilletExternalLink>
