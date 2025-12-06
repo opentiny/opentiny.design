@@ -176,6 +176,10 @@ const renderLogo = (icon, content, idx) => {
   }
   @media screen and (max-width: @break-point) {
     .mobilePadding(32, 48);
+    .advance-description-1 {
+      margin-right: 0px !important;
+      max-width: 100% !important;
+    }
     .why-opentiny-content {
       margin-top: 30px;
       grid-template-columns: 1fr;
