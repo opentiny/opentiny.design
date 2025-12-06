@@ -16,7 +16,7 @@
               {{ firstBannerData.descriptionA2 }}
             </div>
             <div class="home-title-buttons" v-if="!isMobile">
-              <tiny-button size="medium" type="primary" class="link-button" @click="onDocs">
+              <tiny-button size="medium" type="primary" class="link-button" @click.stop="onDocs">
                 开发文档 <img class="home-title-arrow-icon" :src="$pub('images/home/slogan/arrow.svg')" />
               </tiny-button>
               <tiny-button ghost size="medium" class="link-button" @click.stop="handleExperience">
