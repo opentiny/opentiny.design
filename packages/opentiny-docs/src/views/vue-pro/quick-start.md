@@ -241,9 +241,9 @@ npm i
 
 从 2.0 开始, TinyPro For Nest.js 使用Redis存储安装Flag文件, 如果您使用过 1.0 版本请按照以下检查单进行迁移
 
-- [] Redis 服务可用
-- [] 切换到TinyPro部署的数据库并执行 `flushdb` 或手动清空
-- [] 执行 `SET FLAG:INSTALL 1`
+- [ ] Redis 服务可用
+- [ ] 切换到TinyPro部署的数据库并执行 `flushdb` 或手动清空
+- [ ] 执行 `SET FLAG:INSTALL 1`
 
 
 ## 常见问题
