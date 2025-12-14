@@ -80,7 +80,7 @@ export class User {
 
 1. 请确保你在`.env`文件中设置的`DATABASE_HOST`为开发数据库。
 2. 运行 `pnpm run migrate:gen`
-3. 当出现`Success! Migration file created at migrations/<运行时的时间戳>-TinyPro.js`命令后则表示歉意文件生成成功
+3. 当出现`Success! Migration file created at migrations/<运行时的时间戳>-TinyPro.js`命令后则表示迁移文件生成成功
 4. 运行 `pnpm run mirgate:run`指令或`node migrate.js`来应用迁移文件。当出现了 `Now you can safely launched the project` 字样。表示迁移文件已经被安全的应用到了数据库中。
 
 ## 初始化数据
