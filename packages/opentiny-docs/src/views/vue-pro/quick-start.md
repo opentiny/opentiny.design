@@ -43,36 +43,49 @@ tiny-pro
 
 ### Docker启动
 
+> 如果是 Windows 用户, 请您确保 `Docker Desktop` 已经启动
+
 在运行`docker compose up -d`之前，请先修改`.env`环境变量文件，示例如下
 
 ```properties
-# 数据库IP
-DATABASE_HOST = 'mysql'
-# 数据库端口
+#  数据库IP
+DATABASE_HOST = 'localhost'
+#  数据库端口
 DATABASE_PORT = 3306
-# 数据库用户名
+#  数据库用户
 DATABASE_USERNAME = 'root'
-# 数据库密码
+#  数据库密码
 DATABASE_PASSWORD = 'root'
-# 数据库名 (请确保该库存在)
-DATABASE_NAME = 'ospp-nest'
-# 请阅读: https://www.typeorm.org/migrations
-# 线上环境请关闭
-DATABASE_SYNCHRONIZE = false
+#  数据库名称 (确保数据库存在)
+DATABASE_NAME = 'demo_tiny_pro'
+#  是否强制同步数据库 (线上建议关闭)
+DATABASE_SYNCHRONIZE = true
+#  是否自动加载Entry (建议设置为true)
 DATABASE_AUTOLOADENTITIES = true
-# jwt secret
+#  jwt盐
 AUTH_SECRET = 'secret'
+#  AccessToken默认过期时间
 REDIS_SECONDS = 7200
-# redis ip
-REDIS_HOST = 'redis'
-# redis 端口
+#  Redis IP
+REDIS_HOST = 'localhost'
+#  Redis 端口
 REDIS_PORT = 6379
-# token过期时间
+#  JwT过期时间 (已废弃)
 EXPIRES_IN = '2h'
-# 分页默认起始页 (一般可以不修改)
+#  分页默认起始页码数
 PAGINATION_PAGE = 1
-# 分页默认大小
+#  分页默认起始大小
 PAGINATION_LIMIT = 10
+#  api接口全局前缀
+GLOBAL_PREFIX = '/'
+#  mock接口glob表达式
+MOCK_REGEX = '/mock'
+#  refreshToken过期时间
+REFRESH_TOKEN_TTL = 604800000
+#  最大会话数, -1表示不限制
+DEVICE_LIMIT=1
+#  是否启用演示模式, 如果设置为true, 则会拒绝所有的增加、修改、删除操作
+PREVIEW_MODE=true
 ```
 
 修改完`.env`文件后，请执行`docker compose up -d`
@@ -198,6 +211,17 @@ npm i
 
 加官方小助手微信 opentiny-official，加入技术交流群
 
+## 迁移
+
+### 从 1.x 迁移
+
+从 2.0 开始, TinyPro For Nest.js 使用Redis存储安装Flag文件, 如果您使用过 1.0 版本请按照以下检查单进行迁移
+
+- [] Redis 服务可用
+- [] 切换到TinyPro部署的数据库并执行 `flushdb` 或手动清空
+- [] 执行 `SET FLAG:INSTALL 1`
+
+
 ## 常见问题
 
 ### 后端docker启动时出现 `Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:3306 -> 0.0.0.0:0: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.`
@@ -218,7 +242,8 @@ docker pull node:lts
 
 ### 提示 `Lock file exists, if you want init agin, please remove dist or dist/lock`
 
-为了避免重复初始化，系统会在第一次初始化的时候在`dist`目录下新建`app/lock`文件，如果您需要再次初始化，那么请您删除`dist/app`或者直接删除`dist`文件夹
+- 对于 `1.x` 用户来说可以直接删除 `dist/lock` 文件夹.
+- 对于 `2.x` 用户来说可以在redis中执行 `DEL FLAG:INSTALL`
 
 ### docker 部署时数据库超时
 

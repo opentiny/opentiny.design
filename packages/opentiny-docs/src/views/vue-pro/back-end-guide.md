@@ -12,35 +12,27 @@
 
 开发阶段通常不会使用docker进行启动，更多的是本地启动。首先我们要配置环境变量文件, 也就是`.env`文件.
 
-```properties
-# 数据库IP (一般是本地)
-DATABASE_HOST = 'localhost'
-# 数据库端口
-DATABASE_PORT = 3306
-# 数据库用户名
-DATABASE_USERNAME = 'root'
-# 数据库密码
-DATABASE_PASSWORD = 'root'
-# 数据库名 (请确保该库存在)
-DATABASE_NAME = 'ospp-nest'
-# 请阅读: https://www.typeorm.org/migrations
-# 线上环境请关闭
-DATABASE_SYNCHRONIZE = 'true'
-DATABASE_AUTOLOADENTITIES = 'true'
-# jwt secret
-AUTH_SECRET = 'secret'
-REDIS_SECONDS = 7200
-# redis ip
-REDIS_HOST = 'localhost'
-# redis 端口
-REDIS_PORT = 6379
-# token过期时间
-EXPIRES_IN = '2h'
-# 分页默认起始页 (一般可以不修改)
-PAGINATION_PAGE = 1
-# 分页默认大小
-PAGINATION_LIMIT = 10
-```
+| 配置项 | 类型 | 描述 |
+|--------|------|------|
+| DATABASE_HOST | string | 数据库IP |
+| DATABASE_PORT | string | 数据库端口 |
+| DATABASE_USERNAME | string | 数据库用户 |
+| DATABASE_PASSWORD | string | 数据库密码 |
+| DATABASE_NAME | string | 数据库名称 (确保数据库存在) |
+| DATABASE_SYNCHRONIZE | boolean | 是否强制同步数据库 (线上建议关闭, 开发环境建议设置为true) |
+| DATABASE_AUTOLOADENTITIES | boolean | 是否自动加载Entry (建议设置为true) |
+| AUTH_SECRET | string | jwt盐 |
+| REDIS_SECONDS | number | AccessToken默认过期时间 |
+| REDIS_HOST | string | Redis IP |
+| REDIS_PORT | string | Redis 端口 |
+| EXPIRES_IN | string | JwT过期时间 (已废弃) |
+| PAGINATION_PAGE | number | 分页默认起始页码数 |
+| PAGINATION_LIMIT | number | 分页默认起始大小 |
+| GLOBAL_PREFIX | string | api接口全局前缀 |
+| MOCK_REGEX | string | mock接口glob表达式 |
+| REFRESH_TOKEN_TTL | number | refreshToken过期时间 |
+| DEVICE_LIMIT | number | 最大会话数, -1表示不限制 |
+| PREVIEW_MODE | boolean | 是否启用演示模式, 如果设置为true, 则会拒绝所有的增加、修改、删除操作 |
 
 ### 开发前检查清单
 
@@ -84,7 +76,7 @@ export class User {
 
 1. 请确保你在`.env`文件中设置的`DATABASE_HOST`为开发数据库。
 2. 运行 `pnpm run migrate:gen`
-3. 当出现`Success! Migration file created at migrations/1752296660591-TinyPro.js`命令后则表示歉意文件生成成功
+3. 当出现`Success! Migration file created at migrations/<运行时的时间戳>-TinyPro.js`命令后则表示歉意文件生成成功
 4. 运行 `pnpm run mirgate:run`指令或`node migrate.js`来应用迁移文件。当出现了 `Now you can safely launched the project` 字样。表示迁移文件已经被安全的应用到了数据库中。
 
 ## 初始化数据
@@ -231,8 +223,13 @@ export class PolicyController {
 
 ### 提示 `Lock file exists, if you want init agin, please remove dist or dist/lock`
 
-为了避免重复初始化，系统会在第一次初始化的时候在`dist`目录下新建`app/lock`文件，如果您需要再次初始化，那么请您删除`dist/app`或者直接删除`dist`文件夹
+- 对于 `1.x` 用户来说可以直接删除 `dist/lock` 文件夹.
+- 对于 `2.x` 用户来说可以在redis中执行 `DEL FLAG:INSTALL`
 
 ### docker 部署时数据库超时
 
-`docker-compose.yaml`实际上配置了`depends_on`字段，但`mysql`镜像并没有提供对应的健康检查。如果服务挂掉，可以等待`mysql`启动成功后手动重启后端服务
+在新版本中我们加入了 `wait4x` 来检查 `mysql` 容器情况。但这并不能完全避免因为 `mysql` 启动过慢而导致的容器启动失败。在业务容器中我们设定的轮询时间为2s, 最多等待60s. 如果超时请按照如下检查表逐一排查
+
+1. MySQL容器是否启动成功?
+2. MySQL容器是否初始化成功?
+3. 业务容器环境变量是否正确?
