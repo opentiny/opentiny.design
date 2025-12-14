@@ -86,6 +86,13 @@ REFRESH_TOKEN_TTL = 604800000
 DEVICE_LIMIT=1
 #  是否启用演示模式, 如果设置为true, 则会拒绝所有的增加、修改、删除操作
 PREVIEW_MODE=true
+#  Swagger文档标题
+SWAGGER_TITLE="Tiny Pro"
+#  Swagger文档简介
+SWAGGER_DESC="开箱即用的中后台模板"
+#  Swagger文档版本
+SWAGGER_VERSION="1.0.0"
+
 ```
 
 修改完`.env`文件后，请执行`docker compose up -d`
@@ -121,33 +128,50 @@ npm i
 请确保您的机器已经安装了`Mysql`与`Redis`服务。接下来，我们需要配置`.env`环境变量文件。`.env`文件示例如下
 
 ```properties
-# 数据库IP
+#  数据库IP
 DATABASE_HOST = 'localhost'
-# 数据库端口
+#  数据库端口
 DATABASE_PORT = 3306
-# 数据库用户名
+#  数据库用户
 DATABASE_USERNAME = 'root'
-# 数据库密码
+#  数据库密码
 DATABASE_PASSWORD = 'root'
-# 数据库名 (请确保该库存在)
-DATABASE_NAME = 'ospp-nest'
-# 请阅读: https://www.typeorm.org/migrations
-# 线上环境请关闭
-DATABASE_SYNCHRONIZE = false
+#  数据库名称 (确保数据库存在)
+DATABASE_NAME = 'demo_tiny_pro'
+#  是否强制同步数据库 (线上建议关闭)
+DATABASE_SYNCHRONIZE = true
+#  是否自动加载Entry (建议设置为true)
 DATABASE_AUTOLOADENTITIES = true
-# jwt secret
+#  jwt盐
 AUTH_SECRET = 'secret'
+#  AccessToken默认过期时间
 REDIS_SECONDS = 7200
-# redis ip
+#  Redis IP
 REDIS_HOST = 'localhost'
-# redis 端口
+#  Redis 端口
 REDIS_PORT = 6379
-# token过期时间
+#  JwT过期时间 (已废弃)
 EXPIRES_IN = '2h'
-# 分页默认起始页 (一般可以不修改)
+#  分页默认起始页码数
 PAGINATION_PAGE = 1
-# 分页默认大小
+#  分页默认起始大小
 PAGINATION_LIMIT = 10
+#  api接口全局前缀
+GLOBAL_PREFIX = '/'
+#  mock接口glob表达式
+MOCK_REGEX = '/mock'
+#  refreshToken过期时间
+REFRESH_TOKEN_TTL = 604800000
+#  最大会话数, -1表示不限制
+DEVICE_LIMIT=1
+#  是否启用演示模式, 如果设置为true, 则会拒绝所有的增加、修改、删除操作
+PREVIEW_MODE=true
+#  Swagger文档标题
+SWAGGER_TITLE="Tiny Pro"
+#  Swagger文档简介
+SWAGGER_DESC="开箱即用的中后台模板"
+#  Swagger文档版本
+SWAGGER_VERSION="1.0.0"
 ```
 
 #### 启动项目

@@ -16,23 +16,27 @@
 |--------|------|------|
 | DATABASE_HOST | string | 数据库IP |
 | DATABASE_PORT | string | 数据库端口 |
-| DATABASE_USERNAME | string | 数据库用户 |
+| DATABASE_USERNAME | string | 数据库用户名 |
 | DATABASE_PASSWORD | string | 数据库密码 |
-| DATABASE_NAME | string | 数据库名称 (确保数据库存在) |
-| DATABASE_SYNCHRONIZE | boolean | 是否强制同步数据库 (线上建议关闭, 开发环境建议设置为true) |
+| DATABASE_NAME | string | 数据库名 |
+| DATABASE_SYNCHRONIZE | boolean | 是否自动同步<br/>这很危险, 如果设置为true, 请确保你的DATABASE_HOST是本地环境！ |
 | DATABASE_AUTOLOADENTITIES | boolean | 是否自动加载Entry (建议设置为true) |
-| AUTH_SECRET | string | jwt盐 |
-| REDIS_SECONDS | number | AccessToken默认过期时间 |
+| AUTH_SECRET | string | JWT secrect |
+| REDIS_SECONDS | number | AccessToken过期时间 |
 | REDIS_HOST | string | Redis IP |
-| REDIS_PORT | string | Redis 端口 |
+| REDIS_PORT | string | 数据库 端口 |
 | EXPIRES_IN | string | JwT过期时间 (已废弃) |
-| PAGINATION_PAGE | number | 分页默认起始页码数 |
-| PAGINATION_LIMIT | number | 分页默认起始大小 |
-| GLOBAL_PREFIX | string | api接口全局前缀 |
+| PAGINATION_PAGE | number | 默认页码 |
+| PAGINATION_LIMIT | number | 默认页大小 |
+| GLOBAL_PREFIX | string | api全局前缀 |
 | MOCK_REGEX | string | mock接口glob表达式 |
-| REFRESH_TOKEN_TTL | number | refreshToken过期时间 |
-| DEVICE_LIMIT | number | 最大会话数, -1表示不限制 |
+| REFRESH_TOKEN_TTL | number | 刷新令牌过期时间 |
+| DEVICE_LIMIT | number | 设备数量限制, -1表示无限制 |
 | PREVIEW_MODE | boolean | 是否启用演示模式, 如果设置为true, 则会拒绝所有的增加、修改、删除操作 |
+| ENABLE_SWAGGER | boolean | 是否启用SWAGGER |
+| SWAGGER_TITLE | string | Swagger文档标题 |
+| SWAGGER_DESC | string | Swagger文档简介 |
+| SWAGGER_VERSION | string | Swagger文档版本 |
 
 ### 开发前检查清单
 
