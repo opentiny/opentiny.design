@@ -13,4 +13,7 @@ pnpm dev
 
 # 启动文档
 pnpm dev:docs
+
+# 启动TinyEngine官网
+pnpm dev:engine
 ```
