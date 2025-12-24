@@ -55,11 +55,10 @@ jobs:
       - name: Build TinyEngine
         run: pnpm build:engine
         env:
-          VITE_CONTEXT: /
-          VITE_BASE: //res-static.opentiny.design/tinyui-design/${{ steps.ver.outputs.value }}/lowcode-portal/
+          VITE_APP_ORIGIN: https://opentiny.design
+          VITE_APP_STATIC_PATH: //res-static.opentiny.design/lowcode-portal/${{ steps.ver.outputs.value }}/
       - name: Copy files
         run: |
-          cp dist/lowcode-portal
           cp dist/lowcode-portal/index.html dist/lowcode-portal/404.html
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -98,4 +97,4 @@ jobs:
           # 把本地 dist/ 目录整站同步到桶根目录
           echo "needs.build.outputs.version: ${{ needs.build.outputs.version }}"
           mv dist ${{ needs.build.outputs.version }}
-          obsutil cp ${{ needs.build.outputs.version }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/tinyui-design/ -r -f
+          obsutil cp ${{ needs.build.outputs.version }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/lowcode-portal/ -r -f
