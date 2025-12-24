@@ -1,17 +1,16 @@
-name: Deploy home to Huawei OBS
+name: Deploy TinyEngine to Huawei OBS
 
 on:
   push:
     tags:
       - 'v*'
     paths:
-      - 'packages/common/**'
-      - 'packages/home/**'
+      - 'packages/lowcode-portal/**'
 
   workflow_dispatch:
     inputs:
       version:
-        description: 输入您将要发布的版本号（默认使用 packages/home/package.json 中的版本号），例如：`0.1.0`。
+        description: 输入您将要发布的版本号（默认使用 packages/lowcode-portal/package.json 中的版本号），例如：`0.1.0`。
         required: false
         type: string
 
@@ -42,28 +41,26 @@ jobs:
           version: 9
       - name: Install deps
         run: pnpm i
-      - name: Build common
-        run: pnpm build:common
-      - name: Get home version
+      - name: Get TinyEngine version
         id: ver
         run: |
           # 优先用手动输入的版本号
           if [ -n "${{ inputs.version }}" ]; then
             VERSION="${{ inputs.version }}"
           else
-            VERSION="$(node -p "require('./packages/home/package.json').version")"
+            VERSION="$(node -p "require('./packages/lowcode-portal/package.json').version")"
           fi
-          echo "Home version: $VERSION"
+          echo "TinyEngine version: $VERSION"
           echo "value=$VERSION" >> $GITHUB_OUTPUT
-      - name: Build home
-        run: pnpm build
+      - name: Build TinyEngine
+        run: pnpm build:engine
         env:
           VITE_CONTEXT: /
-          VITE_BASE: //res-static.opentiny.design/tinyui-design/${{ steps.ver.outputs.value }}/home/
+          VITE_BASE: //res-static.opentiny.design/tinyui-design/${{ steps.ver.outputs.value }}/lowcode-portal/
       - name: Copy files
         run: |
-          cp dist/common/tinyui-design-common.iife.js dist/home
-          cp dist/home/index.html dist/home/404.html
+          cp dist/lowcode-portal
+          cp dist/lowcode-portal/index.html dist/lowcode-portal/404.html
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
