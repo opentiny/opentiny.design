@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "pnpm -F opentiny-design-home dev",
     "dev:docs": "pnpm -F opentiny-docs start",
+    "dev:engine": "pnpm -F lowcode-portal dev",
     "build:common": "pnpm -F opentiny-design-common build:open",
-    "build": "pnpm -F opentiny-design-home build"
+    "build": "pnpm -F opentiny-design-home build",
+    "build:engine": "pnpm -F lowcode-portal build:open"
   }
 }

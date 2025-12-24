@@ -82,7 +82,7 @@ import {
 import { useHttp } from 'lowcode-design-http'
 import { requestUpdateMaterial, fetchMaterialById, fetchComponentLib } from '../http'
 import { fetchBlocks, fetchBlockDetail, fetchBlocksByIds } from '@/ecosystem/http'
-import { BuildTask } from '@huawei/tinybuilder-common'
+// import { BuildTask } from '@huawei/tinybuilder-common'
 import EditPage from '@/common/components/EditPage.vue'
 import VersionManageDialog from '@/common/components/VersionManageDialog.vue'
 import { extend, copyArray } from '@opentiny/vue-renderless/common/object'
@@ -405,76 +405,76 @@ export default {
         blockVersions
       }
 
-      const task = new BuildTask({
-        buildTaskUrl: `/material-center/api/material/build/${id}`,
-        queryStatusUrl: `/material-center/api/tasks/status?uniqueIds=${id}`,
-        $http: http,
-        params,
-        method: 'POST',
-        onInit: () => {
-          disabledBtns[id] = true
-          state.buttonLoading = true
-          state.progressDialog = true
-          setBuildPercent({ buildPercent: materialPercent, id, percent: 0 })
-          setBuildingMessage({ buildMessage, id, name })
-        },
-        onInitError: (error) => {
-          delete disabledBtns[id]
-          state.buttonLoading = true
-          state.progressDialog = true
-          setBuildErrorMessage({ buildMessage, id, name, error })
-        },
-        onRunning: (data) => {
-          disabledBtns[id] = true
-          state.buttonLoading = true
-          state.progressDialog = true
-          setBuildPercent({ buildPercent: materialPercent, id, percent: data.progress_percent })
-          setBuildingMessage({ buildMessage, id, name })
-        },
-        onFinished: async ({ progress_percent, isFirstQuery }) => {
-          delete buildMessage[id]
-          delete disabledBtns[id]
-          state.buttonLoading = false
-          if (isFirstQuery) {
-            disabledBtns[id] = true
-            state.buttonLoading = true
-            state.progressDialog = true
-            task.build()
-          } else {
-            state.progressDialog = false
-            setBuildPercent({ buildPercent: materialPercent, id, percent: progress_percent })
-            await getMaterial()
-            state.showAlert = true
-            state.timer = setTimeout(() => {
-              state.showAlert = false
-            }, 5000)
-          }
-        },
-        onStopped: (error) => {
-          delete disabledBtns[id]
-          state.progressDialog = false
-          state.buttonLoading = false
-          setBuildErrorMessage({ buildMessage, id, name, error })
+      // const task = new BuildTask({
+      //   buildTaskUrl: `/material-center/api/material/build/${id}`,
+      //   queryStatusUrl: `/material-center/api/tasks/status?uniqueIds=${id}`,
+      //   $http: http,
+      //   params,
+      //   method: 'POST',
+      //   onInit: () => {
+      //     disabledBtns[id] = true
+      //     state.buttonLoading = true
+      //     state.progressDialog = true
+      //     setBuildPercent({ buildPercent: materialPercent, id, percent: 0 })
+      //     setBuildingMessage({ buildMessage, id, name })
+      //   },
+      //   onInitError: (error) => {
+      //     delete disabledBtns[id]
+      //     state.buttonLoading = true
+      //     state.progressDialog = true
+      //     setBuildErrorMessage({ buildMessage, id, name, error })
+      //   },
+      //   onRunning: (data) => {
+      //     disabledBtns[id] = true
+      //     state.buttonLoading = true
+      //     state.progressDialog = true
+      //     setBuildPercent({ buildPercent: materialPercent, id, percent: data.progress_percent })
+      //     setBuildingMessage({ buildMessage, id, name })
+      //   },
+      //   onFinished: async ({ progress_percent, isFirstQuery }) => {
+      //     delete buildMessage[id]
+      //     delete disabledBtns[id]
+      //     state.buttonLoading = false
+      //     if (isFirstQuery) {
+      //       disabledBtns[id] = true
+      //       state.buttonLoading = true
+      //       state.progressDialog = true
+      //       task.build()
+      //     } else {
+      //       state.progressDialog = false
+      //       setBuildPercent({ buildPercent: materialPercent, id, percent: progress_percent })
+      //       await getMaterial()
+      //       state.showAlert = true
+      //       state.timer = setTimeout(() => {
+      //         state.showAlert = false
+      //       }, 5000)
+      //     }
+      //   },
+      //   onStopped: (error) => {
+      //     delete disabledBtns[id]
+      //     state.progressDialog = false
+      //     state.buttonLoading = false
+      //     setBuildErrorMessage({ buildMessage, id, name, error })
 
-          const title = '物料包构建失败'
-          const status = 'custom'
-          const messageRender = {
-            render: () => (
-              <div style="max-height:316px;overflow:auto;">{`物料构建失败: ${
-                error.taskResult || error
-              }, 需要重新构建吗?`}</div>
-            )
-          }
-          const exec = () => {
-            disabledBtns[id] = true
-            state.buttonLoading = true
-            state.progressDialog = true
-            task.build()
-          }
+      //     const title = '物料包构建失败'
+      //     const status = 'custom'
+      //     const messageRender = {
+      //       render: () => (
+      //         <div style="max-height:316px;overflow:auto;">{`物料构建失败: ${
+      //           error.taskResult || error
+      //         }, 需要重新构建吗?`}</div>
+      //       )
+      //     }
+      //     const exec = () => {
+      //       disabledBtns[id] = true
+      //       state.buttonLoading = true
+      //       state.progressDialog = true
+      //       task.build()
+      //     }
 
-          confirm({ title, status, message: messageRender, exec, width: 700 })
-        }
-      })
+      //     confirm({ title, status, message: messageRender, exec, width: 700 })
+      //   }
+      // })
     }
 
     const getBlocks = (resolve) => {

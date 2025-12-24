@@ -1,4 +1,4 @@
-import { axios } from '@huawei/tinybuilder-common'
+import axios from './axios'
 import { createApp } from 'vue'
 import Login from './Login.vue'
 import config from './config'

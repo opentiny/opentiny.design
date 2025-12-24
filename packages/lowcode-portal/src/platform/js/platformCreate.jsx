@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 import { extend, copyArray } from '@opentiny/vue-renderless/common/object'
-import { BuildTask } from '@huawei/tinybuilder-common'
+// import { BuildTask } from '@huawei/tinybuilder-common'
 import { useHttp } from 'lowcode-design-http'
 import {
   setBuildingMessage,
@@ -339,78 +339,78 @@ const buildPlatform = (sourceCodeBuildInfo) => {
   if (sourceCodeBuildInfo) {
     Object.assign(params, sourceCodeBuildInfo.params)
   }
-  state.boxVisibility = true
+  // state.boxVisibility = true
 
-  const task = new BuildTask({
-    buildTaskUrl: `/platform-center/api/platform/build/${id}`,
-    queryStatusUrl: `/platform-center/api/platform/task?uniqueId=${id}&taskTypeId=3`,
-    $http: useHttp(),
-    params,
-    method: 'POST',
-    onInit: () => {
-      platformBtns[id] = true
-      setBuildPercent({ buildPercent: platformPercent, id, percent: 0 })
-      setBuildingMessage({ buildMessage: platformMessage, id, name })
-    },
-    onInitError: (error) => {
-      delete platformBtns[id]
-      setBuildErrorMessage({ buildMessage: platformMessage, id, name, error })
-    },
-    onRunning: (data) => {
-      platformBtns[id] = true
-      setBuildPercent({ buildPercent: platformPercent, id, percent: data.progress_percent })
-      setBuildingMessage({ buildMessage: platformMessage, id, name })
-    },
-    onFinished: async ({ progress_percent, isFirstQuery }) => {
-      delete platformMessage[id]
-      delete platformBtns[id]
+  // const task = new BuildTask({
+  //   buildTaskUrl: `/platform-center/api/platform/build/${id}`,
+  //   queryStatusUrl: `/platform-center/api/platform/task?uniqueId=${id}&taskTypeId=3`,
+  //   $http: useHttp(),
+  //   params,
+  //   method: 'POST',
+  //   onInit: () => {
+  //     platformBtns[id] = true
+  //     setBuildPercent({ buildPercent: platformPercent, id, percent: 0 })
+  //     setBuildingMessage({ buildMessage: platformMessage, id, name })
+  //   },
+  //   onInitError: (error) => {
+  //     delete platformBtns[id]
+  //     setBuildErrorMessage({ buildMessage: platformMessage, id, name, error })
+  //   },
+  //   onRunning: (data) => {
+  //     platformBtns[id] = true
+  //     setBuildPercent({ buildPercent: platformPercent, id, percent: data.progress_percent })
+  //     setBuildingMessage({ buildMessage: platformMessage, id, name })
+  //   },
+  //   onFinished: async ({ progress_percent, isFirstQuery }) => {
+  //     delete platformMessage[id]
+  //     delete platformBtns[id]
 
-      if (isFirstQuery) {
-        state.boxVisibility = false
-        const title = '构建设计器'
-        const status = 'custom'
-        const platformHash = await getPlatformHash(id)
-        const renderString = platformHash?.same
-          ? '当前设计器与上次构建时没有发生变化, 确定要重新构建吗?'
-          : '设计器已构建, 确定要重新构建吗?'
-        const messageRender = {
-          render: () => <span>{renderString}</span>
-        }
-        const exec = () => {
-          task.build()
-          state.boxVisibility = true
-        }
+  //     if (isFirstQuery) {
+  //       state.boxVisibility = false
+  //       const title = '构建设计器'
+  //       const status = 'custom'
+  //       const platformHash = await getPlatformHash(id)
+  //       const renderString = platformHash?.same
+  //         ? '当前设计器与上次构建时没有发生变化, 确定要重新构建吗?'
+  //         : '设计器已构建, 确定要重新构建吗?'
+  //       const messageRender = {
+  //         render: () => <span>{renderString}</span>
+  //       }
+  //       const exec = () => {
+  //         task.build()
+  //         state.boxVisibility = true
+  //       }
 
-        confirm({ title, status, message: messageRender, exec })
-      } else {
-        state.boxVisibility = false
-        setBuildPercent({ buildPercent: platformPercent, id, percent: progress_percent })
-        getPlatform()
-        state.buildStatus = true
-      }
-    },
-    onStopped: (error) => {
-      state.boxVisibility = false
-      setBuildErrorMessage({ buildMessage: platformMessage, id, name, error })
-      delete platformBtns[id]
-      const title = '构建设计器'
-      const status = 'error'
-      const messageRender = {
-        render: () => (
-          <span style="max-height:316px;overflow:auto;display:block;">{`设计器构建失败: ${
-            error.taskResult?.result || error.taskResult || error
-          },需要重新构建吗?`}</span>
-        )
-      }
-      const exec = () => {
-        platformBtns[id] = true
-        task.build()
-        state.boxVisibility = true
-      }
+  //       confirm({ title, status, message: messageRender, exec })
+  //     } else {
+  //       state.boxVisibility = false
+  //       setBuildPercent({ buildPercent: platformPercent, id, percent: progress_percent })
+  //       getPlatform()
+  //       state.buildStatus = true
+  //     }
+  //   },
+  //   onStopped: (error) => {
+  //     state.boxVisibility = false
+  //     setBuildErrorMessage({ buildMessage: platformMessage, id, name, error })
+  //     delete platformBtns[id]
+  //     const title = '构建设计器'
+  //     const status = 'error'
+  //     const messageRender = {
+  //       render: () => (
+  //         <span style="max-height:316px;overflow:auto;display:block;">{`设计器构建失败: ${
+  //           error.taskResult?.result || error.taskResult || error
+  //         },需要重新构建吗?`}</span>
+  //       )
+  //     }
+  //     const exec = () => {
+  //       platformBtns[id] = true
+  //       task.build()
+  //       state.boxVisibility = true
+  //     }
 
-      confirm({ title, status, message: messageRender, exec, width: 700 })
-    }
-  })
+  //     confirm({ title, status, message: messageRender, exec, width: 700 })
+  //   }
+  // })
 }
 
 // 初始化时，查询设计器构建状态，如果是正在构建中，则调用 buildPlatform 方法轮询构建进度

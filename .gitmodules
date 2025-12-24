@@ -1,0 +1,3 @@
+[submodule "packages/lowcode-portal/tiny-engine"]
+	path = packages/lowcode-portal/tiny-engine
+	url = git@github.com:opentiny/tiny-engine.git

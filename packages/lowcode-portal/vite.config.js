@@ -14,13 +14,13 @@ import fg from 'fast-glob'
 // https://vitejs.dev/config/
 const config = {
   server: {
-    host: 'localhost.opentiny.design',
+    host: '0.0.0.0',
     open: true,
     port: 3000
   },
   // 设置本地构建后的预览端口为 8080，解决 @opentiny/vue 的 OBS 跨域访问限制
   preview: {
-    host: 'localhost.opentiny.design',
+    host: '0.0.0.0',
     open: true,
     port: 8080
   },
@@ -176,7 +176,7 @@ const copyFilesPlugin = (options) => {
 export default defineConfig(({ command, mode }) => {
   const VITE_APP_STATIC_PATH = loadEnv(mode, process.cwd()).VITE_APP_STATIC_PATH
 
-  config.base = mode !== 'development' ? VITE_APP_STATIC_PATH + process.env.staticReleaseVersion + '/' : '/'
+  config.base = '/'
   config.build.sourcemap = ['development', 'alpha'].includes(mode)
 
   const monacoPublicPath = {
