@@ -60,10 +60,26 @@ jobs:
         env:
           VITE_CONTEXT: /
           VITE_BASE: //res-static.opentiny.design/tinyui-design/${{ steps.ver.outputs.value }}/home/
+      - name: Get TinyEngine version
+        id: ver
+        run: |
+          # 优先用手动输入的版本号
+          if [ -n "${{ inputs.version }}" ]; then
+            VERSION="${{ inputs.version }}"
+          else
+            VERSION="$(node -p "require('./packages/lowcode-portal/package.json').version")"
+          fi
+          echo "TinyEngine version: $VERSION"
+          echo "value=$VERSION" >> $GITHUB_OUTPUT
+      - name: Build TinyEngine
+        run: pnpm build:engine
+        env:
+          VITE_CONTEXT: /
+          VITE_BASE: //res-static.opentiny.design/tinyui-design/${{ steps.ver.outputs.value }}/lowcode-portal/
       - name: Copy files
         run: |
-          cp dist/common/tinyui-design-common.iife.js dist/home
-          cp dist/home/index.html dist/home/404.html
+          cp dist/common/tinyui-design-common.iife.js dist/home dist/lowcode-portal
+          cp dist/home/index.html dist/home/404.html dist/lowcode-portal/index.html
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
