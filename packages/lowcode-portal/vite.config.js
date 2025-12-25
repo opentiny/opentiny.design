@@ -176,7 +176,7 @@ const copyFilesPlugin = (options) => {
 export default defineConfig(({ command, mode }) => {
   const VITE_APP_STATIC_PATH = loadEnv(mode, process.cwd()).VITE_APP_STATIC_PATH
 
-  config.base = '/'
+  config.base = VITE_APP_STATIC_PATH
   config.build.sourcemap = ['development', 'alpha'].includes(mode)
 
   const monacoPublicPath = {

@@ -40,7 +40,17 @@ jobs:
         with:
           version: 9
       - name: Install deps
-        run: pnpm i
+        run: pnpm install --ignore-scripts
+      - name: Ensure submodules are up-to-date (pull latest from their remote)
+        # 这一步会把子模块更新到各自远端的最新分支（通常是子模块配置的上游）
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive
+          # 拉取子模块的远端最新提交（合并到当前子模块工作树）
+          # 注意：这不会把变化提交回主仓库；仅用于构建时使用最新子模块内容
+          git submodule update --remote --merge --recursive
+          # 打印状态便于调试
+          git submodule status --recursive
       - name: Get TinyEngine version
         id: ver
         run: |
@@ -57,14 +67,11 @@ jobs:
         env:
           VITE_APP_ORIGIN: https://opentiny.design
           VITE_APP_STATIC_PATH: //res-static.opentiny.design/lowcode-portal/${{ steps.ver.outputs.value }}/
-      - name: Copy files
-        run: |
-          cp dist/lowcode-portal/index.html dist/lowcode-portal/404.html
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: dist-artifact
-          path: dist/
+          path: packages/lowcode-portal/dist/
   # Deploy job
   deploy:
     needs: build
@@ -74,7 +81,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist-artifact
-          path: dist/
+          path: packages/lowcode-portal/dist/
       - name: Show version
         run: |
           echo "Deploying version: ${{ needs.build.outputs.version }}"
@@ -94,7 +101,7 @@ jobs:
                          -k=${{ env.HUAWEI_CLOUD_SK }} \
                          -e=${{ env.HUAWEI_CLOUD_ENDPOINT }}
 
-          # 把本地 dist/ 目录整站同步到桶根目录
+          # 把本地 packages/lowcode-portal/dist/ 目录整站同步到桶根目录
           echo "needs.build.outputs.version: ${{ needs.build.outputs.version }}"
-          mv dist ${{ needs.build.outputs.version }}
+          mv packages/lowcode-portal/dist ${{ needs.build.outputs.version }}
           obsutil cp ${{ needs.build.outputs.version }} obs://${{ env.HUAWEI_CLOUD_BUCKET }}/lowcode-portal/ -r -f
