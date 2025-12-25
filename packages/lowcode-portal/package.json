@@ -7,7 +7,7 @@
     "serve": "vite",
     "build:alpha": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build --mode alpha",
     "build:alpha-open": "cross-env API_MOCK=mock NODE_OPTIONS=--max-old-space-size=8192 vite build --mode alpha-open",
-    "build:open": "cross-env API_MOCK=mock NODE_OPTIONS=--max-old-space-size=8192 vite build --mode open",
+    "build:open": "npm run obtainDocTime && cross-env API_MOCK=mock NODE_OPTIONS=--max-old-space-size=8192 vite build --mode open",
     "build:prod": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build --mode prod",
     "build:dev": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build --mode development",
     "build:card": "vite build --config card.config.js",
