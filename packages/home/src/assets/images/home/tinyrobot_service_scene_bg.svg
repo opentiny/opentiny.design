@@ -1,0 +1,19 @@
+<svg viewBox="0 0 760 590" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="760.000000" height="590.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_64" x1="295.999939" x2="739.5" y1="83.5000305" y2="590" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(215,171,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_65" x1="469.5" x2="67.0003357" y1="99" y2="546.500244" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(156,210,255)" offset="0.997497678" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_66" x1="236.500244" x2="536.999939" y1="-4.57763672e-05" y2="590.000061" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(204,209,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</linearGradient>
+	</defs>
+	<rect id="f_bg" width="760.000000" height="590.000000" x="0.000000" y="0.000000" opacity="0.600000024" fill="url(#paint_linear_64)" />
+	<rect id="f_bg" width="760.000000" height="590.000000" x="0.000000" y="0.000000" opacity="0.600000024" fill="url(#paint_linear_65)" fill-opacity="0.400000006" />
+	<rect id="f_bg" width="760.000000" height="590.000000" x="0.000000" y="0.000000" opacity="0.600000024" fill="url(#paint_linear_66)" fill-opacity="0.400000006" />
+</svg>
