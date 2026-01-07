@@ -1,8 +1,8 @@
 <template>
-  <div class="home-scene-cases">
-    <div class="home-scene-cases-title">{{ state.title }}</div>
-    <div class="home-scene-cases-subtitle">{{ state.subtitle }}</div>
-    <div class="home-scene-cases-container">
+  <div class="scene-cases">
+    <div class="scene-cases-title">{{ state.title }}</div>
+    <div class="scene-cases-subtitle">{{ state.subtitle }}</div>
+    <div class="scene-cases-container">
       <div
         v-for="item in state.list"
         :key="item.name"
@@ -73,24 +73,24 @@ const handleClickCase = () => {
 }
 </script>
 <style lang="less" scoped>
-.home-scene-cases {
+.scene-cases {
   margin: 0 auto;
   margin-top: 120px;
   margin-bottom: 190px;
-  .home-scene-cases-title {
+  .scene-cases-title {
     font-size: 48px;
     line-height: 64px;
     text-align: center;
     font-weight: 700;
   }
-  .home-scene-cases-subtitle {
+  .scene-cases-subtitle {
     font-size: 20px;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
     color: #808080;
   }
-  .home-scene-cases-container {
+  .scene-cases-container {
     margin-top: 66px;
     display: flex;
     align-items: center;

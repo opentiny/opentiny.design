@@ -1,21 +1,21 @@
 <template>
-  <div class="home-component">
-    <div class="home-component-title">{{ state.title }}</div>
-    <div class="home-component-subtitle">{{ state.subtitle }}</div>
-    <div class="home-component-container">
-      <div class="home-component-item">
-        <div class="home-component-container-left-mask">
+  <div class="robot-component">
+    <div class="robot-component-title">{{ state.title }}</div>
+    <div class="robot-component-subtitle">{{ state.subtitle }}</div>
+    <div class="robot-component-container">
+      <div class="robot-component-item">
+        <div class="robot-component-container-left-mask">
            <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
-        <div class="home-component-container-left">
+        <div class="robot-component-container-left">
           <img :src="state.image1">
         </div>
       </div>
-      <div class="home-component-item">
-        <div class="home-component-container-right-mask">
+      <div class="robot-component-item">
+        <div class="robot-component-container-right-mask">
            <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
-        <div class="home-component-container-right">
+        <div class="robot-component-container-right">
           <img :src="state.image2">
         </div>
       </div>
@@ -41,28 +41,28 @@ const gotoDocs = () => {
 
 </script>
 <style lang="less" scoped>
-.home-component {
+.robot-component {
   margin: 0 auto;
   margin-top: 120px;
-  .home-component-title {
+  .robot-component-title {
     font-size: 48px;
     line-height: 64px;
     text-align: center;
     font-weight: 700;
   }
-  .home-component-subtitle{
+  .robot-component-subtitle{
     font-size: 20px;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
     color: #808080;
   }
-  .home-component-container{
+  .robot-component-container{
     display: flex;
     gap: 40px;
     height: 500px;
     margin-top: 66px;
-    .home-component-item{
+    .robot-component-item{
       background: #f5f5f5;
       border-radius: 16px;
       width: calc((100% - 40px) / 2);
@@ -70,17 +70,17 @@ const gotoDocs = () => {
       overflow: hidden;
       
       &:hover {
-        .home-component-container-left-mask,
-        .home-component-container-right-mask {
+        .robot-component-container-left-mask,
+        .robot-component-container-right-mask {
           opacity: 1;
         }
       }
     }
-    .home-component-container-left{
+    .robot-component-container-left{
       padding: 50px 60px;
     }
-    .home-component-container-left-mask,
-    .home-component-container-right-mask {
+    .robot-component-container-left-mask,
+    .robot-component-container-right-mask {
       position: absolute;
       top: 0;
       left: 0;
@@ -101,7 +101,7 @@ const gotoDocs = () => {
           height: 48px;
         }
     }
-    .home-component-container-right{
+    .robot-component-container-right{
       padding: 50px 45px;
       display: flex;
       align-items: center;

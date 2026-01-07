@@ -1,20 +1,20 @@
 <template>
   <div class="home">
-    <HomeTop />
-    <HomeTechnicalCore />
-    <HomeAccess />
-    <HomeServiceScene />
-    <HomeComponent />
-    <HomeSceneCases />
+    <FirstScreen />
+    <TechnicalCore />
+    <IntelligentExperience />
+    <ServiceScene />
+    <RobotComponent />
+    <SceneCases />
   </div>
 </template>
 <script setup>
-import HomeTop from "./homeTop.vue"
-import HomeTechnicalCore from "./homeTechnicalCore.vue"
-import HomeAccess from "./homeAccess.vue"
-import HomeServiceScene from "./homeServiceScene.vue"
-import HomeComponent from "./homeComponent.vue"
-import HomeSceneCases from "./homeSceneCases.vue"
+import FirstScreen from "./FirstScreen.vue"
+import TechnicalCore from "./TechnicalCore.vue"
+import IntelligentExperience from "./IntelligentExperience.vue"
+import ServiceScene from "./ServiceScene.vue"
+import RobotComponent from "./RobotComponent.vue"
+import SceneCases from "./SceneCases.vue"
 </script>
 <style lang="less" scoped>
 .home{
@@ -23,32 +23,27 @@ import HomeSceneCases from "./homeSceneCases.vue"
 }
 @media (min-width: 1024px) {
   .home{
-    :deep(.home-top){
-      .home-top-wrap{
+    :deep(.first-screen){
+      .first-screen-wrap{
         max-width: var(--max-width);
       }
     }
-    :deep(.home-technical-core){
+    :deep(.technical-core){
       max-width: var(--max-width);
     }
-    :deep(.home-access){
+    :deep(.intelligent-experience){
       max-width: var(--max-width);
     }
-    :deep(.home-service-scene){
-      .home-service-scene-container{
+    :deep(.service-scene){
+      .service-scene-container{
         max-width: var(--max-width);
       }
     }
-    :deep(.home-component){
+    :deep(.robot-component){
       max-width: var(--max-width);
     }
-    :deep(.home-scene-cases){
+    :deep(.scene-cases){
       max-width: var(--max-width);
-    }
-    :deep(.home-about-us){
-      .home-about-us-container{
-        max-width: var(--max-width);
-      }
     }
   }
 }

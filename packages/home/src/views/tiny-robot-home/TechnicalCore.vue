@@ -1,18 +1,18 @@
 <template>
-  <div class="home-technical-core">
-    <div class="home-technical-core-title">{{ state.title }}</div>
-    <div class="home-technical-core-subtitle">{{ state.subtitle }}</div>
-    <div class="home-technical-core-content">
+  <div class="technical-core">
+    <div class="technical-core-title">{{ state.title }}</div>
+    <div class="technical-core-subtitle">{{ state.subtitle }}</div>
+    <div class="technical-core-content">
       <div
         v-for="(content, index) in state.list"
         :key="index"
-        :class="`home-technical-core-item home-technical-core-item-${index % 4}`"
+        :class="`technical-core-item technical-core-item-${index % 4}`"
       >
-        <div class="home-technical-core-item-icon">
+        <div class="technical-core-item-icon">
           <img :src="content.icon" :alt="content.title" />
         </div>
-        <div class="home-technical-core-item-title">{{ content.title }}</div>
-        <div class="home-technical-core-item-description">
+        <div class="technical-core-item-title">{{ content.title }}</div>
+        <div class="technical-core-item-description">
           <div v-for="(item, idx) in content.description" :key="idx">
             {{ item }}
           </div>
@@ -56,35 +56,35 @@ const state = reactive({
 })
 </script>
 <style lang="less" scoped>
-.home-technical-core {
+.technical-core {
   margin: 0 auto;
-  .home-technical-core-title {
+  .technical-core-title {
     font-size: 48px;
     line-height: 64px;
     text-align: center;
     margin-top: 120px;
     font-weight: 700;
   }
-  .home-technical-core-subtitle {
+  .technical-core-subtitle {
     font-size: 20px;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
     color: #808080;
   }
-  .home-technical-core-content {
+  .technical-core-content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 45px;
     margin-top: 66px;
-    .home-technical-core-item {
+    .technical-core-item {
       padding: 50px 40px;
       width: calc((100% - 135px) / 4);
       box-shadow: 0 0 20px 0 #ededed;
       border: 3px solid #fff;
       border-radius: 16px;
-      .home-technical-core-item-icon {
+      .technical-core-item-icon {
         font-size: 66px;
       }
       &-0 {
@@ -99,14 +99,14 @@ const state = reactive({
       &-3 {
         background: linear-gradient(to bottom, #fff9f3, #fff);
       }
-      .home-technical-core-item-title {
+      .technical-core-item-title {
         color: #191919;
         font-size: 24px;
         line-height: 32px;
         font-weight: 600;
         margin-top: 36px;
       }
-      .home-technical-core-item-description {
+      .technical-core-item-description {
         color: #808080;
         font-size: 16px;
         line-height: 26px;

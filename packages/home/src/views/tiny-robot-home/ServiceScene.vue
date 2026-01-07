@@ -1,9 +1,9 @@
 <template>
-  <div class="home-service-scene">
-    <div class="home-service-scene-container">
-      <div class="home-service-scene-title">{{ state.title }}</div>
-      <div class="home-service-scene-subtitle">{{ state.subtitle }}</div>
-      <div class="home-service-scene-content">
+  <div class="service-scene">
+    <div class="service-scene-container">
+      <div class="service-scene-title">{{ state.title }}</div>
+      <div class="service-scene-subtitle">{{ state.subtitle }}</div>
+      <div class="service-scene-content">
         <div class="tabs">
           <div
             v-for="scene in state.scenes"
@@ -122,18 +122,18 @@ const gotoChat = () => {
 }
 </script>
 <style lang="less" scoped>
-.home-service-scene {
-  .home-service-scene-container {
+.service-scene {
+  .service-scene-container {
     margin: 0 auto;
     margin-top: 120px;
     margin-bottom: 100px;
-    .home-service-scene-title {
+    .service-scene-title {
       font-size: 48px;
       line-height: 64px;
       text-align: center;
       font-weight: 700;
     }
-    .home-service-scene-subtitle {
+    .service-scene-subtitle {
       font-size: 20px;
       line-height: 28px;
       margin-top: 16px;

@@ -1,22 +1,22 @@
 <template>
-  <div class="home-top">
-    <div class="home-top-wrap">
-      <div class="home-top-content">
-        <div class="home-top-content-title">{{ state.title }}</div>
-        <div class="home-top-content-subtitle">{{ state.subtitle }}</div>
-        <div class="home-top-content-text">{{ state.description }}</div>
-        <div class="home-top-content-sender">
-          <div class="home-top-content-sender-content">
+  <div class="first-screen">
+    <div class="first-screen-wrap">
+      <div class="first-screen-content">
+        <div class="first-screen-content-title">{{ state.title }}</div>
+        <div class="first-screen-content-subtitle">{{ state.subtitle }}</div>
+        <div class="first-screen-content-text">{{ state.description }}</div>
+        <div class="first-screen-content-sender">
+          <div class="first-screen-content-sender-content">
             {{ displayText }}<span class="cursor"></span>
           </div>
-          <img class="home-top-content-sender-icon" :src="state.senderImg" alt="">
+          <img class="first-screen-content-sender-icon" :src="state.senderImg" alt="">
         </div>
-        <div class="home-top-content-footer">
+        <div class="first-screen-content-footer">
           <tiny-button type="primary" round @click="gotoChat">体验智能助手</tiny-button>
           <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
       </div>
-      <div class="home-top-image">
+      <div class="first-screen-image">
         <img :src="state.image" />
       </div>
     </div>
@@ -113,25 +113,25 @@ onUnmounted(() => {
 })
 </script>
 <style lang="less" scoped>
-.home-top {
+.first-screen {
   background-image: url(@/assets/images/home/tinyrobot_top_banner.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  .home-top-wrap {
+  .first-screen-wrap {
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .home-top-content {
+    .first-screen-content {
       max-width: 682px;
-      .home-top-content-title {
+      .first-screen-content-title {
         font-size: 52px;
         font-weight: 700;
         line-height: 72px;
         color: #191919;
       }
-      .home-top-content-subtitle {
+      .first-screen-content-subtitle {
         font-size: 52px;
         font-weight: 700;
         line-height: 72px;
@@ -139,14 +139,14 @@ onUnmounted(() => {
         background-clip: text;
         color: transparent;
       }
-      .home-top-content-text {
+      .first-screen-content-text {
         font-size: 18px;
         font-weight: 400;
         line-height: 26px;
         margin-top: 30px;
         color: #808080;
       }
-      .home-top-content-sender {
+      .first-screen-content-sender {
         margin-top: 52px;
         max-width: 514px;
         background: #fff;
@@ -156,7 +156,7 @@ onUnmounted(() => {
         padding: 12px 16px;
         display: flex;
         align-items: center;
-        .home-top-content-sender-content{
+        .first-screen-content-sender-content{
           width: calc(100% - 48px);
           color: #191919;
           font-size: 16px;
@@ -182,12 +182,12 @@ onUnmounted(() => {
             }
           }
         }
-        .home-top-content-sender-icon{
+        .first-screen-content-sender-icon{
           font-size: 34px;
           margin-left: 16px;
         }
       }
-      .home-top-content-footer {
+      .first-screen-content-footer {
         margin-top: 54px;
         :deep(.tiny-button) {
           font-size: 18px;
@@ -199,7 +199,7 @@ onUnmounted(() => {
         }
       }
     }
-    .home-top-image {
+    .first-screen-image {
       margin-top: 120px;
       margin-bottom: 130px;
       img {
