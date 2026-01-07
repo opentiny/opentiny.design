@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.31"
+    "vue": "^3.4.31",
+    "vite-plugin-static-copy": "2.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",

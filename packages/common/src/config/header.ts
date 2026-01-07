@@ -1,12 +1,12 @@
 const envName = import.meta.env.VITE_EnvName
-import tinyNG from '../assets/appIcon/tiny-ng.svg'
-import tinyCharts from '../assets/appIcon/tiny-chart.svg'
-// import tinyVueMobile from '../assets/appIcon/tiny-vue-mobile.svg'
-import tinyCli from '../assets/appIcon/tiny-cli.svg'
+import tinyAbout from '../../../home/public/images/logo-about.svg'
+import tinyAi from '../../../home/public/images/logo-ai-extension.svg'
+import tinyTech from '../../../home/public/images/logo-tech.svg'
 import tinyEngine from '../assets/appIcon/tiny-engine.svg'
-import tinyPro from '../assets/appIcon/tiny-pro.svg'
+import tinySdks from '../assets/appIcon/next-sdk.svg'
 import tinyVue from '../assets/appIcon/tiny-vue.svg'
 import tinyRobot from '../assets/appIcon/tiny-robot.svg'
+import sketch from '../../../home/public/images/logo-sketch.svg'
 
 export default [
   {
@@ -14,103 +14,145 @@ export default [
     url: '/opentiny-design/tiny-vue',
     children: [],
     logo: tinyVue,
+    desc: '智能组件库',
     github: 'https://github.com/opentiny/tiny-vue',
     isUnderline: () => location.pathname === '/opentiny-design/tiny-vue'
   },
   {
     name: 'TinyEngine',
-    url: '/tiny-engine',
+    url: '/opentiny-design/tiny-engine',
     children: [],
     logo: tinyEngine,
+    desc: '智能搭建平台',
     github: 'https://github.com/opentiny/tiny-engine',
-    isUnderline: () => location.pathname === '/tiny-engine'
+    isUnderline: () => location.pathname === '/opentiny-design/tiny-engine'
   },
   {
     name: 'TinyRobot',
     url: '/opentiny-design/tiny-robot',
     children: [],
     logo: tinyRobot,
+    desc: '智能助手',
     hide: false,
     github: 'https://github.com/opentiny/tiny-robot',
     isUnderline: () => location.pathname === '/opentiny-design/tiny-robot'
   },
   {
+    name: 'Next-SDKs',
+    desc: '开发套件',
+    url: '/opentiny-design/next-sdks',
+    logo: tinySdks,
+    hide: false,
+    github: 'https://github.com/opentiny/next-sdk',
+    children: [],
+    isUnderline: () => location.pathname === '/opentiny-design/next-sdks'
+  },
+  {
+    name: 'AI-Extension',
+    desc: 'AI 浏览器扩展插件',
+    url: '/opentiny-design/ai-extension',
+    logo: tinyAi,
+    hide: false,
+    github: 'https://github.com/opentiny/tiny-robot',
+    children: [],
+    isUnderline: () => location.pathname === '/opentiny-design/ai-extension'
+  },
+  {
+    type: 'other',
     name: '演练场',
-    url: 'https://opentiny.github.io/playground',
-    children: []
-  },
-  {
-    name: '开发文档',
-    url: 'https://docs.opentiny.design',
-    children: []
-  },
-  {
-    name: '技术学院',
-    url: '/opentiny-design/tech',
-    children: [],
-    isUnderline: () => location.pathname.startsWith('/opentiny-design/tech')
-  },
-  {
-    name: '关于我们',
-    url: '/opentiny-design/about',
-    children: [],
-    isUnderline: () => location.pathname.startsWith('/opentiny-design/about')
-  },
-  {
-    name: '生态产品',
     url: '',
     children: [
       {
+        title: 'TinyVue',
+        desc: 'Vue组件库',
+        href: 'https://playground.opentiny.design/tiny-vue.html',
+        logo: tinyVue,
+        github: 'https://github.com/opentiny/playground'
+      },
+      {
+        title: 'TinyEngine',
+        desc: '低代码引擎',
+        href: 'https://playground.opentiny.design/tiny-engine.html',
+        logo: tinyEngine,
+        github: 'https://github.com/opentiny/playground'
+      },
+      {
+        title: 'TinyRobot',
+        desc: 'AI智能助手',
+        href: 'https://playground.opentiny.design/tiny-robot.html',
+        logo: tinyRobot,
+        github: 'https://github.com/opentiny/playground'
+      },
+      {
         title: 'NEXT-SDKs',
-        desc: '前端智能应用开发工具包',
-        href: '/opentiny-design/next-sdks',
+        desc: '智能应用开发工具包',
+        href: '',
+        logo: tinySdks,
+        github: 'https://github.com/opentiny/playground'
+      }
+    ]
+  },
+  {
+    type: 'other',
+    name: '开发文档',
+    url: '',
+    children: [
+      {
+        title: 'TinyVue',
+        desc: '智能组件库',
+        href: 'https://docs.opentiny.design/tiny-vue/guide/introduce.html',
+        logo: tinyVue,
+        github: 'https://github.com/opentiny/docs'
+      },
+      {
+        title: 'TinyEngine',
+        desc: '智能搭建平台',
+        href: 'https://docs.opentiny.design/tiny-engine/guide/introduction.html',
+        logo: tinyEngine,
+        github: 'https://github.com/opentiny/docs'
+      },
+      {
+        title: 'TinyRobot',
+        desc: '智能助手',
+        href: 'https://docs.opentiny.design/tiny-robot/guide/quick-start.html',
         logo: tinyRobot,
-        hide: false,
-        github: 'https://github.com/opentiny/next-sdk'
+        github: 'https://github.com/opentiny/docs'
       },
       {
-        title: 'AI-Extension',
-        desc: 'AI 扩展插件',
-        href: '/opentiny-design/ai-extension',
-        logo: tinyRobot,
-        hide: false,
-        github: 'https://github.com/opentiny/tiny-robot'
-      },
-      {
-        title: 'TinyPro',
-        desc: '中后台最佳实践',
-        href: '/pro',
-        logo: tinyPro,
-        hide: true,
-        github: 'https://github.com/opentiny/tiny-cli'
-      },
-      {
-        title: 'TinyCharts',
-        desc: '图表组件库',
-        href: '/tiny-charts',
-        logo: tinyCharts,
-        github: 'https://github.com/opentiny/tiny-charts'
-      },
-      {
-        title: 'TinyNG',
-        desc: 'Angular组件库',
-        href: '/tiny-ng',
-        logo: tinyNG,
-        hide: envName === 'inner',
-        github: 'https://github.com/opentiny/ng'
-      },
-      {
-        title: 'TinyCLI',
-        desc: '官方脚手架',
-        href: '/tiny-cli/home',
-        logo: tinyCli,
-        hide: true,
-        github: 'https://github.com/opentiny/tiny-cli'
-      },
+        title: 'Next-SDKs',
+        desc: '开发套件',
+        href: 'https://docs.opentiny.design/next-sdk/guide/',
+        logo: tinySdks,
+        github: 'https://github.com/opentiny/docs'
+      }
     ],
-    isUnderline: () =>
-      ['tiny-cli', 'tiny-charts', 'designtheme', 'pro', 'tiny-engine', 'tiny-ng', 'tiny-vue-mobile'].some((app) =>
-        location.pathname.includes(app)
-      )
+  },
+  {
+    type: 'other',
+    name: '开发资源',
+    url: '',
+    children: [
+      {
+        title: '技术学院',
+        desc: '轻松 get 开发技巧',
+        href: '/opentiny-design/tech',
+        logo: tinyTech,
+        github: 'https://github.com/opentiny/opentiny.design'
+      },
+      {
+        title: '关于我们',
+        desc: '一起加入我们',
+        href: '/opentiny-design/about',
+        logo: tinyAbout,
+        github: 'https://github.com/opentiny/opentiny.design'
+      },
+      {
+        title: 'Sketch 资源下载',
+        desc: 'Sketch 组件资源包',
+        href: '/downloadFile/TinyVue3\.0_UI\.KIT_202508\.sketch',
+        logo: sketch,
+        github: ''
+      }
+    ]
   }
 ]

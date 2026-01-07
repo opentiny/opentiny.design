@@ -25,6 +25,8 @@ import MoonSvg from '../assets/theme-icon/moon.svg'
 import { useDark, useToggle } from "@vueuse/core"
 
 import useClickOutside from './useClickOutside'
+import left from '@/assets/tech/arrow-left.svg';
+import other from '@/assets/tech/other.svg';
 
 // 来自环境变量
 const envName = import.meta.env.VITE_EnvName
@@ -62,7 +64,14 @@ const subLogo = subLogoConfig[currApp] || null
 
 interface UserInfo { userId: string; userIcon: string }
 const state = reactive({
-  headerInfo: props.options?.customMenus || headerInfo,
+   headerInfo: (props.options?.customMenus || headerInfo.filter(item => 
+    item.type !== 'other'
+  )).map(item => ({ ...item, active: false })), // 添加 active 字段
+  
+  otherAppInfo: headerInfo.filter(item => 
+    item.type === 'other'
+  ).map(item => ({ ...item, active: false })), // 添加 active 字段
+  allInfo: props.options?.customMenus || headerInfo,
   // isLogin: true,
   // userInfo: { userId: 'shenjunjian', userIcon: UserIcon1 } as unknown as UserInfo
   isLogin: false,
@@ -306,34 +315,50 @@ const toggleTheme = (event: MouseEvent) => {
     <div class="nav-center">
       <!-- 居中渲染一级目录 -->
       <template v-for="level1 in state.headerInfo">
-        <div class="top-menu flex-center" :class="{ active: level1.active, underlined: level1.underlined }"
-          v-if="!level1.hide" :key="level1.name" @mouseenter="enterTopMenu(level1)" @mouseleave="leaveTopMenu(level1)">
-          <a v-if="level1.url" :href="level1.url"> {{ level1.name }} </a>
-          <span v-else>{{ level1.name }} </span>
+        <div class="top-menu flex-center"
+          v-if="!level1.hide" :key="level1.name">
+          <a v-if="level1.url" :href="level1.url" rel="noopener noreferrer" class="flex-center"> 
+            <img class="app-logo" :src="level1.logo"></img> 
+            <div>
+              <div class="app-name"> {{ level1.name }} </div>
+              <div class="app-desc"> {{ level1.desc }} </div>
+            </div>
+          </a>
+        </div>
+      </template>
+    </div>
+    <!-- 3、大屏菜单右边，github + 头像 + 登录 -->
+    <div class="nav-right flex-center">
+        <div 
+          v-for="level1 in state.otherAppInfo" 
+          class="top-menu flex-center mg-r-40" 
+          :key="level1.name"  
+          :class="{ active: level1.active, underlined: level1.underlined }" 
+          @mouseenter="enterTopMenu(level1)" 
+          @mouseleave="leaveTopMenu(level1)"
+        >
+          <span class="top-menu-title">{{ level1.name }}</span>
           <svg v-if="level1.children?.length" class="top-menu-svg hand" width="20" height="20" viewBox="0 0 20 20"
             fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path id="Fill" d="M10 13.75L3.75 7.5L4.62 6.62L10 12L15.37 6.62L16.25 7.5L10 13.75Z" fill="currentColor"
               fill-opacity="1" fill-rule="evenodd" />
           </svg>
 
-          <div v-show="level1.children?.length" class="dropdown-menu">
-            <div class="dropdown-content flex-center">
+          <div v-show="level1.children?.length" class="dropdown-menu dropdown-column">
+            <p class="dropdown-content-title">{{ level1.name }}</p>
+            <div class="dropdown-content flex-center dropdown-100">
               <div class="dropdown-app hand" v-for="app in level1.children.filter(lv => !lv.hide)" :key="app.title">
                 <a class="dropdown-app" :href="app.href" rel="noopener noreferrer">
-                  <img class="app-logo" :src="app.logo"></img>
+                  <img class="app-dropdown-logo" :src="app.logo"></img>
                   <div>
                     <div class="app-title"> {{ app.title }} </div>
-                    <div class="app-desc"> {{ app.desc }} </div>
+                    <div class="app-desc-child"> {{ app.desc }} </div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </template>
-    </div>
-    <!-- 3、大屏菜单右边，github + 头像 + 登录 -->
-    <div class="nav-right flex-center">
       <component v-if="props.options?.rightVue" :is="props.options?.rightVue" />
       <template v-else>
         <div v-if="props.options?.allowDarkTheme" class="switch-theme-box" @click="switchThemeClick">
@@ -381,7 +406,7 @@ const toggleTheme = (event: MouseEvent) => {
 
       <div class="mobile-menu-wrapper">
         <!-- 渲染一级目录 -->
-        <div v-for="level1 in state.headerInfo" class="mobile-menu " :class="{ active: level1.m_active }"
+        <div v-for="level1 in state.allInfo" class="mobile-menu " :class="{ active: level1.m_active }"
           :key="level1.name" @click="clickMobileMenu(level1)">
           <div class="mobile-menu-level1 flex-center">
             <div class="mobile-title text-main">
@@ -479,6 +504,11 @@ const toggleTheme = (event: MouseEvent) => {
   }
 }
 
+.dropdown-100 {
+  width: 100%;
+  margin-left: 296px;
+}
+
 // flex-center
 .flex-center {
   display: flex;
@@ -509,32 +539,104 @@ const toggleTheme = (event: MouseEvent) => {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1670px) {
+  .opentiny-design-header {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;  // 两列：左侧内容 + 右侧nav-right
+      grid-template-rows: auto auto;      // 两行
+      align-items: center;
+
+    .nav-left {
+      grid-column: 1;  // 第1列
+      grid-row: 1;     // 第1行
+    }
+
+    .nav-center {
+      grid-column: 1 / -1;  // 跨越所有列
+      grid-row: 2;          // 第2行
+      margin-left: 0 !important;  // 移除原来的左边距
+      flex-wrap: wrap;      // 允许内部换行
+      margin: 16px 0; // 上下间距10px
+    }
+
+    .nav-right {
+      grid-column: 2;  // 第2列
+      grid-row: 1;     // 第1行
+      margin-left: 0;  // 移除auto margin
+      .top-menu {
+        .dropdown-menu {
+          .dropdown-content-title {
+            margin: 10px 0 0 112px;
+          }
+          .dropdown-100 {
+            margin-left: 96px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1671px) {
+  .opentiny-design-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     --top-height: 64px;
+     height: var(--top-height);
+  }
+}   
+
 .opentiny-design-header {
-  --top-height: 64px;
-  // 关键指标
-  position: fixed;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 999;
+     top: 0;
+     position: fixed;
+     z-index: 999;
+     box-sizing: border-box;
+     width: 100vw;
+     padding: 0 32px;
+     background-color: #fff;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  box-sizing: border-box;
-  width: 100vw;
-  height: var(--top-height);
-  padding: 0 32px;
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
-  // 通用样式
-  font-family: PingFangSC;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  transition: all 0.3s;
-
+     // 通用样式
+     font-family: PingFangSC;
+     font-size: 14px;
+     line-height: 22px;
+     font-weight: 400;
+     transition: all 0.3s;
   * {
     box-sizing: border-box;
+  }
+
+  & {
+    .app-logo {
+      width: 28px;
+      height: 28px;
+    }
+    .app-dropdown-logo {
+      width: 24px;
+      height: 24px;
+      margin-right: 16px;
+    }
+    .app-name {
+      display: inline-block;
+      margin-left: 12px;
+      font-size: 16px;
+      line-height: 14px;
+      font-weight: 400;
+      color: #191919;
+    }
+    .app-desc {
+      font-size: 12px;
+      line-height: 12px;
+      color: #808080;
+      margin-left: 12px;
+    }
+    .app-desc-child {
+      font-size: 12px;
+      line-height: 18px;
+      color: #808080;
+    }
   }
 
   .nav-left {
@@ -564,11 +666,12 @@ const toggleTheme = (event: MouseEvent) => {
   }
 
   .nav-center {
+    margin-left: 118px;
     display: flex;
     align-items: center;
 
     .top-menu {
-      height: var(--top-height);
+      height: 64px;
       margin-right: 48px;
       border-bottom: 2px solid transparent; // 占位
 
@@ -577,35 +680,77 @@ const toggleTheme = (event: MouseEvent) => {
         color: black;
       }
 
-      .top-menu-svg {
-        height: 20px;
-        width: 20px;
-        margin-left: 4px;
+      &.underlined {
+        border-bottom: 2px solid #000;
+      }
+    }
+  }
 
-        transition: all 0.4s;
+  .nav-right {
+    margin-left: auto;
+
+    .top-menu-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      color: #191919;
+    }
+
+    .top-menu-svg {
+      height: 20px;
+      width: 20px;
+      margin-left: 4px;
+      transition: all 0.4s;
+    }
+
+    .mg-r-40 {
+      margin-right: 40px;
+    }
+
+    
+    & .active {
+      // border-bottom: 2px solid #000;
+      .dropdown-menu {
+        max-height: 290px;
       }
 
-      // 下拉面板 默认撑满宽度
-      .dropdown-menu {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        left: 0;
-        top: var(--top-height);
-        width: 100vw;
-        background-color: #fff;
-        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.08);
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.3s linear;
+      .top-menu-svg {
+        transform: rotateZ(180deg);
+      }
+    }
 
-        .dropdown-content {
-          padding: 40px 0;
-          max-width: 70vw;
+    .dropdown-column {
+      flex-direction: column;
+    }
+
+    // 下拉面板 默认撑满宽度
+    .dropdown-menu {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 64px;
+      width: 100vw;
+      height: 208px;
+      background-color: #fff;
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s linear;
+
+      .dropdown-content-title {
+        color: #808080;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 14px;
+        margin: 60px 0 0 312px;
+      }
+
+      .dropdown-content {
+          padding: 32px 0;
           flex-wrap: wrap;
           justify-content: flex-start;
           gap: 24px;
-
 
           .dropdown-app {
             display: flex;
@@ -624,8 +769,8 @@ const toggleTheme = (event: MouseEvent) => {
 
             .app-title {
               color: #191919;
-              font-size: 16px;
-              font-weight: 600;
+              font-size: 14px;
+              font-weight: 400;
               line-height: 24px;
             }
 
@@ -640,32 +785,11 @@ const toggleTheme = (event: MouseEvent) => {
               background-color: #f5f5f5;
             }
           }
-        }
-      }
-
-      &.active {
-        // border-bottom: 2px solid #000;
-
-        .dropdown-menu {
-          max-height: 290px;
-        }
-
-        .top-menu-svg {
-          transform: rotateZ(180deg);
-        }
-      }
-
-      &.underlined {
-        border-bottom: 2px solid #000;
       }
     }
-  }
-
-  .nav-right {
-    // width: 128px;
 
     .github-img {
-      color: #000;
+      color: #191919;
       width: 28px;
       height: 28px;
     }
@@ -894,24 +1018,6 @@ const toggleTheme = (event: MouseEvent) => {
       }
 
       .top-menu {
-        .dropdown-menu {
-          background-color: #1a1a1a;
-
-          .dropdown-app {
-            &:hover {
-              background-color: #000;
-            }
-
-            .app-title {
-              color: #e6e6e6;
-            }
-
-            .app-desc {
-              color: #b3b3b3;
-            }
-          }
-        }
-
         &.underlined {
           border-bottom: 2px solid #808080;
         }
@@ -919,6 +1025,24 @@ const toggleTheme = (event: MouseEvent) => {
     }
 
     .nav-right {
+      .dropdown-menu {
+        background-color: #1a1a1a;
+
+        .dropdown-app {
+          &:hover {
+            background-color: #000;
+          }
+
+          .app-title {
+            color: #e6e6e6;
+          }
+
+          .app-desc {
+            color: #b3b3b3;
+          }
+        }
+      }
+
       .github-img {
         color: #b3b3b3;
       }
