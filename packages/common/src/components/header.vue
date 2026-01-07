@@ -25,8 +25,6 @@ import MoonSvg from '../assets/theme-icon/moon.svg'
 import { useDark, useToggle } from "@vueuse/core"
 
 import useClickOutside from './useClickOutside'
-import left from '@/assets/tech/arrow-left.svg';
-import other from '@/assets/tech/other.svg';
 
 // 来自环境变量
 const envName = import.meta.env.VITE_EnvName
@@ -318,7 +316,7 @@ const toggleTheme = (event: MouseEvent) => {
         <div class="top-menu flex-center"
           v-if="!level1.hide" :key="level1.name">
           <a v-if="level1.url" :href="level1.url" rel="noopener noreferrer" class="flex-center"> 
-            <img class="app-logo" :src="level1.logo"></img> 
+            <img class="app-logo" :src="level1.logo" />
             <div>
               <div class="app-name"> {{ level1.name }} </div>
               <div class="app-desc"> {{ level1.desc }} </div>
@@ -349,7 +347,7 @@ const toggleTheme = (event: MouseEvent) => {
             <div class="dropdown-content flex-center dropdown-100">
               <div class="dropdown-app hand" v-for="app in level1.children.filter(lv => !lv.hide)" :key="app.title">
                 <a class="dropdown-app" :href="app.href" rel="noopener noreferrer">
-                  <img class="app-dropdown-logo" :src="app.logo"></img>
+                  <img class="app-dropdown-logo" :src="app.logo" />
                   <div>
                     <div class="app-title"> {{ app.title }} </div>
                     <div class="app-desc-child"> {{ app.desc }} </div>
@@ -362,7 +360,7 @@ const toggleTheme = (event: MouseEvent) => {
       <component v-if="props.options?.rightVue" :is="props.options?.rightVue" />
       <template v-else>
         <div v-if="props.options?.allowDarkTheme" class="switch-theme-box" @click="switchThemeClick">
-          <img class="switch-theme-icon" :src="isDark ? MoonSvg : SunSvg">
+          <img class="switch-theme-icon" :src="isDark ? MoonSvg : SunSvg" />
         </div>
         <a :href="githubMap[currApp] || '//github.com/opentiny'" target="_blank" rel="noopener noreferrer">
           <svg class="github-img" width="34px" height="34px" viewBox="0 0 34 34" version="1.1"
