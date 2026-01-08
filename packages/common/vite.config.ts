@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     viteStaticCopy({
       targets: [
         {
-          src: '../../home/public/downloadFile/*',
+          src: '../home/public/downloadFile/*',
           dest: `dist/home/downloadFile`
         }
       ]
