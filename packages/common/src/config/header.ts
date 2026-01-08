@@ -8,7 +8,9 @@ import tinyVue from '../assets/appIcon/tiny-vue.svg'
 import tinyRobot from '../assets/appIcon/tiny-robot.svg'
 import sketch from '../../../home/public/images/logo-sketch.svg'
 
-export default [
+const createIsUnderline = (path) => () => location.pathname.startsWith(path)
+
+const menuItems = [
   {
     name: 'TinyVue',
     url: '/opentiny-design/tiny-vue',
@@ -16,7 +18,7 @@ export default [
     logo: tinyVue,
     desc: '智能组件库',
     github: 'https://github.com/opentiny/tiny-vue',
-    isUnderline: () => location.pathname === '/opentiny-design/tiny-vue'
+    isUnderline: createIsUnderline('/opentiny-design/tiny-vue')
   },
   {
     name: 'TinyEngine',
@@ -25,7 +27,7 @@ export default [
     logo: tinyEngine,
     desc: '智能搭建平台',
     github: 'https://github.com/opentiny/tiny-engine',
-    isUnderline: () => location.pathname === '/opentiny-design/tiny-engine'
+    isUnderline: createIsUnderline('/opentiny-design/tiny-engine')
   },
   {
     name: 'TinyRobot',
@@ -35,7 +37,7 @@ export default [
     desc: '智能助手',
     hide: false,
     github: 'https://github.com/opentiny/tiny-robot',
-    isUnderline: () => location.pathname === '/opentiny-design/tiny-robot'
+    isUnderline: createIsUnderline('/opentiny-design/tiny-robot')
   },
   {
     name: 'Next-SDKs',
@@ -45,7 +47,7 @@ export default [
     hide: false,
     github: 'https://github.com/opentiny/next-sdk',
     children: [],
-    isUnderline: () => location.pathname === '/opentiny-design/next-sdks'
+    isUnderline: createIsUnderline('/opentiny-design/next-sdks')
   },
   {
     name: 'AI-Extension',
@@ -54,8 +56,7 @@ export default [
     logo: tinyAi,
     hide: false,
     github: 'https://github.com/opentiny/tiny-robot',
-    children: [],
-    isUnderline: () => location.pathname === '/opentiny-design/ai-extension'
+    isUnderline: createIsUnderline('/opentiny-design/ai-extension')
   },
   {
     type: 'other',
@@ -87,6 +88,7 @@ export default [
         title: 'NEXT-SDKs',
         desc: '智能应用开发工具包',
         href: '',
+        hide: true,
         logo: tinySdks,
         github: 'https://github.com/opentiny/playground'
       }
@@ -125,7 +127,7 @@ export default [
         logo: tinySdks,
         github: 'https://github.com/opentiny/docs'
       }
-    ],
+    ]
   },
   {
     type: 'other',
@@ -156,3 +158,5 @@ export default [
     ]
   }
 ]
+
+export default menuItems
