@@ -1,4 +1,3 @@
-const envName = import.meta.env.VITE_EnvName
 import tinyAbout from '../../../home/public/images/logo-about.svg'
 import tinyAi from '../../../home/public/images/logo-ai-extension.svg'
 import tinyTech from '../../../home/public/images/logo-tech.svg'
@@ -9,6 +8,19 @@ import tinyRobot from '../assets/appIcon/tiny-robot.svg'
 import sketch from '../../../home/public/images/logo-sketch.svg'
 
 const createIsUnderline = (path) => () => location.pathname.startsWith(path)
+const downloadFile = (filePath:string, fileName:string) => {
+  const link = document.createElement('a')
+
+  // 确保 filePath 不以斜杠开头
+  const href = filePath.startsWith('/') ? filePath.slice(1) : filePath
+  // 根据环境设置 link.href
+  link.href = `${import.meta.env.BASE_URL}${href}`
+  link.download = fileName || 'download-file'
+  document.body.appendChild(link)
+
+  link.click()
+  document.body.removeChild(link)
+}
 
 const menuItems = [
   {
@@ -151,9 +163,14 @@ const menuItems = [
       {
         title: 'Sketch 资源下载',
         desc: 'Sketch 组件资源包',
-        href: '/downloadFile/TinyVue3.0_UI.KIT_202508.sketch',
+        href: `/downloadFile/TinyVue3.0_UI.KIT_202508.sketch`,
         logo: sketch,
-        github: ''
+        github: '',
+        download: true,
+        onClick: (event: MouseEvent) => { 
+          event.preventDefault();
+          downloadFile(`/downloadFile/TinyVue3\.0_UI\.KIT_202508\.sketch`, 'sketch')
+        }
       }
     ]
   }
