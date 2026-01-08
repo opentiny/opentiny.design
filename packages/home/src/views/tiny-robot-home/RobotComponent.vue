@@ -1,14 +1,14 @@
 <template>
   <div class="robot-component">
-    <div class="robot-component-title">{{ state.title }}</div>
-    <div class="robot-component-subtitle">{{ state.subtitle }}</div>
+    <div class="robot-component-title">{{ info.title }}</div>
+    <div class="robot-component-subtitle">{{ info.subtitle }}</div>
     <div class="robot-component-container">
       <div class="robot-component-item">
         <div class="robot-component-container-left-mask">
            <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
         <div class="robot-component-container-left">
-          <img :src="state.image1">
+          <img :src="info.image1">
         </div>
       </div>
       <div class="robot-component-item">
@@ -16,24 +16,23 @@
            <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
         <div class="robot-component-container-right">
-          <img :src="state.image2">
+          <img :src="info.image2">
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue'
 import componentImg1 from '@/assets/images/home/tinyrobot_component1.svg'
 import componentImg2 from '@/assets/images/home/tinyrobot_component2.svg'
 import { TinyButton } from '@opentiny/vue'
 
-const state = reactive({
+const info = {
   title: '典型组件展示',
   subtitle: '开箱即用的AI对话模块',
   image1: componentImg1,
   image2: componentImg2
-})
+}
 
 const gotoDocs = () => {
   window.open('https://docs.opentiny.design/tiny-robot/guide/quick-start')

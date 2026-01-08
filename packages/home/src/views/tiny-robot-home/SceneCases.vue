@@ -1,10 +1,10 @@
 <template>
   <div class="scene-cases">
-    <div class="scene-cases-title">{{ state.title }}</div>
-    <div class="scene-cases-subtitle">{{ state.subtitle }}</div>
+    <div class="scene-cases-title">{{ info.title }}</div>
+    <div class="scene-cases-subtitle">{{ info.subtitle }}</div>
     <div class="scene-cases-container">
       <div
-        v-for="item in state.list"
+        v-for="item in info.list"
         :key="item.name"
         class="item"
         @click="handleClickCase"
@@ -23,7 +23,6 @@
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue'
 import caseImg1 from '@/assets/images/home/tinyrobot_scene_cases_img1.svg'
 import caseImg2 from '@/assets/images/home/tinyrobot_scene_cases_img2.svg'
 import caseImg3 from '@/assets/images/home/tinyrobot_scene_cases_img3.svg'
@@ -31,7 +30,7 @@ import caseImg4 from '@/assets/images/home/tinyrobot_scene_cases_img4.svg'
 import caseImg5 from '@/assets/images/home/tinyrobot_scene_cases_img5.svg'
 import caseImg6 from '@/assets/images/home/tinyrobot_scene_cases_img6.svg'
 
-const state = reactive({
+const info = {
   title: '场景案例',
   subtitle: '是现阶段前端应用快速智能化改造的最佳方案',
   list: [
@@ -66,7 +65,7 @@ const state = reactive({
       imgUrl: caseImg6,
     },
   ],
-})
+}
 
 const handleClickCase = () => {
   window.open('https://chat.opentiny.design')

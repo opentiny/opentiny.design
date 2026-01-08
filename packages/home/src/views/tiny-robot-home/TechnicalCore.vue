@@ -1,10 +1,10 @@
 <template>
   <div class="technical-core">
-    <div class="technical-core-title">{{ state.title }}</div>
-    <div class="technical-core-subtitle">{{ state.subtitle }}</div>
+    <div class="technical-core-title">{{ info.title }}</div>
+    <div class="technical-core-subtitle">{{ info.subtitle }}</div>
     <div class="technical-core-content">
       <div
-        v-for="(content, index) in state.list"
+        v-for="(content, index) in info.list"
         :key="index"
         :class="`technical-core-item technical-core-item-${index % 4}`"
       >
@@ -22,13 +22,12 @@
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue'
 import technicalIcon1 from '@/assets/images/home/tinyrobot_technical_core_icon1.svg'
 import technicalIcon2 from '@/assets/images/home/tinyrobot_technical_core_icon2.svg'
 import technicalIcon3 from '@/assets/images/home/tinyrobot_technical_core_icon3.svg'
 import technicalIcon4 from '@/assets/images/home/tinyrobot_technical_core_icon4.svg'
 
-const state = reactive({
+const info = {
   title: '强大的技术核心',
   subtitle: '驱动本质，重塑未来',
   list: [
@@ -53,7 +52,7 @@ const state = reactive({
       icon: technicalIcon4,
     },
   ],
-})
+}
 </script>
 <style lang="less" scoped>
 .technical-core {

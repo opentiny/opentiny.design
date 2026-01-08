@@ -1,14 +1,14 @@
 <template>
   <div class="intelligent-experience">
-    <div class="intelligent-experience-title">{{ state.title }}</div>
-    <div class="intelligent-experience-subtitle">{{ state.subtitle }}</div>
+    <div class="intelligent-experience-title">{{ info.title }}</div>
+    <div class="intelligent-experience-subtitle">{{ info.subtitle }}</div>
     <div class="intelligent-experience-container">
       <div class="intelligent-experience-image">
-        <img :src="state.image" />
+        <img :src="info.image" />
       </div>
       <div class="intelligent-experience-content">
         <div
-          v-for="(item, index) in state.list"
+          v-for="(item, index) in info.list"
           :key="index"
           class="intelligent-experience-content-item"
         >
@@ -25,13 +25,12 @@
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue'
 import experienceIcon1 from '@/assets/images/home/tinyrobot_experience_icon1.svg'
 import experienceIcon2 from '@/assets/images/home/tinyrobot_experience_icon2.svg'
 import experienceIcon3 from '@/assets/images/home/tinyrobot_experience_icon3.svg'
 import experienceImg from '@/assets/images/home/tinyrobot_experience.svg'
 
-const state = reactive({
+const info = {
   title: '快速接入，智能体验',
   subtitle: '以卓越模型，应万千挑战',
   list: [
@@ -55,7 +54,7 @@ const state = reactive({
     },
   ],
   image: experienceImg,
-})
+}
 </script>
 <style lang="less" scoped>
 .intelligent-experience {
