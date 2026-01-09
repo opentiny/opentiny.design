@@ -3,17 +3,12 @@
     <div class="scene-cases-title">{{ info.title }}</div>
     <div class="scene-cases-subtitle">{{ info.subtitle }}</div>
     <div class="scene-cases-container">
-      <div
-        v-for="item in info.list"
-        :key="item.name"
-        class="item"
-        @click="handleClickCase"
-      >
+      <div v-for="item in info.list" :key="item.name" class="item" @click="handleClickCase">
         <div class="item-image">
           <img :src="item.imgUrl" :alt="item.name" />
         </div>
         <div class="item-name">
-          <span class="item-name__text">{{ item.name }}</span>
+          {{ item.name }}
         </div>
         <div class="item-text">
           {{ item.text }}
@@ -37,34 +32,34 @@ const info = {
     {
       name: '出差申请',
       text: '创建一个下周二去上海五天的出差申请',
-      imgUrl: caseImg1,
+      imgUrl: caseImg1
     },
     {
       name: '数据格式转化',
       text: '将季度销售数据Excel转换为可视化PPT简报',
-      imgUrl: caseImg2,
+      imgUrl: caseImg2
     },
     {
       name: '拜访客户方案',
       text: '生成深圳极端天气可能下的客户拜访应变方案',
-      imgUrl: caseImg3,
+      imgUrl: caseImg3
     },
     {
       name: 'IT设备清单',
       text: '制作新员工入职IT设备申领清单',
-      imgUrl: caseImg4,
+      imgUrl: caseImg4
     },
     {
       name: '筹办技术峰会',
       text: '筹办用户体验技术峰会',
-      imgUrl: caseImg5,
+      imgUrl: caseImg5
     },
     {
       name: '编写英文邮件',
       text: '给客户编写一封英文项目进展汇报邮件',
-      imgUrl: caseImg6,
-    },
-  ],
+      imgUrl: caseImg6
+    }
+  ]
 }
 
 const handleClickCase = () => {
@@ -105,14 +100,10 @@ const handleClickCase = () => {
         width: 100%;
         img {
           width: 100%;
-          height: 265px;
           border-radius: 8px;
         }
       }
       .item-name {
-        display: flex;
-        align-items: center;
-        gap: 8px;
         font-size: 16px;
         color: #808080;
         margin-top: 24px;
@@ -120,7 +111,52 @@ const handleClickCase = () => {
       .item-text {
         font-size: 18px;
         color: #000;
-        margin-top: 10px;
+        margin-top: 14px;
+      }
+      &:hover {
+        box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.13);
+      }
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .scene-cases {
+    margin-top: 34px;
+    margin-bottom: 97px;
+    .scene-cases-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .scene-cases-subtitle {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+    .scene-cases-container {
+      margin-top: 30px;
+      gap: 24px;
+      .item {
+        width: 100%;
+        padding: 14px 14px 20px;
+        border-radius: 12px;
+        box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        .item-image {
+          width: 100%;
+          img {
+            border-radius: 8px;
+          }
+        }
+        .item-name {
+          font-size: 12px;
+          line-height: 16px;
+          margin-top: 16px;
+        }
+        .item-text {
+          font-size: 14px;
+          line-height: 20px;
+          margin-top: 8px;
+        }
       }
     }
   }
