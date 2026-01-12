@@ -103,7 +103,7 @@ export default {
     .list-bg {
       padding: 6px;
       background: #deecff;
-      border-radius: 40px;
+      border-radius: 36px;
     }
     .list-bg:hover {
       box-shadow: 0 4px 60px 0 #e5e8f1;
@@ -113,7 +113,7 @@ export default {
       grid-template-columns: repeat(3, 1fr);
       column-gap: 14%;
       background: #fff;
-      border-radius: 36px;
+      border-radius: 30px;
       padding: 80px 92px;
     }
     .list-item {
