@@ -108,7 +108,7 @@ export default {
     flex-direction: column;
     padding: 3px;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 26px 0 rgba(234, 233, 237, 0.9);
+    box-shadow: 0 4px 26px 0 rgba(234, 233, 237, 0.9);
     .list-box {
       box-sizing: border-box;
       padding: 46px 48px;
@@ -183,7 +183,7 @@ export default {
       height: 106px;
       border-radius: 6px;
       padding: 1px;
-      box-shadow: 0 0 12px 0 rgba(234, 233, 237, 0.9);
+      box-shadow: 0 4px 12px 0 rgba(234, 233, 237, 0.9);
       .list-box {
         padding: 24px 22px;
         border-radius: 10px;
