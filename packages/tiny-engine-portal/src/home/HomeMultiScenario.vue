@@ -315,7 +315,7 @@ export default {
   overflow: hidden;
   visibility: hidden;
   transition: transform 0.5s ease;
-  background-image: url(/img/home/case_bg.svg);
+  background-image: url(/img/home/case_bg.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -381,7 +381,7 @@ export default {
         border-radius: 12px;
         width: 100%;
         .mobile-image-section {
-          background-image: url(/img/home/case_bg.svg);
+          background-image: url(/img/home/case_bg.webp);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;

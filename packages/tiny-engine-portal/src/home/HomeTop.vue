@@ -170,13 +170,13 @@ export default {
       }
     }
     .home-image {
-      max-width: 950px;
+      max-width: 820px;
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
       animation: slideUpFadeIn 0.8s ease forwards;
       border-radius: 24px;
       .image-bg1 {
         width: 100%;
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
+        filter: drop-shadow(0 0 70px rgba(184, 199, 227, 0.3));
         border-radius: 24px;
       }
     }
