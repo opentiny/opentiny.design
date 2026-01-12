@@ -24,7 +24,7 @@ jobs:
         with:
           version: 9
       - name: Install deps
-        run: pnpm -F tiny-engine-portal install --ignore-scripts
+        run: pnpm -F tiny-engine-portal install --ignore-scripts --no-frozen-lockfile
       - name: Ensure submodules are up-to-date (pull latest from their remote)
         # 这一步会把子模块更新到各自远端的最新分支（通常是子模块配置的上游）
         run: |
