@@ -7,6 +7,7 @@
         <div class="robot-component-container-left-mask">
           <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
+        <div class="robot-component-container-mask" @click="gotoDocs"></div>
         <div class="robot-component-container-left">
           <img :src="info.image1" />
         </div>
@@ -15,6 +16,7 @@
         <div class="robot-component-container-right-mask">
           <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
+        <div class="robot-component-container-mask" @click="gotoDocs"></div>
         <div class="robot-component-container-right">
           <img :src="info.image2" />
         </div>
@@ -106,6 +108,9 @@ const gotoDocs = () => {
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
     }
+    .robot-component-container-mask {
+      display: none;
+    }
     .robot-component-container-right {
       padding: 46px 40px;
       img {
@@ -139,6 +144,18 @@ const gotoDocs = () => {
         .robot-component-container-left-mask,
         .robot-component-container-right-mask {
           display: none;
+        }
+        .robot-component-container-mask {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: transparent;
+          opacity: 0;
+          z-index: 10;
+          border-radius: 16px;
         }
       }
     }
