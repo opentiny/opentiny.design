@@ -111,6 +111,16 @@ onUnmounted(() => {
 })
 </script>
 <style lang="less" scoped>
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .first-screen {
   background-image: url(@/assets/images/home/tinyrobot_top_banner.svg);
   background-repeat: no-repeat;
@@ -204,6 +214,7 @@ onUnmounted(() => {
     .first-screen-image {
       margin-top: 120px;
       margin-bottom: 130px;
+      animation: slideUpFadeIn 0.8s ease forwards;
       img {
         width: 100%;
         filter: drop-shadow(0 0 50px rgba(192, 204, 255, 0.4));
@@ -264,6 +275,7 @@ onUnmounted(() => {
         }
         .first-screen-content-footer {
           margin-top: 36px;
+          text-align: center;
           :deep(.tiny-button) {
             font-size: 12px;
             width: 128px;

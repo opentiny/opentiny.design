@@ -85,7 +85,7 @@ const info = {
     .technical-core-item {
       padding: 50px 40px;
       width: calc((100% - 135px) / 4);
-      box-shadow: 0 0 20px 0 #ededed;
+      box-shadow: 0 4px 26px 0 rgba(234, 233, 237, 0.9);
       border: 3px solid #fff;
       border-radius: 16px;
       transition: transform 0.3s ease;

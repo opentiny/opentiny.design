@@ -261,7 +261,7 @@ const gotoChat = () => {
   .service-scene {
     .service-scene-container {
       margin-top: 46px;
-      padding: 30px 0 70px;
+      padding: 30px 0 40px;
       .service-scene-title {
         font-size: 22px;
         line-height: 30px;
