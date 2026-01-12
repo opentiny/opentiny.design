@@ -33,31 +33,26 @@ export default {
           title: 'AI智能开发',
           des: '支持自然语言与图片生成，集成MCP能力，AI对话调用TinyEngine内置工具',
           iconUrl: `${import.meta.env.BASE_URL}img/home/ad_icon1.svg`,
-          bgUrl: `${import.meta.env.BASE_URL}img/home/ad_bg1.svg`,
         },
         {
           title: '定制低码平台',
           des: '提供开箱即用的在线构建能力，并支持灵活进行二次开发与系统集成',
           iconUrl: `${import.meta.env.BASE_URL}img/home/ad_icon2.svg`,
-          bgUrl: `${import.meta.env.BASE_URL}img/home/ad_bg2.svg`,
         },
         {
           title: '高低代码混合开发',
           des: '提供高低代码双模开发能力，支持根据场景自由选用与混合部署',
           iconUrl: `${import.meta.env.BASE_URL}img/home/ad_icon3.svg`,
-          bgUrl: `${import.meta.env.BASE_URL}img/home/ad_bg3.svg`,
         },
         {
           title: '生成源码部署',
           des: '生成完全独立的可部署源码，保障用户的技术自主权与灵活度',
           iconUrl: `${import.meta.env.BASE_URL}img/home/ad_icon4.svg`,
-          bgUrl: `${import.meta.env.BASE_URL}img/home/ad_bg4.svg`,
         },
         {
           title: '开放协议接口',
           des: '提供开放的协议接口，支持第三方组件的无缝接入与扩展插件的灵活定制',
           iconUrl: `${import.meta.env.BASE_URL}img/home/ad_icon5.svg`,
-          bgUrl: `${import.meta.env.BASE_URL}img/home/ad_bg5.svg`,
         }
       ]
     })
