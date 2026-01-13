@@ -186,6 +186,7 @@ export default {
 @media screen and (max-width: 1023px) {
   .home-top {
     padding-top: 40px;
+    background-image: url(/img/home/top-banner-mobile.svg);
     .home-top-banner {
       padding: 0;
       display: flex;
@@ -226,7 +227,7 @@ export default {
         }
       }
       .home-image {
-        margin: 10px -10px;
+        margin: 10px 0;
         .image-bg1 {
           border-radius: 6px;
         }
