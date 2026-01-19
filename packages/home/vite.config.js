@@ -77,7 +77,7 @@ export default defineConfig(({ command, mode }) => {
     define: {
       'process.env': { TINY_MODE: 'pc' }
     },
-    base: process.env.VITE_BASE || '/',
+    base: process.env.VITE_BASE || process.env.VITE_EnvName || '/',
     build: {
       outDir: `../../dist/home`,
       commonjsOptions: {

@@ -35,6 +35,7 @@ jobs:
         env:
           VITE_CONTEXT: /opentiny.design/
           VITE_BASE: /opentiny.design/
+          VITE_EnvName: github
       - name: Copy files
         run: |
           cp dist/common/tinyui-design-common.iife.js dist/home
