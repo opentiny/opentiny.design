@@ -103,17 +103,14 @@ export default {
     .list-bg {
       padding: 6px;
       background: #deecff;
-      border-radius: 36px;
-    }
-    .list-bg:hover {
-      box-shadow: 0 4px 60px 0 #e5e8f1;
+      border-radius: 28px;
     }
     .list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       column-gap: 14%;
       background: #fff;
-      border-radius: 30px;
+      border-radius: 22px;
       padding: 80px 92px;
     }
     .list-item {
@@ -210,15 +207,12 @@ export default {
         padding: 3px;
         border-radius: 12px;
       }
-      .list-bg:hover {
-        box-shadow: none;
-      }
       .list {
         margin: 0;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         padding: 0;
-        border-radius: 12px;
+        border-radius: 9px;
 
         .list-item {
           height: auto;
