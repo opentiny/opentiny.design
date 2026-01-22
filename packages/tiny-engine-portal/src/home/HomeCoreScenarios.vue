@@ -83,7 +83,6 @@ export default {
     box-sizing: border-box;
     padding-top: 120px;
     margin: 0 auto;
-    font-family: Microsoft YaHei, Microsoft YaHei-Bold;
     .title {
       text-align: center;
       margin-bottom: 16px;

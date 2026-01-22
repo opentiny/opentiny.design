@@ -151,7 +151,6 @@ export default {
   width: 100%;
   background: #fafafa;
   padding: 44px 30px 30px;
-  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
   .list {
     width: 100%;
     // max-width: 1360px;

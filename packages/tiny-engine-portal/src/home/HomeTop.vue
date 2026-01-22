@@ -99,7 +99,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
   .home-br {
     display: none;
   }
