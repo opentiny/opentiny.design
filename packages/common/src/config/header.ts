@@ -158,7 +158,7 @@ const menuItems = [
       {
         title: 'Sketch 资源下载',
         desc: 'Sketch 组件资源包',
-        href: `${fileBaseUrl || ''}${basePath}home/downloadFile/TinyVue3.0_UI.KIT_202508.sketch`,
+        href: `${fileBaseUrl || ''}${basePath}downloadFile/TinyVue3.0_UI.KIT_202508.sketch`,
         logo: sketch,
         github: '',
         onClick: (event: MouseEvent) => { 
