@@ -99,7 +99,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
   .home-br {
     display: none;
   }
@@ -170,14 +169,12 @@ export default {
       }
     }
     .home-image {
-      max-width: 950px;
+      max-width: 820px;
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
       animation: slideUpFadeIn 0.8s ease forwards;
-      border-radius: 24px;
       .image-bg1 {
         width: 100%;
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
-        border-radius: 24px;
+        filter: drop-shadow(0 0 70px rgba(184, 199, 227, 0.3));
       }
     }
   }
@@ -186,6 +183,7 @@ export default {
 @media screen and (max-width: 1023px) {
   .home-top {
     padding-top: 40px;
+    background-image: url(/img/home/top-banner-mobile.svg);
     .home-top-banner {
       padding: 0;
       display: flex;
@@ -207,7 +205,7 @@ export default {
         }
         .description {
           font-size: 12px;
-          line-height: 26px;
+          line-height: 20px;
           margin-top: 12px;
           text-align: center;
         }
@@ -226,10 +224,7 @@ export default {
         }
       }
       .home-image {
-        margin: 10px -10px;
-        .image-bg1 {
-          border-radius: 6px;
-        }
+        margin:24px 0 34px;
       }
     }
   }

@@ -51,7 +51,7 @@ export default {
 <style lang="less" scoped>
 .home {
   --max-width: 1440px;
-  --top-max-width: 1580px;
+  --top-max-width: 1500px;
   --padding-big: 60px;
   --padding-small: 40px;
   --padding-mobile: 20px;
@@ -130,7 +130,6 @@ export default {
     :deep(.home-top) {
       box-sizing: border-box;
       padding: 0px 60px;
-      padding-left: 180px;
       .home-top-banner {
         max-width: var(--top-max-width);
       }

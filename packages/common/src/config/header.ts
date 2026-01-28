@@ -3,8 +3,10 @@ import tinyAi from '../../../home/public/images/logo-ai-extension.svg'
 import tinyTech from '../../../home/public/images/logo-tech.svg'
 import tinyEngine from '../assets/appIcon/tiny-engine.svg'
 import tinySdks from '../assets/appIcon/next-sdk.svg'
+import tinyPro from '../assets/appIcon/tiny-pro.svg'
 import tinyVue from '../assets/appIcon/tiny-vue.svg'
 import tinyRobot from '../assets/appIcon/tiny-robot.svg'
+import tinyEditor from '../assets/appIcon/tiny-editor.svg'
 import sketch from '../../../home/public/images/logo-sketch.svg'
 import { createIsUnderline, downloadFile } from './common.ts'
 
@@ -29,7 +31,7 @@ const menuItems = [
   },
   {
     name: 'TinyEngine',
-    url: '/opentiny-design/tiny-engine',
+    url: 'https://opentiny.design/tiny-engine',
     children: [],
     logo: tinyEngine,
     desc: '智能搭建平台',
@@ -47,14 +49,14 @@ const menuItems = [
     isUnderline: createIsUnderline('/opentiny-design/tiny-robot')
   },
   {
-    name: 'Next-SDKs',
+    name: 'NEXT-SDKs',
     desc: '开发套件',
-    url: '/opentiny-design/next-sdks',
+    url: '/opentiny-design/next-sdk',
     logo: tinySdks,
     hide: false,
     github: 'https://github.com/opentiny/next-sdk',
     children: [],
-    isUnderline: createIsUnderline('/opentiny-design/next-sdks')
+    isUnderline: createIsUnderline('/opentiny-design/next-sdk')
   },
   {
     name: 'AI-Extension',
@@ -72,32 +74,39 @@ const menuItems = [
     children: [
       {
         title: 'TinyVue',
-        desc: 'Vue组件库',
-        href: 'https://playground.opentiny.design/tiny-vue.html',
+        desc: '智能组件库',
+        href: 'https://playground.opentiny.design/tiny-vue',
         logo: tinyVue,
         github: 'https://github.com/opentiny/playground'
       },
       {
         title: 'TinyEngine',
-        desc: '低代码引擎',
-        href: 'https://playground.opentiny.design/tiny-engine.html',
+        desc: '智能搭建平台',
+        href: 'https://playground.opentiny.design/tiny-engine',
         logo: tinyEngine,
         github: 'https://github.com/opentiny/playground'
       },
       {
         title: 'TinyRobot',
-        desc: 'AI智能助手',
-        href: 'https://playground.opentiny.design/tiny-robot.html',
+        desc: '智能助手',
+        href: 'https://playground.opentiny.design/tiny-robot',
         logo: tinyRobot,
         github: 'https://github.com/opentiny/playground'
       },
       {
         title: 'NEXT-SDKs',
-        desc: '智能应用开发工具包',
-        href: '',
+        desc: '开发套件',
+        href: 'https://playground.opentiny.design/next-sdk',
         hide: true,
         logo: tinySdks,
         github: 'https://github.com/opentiny/playground'
+      },
+      {
+        title: 'TinyPro',
+        desc: '中后台解决方案',
+        href: 'https://opentiny.design/vue-pro/pages',
+        logo: tinyPro,
+        github: 'https://github.com/opentiny/tiny-pro'
       }
     ]
   },
@@ -109,36 +118,50 @@ const menuItems = [
       {
         title: 'TinyVue',
         desc: '智能组件库',
-        href: 'https://docs.opentiny.design/tiny-vue/guide/introduce.html',
+        href: 'https://docs.opentiny.design/tiny-vue/guide/introduce',
         logo: tinyVue,
         github: 'https://github.com/opentiny/docs'
       },
       {
         title: 'TinyEngine',
         desc: '智能搭建平台',
-        href: 'https://docs.opentiny.design/tiny-engine/guide/introduction.html',
+        href: 'https://docs.opentiny.design/tiny-engine/guide/introduction',
         logo: tinyEngine,
         github: 'https://github.com/opentiny/docs'
       },
       {
         title: 'TinyRobot',
         desc: '智能助手',
-        href: 'https://docs.opentiny.design/tiny-robot/guide/quick-start.html',
+        href: 'https://docs.opentiny.design/tiny-robot/guide/quick-start',
         logo: tinyRobot,
         github: 'https://github.com/opentiny/docs'
       },
       {
-        title: 'Next-SDKs',
+        title: 'NEXT-SDKs',
         desc: '开发套件',
-        href: 'https://docs.opentiny.design/next-sdk/guide/',
+        href: 'https://docs.opentiny.design/next-sdk/guide',
         logo: tinySdks,
         github: 'https://github.com/opentiny/docs'
+      },
+      {
+        title: 'TinyPro',
+        desc: '中后台解决方案',
+        href: 'https://opentiny.design/vue-pro',
+        logo: tinyPro,
+        github: 'https://github.com/opentiny/tiny-pro'
+      },
+      {
+        title: 'TinyEditor',
+        desc: '富文本编辑器',
+        href: 'https://opentiny.github.io/tiny-editor',
+        logo: tinyEditor,
+        github: 'https://github.com/opentiny/tiny-editor'
       }
     ]
   },
   {
     type: 'other',
-    name: '开发资源',
+    name: '资源',
     url: '',
     children: [
       {

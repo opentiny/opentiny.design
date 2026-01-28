@@ -63,9 +63,9 @@ export const rootRoutes = [
             meta: { title: geneTitle('') }
           },
           {
-            path: 'next-sdks',
+            path: 'next-sdk',
             component: nextSdksHome,
-            name: 'next-sdks',
+            name: 'next-sdk',
             meta: { title: geneTitle('') }
           },
           {

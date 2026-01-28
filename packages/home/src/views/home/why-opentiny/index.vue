@@ -199,7 +199,7 @@ const renderLogo = (icon, content, idx) => {
         > span {
           color: rgba(89, 89, 89, 1);
           font-size: 14px;
-          line-height: 26px;
+          line-height: 28px;
         }
         .item-advances {
           margin-top: 20px;
@@ -219,7 +219,7 @@ const renderLogo = (icon, content, idx) => {
               font-size: 14px;
               font-weight: 400;
               color: rgba(89, 89, 89, 1);
-              line-height: 22px;
+              line-height: 28px;
             }
             .advance-description-1 {
               margin-right: 0px;

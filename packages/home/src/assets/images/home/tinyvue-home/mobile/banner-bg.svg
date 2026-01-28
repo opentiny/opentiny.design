@@ -1,0 +1,50 @@
+<svg viewBox="0 0 375 560" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375.000000" height="560.000000" fill="none" customFrame="#000000">
+	<defs>
+		<filter id="pixso_custom_mask_type_outline">
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 " />
+		</filter>
+		<g id="pixso_custom_effect_25">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="188.338776" />
+		</g>
+		<filter id="filter_25" width="932.077148" height="1088.872559" x="-325.027435" y="-180.446289" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_25)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="62.7795906" result="effect_layerBlur_1" />
+		</filter>
+		<linearGradient id="paint_linear_55" x1="225.575867" x2="706.342773" y1="-67.5842896" y2="510.377686" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(224,241,253)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(224,234,253)" offset="0.473417521" stop-opacity="1" />
+			<stop stop-color="rgb(224,234,253)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<g id="pixso_custom_effect_26">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="96.3029099" />
+		</g>
+		<filter id="filter_26" width="671.116638" height="579.377930" x="-20.918335" y="-33.803223" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_26)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="32.1009712" result="effect_layerBlur_1" />
+		</filter>
+		<linearGradient id="paint_linear_56" x1="184.382568" x2="154.275665" y1="50.8891182" y2="357.978699" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(240,194,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(160,196,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<mask id="mask_1" width="375.000000" height="560.000000" x="0.000000" y="0.000000" maskUnits="userSpaceOnUse">
+		<g filter="url(#pixso_custom_mask_type_outline)">
+			<rect id="蒙版" width="375.000000" height="560.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" />
+		</g>
+	</mask>
+	<g id="banner-bg">
+		<g id="2" showMaskRef="url(#show_mask_1)" mask="url(#mask_1)">
+			<rect id="show_mask_1" width="375.000000" height="560.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" />
+			<g id="组合 16687">
+				<g filter="url(#filter_25)">
+					<path id="矢量 646" d="M709.885 525.186C712.021 480.828 687.349 392.112 571.577 392.112C505.56 392.112 405.848 367.268 317.646 294.922C251.171 240.396 196.157 149.402 139.402 74.9679C10.8847 -141.413 -100.492 156.822 149.142 385.121C398.776 613.421 709.885 525.186 709.885 525.186Z" opacity="0.850000024" fill="url(#paint_linear_55)" fill-rule="evenodd" transform="matrix(0.945666,0.325141,-0.325141,0.945666,-90.8862,-7.37598)" />
+				</g>
+				<g filter="url(#filter_26)">
+					<path id="椭圆 3672" d="M10.6457 344.486C-31.4362 221.141 61.5696 83.6487 109.939 23.5745C159.797 -38.3487 305.062 33.6229 355.566 102.398C406.07 171.174 304.346 206.804 326.119 310.961C347.892 415.118 372.633 505.88 273.83 505.88C175.026 505.88 52.7275 467.831 10.6457 344.486Z" opacity="0.300000012" fill="url(#paint_linear_56)" fill-rule="evenodd" transform="matrix(-0.291438,-0.95659,0.963148,-0.268972,130.401,514.646)" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

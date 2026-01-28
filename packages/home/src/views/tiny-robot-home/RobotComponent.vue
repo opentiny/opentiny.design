@@ -5,18 +5,20 @@
     <div class="robot-component-container">
       <div class="robot-component-item">
         <div class="robot-component-container-left-mask">
-           <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
+          <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
+        <div class="robot-component-container-mask" @click="gotoDocs"></div>
         <div class="robot-component-container-left">
-          <img :src="info.image1">
+          <img :src="info.image1" />
         </div>
       </div>
       <div class="robot-component-item">
         <div class="robot-component-container-right-mask">
-           <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
+          <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
         </div>
+        <div class="robot-component-container-mask" @click="gotoDocs"></div>
         <div class="robot-component-container-right">
-          <img :src="info.image2">
+          <img :src="info.image2" />
         </div>
       </div>
     </div>
@@ -37,7 +39,6 @@ const info = {
 const gotoDocs = () => {
   window.open('https://docs.opentiny.design/tiny-robot/guide/quick-start')
 }
-
 </script>
 <style lang="less" scoped>
 .robot-component {
@@ -49,34 +50,39 @@ const gotoDocs = () => {
     text-align: center;
     font-weight: 700;
   }
-  .robot-component-subtitle{
+  .robot-component-subtitle {
     font-size: 20px;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
     color: #808080;
   }
-  .robot-component-container{
+  .robot-component-container {
     display: flex;
     gap: 40px;
-    height: 500px;
     margin-top: 66px;
-    .robot-component-item{
+    .robot-component-item {
       background: #f5f5f5;
       border-radius: 16px;
       width: calc((100% - 40px) / 2);
       position: relative;
       overflow: hidden;
-      
+
       &:hover {
         .robot-component-container-left-mask,
         .robot-component-container-right-mask {
           opacity: 1;
+          :deep(.tiny-button) {
+            transform: translateY(0);
+          }
         }
       }
     }
-    .robot-component-container-left{
-      padding: 50px 60px;
+    .robot-component-container-left {
+      padding: 54px 50px;
+      img {
+        width: 100%;
+      }
     }
     .robot-component-container-left-mask,
     .robot-component-container-right-mask {
@@ -85,26 +91,73 @@ const gotoDocs = () => {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(4px);
+      background-color: rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(2px);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: opacity 0.3s ease-in-out;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 10;
       border-radius: 16px;
       :deep(.tiny-button) {
-          font-size: 18px;
-          width: 188px;
-          height: 48px;
-        }
+        font-size: 18px;
+        width: 188px;
+        height: 48px;
+        transform: translateY(10px);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
     }
-    .robot-component-container-right{
-      padding: 50px 45px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
+    .robot-component-container-mask {
+      display: none;
+    }
+    .robot-component-container-right {
+      padding: 46px 40px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .robot-component {
+    margin-top: 46px;
+    .robot-component-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .robot-component-subtitle {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+    .robot-component-container {
+      margin-top: 30px;
+      flex-direction: column;
+      gap: 16px;
+      .robot-component-item {
+        width: 100%;
+        .robot-component-container-left,
+        .robot-component-container-right {
+          padding: 23px 20px;
+        }
+        .robot-component-container-left-mask,
+        .robot-component-container-right-mask {
+          display: none;
+        }
+        .robot-component-container-mask {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: transparent;
+          opacity: 0;
+          z-index: 10;
+          border-radius: 16px;
+        }
+      }
     }
   }
 }

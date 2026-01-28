@@ -47,4 +47,30 @@ import SceneCases from "./SceneCases.vue"
     }
   }
 }
+@media (max-width: 1023px) {
+  .home{
+    :deep(.first-screen){
+      .first-screen-wrap{
+        max-width: var(--mobile-width);
+      }
+    }
+    :deep(.technical-core){
+      max-width: var(--mobile-width);
+    }
+    :deep(.intelligent-experience){
+      max-width: var(--mobile-width);
+    }
+    :deep(.service-scene){
+      .service-scene-container{
+        max-width: var(--mobile-width);
+      }
+    }
+    :deep(.robot-component){
+      max-width: var(--mobile-width);
+    }
+    :deep(.scene-cases){
+      max-width: var(--mobile-width);
+    }
+  }
+}
 </style>

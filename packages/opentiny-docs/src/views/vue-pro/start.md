@@ -7,6 +7,8 @@
  除此之外，为更好的使用云服务的资源，它集成了[`云服务客户端库`](/vue-pro/docs/advanced/library)
  用于打通华为云和[`云服务插件`](/vue-pro/docs/advanced/plugin)用于管理和使用您的各类云服务资源。
  <br/>
+
+你可以通过访问以下演示站点体验 TinyPro：[https://opentiny.design/vue-pro/pages](https://opentiny.design/vue-pro/pages)
  
  <h2 id='knowledge'>背景知识</h2>
 

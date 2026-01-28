@@ -119,6 +119,7 @@ watchEffect(() => {
                 <img
                   class="home-features-item-title-icon"
                   :src="$pub(`images/home/new-features/${actionIndex === index ? `s${index + 1}_active` : `s${index + 1}`}.svg`)"
+                  loading="lazy"
                   alt=""
                 />
                 <span class="home-features-item-title-text">{{ item.title }}</span>

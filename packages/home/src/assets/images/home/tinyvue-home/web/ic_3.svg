@@ -1,0 +1,55 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.000000" height="64.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_4" x1="59.6722488" x2="5.48472214" y1="3.73855019" y2="60.4617844" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(19,246,53)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(19,188,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<radialGradient id="paint_radial_16" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(43.7333,-31.0503,31.0503,43.7333,21.6803,5.42371)">
+			<stop stop-color="rgb(88,214,245)" offset="0" stop-opacity="0.529411793" />
+			<stop stop-color="rgb(15,207,255)" offset="0.440641403" stop-opacity="0.34117648" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="paint_radial_17" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(48.6823,50.3259,-50.3259,48.6823,55.3786,9.57329)">
+			<stop stop-color="rgb(113,233,53)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="paint_radial_18" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-47.2421,43.3061,-43.3061,-47.2421,56.2833,47.9295)">
+			<stop stop-color="rgb(254,217,26)" offset="0" stop-opacity="0.819607854" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="paint_radial_19" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-62.4977,-55.3736,55.3736,-62.4977,8.62643,58.5739)">
+			<stop stop-color="rgb(255,140,44)" offset="0" stop-opacity="0.592156887" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</radialGradient>
+		<g id="pixso_custom_effect_2">
+			<effect x="0.000000" y="1.333333" visibility="visible" fill="rgb(0,76,128)" fill-opacity="0.149019614" effectType="dropShadow" stdDeviation="2.66666675" radius="0" />
+		</g>
+		<filter id="filter_2" width="46.902832" height="46.508179" x="8.548584" y="9.614380" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_2)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feColorMatrix result="hardAlpha" in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.66667 0 " />
+			<feOffset dx="0.000000" dy="1.333333" in="hardAlpha" />
+			<feGaussianBlur stdDeviation="0.888888896" />
+			<feComposite k2="-1" k3="1" in2="hardAlpha" operator="out" />
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.298039 0 0 0 0 0.501961 0 0 0 0.14902 0 " />
+			<feBlend result="effect_dropShadow_1" in2="BackgroundImageFix" mode="normal" />
+			<feBlend result="shape" in="SourceGraphic" in2="effect_dropShadow_1" mode="normal" />
+		</filter>
+	</defs>
+	<rect id="通用卡片/售前图标" width="64.000000" height="64.000000" x="0.000000" y="0.000000" />
+	<rect id="矩形" width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="15.238096" fill="url(#paint_linear_4)" />
+	<rect id="矩形" width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="15.238096" fill="url(#paint_radial_16)" fill-opacity="0" />
+	<rect id="矩形" width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="15.238096" fill="url(#paint_radial_17)" fill-opacity="0" />
+	<rect id="矩形" width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="15.238096" fill="url(#paint_radial_18)" fill-opacity="0" />
+	<rect id="矩形" width="64.000000" height="64.000000" x="0.000000" y="0.000000" rx="15.238096" fill="url(#paint_radial_19)" fill-opacity="0" />
+	<rect id="矩形" width="62.666668" height="62.666668" x="0.666667" y="0.666667" rx="14.571429" stroke="rgb(210,45,38)" stroke-opacity="0" stroke-width="1.33333337" />
+	<g id="ic_huawei_cloud_rds-关系型数据库_质感图标">
+		<rect id="矩形" width="42.666672" height="42.666672" x="10.666504" y="10.535156" />
+		<g filter="url(#filter_2)">
+			<path id="形状结合" d="M20.7184 29.0472L31.1108 35.048L31.1104 47.0472L22.941 51.7653C22.1159 52.2417 21.0994 52.2417 20.2743 51.7653L12.5487 47.3049C11.7236 46.8285 11.2153 45.9482 11.2153 44.9955L11.2153 36.0747C11.2153 35.122 11.7236 34.2417 12.5487 33.7653L20.7184 29.0472ZM43.2811 29.0472L51.4512 33.7653C52.2763 34.2417 52.7846 35.122 52.7846 36.0747L52.7846 44.9955C52.7846 45.9482 52.2763 46.8285 51.4512 47.3049L43.7256 51.7653C42.9005 52.2417 41.884 52.2417 41.0589 51.7653L32.8882 47.0472L32.8885 35.048L43.2811 29.0472ZM33.3333 11.3049L41.0589 15.7653C41.884 16.2416 42.3923 17.122 42.3923 18.0747L42.3922 27.5076L41.9478 27.7653L31.9996 33.5075L22.0521 27.7653L21.6073 27.5076L21.6076 18.0747C21.6076 17.122 22.1159 16.2416 22.941 15.7653L30.6666 11.3049C31.4917 10.8285 32.5082 10.8285 33.3333 11.3049Z" fill="rgb(255,255,255)" fill-opacity="0.600000024" fill-rule="nonzero" />
+		</g>
+		<path id="形状结合" d="M52.7844 36.0753C52.7844 35.1226 52.2761 34.2422 51.4511 33.7659L42.3921 37.9638L42.3921 52.1231C42.8525 52.1231 43.3129 52.0041 43.7254 51.7659L51.4511 47.3055C52.2761 46.8291 52.7844 45.9488 52.7844 44.9961L52.7844 36.0753Z" fill="rgb(255,255,255)" fill-opacity="0.800000012" fill-rule="evenodd" />
+		<path id="形状结合" d="M22.6666 51.7658L31.238 47.1064L31.238 34.9158L21.3333 37.9637L21.3333 52.1231C21.7937 52.1231 22.2541 52.004 22.6666 51.7658Z" fill="rgb(255,255,255)" fill-opacity="0.800000012" fill-rule="evenodd" />
+		<path id="形状结合" d="M42.3923 17.416C42.3923 16.4633 41.206 15.5823 40.3809 15.106L32 19.3046L32 33.4639C32.0236 33.4639 42.3923 27.2962 42.3923 27.2962L42.3923 17.416Z" fill="rgb(255,255,255)" fill-opacity="0.800000012" fill-rule="evenodd" />
+		<path id="路径-20" d="M21.6077 28.5352L32 34.5352L42.3923 28.5352M32 34.5352L32 46.5352" opacity="0.600000024" fill-rule="evenodd" stroke="rgb(255,255,255)" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.26984167" />
+	</g>
+</svg>

@@ -6,14 +6,12 @@
         <div class="first-screen-content-subtitle">{{ state.subtitle }}</div>
         <div class="first-screen-content-text">{{ state.description }}</div>
         <div class="first-screen-content-sender">
-          <div class="first-screen-content-sender-content">
-            {{ displayText }}<span class="cursor"></span>
-          </div>
-          <img class="first-screen-content-sender-icon" :src="state.senderImg" alt="">
+          <div class="first-screen-content-sender-content">{{ displayText }}<span class="cursor"></span></div>
+          <img class="first-screen-content-sender-icon" :src="state.senderImg" alt="" />
         </div>
         <div class="first-screen-content-footer">
-          <tiny-button type="primary" round @click="gotoChat">体验智能助手</tiny-button>
-          <tiny-button round @click="gotoDocs">查看组件文档</tiny-button>
+          <tiny-button type="primary" round @click="gotoChat">立即体验</tiny-button>
+          <tiny-button round ghost @click="gotoDocs">组件文档</tiny-button>
         </div>
       </div>
       <div class="first-screen-image">
@@ -113,6 +111,16 @@ onUnmounted(() => {
 })
 </script>
 <style lang="less" scoped>
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .first-screen {
   background-image: url(@/assets/images/home/tinyrobot_top_banner.svg);
   background-repeat: no-repeat;
@@ -138,6 +146,7 @@ onUnmounted(() => {
         background: linear-gradient(90deg, #bc43cb, #0e70ff);
         background-clip: text;
         color: transparent;
+        margin-top: 4px;
       }
       .first-screen-content-text {
         font-size: 18px;
@@ -156,13 +165,13 @@ onUnmounted(() => {
         padding: 12px 16px;
         display: flex;
         align-items: center;
-        .first-screen-content-sender-content{
+        .first-screen-content-sender-content {
           width: calc(100% - 48px);
           color: #191919;
           font-size: 16px;
           line-height: 24px;
           margin-left: 14px;
-          
+
           .cursor {
             display: inline-block;
             width: 1px;
@@ -172,18 +181,21 @@ onUnmounted(() => {
             animation: blink 1s infinite;
             vertical-align: text-bottom;
           }
-          
+
           @keyframes blink {
-            0%, 49% {
+            0%,
+            49% {
               opacity: 1;
             }
-            50%, 100% {
+            50%,
+            100% {
               opacity: 0;
             }
           }
         }
-        .first-screen-content-sender-icon{
-          font-size: 34px;
+        .first-screen-content-sender-icon {
+          height: 34px;
+          width: 34px;
           margin-left: 16px;
         }
       }
@@ -191,10 +203,10 @@ onUnmounted(() => {
         margin-top: 54px;
         :deep(.tiny-button) {
           font-size: 18px;
-          width: 188px;
+          width: 154px;
           height: 48px;
           & + .tiny-button {
-            margin-left: 20px;
+            margin-left: 24px;
           }
         }
       }
@@ -202,8 +214,81 @@ onUnmounted(() => {
     .first-screen-image {
       margin-top: 120px;
       margin-bottom: 130px;
+      animation: slideUpFadeIn 0.8s ease forwards;
       img {
+        width: 100%;
         filter: drop-shadow(0 0 50px rgba(192, 204, 255, 0.4));
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .first-screen {
+    background-image: url(@/assets/images/home/tinyrobot_top_mobile_banner.svg);
+    .first-screen-wrap {
+      flex-direction: column;
+      .first-screen-content {
+        margin-top: 50px;
+        .first-screen-content-title {
+          font-size: 24px;
+          line-height: 32px;
+          text-align: center;
+        }
+        .first-screen-content-subtitle {
+          font-size: 24px;
+          line-height: 32px;
+          text-align: center;
+        }
+        .first-screen-content-text {
+          width: 249px;
+          font-size: 12px;
+          line-height: 18px;
+          margin-top: 18px;
+          text-align: center;
+          margin-left: 27px;
+        }
+        .first-screen-content-sender {
+          margin-top: 22px;
+          width: 300px;
+          background: #fff;
+          height: 32px;
+          border-radius: 110px;
+          box-shadow: 0 0 9px 0 rgba(225, 220, 237, 0.5);
+          padding: 9px 6px;
+          .first-screen-content-sender-content {
+            width: calc(100% - 32px);
+            color: #191919;
+            font-size: 12px;
+            line-height: 12px;
+            margin-left: 14px;
+            .cursor {
+              height: 14px;
+              margin-left: 1px;
+            }
+          }
+          .first-screen-content-sender-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 6px;
+          }
+        }
+        .first-screen-content-footer {
+          margin-top: 36px;
+          text-align: center;
+          :deep(.tiny-button) {
+            font-size: 12px;
+            width: 128px;
+            height: 32px;
+            & + .tiny-button {
+              margin-left: 12px;
+            }
+          }
+        }
+      }
+      .first-screen-image {
+        margin-top: 38px;
+        margin-bottom: 38px;
       }
     }
   }

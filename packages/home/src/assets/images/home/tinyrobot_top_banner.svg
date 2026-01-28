@@ -1,49 +1,49 @@
 <svg viewBox="0 0 1920 820" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920.000000" height="820.000000" fill="none">
 	<defs>
-		<g id="pixso_custom_effect_12">
+		<g id="pixso_custom_effect_0">
 			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="700" />
 		</g>
-		<filter id="filter_12" width="2238.000000" height="2263.000000" x="271.000000" y="-1070.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_12)" color-interpolation-filters="sRGB">
+		<filter id="filter_0" width="2238.000000" height="2263.000000" x="271.000000" y="-1070.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_0)" color-interpolation-filters="sRGB">
 			<feFlood flood-opacity="0" result="BackgroundImageFix" />
 			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
 			<feGaussianBlur stdDeviation="233.333328" result="effect_layerBlur_1" />
 		</filter>
-		<g id="pixso_custom_effect_13">
+		<g id="pixso_custom_effect_1">
 			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="700" />
 		</g>
-		<filter id="filter_13" width="1904.000000" height="1919.000000" x="-286.000000" y="-947.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_13)" color-interpolation-filters="sRGB">
+		<filter id="filter_1" width="1904.000000" height="1919.000000" x="-286.000000" y="-947.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_1)" color-interpolation-filters="sRGB">
 			<feFlood flood-opacity="0" result="BackgroundImageFix" />
 			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
 			<feGaussianBlur stdDeviation="233.333328" result="effect_layerBlur_1" />
 		</filter>
-		<g id="pixso_custom_effect_14">
+		<g id="pixso_custom_effect_2">
 			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="400" />
 		</g>
-		<filter id="filter_14" width="1488.000000" height="1489.000000" x="-425.000000" y="-88.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_14)" color-interpolation-filters="sRGB">
+		<filter id="filter_2" width="1488.000000" height="1489.000000" x="-425.000000" y="-88.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_2)" color-interpolation-filters="sRGB">
 			<feFlood flood-opacity="0" result="BackgroundImageFix" />
 			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
 			<feGaussianBlur stdDeviation="133.333328" result="effect_layerBlur_1" />
 		</filter>
-		<g id="pixso_custom_effect_15">
+		<g id="pixso_custom_effect_3">
 			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="700" />
 		</g>
-		<filter id="filter_15" width="2096.000000" height="2095.000000" x="807.000000" y="-757.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_15)" color-interpolation-filters="sRGB">
+		<filter id="filter_3" width="2096.000000" height="2095.000000" x="807.000000" y="-757.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_3)" color-interpolation-filters="sRGB">
 			<feFlood flood-opacity="0" result="BackgroundImageFix" />
 			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
 			<feGaussianBlur stdDeviation="233.333328" result="effect_layerBlur_1" />
 		</filter>
 	</defs>
 	<rect id="bg_1" width="1920.000000" height="820.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" />
-	<g filter="url(#filter_12)">
+	<g filter="url(#filter_0)">
 		<ellipse id="椭圆 3717" rx="419.000000" ry="431.500000" cx="1390" cy="61.5" fill="rgb(170,159,255)" fill-opacity="0.800000012" />
 	</g>
-	<g filter="url(#filter_13)">
+	<g filter="url(#filter_1)">
 		<ellipse id="椭圆 3722" rx="252.000000" ry="259.500000" cx="666" cy="12.5" fill="rgb(255,198,207)" fill-opacity="0.300000012" />
 	</g>
-	<g filter="url(#filter_14)">
+	<g filter="url(#filter_2)">
 		<ellipse id="椭圆 3719" rx="344.000000" ry="344.500000" cx="319" cy="656.5" fill="rgb(240,232,255)" fill-opacity="0.600000024" />
 	</g>
-	<g filter="url(#filter_15)">
+	<g filter="url(#filter_3)">
 		<ellipse id="椭圆 3721" rx="348.000000" ry="347.500000" cx="1855" cy="290.5" fill="rgb(202,234,255)" />
 	</g>
 </svg>

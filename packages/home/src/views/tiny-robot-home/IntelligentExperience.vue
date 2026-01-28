@@ -7,11 +7,7 @@
         <img :src="info.image" />
       </div>
       <div class="intelligent-experience-content">
-        <div
-          v-for="(item, index) in info.list"
-          :key="index"
-          class="intelligent-experience-content-item"
-        >
+        <div v-for="(item, index) in info.list" :key="index" class="intelligent-experience-content-item">
           <div class="intelligent-experience-content-header">
             <img class="intelligent-experience-content-icon" :src="item.icon" :alt="item.title" />
             <div class="intelligent-experience-content-title">{{ item.title }}</div>
@@ -37,23 +33,23 @@ const info = {
     {
       title: '多元载体与智能生态',
       icon: experienceIcon1,
-      description: ['网页、表格、PPT等多元载体，深度思考与可视化解决方案，支持MCP工具生态扩展。'],
+      description: ['网页、表格、PPT等多元载体，深度思考与可视化解决方案，支持MCP工具生态扩展。']
     },
     {
       title: '指令驱动，自动执行',
       icon: experienceIcon2,
-      description: ['用户发起指令，WebAgent智能中枢解析后，调度MCP工具集完成任务执行并展示结果。'],
+      description: ['用户发起指令，WebAgent智能中枢解析后，调度MCP工具集完成任务执行并展示结果。']
     },
     {
       title: '便捷集成，对话即操作',
       icon: experienceIcon3,
       description: [
         '【开发态】企业应用 -> Next SDK -> Web Agent',
-        '【使用态】输入SessionId / 扫码 / 选择Next Server 连接 -> 开始对话自主调用',
-      ],
-    },
+        '【使用态】输入SessionId / 扫码 / 选择Next Server 连接 -> 开始对话自主调用'
+      ]
+    }
   ],
-  image: experienceImg,
+  image: experienceImg
 }
 </script>
 <style lang="less" scoped>
@@ -81,6 +77,9 @@ const info = {
     margin: 66px 0 120px;
     .intelligent-experience-image {
       max-width: 840px;
+      img {
+        width: 100%;
+      }
     }
     .intelligent-experience-content {
       width: 460px;
@@ -93,7 +92,8 @@ const info = {
         gap: 12px;
         margin-bottom: 16px;
         .intelligent-experience-content-icon {
-          font-size: 26px;
+          height: 26px;
+          width: 26px;
         }
         .intelligent-experience-content-title {
           font-size: 22px;
@@ -105,6 +105,47 @@ const info = {
         font-size: 16px;
         color: #808080;
         line-height: 28px;
+      }
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .intelligent-experience {
+    margin-top: 46px;
+    .intelligent-experience-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .intelligent-experience-subtitle {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+    .intelligent-experience-container {
+      margin: 30px 0 46px;
+      flex-direction: column-reverse;
+      gap: 24px;
+      .intelligent-experience-content {
+        width: 100%;
+        padding: 0 10px;
+        .intelligent-experience-content-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 8px;
+          .intelligent-experience-content-icon {
+            width: 18px;
+            height: 18px;
+          }
+          .intelligent-experience-content-title {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        .intelligent-experience-content-description {
+          font-size: 12px;
+          line-height: 18px;
+        }
       }
     }
   }
