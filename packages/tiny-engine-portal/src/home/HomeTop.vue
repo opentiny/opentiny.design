@@ -99,7 +99,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
   .home-br {
     display: none;
   }
@@ -173,11 +172,9 @@ export default {
       max-width: 820px;
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
       animation: slideUpFadeIn 0.8s ease forwards;
-      border-radius: 24px;
       .image-bg1 {
         width: 100%;
         filter: drop-shadow(0 0 70px rgba(184, 199, 227, 0.3));
-        border-radius: 24px;
       }
     }
   }
@@ -208,7 +205,7 @@ export default {
         }
         .description {
           font-size: 12px;
-          line-height: 26px;
+          line-height: 20px;
           margin-top: 12px;
           text-align: center;
         }
@@ -227,10 +224,7 @@ export default {
         }
       }
       .home-image {
-        margin: 10px 0;
-        .image-bg1 {
-          border-radius: 6px;
-        }
+        margin:24px 0 34px;
       }
     }
   }

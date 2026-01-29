@@ -25,8 +25,8 @@ export default defineConfig(({ command, mode }) => {
         include: [/\.vue$/, /\.md$/],
         exclude: [/node_module/]
       }),
-      importPlugin(
-        [
+      importPlugin({
+        options: [
           {
             libraryName: '@opentiny/vue'
           },
@@ -37,8 +37,8 @@ export default defineConfig(({ command, mode }) => {
             }
           }
         ],
-        'pc' // 此配置非必选，按需配置(pc|mobile|mobile-first)
-      ),
+        exclude: [/genui-sdk/]
+      }),
       Inspect(),
       vueJsx({
         include: [/\.js$/, /\.jsx$/, /\.ts$/, /\.tsx$/],
@@ -77,17 +77,30 @@ export default defineConfig(({ command, mode }) => {
     define: {
       'process.env': { TINY_MODE: 'pc' }
     },
-    base: process.env.VITE_BASE || '/',
+    base: process.env.VITE_BASE || process.env.VITE_EnvName || '/',
     build: {
       outDir: `../../dist/home`,
       commonjsOptions: {
         transformMixedEsModules: true
       },
-      emptyOutDir: false
+      emptyOutDir: false,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('/genui-sdk/sites/homepage/web/dist/')) {
+              const rel = id.split('/genui-sdk/sites/homepage/web/dist/')[1]
+              const normalized = rel.replace(/[^a-zA-Z0-9]/g, '-').replace(/^-+|-+$/g, '')
+              return `genui-sdk-${normalized}`
+            }
+            return undefined
+          }
+        }
+      }
     },
     resolve: {
       alias: {
         'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
+        '@/genui-sdk': _resolve('../../genui-sdk/sites/homepage/web/dist'),
         '@': _resolve('src'),
         '@/components': _resolve('src/components'),
         'flexsearch': 'flexsearch/dist/flexsearch.bundle.js'

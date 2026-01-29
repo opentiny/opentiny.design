@@ -45,8 +45,8 @@ const cardList = [
         企业内部也能独立集成TinyRobot，实现应用智能化
       </div>
       <div v-if="!isMobile" class="card-wrap">
-        <div class="card" v-for="item in cardList" :key="item.title">
-          <img class="card-icon" :src="$pub(`images/platform/icon-airplane.png`)" alt="" loading="lazy" />
+        <div class="card" v-for="(item, index) in cardList" :key="item.title">
+          <img class="card-icon" :src="$pub(`images/platform/robot_icon${index + 1}.webp`)" alt="" loading="lazy" />
           <div class="card-title">
             {{ item.title }}
           </div>

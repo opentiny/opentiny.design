@@ -7,7 +7,7 @@ export const activityList = [
     descCN:
       '近期，我们推出 OpenTiny NEXT —— OpenTiny的下一代企业级前端智能开发解决方案。这不仅是一次技术升级，更是一场用户交互范式的变革：从传统的人机交互升级成为人机交互范式和智能体交互范式的融合。',
     descEN: '',
-    image: $pub('images/home/activity/core.jpeg'),
+    image: $pub('images/home/activity/core.webp'),
     link: 'https://mp.weixin.qq.com/s/1zINGA_CESJfyslR6oC5tw'
   },
   {

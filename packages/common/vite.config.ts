@@ -7,6 +7,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: mode === 'github' || process.env.VITE_EnvName === 'github' ? '/opentiny.design/' : '/',
   plugins: [
     mode === 'analyze' ? visualizer({ open: true }) : undefined,  
     vue(), 
@@ -42,6 +43,9 @@ export default defineConfig(({ mode }) => ({
     minify: true
   },
   server: {
-    port: 7000
+    port: 7000,
+    headers: {
+      'Content-Type': 'application/octet-stream'
+    }
   }
 }))

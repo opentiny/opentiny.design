@@ -29,7 +29,7 @@ export default {
   setup() {
     const route = useRoute()
 
-    const headerShow = computed(() => route.name !== 'applicationVisit')
+    const headerShow = computed(() => route.name !== 'applicationVisit' && route.name !== 'applicationPlayground')
 
     return {
       headerShow,

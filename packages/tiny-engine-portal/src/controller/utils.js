@@ -138,6 +138,7 @@ export const EXPERIENCE_URL_BDVIEW = `${import.meta.env.VITE_APP_ORIGIN}/platfor
 }`
 
 export const TINY_ENGINE_DEFAULT_URL = `${import.meta.env.BASE_URL}tiny-engine-editor/index.html?type=app&id=1&tenant=1`
+export const TINY_ENGINE_DESIGNER_URL = `https://res-static.opentiny.design/tiny-engine-designer/latest/index.html`
 
 export const openLowCodeEditor = () => {
   window.open(EXPERIENCE_URL, '_blank')

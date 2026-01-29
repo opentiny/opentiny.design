@@ -139,7 +139,6 @@ export default {
 .home-ecology {
   margin: 0 auto;
   margin-top: 120px;
-  font-family: Microsoft YaHei, Microsoft YaHei-Bold;
   .home-ecology-title {
     text-align: center;
     margin-top: 0;

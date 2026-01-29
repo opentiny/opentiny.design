@@ -350,7 +350,6 @@ const toggleTheme = (event: MouseEvent) => {
                   class="dropdown-app" 
                   :href="app.href" 
                   rel="noopener noreferrer" 
-                  :download="app.download || false"
                   @click="app.onClick ? app.onClick($event) : null"
                 >
                   <img class="app-dropdown-logo" :src="app.logo" />
@@ -430,7 +429,6 @@ const toggleTheme = (event: MouseEvent) => {
                 :href="app.href" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                :download="app.download || false"
                 @click="app.onClick ? app.onClick($event) : null"
               >
                 {{ app.title }}

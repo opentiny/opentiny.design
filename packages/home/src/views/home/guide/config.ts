@@ -4,7 +4,7 @@ export const nextSdkGuideUrl = 'https://opentiny.github.io/next-sdk/guide/'
 
 export const stepSettings: StepSetting[] = [
   {
-    title: '步骤1: 引入 NEXT-SDKs',
+    title: '步骤 1: 引入 NEXT-SDKs',
     shortTitle: '引入',
     descriptions: ['在 HTML 头部通过<script>标签加载@opentiny/next-sdk，获取WebMcpServer、WebMcpClient等核心能力。'],
     guide: {
@@ -25,7 +25,7 @@ export const stepSettings: StepSetting[] = [
     }
   },
   {
-    title: '步骤2: 创建 Web 端 MCPServer',
+    title: '步骤 2: 创建 Web 端 MCPServer',
     shortTitle: '创建',
     descriptions: [
       '使用 NEXT-SDKs 提供的 WebMcpServer,快速实现在 Web 端定义 MCPServer 和注册工具，注册工具按照MCP官网定义方式即可。'
@@ -67,7 +67,7 @@ export const stepSettings: StepSetting[] = [
     }
   },
   {
-    title: '步骤3: 创建 Web 端 MCPClient',
+    title: '步骤 3: 创建 Web 端 MCPClient',
     shortTitle: '创建',
     descriptions: ['使用 NEXT-SDKs 提供的 WebMcpClient, 快速定义 ClientMCP。'],
     guide: {
@@ -110,7 +110,7 @@ export const stepSettings: StepSetting[] = [
     }
   },
   {
-    title: '步骤4: 在 Web 端调用 WebMCP',
+    title: '步骤 4: 在 Web 端调用 WebMCP',
     shortTitle: '调用',
     descriptions: ['连接并调用 WebMCP 工具，控制台打印就可以看到调用成功啦。​'],
     guide: {

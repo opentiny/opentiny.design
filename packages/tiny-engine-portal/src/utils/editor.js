@@ -6,7 +6,7 @@ export function openEditor(router, editorUrl = TINY_ENGINE_DEFAULT_URL) {
     window.open(editorUrl, '_blank')
   } else {
     router.push({
-      name: 'applicationVisit'
+      name: 'applicationPlayground'
     })
   }
 }

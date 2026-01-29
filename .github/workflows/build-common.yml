@@ -16,12 +16,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SUBMODULE_SSH_KEY }}
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: false
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
+      - name: Configure Git identity
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+      - name: Ensure submodules are up-to-date
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive
+          git submodule status --recursive
+      - name: Install genui-sdk deps
+        run: |
+          cd genui-sdk && pnpm install
+      - name: Build genui-sdk homepage
+        run: |
+          cd genui-sdk
+          pnpm build:homepage
       - name: Install deps
         run: pnpm -F opentiny-design-common i --no-frozen-lockfile
       - name: Build common

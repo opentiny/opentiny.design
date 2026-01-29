@@ -7,22 +7,18 @@ import tinyPro from '../assets/appIcon/tiny-pro.svg'
 import tinyVue from '../assets/appIcon/tiny-vue.svg'
 import tinyRobot from '../assets/appIcon/tiny-robot.svg'
 import tinyEditor from '../assets/appIcon/tiny-editor.svg'
+import GenuiSdk from '../assets/appIcon/genui-sdk.svg'
 import sketch from '../../../home/public/images/logo-sketch.svg'
+import { createIsUnderline, downloadFile } from './common.ts'
 
-const createIsUnderline = (path) => () => location.pathname.startsWith(path)
-const downloadFile = (filePath:string, fileName:string) => {
-  const link = document.createElement('a')
+const isGitHubBuild = import.meta.env.MODE === 'github'
 
-  // 确保 filePath 不以斜杠开头
-  const href = filePath.startsWith('/') ? filePath.slice(1) : filePath
-  // 根据环境设置 link.href
-  link.href = `${import.meta.env.BASE_URL}${href}`
-  link.download = fileName || 'download-file'
-  document.body.appendChild(link)
+const isGitHubRuntime = typeof window !== 'undefined' && window.location.hostname.includes('opentiny.github.io')
 
-  link.click()
-  document.body.removeChild(link)
-}
+const isGitHub = isGitHubRuntime || isGitHubBuild
+
+const basePath = isGitHub ? '/opentiny.design/' : '/'
+const fileBaseUrl = isGitHub ? 'https://opentiny.design' : ''
 
 const menuItems = [
   {
@@ -62,6 +58,16 @@ const menuItems = [
     github: 'https://github.com/opentiny/next-sdk',
     children: [],
     isUnderline: createIsUnderline('/opentiny-design/next-sdk')
+  },
+  {
+    name: 'GenUI-SDK',
+    desc: '生成式UI',
+    url: '/opentiny-design/genui-sdk',
+    logo: GenuiSdk,
+    hide: false,
+    github: 'https://github.com/opentiny/genui-sdk',
+    children: [],
+    isUnderline: createIsUnderline('/opentiny-design/genui-sdk')
   },
   {
     name: 'AI-Extension',
@@ -186,10 +192,9 @@ const menuItems = [
       {
         title: 'Sketch 资源下载',
         desc: 'Sketch 组件资源包',
-        href: `/downloadFile/TinyVue3.0_UI.KIT_202508.sketch`,
+        href: `${fileBaseUrl || ''}${basePath}downloadFile/TinyVue3.0_UI.KIT_202508.sketch`,
         logo: sketch,
         github: '',
-        download: true,
         onClick: (event: MouseEvent) => { 
           event.preventDefault();
           downloadFile(`/downloadFile/TinyVue3\.0_UI\.KIT_202508\.sketch`, 'sketch')

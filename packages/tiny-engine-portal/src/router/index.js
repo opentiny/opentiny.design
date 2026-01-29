@@ -104,6 +104,11 @@ const routes = [
     component: () => import('../application/ApplicationVisit.vue')
   },
   {
+    path: '/tiny-engine-playground',
+    name: 'applicationPlayground',
+    component: () => import('../application/ApplicationVisit.vue')
+  },
+  {
     path: '/component-lib-import',
     name: 'componentsLibImport',
     component: () => import('../ecosystem/material/ComponentLibImport.vue'),
