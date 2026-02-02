@@ -189,7 +189,7 @@
       "url": "https://tinyengine-assets.obs.myhuaweicloud.com/files/videos/tiny-engine-course_usage.mp4",
       "img": "img/help/video-cover1.svg",
       "type": "基础入门",
-      "videoTitle": "TinyEngine设计器从0搭建一个页面",
+      "videoTitle": "零基础搭建专属页面",
       "time": "21:40"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://tinyengine-assets.obs.myhuaweicloud.com/files/videos/tiny-engine-course_startup.mp4",
       "img": "img/help/video-cover2.svg",
       "type": "基础入门",
-      "videoTitle": "TinyEngine设计器本地前后端联调",
+      "videoTitle": "设计器本地前后端联调",
       "time": "9:39"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://tinyengine-assets.obs.myhuaweicloud.com/files/videos/tiny-engine-course_import-components.mp4",
       "img": "img/help/video-cover3.svg",
       "type": "项目实践",
-      "videoTitle": "TinyEngine设计器引入自定义组件全流程",
+      "videoTitle": "引入自定义组件全流程",
       "time": "12:19"
     }
   ],
