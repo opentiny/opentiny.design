@@ -1,9 +1,11 @@
 <template>
   <tiny-dialog-box
     v-model:visible="state.videoVisibility"
+    class="video-dialog"
     :close-on-click-modal="false"
     :title="state.videoData.title"
     width="880px"
+    modal-append-to-body
     @closed="$emit('cancel')"
   >
     <video
@@ -11,7 +13,6 @@
       controlslist="nodownload"
       class="video"
       :src="state.videoData.url"
-      :poster="state.imgPre + state.videoData.img"
     ></video>
   </tiny-dialog-box>
 </template>
@@ -38,8 +39,7 @@ export default {
   setup(props, { emit }) {
     const state = reactive({
       videoVisibility: props.videoVisibility,
-      videoData: props.videoData,
-      imgPre: `${import.meta.env.BASE_URL}`
+      videoData: props.videoData
     })
 
     watch(
@@ -65,3 +65,15 @@ export default {
   margin: 20px 0;
 }
 </style>
+<style lang="less">
+@media screen and (max-width: 1023px) {
+  .video-dialog{
+    .tiny-dialog-box {
+      top: 30% !important;
+      .tiny-dialog-box__body{
+        padding: 0 20px;
+      }
+    }
+  }
+}
+</style>>

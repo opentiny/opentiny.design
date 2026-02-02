@@ -1,0 +1,32 @@
+<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60.000000" height="60.000000" fill="none" customFrame="#000000">
+	<defs>
+		<g id="pixso_custom_effect_4">
+			<effect visibility="visible" effectType="backgroundBlur" saturation="0" stdDeviation="20" />
+			<effect x="0.000000" y="0.000000" visibility="hidden" fill="rgb(144,174,203)" fill-opacity="0.159999996" effectType="dropShadow" stdDeviation="20" radius="0" />
+		</g>
+		<filter id="filter_4" width="60.000000" height="60.000000" x="0.000000" y="0.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_4)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+		</filter>
+		<clipPath id="outline_mask_2" transform="matrix(1,0,0,1,-0,-0)">
+			<path d="M30 0C46.5685 0 60 13.4315 60 30C60 46.5685 46.5685 60 30 60C13.4315 60 0 46.5685 0 30C0 13.4315 13.4315 0 30 0Z" fill="rgb(255,255,255)" fill-rule="evenodd" />
+		</clipPath>
+		<clipPath id="clipPath_9">
+			<rect width="26.666649" height="26.666656" x="17.500488" y="16.250000" fill="rgb(255,255,255)" />
+		</clipPath>
+	</defs>
+	<g id="播放器1">
+		<g data-pixso-skip-parse="true">
+			<foreignObject width="60.000000" height="60.000000" x="0.000000" y="0.000000">
+				<div xmlns="http://www.w3.org/1999/xhtml" style="clip-path:url(#outline_mask_2);height:100%;backdrop-filter:blur(10.000000px);width:100%;-webkit-backdrop-filter:blur(10.000000px);" />
+			</foreignObject>
+		</g>
+		<g filter="url(#filter_4)">
+			<circle id="椭圆 77" cx="30" cy="30" r="30" fill="rgb(0,131,255)" fill-opacity="0.200000003" />
+		</g>
+		<g id="操作播放-start-plus" clip-path="url(#clipPath_9)" customFrame="url(#clipPath_9)">
+			<rect id="操作播放-start-plus" width="26.666649" height="26.666656" x="17.500488" y="16.250000" />
+			<path id="三角形" d="M38.1617 32.3187L25.8759 39.0495C24.6451 39.7238 23.1173 39.2414 22.4634 37.9722C22.2697 37.5962 22.1685 37.177 22.1685 36.7513L22.1685 23.2899C22.1685 21.8526 23.2983 20.6875 24.692 20.6875C25.1048 20.6875 25.5113 20.7919 25.8759 20.9917L38.1617 27.7224C39.3925 28.3967 39.8602 29.9722 39.2063 31.2415C38.9701 31.7 38.6063 32.0752 38.1617 32.3187Z" fill="rgb(255,255,255)" fill-rule="evenodd" />
+		</g>
+	</g>
+</svg>

@@ -33,12 +33,19 @@ jobs:
     outputs:
       version: ${{ steps.ver.outputs.value }}
     steps:
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SUBMODULE_SSH_KEY }}
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 9
+      - name: Configure Git identity
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
       - name: Install deps
         run: pnpm -F tiny-engine-portal install --ignore-scripts --no-frozen-lockfile
       - name: Ensure submodules are up-to-date (pull latest from their remote)

@@ -111,6 +111,26 @@ export default {
       margin-bottom: 10px;
       .label {
         width: 150px;
+        color: #808080;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .personal-center {
+    .user-header {
+      width: 50px;
+      .user-img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .user-information {
+      li {
+        .label {
+          width: 105px;
+        }
       }
     }
   }

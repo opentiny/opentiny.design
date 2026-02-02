@@ -99,7 +99,7 @@
         </template>
         <section class="pop-up">
           <div class="popItem" @click="toPersonalCenter">个人中心</div>
-          <hr />
+          <hr v-if="isInternalEnv()" />
           <a v-if="isInternalEnv()" class="popItem" href="javascript:void(0);" @click="logout">退出</a>
         </section>
       </tiny-popover>
@@ -120,7 +120,7 @@
         </template>
         <section class="pop-up">
           <div class="popItem" @click="toPersonalCenter">个人中心</div>
-          <hr />
+          <hr v-if="isInternalEnv()" />
           <a v-if="isInternalEnv()" class="popItem" href="javascript:void(0);" @click="logout">退出</a>
         </section>
       </tiny-popover>
@@ -438,6 +438,10 @@ export default {
   .header-wrap {
     .header-menu,
     .toolbars {
+      display: none;
+    }
+
+    .opentiny-header{
       display: none;
     }
 

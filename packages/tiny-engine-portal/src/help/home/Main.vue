@@ -3,9 +3,14 @@
     <!-- banner -->
     <div class="help-center-header">
       <div class="help-center-header-wrap">
-        <div class="help-center-header-title">TinyEngine帮助中心</div>
-        <div class="help-center-header-desc">
-          基于开发者任务旅程的知识地图，聚合基础入门、深入学习、设计&架构、定制开发、后端部署、插件&API、官网介绍等官方套件，帮助开发者一站式便捷获取信息。
+        <div>
+          <div class="help-center-header-title">TinyEngine帮助中心</div>
+          <div class="help-center-header-desc">
+            基于开发者任务旅程的知识地图，聚合基础入门、深入学习、设计&架构、定制开发、后端部署、插件&API、官网介绍等官方套件，帮助开发者一站式便捷获取信息。
+          </div>
+        </div>
+        <div class="help-center-header-img">
+          <img src="/img/help/banner_top.svg" />
         </div>
       </div>
     </div>
@@ -25,27 +30,37 @@
             <div class="card-title">{{ i.title }}</div>
             <div v-for="k in i.children" :key="k" class="card-content" @click="navItemClick(k)">
               {{ k.title }}
+              <img src="/img/help/right-arrow.svg" alt="" />
             </div>
+          </div>
+          <div v-for="i in item.list" :key="i" class="card-mobile">
+            <img class="card-img" :src="state.imgPre + i.img" alt="" />
+            <div class="card-content">
+              <div class="card-title">{{ i.title }}</div>
+              <div @click="navItemClick(i.children[0])">
+                {{ i.children[0].title }}
+              </div>
+            </div>
+            <img class="card-arrow" src="/img/help/right-arrow.svg" alt="" />
           </div>
         </div>
         <!-- 视频教程 -->
         <div v-if="item.videoList" class="group-content-video">
-          <div v-for="(i, index) in item.videoList" :key="i" class="video-content" @click="videoItemClick(i)">
-            <div :class="`video-overlay video-overlay-${index % 3}`">
+          <div
+            v-for="(i, index) in item.videoList"
+            :key="i"
+            :class="`video-content video-content-${index % 3}`"
+            @click="videoItemClick(i)"
+          >
+            <div class="video-overlay">
               <div class="video-overlay-type">{{ i.type }}</div>
-              <div class="video-overlay-title">{{ i.videoTitle }}</div>
-              <div class="video-overlay-bottom">
-                <div class="video-overlay-bottom-time">
-                  <img src="/img/help/video-icon.svg" alt="" />
-                  <span>{{ i.time }}</span>
-                </div>
+              <div class="video-overlay-play">
+                <div class="video-overlay-title">{{ i.videoTitle }}</div>
                 <div class="video-overlay-bottom-start">
-                  <img src="/img/help/playing.svg" alt="" />
-                  <span>开始学习</span>
+                  <img :src="`/img/help/playing${(index % 3) + 1}.svg`" alt="" />
                 </div>
               </div>
             </div>
-            <div class="video-title">{{ i.title }}</div>
           </div>
         </div>
         <!-- 更多资源 -->
@@ -53,7 +68,7 @@
           <div v-for="i in item.resource" :key="i" class="resource">
             <div class="resource-title">{{ i.title }}</div>
             <div v-for="k in i.children" :key="k" class="resource-content" @click="navItemClick(k)">
-              {{ k.title }}
+              <div class="resource-name">{{ k.title }}</div>
               <img src="/img/help/right-arrow.svg" alt="" />
             </div>
           </div>
@@ -106,13 +121,13 @@ export default {
           text: '使用指南',
           value: TYPE_MAP.guide,
           list: allData[TYPE_MAP.guide] || [],
-          moreLink: '/help-center/course/engine'
+          moreLink: '/help-center/course/guide'
         },
         {
           text: '视频教程',
           value: TYPE_MAP.video,
           videoList: allData[TYPE_MAP.video] || [],
-          moreLink: 'https://space.bilibili.com/15284299'
+          moreLink: 'https://space.bilibili.com/15284299/lists/5091846?type=season'
         },
         {
           text: '更多资源',
@@ -144,9 +159,7 @@ export default {
       if (item.value === TYPE_MAP.video) {
         window.open(item.moreLink)
       } else {
-        import.meta.env.MODE?.includes('open')
-          ? window.open(state.docsUrl)
-          : router.push(item.moreLink)
+        import.meta.env.MODE?.includes('open') ? window.open(state.docsUrl) : router.push(item.moreLink)
       }
     }
 
@@ -154,7 +167,7 @@ export default {
       if (item.type && item.name) {
         const data = docsTimeData.find((i) => i.subName === item.name.replace(/\.md$/, ''))
         import.meta.env.MODE?.includes('open')
-          ? window.open(`${state.docsUrl}${data.type}/${data.subName.replace(/\.md$/, '')}`) 
+          ? window.open(`${state.docsUrl}${data.type}/${data.path}`)
           : router.push(`/help-center/course/${data.type}/${data.subName.replace(/\.md$/, '')}`)
       }
     }
@@ -185,37 +198,50 @@ export default {
   color: #191919;
   .help-center-header {
     width: 100%;
-    background-image: url(/img/help/banner.png);
+    background-image: url(/img/help/banner_bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    padding: 120px 0;
+    padding: 45px 0 18px;
     .help-center-header-wrap {
-      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin: 0 auto;
-      padding: 0 24px;
+      max-width: 1300px;
     }
     .help-center-header-title {
       color: #191919;
-      font-size: 40px;
-      font-weight: 600;
+      font-size: 46px;
+      font-weight: 700;
+      margin-top: -30px;
     }
     .help-center-header-desc {
       color: #595959;
-      width: 400px;
+      width: 420px;
       line-height: 20px;
       margin-top: 24px;
+      margin-left: 8px;
+    }
+    .help-center-header-img {
+      max-width: 540px;
+      img {
+        width: 100%;
+      }
     }
   }
   .help-center-content {
-    padding: 50px 232px;
+    max-width: 1440px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 190px;
     .group-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .group-title {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 600;
     }
     .group-more {
@@ -236,26 +262,44 @@ export default {
       gap: 40px;
       margin: 40px 0 68px;
     }
+    .card-mobile {
+      display: none;
+    }
     .card {
-      width: calc((100% - 308px) / 4);
+      width: calc((100% - 437px) / 4);
       background: #f8f8f8;
       border-radius: 20px;
-      padding: 40px 0 44px 47px;
+      padding: 40px 32px 44px 47px;
       img {
         width: 60px;
       }
       .card-title {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
         line-height: 27px;
         margin: 20px 0 12px;
       }
       .card-content {
-        margin-top: 12px;
-        color: #191919;
+        font-size: 16px;
+        line-height: 28px;
+        color: #595959;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         cursor: pointer;
+        padding: 5px 12px 5px 27px;
+        margin-left: -27px;
+        img {
+          display: none;
+          width: 16px;
+          height: 16px;
+        }
         &:hover {
-          color: #595959;
+          background: #f2f2f2;
+          border-radius: 8px;
+          img {
+            display: block;
+          }
         }
       }
     }
@@ -266,13 +310,11 @@ export default {
       margin: 40px 0 68px;
       .video-content {
         width: 450px;
-      }
-      .video-overlay {
-        position: relative;
-        border-radius: 16px;
-        color: #fff;
-        padding: 0 28px;
-        height: 260px;
+        height: 280px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         &-0 {
           background-image: url(/img/help/video-cover1.svg);
         }
@@ -282,61 +324,50 @@ export default {
         &-2 {
           background-image: url(/img/help/video-cover3.svg);
         }
+      }
+      .video-overlay {
+        position: relative;
+        border-radius: 16px;
+        padding: 24px 32px;
         .video-overlay-type {
-          position: absolute;
           top: 20px;
+          color: #595959;
+          font-size: 14px;
         }
-        .video-overlay-title {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          font-size: 26px;
-          font-weight: 600;
-          transform: translate(-50%, -65%);
-        }
-        .video-overlay-bottom {
-          position: absolute;
-          bottom: 28px;
-          width: calc(100% - 56px);
+        .video-overlay-play {
           display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          .video-overlay-bottom-time {
-            padding: 0 12px;
-            img {
-              width: 21px;
-            }
-            display: flex;
-            gap: 5px;
-            height: 32px;
-            line-height: 32px;
-            border-radius: 6px;
-            background-color: rgba(255, 255, 255, 0.2);
+          align-items: center;
+          gap: 20px;
+          margin-left: 16px;
+          margin-top: 57px;
+          .video-overlay-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            max-width: 128px;
           }
           .video-overlay-bottom-start {
             display: none;
-            padding: 0 24px;
+            width: 60px;
+            height: 60px;
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
             img {
-              width: 15px;
+              width: 100%;
+              animation: identifier 1s infinite;
             }
-            gap: 6px;
-            height: 48px;
-            line-height: 48px;
-            font-size: 16px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 29px;
-          }
-        }
-        &:hover {
-          .video-overlay-bottom-start {
-            display: flex;
           }
         }
       }
-      .video-title {
-        margin-top: 16px;
-        margin-left: 28px;
-        font-weight: 500;
+      .video-content:hover {
+        .video-overlay-bottom-start {
+          display: block;
+          opacity: 1;
+        }
+      }
+      @keyframes identifier {
+        0%{opacity: 0.5;}
+        50% {opacity: 1;}
       }
     }
     .group-content-resource {
@@ -346,7 +377,8 @@ export default {
       .resource {
         width: calc(50% - 75px);
         .resource-title {
-          font-size: 18px;
+          font-size: 20px;
+          line-height: 27px;
           font-weight: 600;
           padding: 16px 0;
           border-bottom: 1px solid #dbdbdb;
@@ -354,6 +386,8 @@ export default {
         }
         .resource-content {
           margin-top: 20px;
+          font-size: 16px;
+          line-height: 28px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -362,7 +396,10 @@ export default {
             color: #595959;
           }
           img {
-            width: 13px;
+            width: 20px;
+          }
+          .resource-name {
+            width: calc(100% - 36px);
           }
         }
       }
@@ -388,6 +425,146 @@ export default {
         display: inline-block;
         text-align: center;
         color: #191919;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .help-center {
+    .help-center-header {
+      padding: 44px 0 36px;
+      .help-center-header-wrap {
+        max-width: calc(100% - 40px);
+        flex-direction: column;
+      }
+      .help-center-header-title {
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+        margin-top: 0;
+      }
+      .help-center-header-desc {
+        line-height: 22px;
+        font-size: 14px;
+        margin-top: 20px;
+        margin-left: 0;
+        width: calc(100% - 30px);
+        padding: 0 11px 0 18px;
+      }
+      .help-center-header-img {
+        margin-top: 10px;
+      }
+    }
+    .help-center-content {
+      max-width: calc(100% - 40px);
+      margin-top: 30px;
+      margin-bottom: 133px;
+      .group-title {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      .group-more {
+        color: #808080;
+        display: flex;
+        gap: 4px;
+        img {
+          width: 16px;
+        }
+        &:hover {
+          cursor: pointer;
+          color: #191919;
+        }
+      }
+      .group-content {
+        display: flex;
+        flex-flow: wrap;
+        gap: 16px;
+        margin: 30px 0;
+      }
+      .card {
+        display: none;
+      }
+      .card-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: #f8f8f8;
+        border-radius: 8px;
+        padding: 13px 16px 13px 20px;
+        cursor: pointer;
+        .card-img {
+          width: 36px;
+        }
+        .card-content {
+          color: #595959;
+          font-size: 14px;
+          line-height: 20px;
+          width: calc(100% - 80px);
+          .card-title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            color: #191919;
+          }
+        }
+        .card-arrow {
+          width: 16px;
+        }
+      }
+      .group-content-video {
+        gap: 20px;
+        margin: 30px 0;
+        .video-content {
+          width: 100%;
+          height: 200px;
+          border-radius: 12px;
+        }
+        .video-overlay {
+          position: relative;
+          border-radius: 16px;
+          padding: 17px 22px;
+          .video-overlay-play {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 12px;
+            margin-top: 38px;
+            .video-overlay-title {
+              font-size: 18px;
+              max-width: 90px;
+            }
+            .video-overlay-bottom-start {
+              width: 42px;
+              height: 42px;
+              display: block;
+            }
+          }
+        }
+      }
+      .group-content-resource {
+        flex-direction: column;
+        .resource {
+          width: 100%;
+          .resource-title {
+            padding: 30px 0 13px;
+            border-bottom: 1px solid #dbdbdb;
+            margin-top: 0;
+            font-size: 18px;
+            line-height: 24px;
+          }
+          .resource-content {
+            margin-top: 12px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .help-center-footer {
+      :deep(.home-about-us) {
+        .mobile {
+          max-width: calc(100% - 40px);
+        }
       }
     }
   }
