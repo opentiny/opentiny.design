@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1920 420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920.000000" height="420.000000" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_0" x1="381.000061" x2="1889.00049" y1="0" y2="383.500153" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(247,249,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<clipPath id="clipPath_0">
+			<rect width="1920.000000" height="419.999969" x="0.000000" y="0.000000" fill="rgb(255,255,255)" transform="matrix(1,0,0,-1,0,420)" />
+		</clipPath>
+		<g id="pixso_custom_effect_0">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="360" />
+		</g>
+		<filter id="filter_0" width="1493.000000" height="1099.000000" x="526.000000" y="-497.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_0)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="120" result="effect_layerBlur_1" />
+		</filter>
+		<g id="pixso_custom_effect_1">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="400" />
+		</g>
+		<filter id="filter_1" width="1431.000000" height="1179.000000" x="838.000000" y="-496.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_1)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="133.333328" result="effect_layerBlur_1" />
+		</filter>
+	</defs>
+	<g id="banner_bg">
+		<g id="容器 56649" clip-path="url(#clipPath_0)" customFrame="url(#clipPath_0)">
+			<rect id="容器 56649" width="1920.000000" height="419.999969" x="0.000000" y="0.000000" fill="url(#paint_linear_0)" transform="matrix(1,0,0,-1,0,420)" />
+			<g filter="url(#filter_0)">
+				<ellipse id="椭圆 3726" rx="386.500000" ry="189.500000" cx="1272.5" cy="52.5" fill="rgb(189,226,252)" />
+			</g>
+			<g filter="url(#filter_1)">
+				<ellipse id="椭圆 3727" rx="315.500000" ry="189.500000" cx="1553.5" cy="93.5" fill="rgb(150,243,231)" fill-opacity="0.550000012" />
+			</g>
+		</g>
+	</g>
+</svg>
