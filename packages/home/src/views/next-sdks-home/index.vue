@@ -1,505 +1,479 @@
 <script setup>
 // 导入图片资源
-import heroBgWhite from '@/assets/images/home/hero_bg_white.png'
-import nextsdkFourSteps from '@/assets/images/home/nextsdk_four_steps.png'
-import nextsdkMcpProtocol from '@/assets/images/home/nextsdk_mcp_protocol.png'
-import nextsdkRemoter from '@/assets/images/home/nextsdk_remoter.png'
-import nextsdkMultiScenario from '@/assets/images/home/nextsdk_multi_scenario.png'
-import featureBgWhite1 from '@/assets/images/home/feature_bg_white_1.png'
-import featureBgWhite2 from '@/assets/images/home/feature_bg_white_2.png'
-import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
+import heroBgWhite from "@/assets/images/home/next-sdk-home/banner-bg.svg";
+import heroBgPc from "@/assets/images/home/next-sdk-home/banner-img.svg";
+import nextsdkMcpProtocol from "@/assets/images/home/next-sdk-home/mcp.svg";
+import nextsdkRemoter from "@/assets/images/home/next-sdk-home/remoter.svg";
+import { ref, computed, onMounted, onUnmounted, nextTick, provide } from "vue";
+import nextSdkMd from "./next-sdk.md?raw";
+import StepItem from "./components/StepItem.vue";
+import FeatureSection from "./components/FeatureSection.vue";
+
+// 计算步骤总数（用于生成步骤 ID 和循环）
+const getStepsCount = () => {
+  const parts = nextSdkMd.split(/^### /m).filter((s) => s.trim());
+  return parts.length;
+};
+
+const totalSteps = getStepsCount();
+
+// 生成步骤数组（仅用于 ID 和索引）
+const steps = ref(
+  Array.from({ length: totalSteps }, (_, index) => ({
+    id: `step-${index + 1}`,
+    index,
+  }))
+);
+
+// 当前激活的步骤索引
+const activeStepIndex = ref(0);
+
+// Feature 配置数据
+const features = [
+  {
+    title: "基于 MCP 协议",
+    description: `支持 WebMcpServer 和 WebMcpClient 双向通信。<br />可被各类 MCP Host 操控，实现 AI 与应用的深度集成。<br />支持工具注册、资源管理和提示词模板。`,
+    buttonText: "了解详情",
+    buttonLink: "https://docs.opentiny.design/next-sdk/guide/api-client.html",
+    imageSrc: nextsdkMcpProtocol,
+    imageAlt: "MCP 协议",
+    reverse: false,
+    bgClass: "bg-tech-2",
+    backgroundImage: heroBgWhite,
+  },
+  {
+    title: "TinyRemoter 遥控器",
+    description: `提供网页版 AI 对话框，支持 PC 和移动端。<br />通过对话方式让 AI 代替你操作前端应用。<br />手机扫码即可远程控制，提升任务完成效率。`,
+    buttonText: "了解详情",
+    buttonLink: "https://docs.opentiny.design/next-sdk/guide/tiny-robot-remoter.html",
+    imageSrc: nextsdkRemoter,
+    imageAlt: "TinyRemoter 遥控器",
+    reverse: true,
+    bgClass: "bg-tech-1",
+    backgroundImage: heroBgWhite,
+  },
+];
+
+// 滚动到指定步骤
+const scrollToStep = (index) => {
+  if (index < 0 || index >= steps.value.length) return;
+  const step = steps.value[index];
+  if (step) {
+    const element = document.getElementById(step.id);
+    if (element) {
+      const offsetTop = element.offsetTop - 120; // 留出顶部空间
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+      activeStepIndex.value = index;
+    }
+  }
+};
+
+// 使用 IntersectionObserver 监听步骤元素的可见性
+let stepObserver = null;
+
+const initStepObserver = () => {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (!("IntersectionObserver" in window)) return;
+
+  // 清除旧的观察器
+  if (stepObserver) {
+    stepObserver.disconnect();
+  }
+
+  // 创建观察器，检测步骤元素在视口中的可见性
+  stepObserver = new IntersectionObserver(
+    (entries) => {
+      const triggerOffset = 200; // 触发偏移量
+      let currentActive = 0;
+      let maxVisibleRatio = 0;
+
+      // 遍历所有步骤，找到在视口中可见度最高的步骤
+      for (let i = 0; i < steps.value.length; i++) {
+        const step = steps.value[i];
+        const element = document.getElementById(step.id);
+        if (!element) continue;
+
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top;
+        const elementBottom = rect.bottom;
+        const elementHeight = rect.height;
+        const viewportHeight = window.innerHeight;
+
+        // 计算元素在视口中的可见部分
+        const visibleTop = Math.max(0, elementTop);
+        const visibleBottom = Math.min(viewportHeight, elementBottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visibleRatio = elementHeight > 0 ? visibleHeight / elementHeight : 0;
+
+        // 如果元素的顶部在触发偏移范围内，且元素在视口中可见
+        if (elementTop <= triggerOffset && elementBottom > 0) {
+          // 如果这个元素可见度更高，选择它
+          if (visibleRatio > maxVisibleRatio) {
+            maxVisibleRatio = visibleRatio;
+            currentActive = i;
+          }
+        }
+      }
+
+      // 如果没找到，从后往前查找最后一个在视口上方的步骤
+      if (maxVisibleRatio === 0) {
+        for (let i = steps.value.length - 1; i >= 0; i--) {
+          const step = steps.value[i];
+          const element = document.getElementById(step.id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= triggerOffset) {
+              currentActive = i;
+              break;
+            }
+          }
+        }
+      }
+
+      if (activeStepIndex.value !== currentActive) {
+        activeStepIndex.value = currentActive;
+      }
+    },
+    {
+      root: null, // 使用视口作为根
+      rootMargin: "0px", // 不使用 rootMargin，手动计算更精确
+      threshold: [0, 0.1, 0.25, 0.5, 0.75, 1], // 多个阈值，更精确地检测
+    }
+  );
+
+  // 观察所有步骤元素
+  nextTick(() => {
+    steps.value.forEach((step) => {
+      const element = document.getElementById(step.id);
+      if (element) {
+        stepObserver.observe(element);
+      }
+    });
+  });
+};
+
+// 响应式屏幕尺寸判断
+const windowWidth = ref(typeof window !== "undefined" ? window.innerWidth : 1920);
+
+// 更新窗口宽度
+const updateWindowWidth = () => {
+  if (typeof window !== "undefined") {
+    windowWidth.value = window.innerWidth;
+  }
+};
+
+// 进入视口触发 fade-in-up 动效
+let fadeObserver;
+
+const initFadeInUp = async (elementRefs) => {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  if (!("IntersectionObserver" in window)) return;
+
+  await nextTick();
+
+  // 等待 DOM 完全渲染
+  await new Promise((resolve) => setTimeout(resolve, 150));
+
+  // 收集所有需要观察的元素（去重）
+  const elementsToObserve = new Set();
+
+  // 从 refs 收集
+  if (Array.isArray(elementRefs)) {
+    elementRefs.forEach((el) => {
+      if (el && el instanceof Element) {
+        elementsToObserve.add(el);
+      }
+    });
+  } else if (elementRefs && elementRefs instanceof Element) {
+    elementsToObserve.add(elementRefs);
+  }
+
+  // 如果 refs 为空，从 DOM 中查找所有 .fade-in-up 元素
+  if (elementsToObserve.size === 0) {
+    const targets = Array.from(document.querySelectorAll(".fade-in-up"));
+    targets.forEach((el) => {
+      if (el instanceof Element) {
+        elementsToObserve.add(el);
+      }
+    });
+  }
+
+  if (elementsToObserve.size === 0) return;
+
+  // 如果没有创建 observer，则创建
+  if (!fadeObserver) {
+    fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          } else if (entry.intersectionRatio === 0) {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.1, // 元素出现 10% 就触发
+        rootMargin: "0px 0px -50px 0px", // 提前 50px 触发，让动效更自然
+      }
+    );
+  }
+
+  // 检查并观察所有元素
+  elementsToObserve.forEach((el) => {
+    if (el && el instanceof Element) {
+      // 如果元素已经在视口中，立即添加 is-visible 类
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible) {
+        el.classList.add("is-visible");
+      }
+      fadeObserver.observe(el);
+    }
+  });
+};
+
+// 生命周期：监听窗口大小变化
+onMounted(async () => {
+  if (typeof window !== "undefined") {
+    windowWidth.value = window.innerWidth;
+    window.addEventListener("resize", updateWindowWidth);
+  }
+  // 延迟初始化，确保所有动态内容都已渲染
+  await nextTick();
+  setTimeout(() => {
+    // 从整个容器中查找所有 .fade-in-up 元素
+    initFadeInUp(null);
+    // 初始化步骤观察器（确保 DOM 已渲染）
+    initStepObserver();
+  }, 800);
+});
+
+onUnmounted(() => {
+  if (typeof window !== "undefined") {
+    window.removeEventListener("resize", updateWindowWidth);
+  }
+  if (stepObserver) {
+    stepObserver.disconnect();
+    stepObserver = null;
+  }
+  fadeObserver?.disconnect();
+  fadeObserver = undefined;
+});
 </script>
 
 <template>
   <div class="container">
-    <header class="hero section" :style="{ backgroundImage: `url(${heroBgWhite})` }">
+    <!-- Hero Section: 头部布局与 tiny-vue 一致 -->
+    <div class="hero section" :style="{ backgroundImage: `url(${heroBgWhite})` }">
       <div class="hero-content">
-        <h1 class="title">NEXT-SDKs 前端智能应用开发工具包</h1>
-        <p class="subtitle">
-          让你的前端应用变成智能应用<br />
-          只需四步，即可接入 AI 能力
+        <h1 class="title pad-b40">NEXT-SDKs <br />前端智能应用开发工具包</h1>
+        <p class="subtitle pad-b40">让你的前端应用变成智能应用</p>
+        <p class="description pad-b40">
+          只需四步，即可接入 AI 能力，让应用智能化开发更简单高效
         </p>
         <div class="cta-group">
-          <a href="https://docs.opentiny.design/next-sdk/guide/" target="_blank" class="btn primary">快速开始</a>
-          <a href="https://docs.opentiny.design/next-sdk/guide/api-client.html" target="_blank" class="btn secondary"
+          <a
+            href="https://docs.opentiny.design/next-sdk/guide/"
+            target="_blank"
+            class="btn primary"
+            >快速开始</a
+          >
+          <a
+            href="https://docs.opentiny.design/next-sdk/guide/api-client.html"
+            target="_blank"
+            class="btn secondary"
             >API 文档</a
           >
         </div>
       </div>
-    </header>
+      <div class="hero-img">
+        <img :src="heroBgPc" alt="NEXT-SDKs" />
+      </div>
+    </div>
 
-    <!-- Feature 1: 四步接入 -->
-    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
-      <div class="feature-content">
-        <div class="feature-text">
-          <h2 class="section-title light">四步让应用智能化</h2>
-          <p class="feature-desc">
-            <strong>第一步：</strong>安装 NEXT-SDKs<br />
-            <strong>第二步：</strong>创建 WebMcpServer 并注册工具<br />
-            <strong>第三步：</strong>创建 WebMcpClient 连接 WebAgent<br />
-            <strong>第四步：</strong>引入 TinyRemoter 遥控器组件
-          </p>
-        </div>
-        <div class="feature-visual">
-          <img :src="nextsdkFourSteps" alt="四步接入" class="floating-img" />
-        </div>
+    <!-- Feature 1: 安装步骤 -->
+    <section class="feature-section section bg-tech-1 pad-t40 content-around fade-in-up">
+      <div class="feature-header pad-t40">
+        <h2 class="title feature-title">轻松 4 步 让应用智能化</h2>
+        <p class="description text-center">
+          使用 OpenTiny NEXT-NEXT-SDKs，只需要以下四步，就可以把你的前端应用变成智能应用。
+        </p>
+      </div>
+      <div class="steps-wrapper mar-t40">
+        <StepItem
+          v-for="(step, index) in steps"
+          :key="index"
+          :markdown-content="nextSdkMd"
+          :step-index="index"
+          :step-id="step.id"
+          :total-steps="totalSteps"
+          :is-active="activeStepIndex === index"
+        />
+      </div>
+      <div class="step-link">
+        <a
+          href="https://docs.opentiny.design/next-sdk/guide/"
+          target="_blank"
+          class="btn secondary"
+          >阅读使用文档</a
+        >
       </div>
     </section>
 
-    <!-- Feature 2: MCP 协议 -->
-    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
-      <div class="feature-content">
-        <div class="feature-text">
-          <h2 class="section-title light">基于 MCP 协议</h2>
-          <p class="feature-desc">
-            支持 WebMcpServer 和 WebMcpClient 双向通信。<br />
-            可被各类 MCP Host 操控，实现 AI 与应用的深度集成。<br />
-            支持工具注册、资源管理和提示词模板。
-          </p>
-        </div>
-        <div class="feature-visual">
-          <img :src="nextsdkMcpProtocol" alt="MCP 协议" class="floating-img delay-1" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature 3: TinyRemoter 遥控器 -->
-    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
-      <div class="feature-content">
-        <div class="feature-text">
-          <h2 class="section-title light">TinyRemoter 遥控器</h2>
-          <p class="feature-desc">
-            提供网页版 AI 对话框，支持 PC 和移动端。<br />
-            通过对话方式让 AI 代替你操作前端应用。<br />
-            手机扫码即可远程控制，提升任务完成效率。
-          </p>
-        </div>
-        <div class="feature-visual">
-          <img :src="nextsdkRemoter" alt="TinyRemoter 遥控器" class="floating-img delay-2" />
-        </div>
-      </div>
-    </section>
+    <!-- Feature Sections: 循环渲染 -->
+    <FeatureSection
+      v-for="(feature, index) in features"
+      :key="index"
+      :feature="feature"
+    />
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
+@import "./common.less";
+
 .container {
   width: 100%;
   overflow-x: hidden;
+  padding: 0;
   background-color: var(--bg-color);
 }
 
-.section {
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+.step-link {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding-bottom: 90px;
+  padding-top: 20px;
 }
 
-/* Backgrounds - Reusing App.vue assets */
+/* Hero Section 特有样式 */
 .hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  color: var(--text-primary);
-  text-align: center;
-}
-
-.bg-tech-1 {
-  background-size: cover;
-  background-position: center;
-}
-
-.bg-tech-2 {
-  background-size: cover;
-  background-position: center;
-}
-
-.footer-section {
-  background-size: cover;
-  background-position: center;
-}
-
-/* Overlays */
-.hero::before,
-.feature-section::before,
-.footer-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(1px);
 }
 
 /* Hero Content */
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
-  padding: 20px;
+  max-width: 1400px;
+  padding: 20px 0 0 40px;
   padding-top: 0;
   animation: fadeInUp 1s ease-out;
 }
 
-.title {
-  font-size: 72px;
-  font-weight: 800;
-  margin-bottom: 24px;
-  margin-top: -120px;
-  letter-spacing: -2px;
-  background: linear-gradient(120deg, #333 30%, #5e7ce2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-  line-height: 1.2;
-  padding-bottom: 10px;
-}
+.hero-img {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp 1s ease-out;
 
-.subtitle {
-  font-size: 35px;
-  margin-bottom: 56px;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  font-weight: 400;
+  img {
+    max-width: 1000px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    border-radius: 20px;
+  }
 }
 
 .cta-group {
   display: flex;
   gap: 30px;
-  justify-content: center;
 }
 
-.btn {
-  padding: 16px 48px;
-  border-radius: 30px;
-  font-size: 19px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn.primary {
-  background: var(--primary-gradient);
-  color: white;
-  border: none;
-  box-shadow: 0 10px 25px rgba(94, 124, 226, 0.3);
-}
-
-.btn.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(94, 124, 226, 0.5);
-}
-
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  color: var(--primary-color);
-  border: 1px solid rgba(94, 124, 226, 0.3);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.btn.secondary:hover {
-  background: white;
-  transform: translateY(-3px);
-  border-color: var(--primary-color);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Feature Sections */
-.feature-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  width: 100%;
-  padding: 0 80px;
-  height: 100%;
-}
-
-.reverse .feature-content {
-  flex-direction: row-reverse;
-}
-
-.feature-text {
-  flex: 1;
-  color: var(--text-primary);
-  padding: 0 30px;
-}
-
-.section-title.light {
-  font-size: 51px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: var(--text-primary);
-  text-shadow: none;
-  position: relative;
-  white-space: nowrap;
-}
-
-.section-title.light::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 6px;
-  background: var(--primary-gradient);
-  margin-top: 20px;
-  border-radius: 3px;
-}
-
-.feature-desc {
-  font-size: 26px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  font-weight: 300;
-}
-
-.feature-visual {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.visual-placeholder {
-  width: 400px;
-  height: 300px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-.visual-icon {
-  width: 100px;
-  height: 100px;
-  color: var(--primary-color);
-  opacity: 0.8;
-}
-
-.floating-img {
-  width: 90%;
-  max-width: 600px;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-  animation: float 6s ease-in-out infinite;
-  transition: transform 0.5s ease;
-  border-radius: 24px; /* Add rounded corners */
-}
-
-.floating-img:hover {
-  transform: scale(1.05);
-}
-
-.delay-1 {
-  animation-delay: 1s;
-}
-.delay-2 {
-  animation-delay: 2s;
-}
-.delay-3 {
-  animation-delay: 3s;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-25px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* Footer */
-.footer-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  width: 100%;
-  height: 100%;
+/* Feature Sections 特有样式 */
+.feature-header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.footer-content h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.footer-content p {
-  font-size: 24px;
-  color: var(--text-secondary);
-  margin-bottom: 60px;
-}
-
-.footer-mini {
-  position: absolute;
-  bottom: 0;
+  justify-content: center;
+  max-width: 1400px;
   width: 100%;
-  text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text-secondary);
-  font-size: 14px;
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 1s ease-out;
 }
 
-.footer-mini p {
-  font-size: 14px;
-  margin: 0;
+.max-w1100 {
+  max-width: 1100px;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Steps Wrapper */
+.steps-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  flex-direction: column;
+  border-left: 1px solid #e1e8ed;
 }
 
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translate(-50%, 0);
-  }
-  40% {
-    transform: translate(-50%, -10px);
-  }
-  60% {
-    transform: translate(-50%, -5px);
-  }
-}
+/* ==================== 响应式适配（index.vue 特有） ==================== */
 
+/* 平板横屏 (1024px - 1440px) */
 @media (max-width: 1024px) {
-  .feature-content {
+  .hero {
+    padding: 40px 30px;
+  }
+
+  .hero-img {
+    width: 100%;
+    margin-top: 40px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .max-w1100 {
+    max-width: 100%;
+  }
+
+  .steps-container {
+    max-width: 100%;
+  }
+}
+
+/* 平板竖屏 / 大手机 (768px - 1024px) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 20px;
     flex-direction: column;
     text-align: center;
-    padding: 0 30px;
     justify-content: center;
-  }
-  .reverse .feature-content {
-    flex-direction: column;
-  }
-  .feature-text {
-    padding: 0;
-    margin-bottom: 50px;
-  }
-  .feature-visual {
-    width: 100%;
-  }
-  .section-title.light {
-    font-size: 48px;
-  }
-  .section-title.light::after {
-    margin: 20px auto 0;
-  }
-  .title {
-    font-size: 56px;
-  }
-}
-@media (max-width: 768px) {
-  .title {
-    font-size: 36px;
-    margin-top: -60px;
-  }
-
-  .subtitle {
-    font-size: 24px;
-    margin-bottom: 32px;
   }
 
   .hero-content {
     padding: 20px;
   }
 
-  .feature-content {
-    flex-direction: column;
-    padding: 0 20px;
-    text-align: center;
+  .cta-group {
+    gap: 15px;
+    width: 100%;
     justify-content: center;
   }
 
-  .reverse .feature-content {
-    flex-direction: column;
+  .feature-header {
+    padding-top: 20px;
   }
 
-  .feature-text {
-    padding: 0;
-    margin-bottom: 40px;
+  .steps-container {
+    padding: 0 10px;
+    max-width: 100%;
   }
+}
 
-  .section-title.light {
-    font-size: 32px;
-  }
-
-  .section-title.light::after {
-    margin: 20px auto 0;
-  }
-
-  .feature-desc {
-    font-size: 19px;
-  }
-
-  .feature-visual {
-    width: 100%;
-  }
-
-  .cta-group {
-    flex-direction: column;
-    gap: 15px;
-    width: 100%; /* Ensure full width for stacking */
-    max-width: 300px; /* Limit width for better look */
-    margin: 0 auto; /* Center align */
-  }
-
-  .footer-content .cta-group {
-    margin-bottom: 40px; /* Add space below buttons */
-  }
-
-  .btn {
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .footer-content h2 {
-    font-size: 32px;
-  }
-
-  .footer-content p {
-    font-size: 19px;
+/* 小手机 (< 480px) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px 15px;
   }
 }
 </style>
