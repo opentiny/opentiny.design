@@ -1,0 +1,403 @@
+/* ==================== 公共样式 ==================== */
+/* 使用 .tiny-vue-home 作为根选择器进行 CSS 隔离 */
+
+.tiny-vue-home {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: var(--bg-color);
+
+  .container {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+  }
+
+  .section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feature-section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ==================== 公共动画 ==================== */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ==================== 公共工具类 ==================== */
+  .pad-t40 {
+    padding-top: 40px !important;
+  }
+
+  .pad-b40 {
+    padding-bottom: 40px !important;
+  }
+
+  .pad-0-30 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .content-around {
+    justify-content: space-around;
+  }
+
+  .content-center {
+    justify-content: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-row-column {
+    flex-direction: column;
+  }
+
+  .gap-30 {
+    gap: 30px;
+  }
+
+  .min-h75 {
+    min-height: 75vh;
+  }
+
+  /* ==================== 背景类 ==================== */
+  .bg-tech-1 {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-tech-2 {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-color-1 {
+    background: #f7fbfe;
+  }
+
+  /* ==================== 公共文本样式 ==================== */
+  .title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #191919;
+    letter-spacing: 5px;
+    line-height: 1.2;
+    padding-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: 44px;
+    padding-bottom: 20px;
+    line-height: 1.5;
+    background: linear-gradient(90deg, #cb43a8 10%, #2c5fef 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 5px;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  .description {
+    font-size: 20px;
+    padding-bottom: 30px;
+    line-height: 2;
+    color: #a0a0a0;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+
+  /* ==================== 按钮样式 ==================== */
+  .cta-group {
+    display: flex;
+    gap: 30px;
+  }
+
+  .btn {
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn.primary {
+    background: #191919;
+    color: white;
+    border: none;
+    box-shadow: 0 10px 25px rgba(94, 124, 226, 0.3);
+  }
+
+  .btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(94, 124, 226, 0.5);
+  }
+
+  .btn.secondary {
+    background: rgba(255, 255, 255, 0.8);
+    color: #191919;
+    border: 1px solid #191919;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .btn.secondary:hover {
+    background: white;
+    transform: translateY(-3px);
+    border-color: #191919;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ==================== Feature 相关样式 ==================== */
+  .feature-title {
+    font-size: 36px;
+  }
+
+  .feature-sub-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding-bottom: 0;
+  }
+
+  .feature-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    width: 100%;
+  }
+
+  .feature-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .feature-text {
+    flex: 1;
+    color: var(--text-primary);
+    padding: 0 30px;
+
+    .description {
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: #808080;
+    }
+  }
+
+  .feature-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .floating-img {
+    width: 90%;
+    max-width: 1000px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.5s ease;
+    border-radius: 20px;
+  }
+
+  .floating-img:hover {
+    transform: scale(1.05);
+  }
+
+  .title-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 20px;
+  }
+
+  .title-logo-text {
+    font-size: 16px;
+    color: #808080;
+    letter-spacing: 2px;
+  }
+
+  .title-number {
+    font-size: 44px;
+    font-weight: 600;
+    color: #1476ff;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    padding-bottom: 20px;
+  }
+
+  /* ==================== 响应式适配 ==================== */
+  @media (max-width: 1440px) {
+    * {
+      zoom: 0.9;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    * {
+      zoom: 1;
+    }
+
+    .title {
+      font-size: 24px;
+      letter-spacing: 3px;
+    }
+
+    .subtitle {
+      font-size: 32px;
+      letter-spacing: 3px;
+    }
+
+    .description {
+      font-size: 16px;
+    }
+
+    .feature-title {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    * {
+      zoom: 1;
+    }
+
+    .section {
+      min-height: auto;
+      padding: 60px 20px;
+    }
+
+    .title {
+      font-size: 32px;
+      letter-spacing: 2px;
+      padding-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 26px;
+      letter-spacing: 2px;
+      padding-bottom: 15px;
+    }
+
+    .description {
+      padding-bottom: 20px;
+    }
+
+    .cta-group {
+      gap: 15px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      font-size: 14px;
+    }
+
+    .feature-title {
+      font-size: 28px;
+    }
+
+    .feature-sub-title {
+      font-size: 18px;
+      padding-bottom: 0px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section {
+      padding: 40px 15px;
+    }
+
+    .title {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    .description {
+      font-size: 14px;
+      letter-spacing: 0px;
+    }
+
+    .feature-title {
+      font-size: 24px;
+    }
+
+    .feature-sub-title {
+      font-size: 16px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+    }
+  }
+}
+
+/* ==================== 动画 keyframes ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
