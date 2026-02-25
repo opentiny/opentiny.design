@@ -1,13 +1,13 @@
 <script setup>
 // 导入图片资源
-import heroBgWhite from '@/assets/images/home/hero_bg_white.png'
-import nextsdkFourSteps from '@/assets/images/home/nextsdk_four_steps.png'
-import nextsdkMcpProtocol from '@/assets/images/home/nextsdk_mcp_protocol.png'
-import nextsdkRemoter from '@/assets/images/home/nextsdk_remoter.png'
-import nextsdkMultiScenario from '@/assets/images/home/nextsdk_multi_scenario.png'
-import featureBgWhite1 from '@/assets/images/home/feature_bg_white_1.png'
-import featureBgWhite2 from '@/assets/images/home/feature_bg_white_2.png'
-import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
+import heroBgWhite from "@/assets/images/home/hero_bg_white.png";
+import nextsdkFourSteps from "@/assets/images/home/nextsdk_four_steps.png";
+import nextsdkMcpProtocol from "@/assets/images/home/nextsdk_mcp_protocol.png";
+import nextsdkRemoter from "@/assets/images/home/nextsdk_remoter.png";
+import nextsdkMultiScenario from "@/assets/images/home/nextsdk_multi_scenario.png";
+import featureBgWhite1 from "@/assets/images/home/feature_bg_white_1.png";
+import featureBgWhite2 from "@/assets/images/home/feature_bg_white_2.png";
+import mcpBgWhite from "@/assets/images/home/mcp_bg_white.png";
 </script>
 
 <template>
@@ -20,8 +20,16 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           只需四步，即可接入 AI 能力
         </p>
         <div class="cta-group">
-          <a href="https://docs.opentiny.design/next-sdk/guide/" target="_blank" class="btn primary">快速开始</a>
-          <a href="https://docs.opentiny.design/next-sdk/guide/api-client.html" target="_blank" class="btn secondary"
+          <a
+            href="https://docs.opentiny.design/next-sdk/guide/"
+            target="_blank"
+            class="btn primary"
+            >快速开始</a
+          >
+          <a
+            href="https://docs.opentiny.design/next-sdk/guide/api-client.html"
+            target="_blank"
+            class="btn secondary"
             >API 文档</a
           >
         </div>
@@ -29,7 +37,10 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
     </header>
 
     <!-- Feature 1: 四步接入 -->
-    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
+    <section
+      class="feature-section section bg-tech-1"
+      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
+    >
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">四步让应用智能化</h2>
@@ -47,7 +58,10 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
     </section>
 
     <!-- Feature 2: MCP 协议 -->
-    <section class="feature-section section bg-tech-2 reverse" :style="{ backgroundImage: `url(${featureBgWhite2})` }">
+    <section
+      class="feature-section section bg-tech-2 reverse"
+      :style="{ backgroundImage: `url(${featureBgWhite2})` }"
+    >
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">基于 MCP 协议</h2>
@@ -64,7 +78,10 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
     </section>
 
     <!-- Feature 3: TinyRemoter 遥控器 -->
-    <section class="feature-section section bg-tech-1" :style="{ backgroundImage: `url(${featureBgWhite1})` }">
+    <section
+      class="feature-section section bg-tech-1"
+      :style="{ backgroundImage: `url(${featureBgWhite1})` }"
+    >
       <div class="feature-content">
         <div class="feature-text">
           <h2 class="section-title light">TinyRemoter 遥控器</h2>
@@ -75,7 +92,11 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
           </p>
         </div>
         <div class="feature-visual">
-          <img :src="nextsdkRemoter" alt="TinyRemoter 遥控器" class="floating-img delay-2" />
+          <img
+            :src="nextsdkRemoter"
+            alt="TinyRemoter 遥控器"
+            class="floating-img delay-2"
+          />
         </div>
       </div>
     </section>
@@ -127,7 +148,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 .hero::before,
 .feature-section::before,
 .footer-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -252,7 +273,7 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
 }
 
 .section-title.light::after {
-  content: '';
+  content: "";
   display: block;
   width: 80px;
   height: 6px;
@@ -400,106 +421,6 @@ import mcpBgWhite from '@/assets/images/home/mcp_bg_white.png'
   }
   60% {
     transform: translate(-50%, -5px);
-  }
-}
-
-@media (max-width: 1024px) {
-  .feature-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 30px;
-    justify-content: center;
-  }
-  .reverse .feature-content {
-    flex-direction: column;
-  }
-  .feature-text {
-    padding: 0;
-    margin-bottom: 50px;
-  }
-  .feature-visual {
-    width: 100%;
-  }
-  .section-title.light {
-    font-size: 48px;
-  }
-  .section-title.light::after {
-    margin: 20px auto 0;
-  }
-  .title {
-    font-size: 56px;
-  }
-}
-@media (max-width: 768px) {
-  .title {
-    font-size: 36px;
-    margin-top: -60px;
-  }
-
-  .subtitle {
-    font-size: 24px;
-    margin-bottom: 32px;
-  }
-
-  .hero-content {
-    padding: 20px;
-  }
-
-  .feature-content {
-    flex-direction: column;
-    padding: 0 20px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .reverse .feature-content {
-    flex-direction: column;
-  }
-
-  .feature-text {
-    padding: 0;
-    margin-bottom: 40px;
-  }
-
-  .section-title.light {
-    font-size: 32px;
-  }
-
-  .section-title.light::after {
-    margin: 20px auto 0;
-  }
-
-  .feature-desc {
-    font-size: 19px;
-  }
-
-  .feature-visual {
-    width: 100%;
-  }
-
-  .cta-group {
-    flex-direction: column;
-    gap: 15px;
-    width: 100%; /* Ensure full width for stacking */
-    max-width: 300px; /* Limit width for better look */
-    margin: 0 auto; /* Center align */
-  }
-
-  .footer-content .cta-group {
-    margin-bottom: 40px; /* Add space below buttons */
-  }
-
-  .btn {
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .footer-content h2 {
-    font-size: 32px;
-  }
-
-  .footer-content p {
-    font-size: 19px;
   }
 }
 </style>

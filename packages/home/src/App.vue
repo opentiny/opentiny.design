@@ -1,43 +1,47 @@
 <script lang="jsx" setup>
-import { onMounted } from 'vue'
-import { ConfigProvider } from '@opentiny/vue'
-import designSmbConfig from '@opentiny/vue-design-smb'
-import hljs from 'highlight.js/lib/core'
+import { onMounted } from "vue";
+import { ConfigProvider } from "@opentiny/vue";
+import designSmbConfig from "@opentiny/vue-design-smb";
+import hljs from "highlight.js/lib/core";
 // 示例中代码高亮
-import javascript from 'highlight.js/lib/languages/javascript'
-import css from 'highlight.js/lib/languages/css'
-import html from 'highlight.js/lib/languages/xml'
+import javascript from "highlight.js/lib/languages/javascript";
+import css from "highlight.js/lib/languages/css";
+import html from "highlight.js/lib/languages/xml";
 
-import { findParent, getRoutePath } from './tools'
-import { router } from './router'
+import { findParent, getRoutePath } from "./tools";
+import { router } from "./router";
 
-import '@/genui-sdk/index.css'
+// import '@/genui-sdk/index.css'
 
-hljs.registerLanguage('javascript', javascript)
-hljs.registerLanguage('css', css)
-hljs.registerLanguage('html', html)
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("css", css);
+hljs.registerLanguage("html", html);
 
 const jumpByRouter = (event) => {
   const isRouterDom = (parent) => {
-    const { tagName, href, target } = parent
-    if (tagName?.toLowerCase() === 'a' && href?.startsWith?.(location.origin) && target !== '_blank') {
-      const routerPath = getRoutePath(href)
+    const { tagName, href, target } = parent;
+    if (
+      tagName?.toLowerCase() === "a" &&
+      href?.startsWith?.(location.origin) &&
+      target !== "_blank"
+    ) {
+      const routerPath = getRoutePath(href);
       if (routerPath) {
-        event.preventDefault()
-        router.push(routerPath)
-        return true
+        event.preventDefault();
+        router.push(routerPath);
+        return true;
       }
     }
-    return false
-  }
+    return false;
+  };
   if (!isRouterDom(event.target)) {
-    findParent(event.target, isRouterDom)
+    findParent(event.target, isRouterDom);
   }
-}
+};
 
 onMounted(() => {
-  document.querySelector('#header').addEventListener('click', jumpByRouter, true)
-})
+  document.querySelector("#header").addEventListener("click", jumpByRouter, true);
+});
 </script>
 
 <template>

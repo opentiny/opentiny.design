@@ -18,7 +18,7 @@ const tinyVueHome = () => import('@/views/tiny-vue-home/index.vue')
 const tinyRobotHome = () => import('@/views/tiny-robot-home/index.vue')
 const aiExtensionHome = () => import('@/views/ai-extension-home/index.vue')
 const nextSdksHome = () => import('@/views/next-sdks-home/index.vue')
-const genuiSdkHome = () => import('@/genui-sdk/index.js')
+// const genuiSdkHome = () => import('@/genui-sdk/index.js')
 const langKey = computed(() => $t2('zh-CN', 'en-US'))
 
 export const rootRoutes = [
@@ -50,12 +50,12 @@ export const rootRoutes = [
         name: 'next-sdk',
         meta: { title: geneTitle('') }
       },
-      {
-        path: 'genui-sdk',
-        component: genuiSdkHome,
-        name: 'genui-sdk',
-        meta: { title: geneTitle('') }
-      },
+      // {
+      //   path: 'genui-sdk',
+      //   component: genuiSdkHome,
+      //   name: 'genui-sdk',
+      //   meta: { title: geneTitle('') }
+      // },
       {
         path: 'opentiny-design',
         children: [

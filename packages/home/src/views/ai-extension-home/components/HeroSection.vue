@@ -64,6 +64,7 @@ import heroBgPc from "@/assets/images/home/next-sdk-home/banner-img.svg";
       max-width: 1000px;
       filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
       border-radius: 20px;
+      width: 100%;
     }
   }
 
@@ -78,7 +79,6 @@ import heroBgPc from "@/assets/images/home/next-sdk-home/banner-img.svg";
   @media (max-width: 768px) {
     .title {
       font-size: 36px;
-      margin-top: -60px;
     }
 
     .section.hero {
@@ -87,20 +87,16 @@ import heroBgPc from "@/assets/images/home/next-sdk-home/banner-img.svg";
 
     .subtitle {
       font-size: 24px;
-      margin-bottom: 32px;
     }
 
     .cta-group {
       gap: 15px;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 12px 0;
+      justify-content: center;
     }
 
     .hero-content {
       padding: 20px;
+      text-align: center;
     }
   }
 }
