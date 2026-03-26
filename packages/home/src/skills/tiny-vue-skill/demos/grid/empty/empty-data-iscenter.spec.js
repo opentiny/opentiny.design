@@ -1,0 +1,1 @@
+import{test,expect}from'@playwright/test';test('固定居中',async({page})=>{page.on('pageerror',exception=>expect(exception).toBeNull());await page.goto('grid-empty#empty-empty-data-iscenter');await expect(page.getByText('暂无数据').first()).toBeVisible();await expect(page.locator('.tiny-grid__empty-block')).toHaveCSS('justify-content','center');});

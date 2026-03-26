@@ -1,0 +1,1 @@
+export default{mode:['pc'],apis:[{name:'espace',type:'component',props:[{name:'data',type:'Array , object',defaultValue:'',desc:{'zh-CN':'设置组件数据\uFF0C数组对象中包含选项有 type\u3001value\u3001icon\u3002type 的可选择值有\uFF1Aim\u3001sip\u3001mailto'},mode:['pc'],pcDemo:'support-open-espace'}],events:[],methods:[],slots:[]}]};

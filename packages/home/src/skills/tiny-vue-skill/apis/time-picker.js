@@ -1,0 +1,24 @@
+export default{mode:['pc'],apis:[{name:'time-picker',type:'component',props:[{name:'arrow-control',type:'boolean',defaultValue:'false',desc:{'zh-CN':'是否使用箭头进行时间选择'},mode:['pc'],pcDemo:'basic-usage'},{name:'clear-icon',type:'Component',defaultValue:'IconOperationfaild',desc:{'zh-CN':'自定义清空图标'},mode:['pc'],pcDemo:'clearable'},{name:'clearable',type:'boolean',defaultValue:'true',desc:{'zh-CN':'是否显示清除按钮'},mode:['pc'],pcDemo:'clearable'},{name:'default-value',type:'Date | string | number | Array',defaultValue:'',desc:{'zh-CN':'当选中的日期值为空时\uFF0C选择器面板打开时默认显示的时间\uFF0C需设置为可被 new Date() 解析的值'},mode:['pc'],pcDemo:'default-value'},{name:'disabled',type:'boolean',defaultValue:'false',desc:{'zh-CN':'禁用'},mode:['pc'],pcDemo:'disabled'},{name:'editable',type:'boolean',defaultValue:'true',desc:{'zh-CN':'文本框可输入'},mode:['pc'],pcDemo:'editable'},{name:'end-placeholder',type:'string',defaultValue:'',desc:{'zh-CN':'范围选择时结束日期的占位内容'},mode:['pc'],pcDemo:'placeholder'},{name:'is-range',type:'boolean',defaultValue:'false',desc:{'zh-CN':'是否为时间范围选择'},mode:['pc'],pcDemo:'is-range'},{name:'modelValue / v-model',type:'Date | string | number | Array',defaultValue:'',desc:{'zh-CN':'日期选择器选中的日期值\uFF0C可设置选择器的初始值'},mode:['pc'],pcDemo:'basic-usage'},{name:'name',type:'string',defaultValue:'',desc:{'zh-CN':'原生 input <code>name</code> 属性'},mode:['pc'],pcDemo:'name'},{name:'picker-options',typeAnchorName:'IPickerOptions',type:'IPickerOptions',defaultValue:'',desc:{'zh-CN':'配置可选的时间范围\u3001下拉框中显示的格式'},mode:['pc'],pcDemo:'disabled'},{name:'placeholder',type:'string',defaultValue:'\'\'',desc:{'zh-CN':'非范围选择时的占位内容'},mode:['pc'],pcDemo:'placeholder'},{name:'popper-append-to-body',type:'boolean',defaultValue:'true',desc:{'zh-CN':'是否将弹出框插入至 body 元素\uFF0C在弹出框的定位出现问题时\uFF0C可将该属性设置为 false'},mode:['pc'],pcDemo:'popper-class'},{name:'popper-class',type:'string',defaultValue:'',desc:{'zh-CN':'TimePicker 下拉框的 class 类名'},mode:['pc'],pcDemo:'popper-class'},{name:'popper-options',typeAnchorName:'IPopperOption',type:'IPopperOption',defaultValue:' { }',desc:{'zh-CN':'弹出层参数'},mode:['pc','mobile-first'],pcDemo:'',mfDemo:''},{name:'range-separator',type:'string',defaultValue:'\'-\'',desc:{'zh-CN':'选择范围时的分隔符'},mode:['pc'],pcDemo:'is-range'},{name:'size',type:'\'medium\' | \'small\' | \'\' | \'mini\'',defaultValue:'\'\'',desc:{'zh-CN':'输入框尺寸'},mode:['pc'],pcDemo:'size'},{name:'start-placeholder',type:'string',defaultValue:'\'\'',desc:{'zh-CN':'范围选择时开始日期的占位内容'},mode:['pc'],pcDemo:'placeholder'},{name:'step',typeAnchorName:'IStep',type:'IStep',defaultValue:'',desc:{'zh-CN':'自定义时分秒步长'},mode:['pc'],pcDemo:'step'},{name:'suffix-icon',type:'object',defaultValue:'IconCalendar',desc:{'zh-CN':'自定义头部图标的类名'},mode:['pc'],pcDemo:'suffix-icon'}],events:[{name:'blur',type:'() => void',desc:{'zh-CN':'当 input 失去焦点时触发'},mode:['pc'],pcDemo:'event'},{name:'change',type:'(date: Date | Date[]) => void',desc:{'zh-CN':'用户确认选定的值时触发'},mode:['pc'],pcDemo:'event'},{name:'focus',type:'() => void',desc:{'zh-CN':'当 input 获得焦点时触发'},mode:['pc'],pcDemo:'event'}],methods:[{name:'focus',type:'() => void',desc:{'zh-CN':'使 input 获取焦点'},mode:['pc'],pcDemo:'event'}],slots:[],format:[{name:'a',desc:{'zh-CN':'am/pm'},mode:['pc'],pcDemo:''},{name:'A',desc:{'zh-CN':'AM/PM'},mode:['pc'],pcDemo:''},{name:'h',desc:{'zh-CN':'小时\uFF0C12小时制\uFF0C需要和 A 或 a 一起使用\uFF0C不补0'},mode:['pc'],pcDemo:''},{name:'H',desc:{'zh-CN':'小时\uFF0C24小时制\uFF0C不补0'},mode:['pc'],pcDemo:''},{name:'hh',desc:{'zh-CN':'小时\uFF0C12小时制\uFF0C需要和 A 或 a 一起使用'},mode:['pc'],pcDemo:''},{name:'HH',desc:{'zh-CN':'小时\uFF0C24小时制'},mode:['pc'],pcDemo:''},{name:'m',desc:{'zh-CN':'分钟\uFF0C不补0'},mode:['pc'],pcDemo:''},{name:'mm',desc:{'zh-CN':'分钟'},mode:['pc'],pcDemo:''},{name:'s',desc:{'zh-CN':'秒\uFF0C不补0'},mode:['pc'],pcDemo:''},{name:'ss',desc:{'zh-CN':'秒'},mode:['pc'],pcDemo:''}]}],types:[{name:'IStep',type:'interface',code:`
+interface IStep {
+  hour: number
+  minute: number
+  second: number
+}
+      `},{name:'IPickerOptions',type:'interface',code:`
+interface IPickerOptions {
+  // 可选的时间范围
+  selectableRange: string
+  // 下拉框中显示的格式
+  format: string
+}
+      `},{name:'IPopperOption',type:'interface',code:`
+interface IPopperOption {
+  bubbling: boolean // 是否监听元素所有上级有滚动元素的scroll事件，监听到则更新popper的位置。用于解决某些弹出层位置在页面滚动时，位置不正确的场景，默认false
+  followReferenceHide: boolean // 当触发源隐藏时，自动隐藏弹出层，默认true
+  removeOnDestroy: boolean // 弹出层消失后，是否移除弹出层的DOM元素，布尔false
+  updateHiddenPopperOnScroll: boolean  // 滚动过程中是否更新隐藏的弹出层位置
+  boundariesElement: 'viewport' | 'body' | HTMLElement // 滚动过程中,弹出层的碰撞边界。 默认值为： 'viewport'
+  ignoreBoundaries: boolean  // 忽略边界判断，弹出的位置始终是设置的 placement 值
+  scrollParent:  HTMLElement  // 指定滚动的父节点，优化级最高。 默认为null
+}
+      `}]};

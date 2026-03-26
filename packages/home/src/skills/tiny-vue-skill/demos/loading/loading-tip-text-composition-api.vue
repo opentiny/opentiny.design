@@ -1,0 +1,22 @@
+<template>
+  <div id="tiny-demo-loading-tip-text"></div>
+</template>
+
+<script setup>
+import { onMounted } from 'vue'
+import { TinyLoading } from '@opentiny/vue'
+
+onMounted(() => {
+  TinyLoading.service({
+    text: '加载中',
+    target: document.getElementById('tiny-demo-loading-tip-text'),
+    size: 'large'
+  })
+})
+</script>
+
+<style scoped>
+#tiny-demo-loading-tip-text {
+  height: 120px;
+}
+</style>

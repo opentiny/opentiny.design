@@ -1,0 +1,11 @@
+{
+  "name": "tiny-vue-skill",
+  "description": "TinyVue 组件库代码的生成和实施指导",
+  "version": "3.28.1",
+  "author": {
+    "name": "OpenTiny"
+  },
+  "license": "MIT",
+  "homepage": "https://opentiny.design/tiny-vue",
+  "repository": "https://github.com/opentiny/tiny-vue"
+}

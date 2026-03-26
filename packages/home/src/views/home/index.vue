@@ -104,14 +104,18 @@ const handleScroll = debounce(() => {
 // 5. 挂载时绑定滚动监听，卸载时解绑
 onMounted(() => {
   const homeContentRef = document.querySelector('.layout-scroll-container')
-  homeContentRef.addEventListener('scroll', handleScroll)
+  if (homeContentRef)  {
+    homeContentRef.addEventListener('scroll', handleScroll)
+  }
   // 初始触发一次，确保页面加载时高亮正确锚点
   handleScroll()
 })
 
 onUnmounted(() => {
   const homeContentRef = document.querySelector('.layout-scroll-container')
-  homeContentRef.removeEventListener('scroll', handleScroll)
+  if (homeContentRef)  {
+    homeContentRef.removeEventListener('scroll', handleScroll)
+  }
 })
 </script>
 <style scoped lang="less">

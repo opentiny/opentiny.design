@@ -1,0 +1,28 @@
+<template>
+  <div class="demo-date-picker-wrap">
+    <tiny-time-picker v-model="value1" :suffix-icon="IconMinus"></tiny-time-picker>
+  </div>
+</template>
+
+<script>
+import { TinyTimePicker } from '@opentiny/vue'
+import { IconMinus } from '@opentiny/vue-icon'
+
+export default {
+  components: {
+    TinyTimePicker
+  },
+  data() {
+    return {
+      value1: new Date(2016, 9, 10, 18, 40),
+      IconMinus: IconMinus()
+    }
+  }
+}
+</script>
+
+<style scoped>
+.demo-date-picker-wrap {
+  width: 280px;
+}
+</style>

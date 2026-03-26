@@ -1,0 +1,1 @@
+import{test as baseTest,expect}from'@playwright/test';const config={waitTime:2000};const test=baseTest.extend({page:async({page},use)=>{const originalGoto=page.goto.bind(page);page.goto=async(url,options)=>{await originalGoto(url,options);await page.waitForTimeout(config.waitTime);};await use(page);}});export{test,expect,config};

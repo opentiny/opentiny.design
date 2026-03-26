@@ -1,0 +1,6 @@
+export default{mode:['pc'],apis:[{name:'statistic',type:'component',props:[{name:'value',type:'number | string',defaultValue:'0',desc:{'zh-CN':'数字显示内容'},mode:['pc'],pcDemo:'basic-usage',mfDemo:''},{name:'precision',type:'number',defaultValue:'',desc:{'zh-CN':'精度值'},mode:['pc'],pcDemo:'basic-usage',mfDemo:''},{name:'title',type:'string | ITitleType',typeAnchorName:'ITitleType',defaultValue:'',desc:{'zh-CN':'设置数字内容标题'},mode:['pc'],pcDemo:'basic-usage',mfDemo:''},{name:'prefix',type:'string',defaultValue:'',desc:{'zh-CN':'设置数字内容前缀'},mode:['pc'],pcDemo:'basic-usage',mfDemo:''},{name:'suffix',type:'string',defaultValue:'',desc:{'zh-CN':'设置数字内容后缀'},mode:['pc'],pcDemo:'basic-usage',mfDemo:''},{name:'value-style',type:'object | array',defaultValue:'',desc:{'zh-CN':'设置数字样式'},mode:['pc'],pcDemo:'prefix-suffix-slot',mfDemo:''}],events:[],methods:[],slots:[{name:'prefix',type:'',defaultValue:'',desc:{'zh-CN':'数字内容前置插槽'},mode:['pc'],pcDemo:'prefix-suffix-slot',mfDemo:''},{name:'suffix',type:'',defaultValue:'',desc:{'zh-CN':'数字内容后置插槽'},mode:['pc'],pcDemo:'prefix-suffix-slot',mfDemo:''},{name:'title',type:'',defaultValue:'',desc:{'zh-CN':'数字内容标题插槽'},mode:['pc'],pcDemo:'statistic-slot',mfDemo:''}]}],types:[{name:'ITitleType',type:'',code:`
+interface ITitleType {
+  value?: string       // 标题文本
+  position?: string    // 标题位置，取值：top | bottom
+}
+`}]};

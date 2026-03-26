@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <div>
+      <tiny-button-group :data="groupData" disabled v-model="value"></tiny-button-group>
+    </div>
+    <div class="mt-12">
+      <tiny-button-group :data="disabledGroup" v-model="value"></tiny-button-group>
+    </div>
+  </div>
+</template>
+
+<script>
+import { TinyButtonGroup } from '@opentiny/vue'
+
+export default {
+  components: {
+    TinyButtonGroup
+  },
+  data() {
+    return {
+      value: 1,
+      groupData: [
+        { text: 'Button1', value: 1 },
+        { text: 'Button2', value: 2 },
+        { text: 'Button3', value: 3 }
+      ],
+      disabledGroup: [
+        { text: 'Button1', value: 1 },
+        { text: 'Button2', value: 2, disabled: true, tip: '因为 xxx 原因被禁用' },
+        { text: 'Button3', value: 3 }
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+.mt-12 {
+  margin-top: 12px;
+}
+</style>

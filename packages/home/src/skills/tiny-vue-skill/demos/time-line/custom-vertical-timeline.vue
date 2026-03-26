@@ -1,0 +1,53 @@
+<template>
+  <tiny-time-line :data="data" :active="active" @click="click" vertical>
+    <template #left="{ slotScope: { name } }">
+      <span class="custom-left">
+        {{ name }}
+      </span>
+    </template>
+    <template #right="{ slotScope: { time } }">
+      <span class="custom-right">
+        {{ time }}
+      </span>
+    </template>
+  </tiny-time-line>
+</template>
+
+<script>
+import { TinyTimeLine } from '@opentiny/vue'
+
+export default {
+  components: {
+    TinyTimeLine
+  },
+  data() {
+    return {
+      active: 1,
+      data: [
+        { name: '已下单', time: '2019-11-11 00:01:30' },
+        { name: '运输中', time: '2019-11-12 14:20:15' },
+        { name: '已签收', time: '2019-11-14 20:45:50' }
+      ]
+    }
+  },
+  methods: {
+    click(index) {
+      this.active = index
+    }
+  }
+}
+</script>
+
+<style scoped>
+.custom-left {
+  padding-right: 16px;
+  text-align: right;
+  line-height: 28px;
+}
+
+.custom-right {
+  margin-left: 15px;
+  margin-bottom: 50px;
+  line-height: 28px;
+}
+</style>

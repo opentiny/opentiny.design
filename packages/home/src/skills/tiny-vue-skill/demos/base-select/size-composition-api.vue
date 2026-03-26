@@ -1,0 +1,40 @@
+<template>
+  <div>
+    <p>medium</p>
+    <tiny-base-select v-model="value2" size="medium" multiple :options="options"></tiny-base-select>
+    <p>默认</p>
+    <tiny-base-select v-model="value1" multiple :options="options"></tiny-base-select>
+    <p>small</p>
+    <tiny-base-select v-model="value3" size="small" multiple :options="options"> </tiny-base-select>
+    <p>mini</p>
+    <tiny-base-select v-model="value4" size="mini" multiple :options="options"> </tiny-base-select>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { TinyBaseSelect } from '@opentiny/vue'
+
+const options = ref([
+  { value: '选项 1', label: '北京' },
+  { value: '选项 2', label: '上海' },
+  { value: '选项 3', label: '天津' },
+  { value: '选项 4', label: '重庆' },
+  { value: '选项 5', label: '深圳' }
+])
+const value1 = ref(['选项 1', '选项 2'])
+const value2 = ref(['选项 1', '选项 2'])
+const value3 = ref(['选项 1', '选项 2'])
+const value4 = ref(['选项 1', '选项 2'])
+</script>
+
+<style lang="less" scoped>
+.tiny-base-select {
+  width: 280px;
+}
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 16px 0;
+}
+</style>

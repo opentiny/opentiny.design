@@ -1,0 +1,66 @@
+<template>
+  <div class="wrap">
+    <div class="demo-top mb10">
+      <tiny-switch v-model="isAffix"></tiny-switch>
+      <span class="demo-anchor">{{ isAffix ? '固定模式' : '非固定模式' }}</span>
+    </div>
+    <tiny-anchor :links="links" :is-affix="isAffix"></tiny-anchor>
+  </div>
+</template>
+
+<script>
+import { TinyAnchor, TinySwitch } from '@opentiny/vue'
+
+export default {
+  components: {
+    TinyAnchor,
+    TinySwitch
+  },
+  data() {
+    return {
+      isAffix: false,
+      links: [
+        {
+          key: 'basic-usage',
+          link: '#basic-usage',
+          title: '基本用法'
+        },
+        {
+          key: 'is-affix',
+          link: '#is-affix',
+          title: '固定模式'
+        },
+        {
+          key: 'set-container',
+          link: '#set-container',
+          title: '滚动容器'
+        },
+        {
+          key: 'offset-top',
+          link: '#offset-top',
+          title: '顶部偏移量'
+        },
+        {
+          key: 'on-change',
+          link: '#change',
+          title: 'change 事件'
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+.wrap {
+  min-height: 180px;
+}
+.demo-top {
+  display: flex;
+  align-items: center;
+}
+.demo-anchor {
+  margin-left: 8px;
+  font-size: 14px;
+}
+</style>

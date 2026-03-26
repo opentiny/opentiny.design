@@ -1,0 +1,39 @@
+<template>
+  <div>
+    <tiny-radio disabled v-model="radio" label="禁用">选中禁用</tiny-radio>
+    <tiny-radio disabled v-model="radio" label="不选中禁用">不选中禁用</tiny-radio>
+    <div class="mt-20">
+      <tiny-radio-group disabled v-model="radio1">
+        <tiny-radio v-for="item in dataArr" :key="item.value" :label="item.lable">{{ item.value }}</tiny-radio>
+      </tiny-radio-group>
+    </div>
+
+    <div class="mt-20">
+      <tiny-radio-group v-model="radio2">
+        <tiny-radio-button disabled label="1">日度</tiny-radio-button>
+        <tiny-radio-button disabled label="2">月度</tiny-radio-button>
+        <tiny-radio-button label="3">年度</tiny-radio-button>
+      </tiny-radio-group>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { TinyRadio, TinyRadioButton, TinyRadioGroup } from '@opentiny/vue'
+
+const radio = ref('禁用')
+const radio1 = ref('6')
+const radio2 = ref('3')
+const dataArr = ref([
+  { lable: '9', value: '备选项 1' },
+  { lable: '6', value: '备选项 2' },
+  { lable: '3', value: '备选项 3' }
+])
+</script>
+
+<style scoped>
+.mt-20 {
+  margin-top: 20px;
+}
+</style>

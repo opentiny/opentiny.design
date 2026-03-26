@@ -1,0 +1,33 @@
+<template>
+  <tiny-transfer
+    v-model="value"
+    :data="data"
+    :titles="['数据列表', '已选列表']"
+    :format="{
+      noChecked: '未选 / 共${total}',
+      hasChecked: '已选${checked} / 共${total}'
+    }"
+  ></tiny-transfer>
+</template>
+
+<script setup lang="jsx">
+import { ref } from 'vue'
+import { TinyTransfer } from '@opentiny/vue'
+
+const generateData = () => {
+  const data = []
+
+  for (let i = 0; i <= 15; i++) {
+    data.push({
+      key: i,
+      label: `备选项 ${i}`,
+      disabled: i % 4 === 0
+    })
+  }
+
+  return data
+}
+
+const data = ref(generateData())
+const value = ref([1, 4])
+</script>

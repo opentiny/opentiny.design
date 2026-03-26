@@ -1,0 +1,26 @@
+<template>
+  <div class="gray-bg">
+    <tiny-button ghost type="primary">主要按钮</tiny-button>
+    <tiny-button ghost>次要按钮</tiny-button>
+    <tiny-button ghost type="success">成功按钮</tiny-button>
+    <tiny-button ghost type="info">信息按钮</tiny-button>
+    <tiny-button ghost type="warning">告警按钮</tiny-button>
+    <tiny-button ghost type="danger">危险按钮</tiny-button>
+  </div>
+</template>
+
+<script setup>
+import { TinyButton } from '@opentiny/vue'
+</script>
+
+<style scoped>
+.gray-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px 10px 10px;
+}
+.tiny-button {
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 24px;
+}
+</style>

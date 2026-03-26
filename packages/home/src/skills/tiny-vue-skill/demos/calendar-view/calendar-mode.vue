@@ -1,0 +1,25 @@
+<template>
+  <tiny-calendar-view
+    :events="eventslist"
+    :year="2023"
+    :month="6"
+    :modes="['month', 'timeline', 'schedule']"
+    :show-back-today="false"
+  >
+  </tiny-calendar-view>
+</template>
+
+<script>
+import { TinyCalendarView } from '@opentiny/vue'
+
+export default {
+  components: {
+    TinyCalendarView
+  },
+  data() {
+    return {
+      eventslist: []
+    }
+  }
+}
+</script>

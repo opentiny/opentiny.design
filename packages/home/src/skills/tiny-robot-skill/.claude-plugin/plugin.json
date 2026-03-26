@@ -1,0 +1,9 @@
+{
+  "name": "tiny-robot-skill",
+  "description": "TinyRobot component library code generation and implementation guidance",
+  "version": "0.1.0",
+  "author": { "name": "OpenTiny" },
+  "license": "MIT",
+  "homepage": "https://opentiny.design/tiny-robot",
+  "repository": "https://github.com/opentiny/tiny-robot"
+}

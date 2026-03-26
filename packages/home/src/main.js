@@ -22,6 +22,8 @@ import { $t, $t2 } from './i18n'
 import { $pub, $recal } from './tools'
 import { inertDepsVersion } from './insert-deps-version'
 
+import { setNavigator } from '@opentiny/next-sdk'
+
 // 覆盖默认的github markdown样式
 import './assets/custom-markdown.css'
 import './assets/custom-block.less'
@@ -32,6 +34,9 @@ const mountApp = (TDCommon) => {
   const app = createApp(App)
   app.config.performance = true
   app.use(router).use(i18n).use(createHead()).mixin({ methods: { $t, $t2, $pub } }).mount('#app')
+
+  // 必须在 router 注册后调用，让 SDK 持有 router.push 的引用
+  setNavigator((route) => router.push(route))
 }
 
 // 本地环境联调公共头部和尾部

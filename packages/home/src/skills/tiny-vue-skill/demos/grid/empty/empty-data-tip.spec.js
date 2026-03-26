@@ -1,0 +1,1 @@
+import{test,expect}from'@playwright/test';test('默认提示',async({page})=>{page.on('pageerror',exception=>expect(exception).toBeNull());await page.goto('grid-empty#empty-empty-data-tip');await expect(page.getByText('没有更多数据了\uFF01')).toBeVisible();await expect(page.getByText('没有更多数据了',{exact:true})).toBeVisible();});

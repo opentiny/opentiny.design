@@ -1,0 +1,37 @@
+<template>
+  <tiny-file-upload
+    ref="uploadRef"
+    :action="action"
+    :file-list="fileList"
+    with-credentials
+    :headers="headers"
+    :before-upload="beforeUpload"
+  >
+    <template #trigger>
+      <tiny-button>点击上传</tiny-button>
+    </template>
+  </tiny-file-upload>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { TinyFileUpload, TinyButton, TinyModal } from '@opentiny/vue'
+
+const action = ref('http://localhost:3000/api/upload')
+const fileList = ref([
+  {
+    name: 'test1',
+    url: `${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/fruit.jpg`
+  }
+])
+const headers = ref({
+  'Accept-Language': 'en,zh',
+  Authorization: 'Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='
+})
+
+function beforeUpload() {
+  TinyModal.message({ message: '查看请求头示例请打开浏览器开发者工具 network 的 upload 请求', status: 'info' })
+
+  return true
+}
+</script>

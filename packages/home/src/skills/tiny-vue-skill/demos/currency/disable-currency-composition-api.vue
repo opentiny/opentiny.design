@@ -1,0 +1,29 @@
+<template>
+  <div class="demo-currency-class">
+    <tiny-button @click="Switchover" style="margin-bottom: 10px">启用/禁用</tiny-button>
+    <br />
+    <tiny-currency v-model="value" placeholder="请选择" @change="change" :disabled="disabled"></tiny-currency>
+  </div>
+</template>
+
+<script setup lang="jsx">
+import { ref } from 'vue'
+import { TinyCurrency, TinyButton, TinyModal } from '@opentiny/vue'
+
+const value = ref('VUV')
+const disabled = ref(false)
+
+function change(val) {
+  TinyModal.message({ message: '当前选择值：' + val, status: 'info' })
+}
+
+function Switchover() {
+  disabled.value = !disabled.value
+}
+</script>
+
+<style scoped>
+.demo-currency-class {
+  width: 280px;
+}
+</style>
