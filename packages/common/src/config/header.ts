@@ -38,7 +38,7 @@ const menuItems = [
     logo: tinyEngine,
     desc: '智能搭建平台',
     github: 'https://github.com/opentiny/tiny-engine',
-    isUnderline: createIsUnderline('/opentiny-design/tiny-engine')
+    isUnderline: createIsUnderline('/tiny-engine')
   },
   {
     name: 'TinyRobot',

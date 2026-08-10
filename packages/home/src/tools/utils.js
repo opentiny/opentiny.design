@@ -266,6 +266,7 @@ const originTitle = 'OpenTiny NEXT - 企业智能前端开发解决方案'
 const geneTitle = (title) => (title ? `${originTitle} | ${title}` : originTitle)
 
 const firstRoutes = ['design-principle', 'design-develop', 'guide', 'case-library', 'resouce-library', 'about']
+const homeRoutes = ['tiny-robot', 'ai-extension', 'next-sdk', 'genui-sdk']
 
 const getRoutePath = (p) => {
   if (!p || typeof p !== 'string') {
@@ -276,6 +277,7 @@ const getRoutePath = (p) => {
     case relativePath === '':
       return VITE_CONTEXT
     case relativePath.startsWith('opentiny-design'):
+    case homeRoutes.some((r) => relativePath === r || relativePath.startsWith(`${r}/`)):
       return removeDupSplitor(`${VITE_CONTEXT}${relativePath}`)
     case firstRoutes.some((r) => relativePath.startsWith(r)):
       return removeDupSplitor(`${VITE_CONTEXT}opentiny-design/${relativePath}`)
