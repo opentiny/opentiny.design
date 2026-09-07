@@ -118,6 +118,8 @@ const isGitHubBuild = import.meta.env.MODE === 'github'
 const isGitHubRuntime = typeof window !== 'undefined' && window.location.hostname.includes('opentiny.github.io')
 const isGitHub = isGitHubRuntime || isGitHubBuild
 const basePath = isGitHub ? '/opentiny.design/' : '/'
+const isTargetDomain = location.hostname === 'opentiny.design'
+const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 
 // 移动端检测
 const { isMobile } = useWindowSize()
@@ -138,7 +140,7 @@ const handleMouseLeave = () => {
   clearTimeout(hoverTimer)
   hoverTimer = setTimeout(() => {
     hoveredIndex.value = -1
-  }, 100)
+  }, 500)
 }
 
 const handleFocusIn = (index) => {
@@ -156,8 +158,8 @@ const getIconAppUrl = (name) => new URL(`../../../../../common/src/assets/appIco
 
 const cardOptions = [
   {
-    title: 'AI应用开发',
-    subTitle: 'AI交互组件/AI应用开发SDK/生成式界面SDK/AI扩展插件/MCP接入服务',
+    title: 'AI 应用开发',
+    subTitle: 'AI 交互组件/AI 应用开发SDK /生成式界面SDK /AI 扩展插件/MCP 接入服务',
     tag: '加速企业应用智能化改造',
     topCards: [
       {
@@ -236,7 +238,7 @@ const cardOptions = [
         brand: 'TinyVue',
         title: '企业级 Vue 组件库',
         desc: '跨端、跨框架的企业级 UI 组件库',
-        link: `${basePath}tiny-vue`,
+        link: isTargetDomain ? `${basePath}tiny-vue` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tinyvue`,
         icon: getIconAppUrl('tiny-vue')
       },
       {
@@ -257,7 +259,7 @@ const cardOptions = [
         brand: 'TinyEditor',
         title: '富文本编辑器',
         desc: '支持 JS/Vue/React/Angular',
-        link: 'https://docs.opentiny.design/tiny-editor/guide/quick-start.html',
+        link: location.hostname === 'opentiny.design' ? `https://docs.opentiny.design/tiny-editor/guide/quick-start.html` : 'https://opentiny.github.io/tiny-editor',
         icon: getIconAppUrl('tiny-editor')
       }
     ]
@@ -270,7 +272,7 @@ const cardOptions = [
       brand: 'TinyEngine',
       title: '开源低代码引擎',
       desc: '支持在线实时构建<br/>支持设计器命令二次开发<br/>支持插件灵活扩展',
-      link: `${basePath}tiny-engine`,
+      link:  isTargetDomain ? `${basePath}tiny-engine` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tiny-engine`,
       icon: getIconAppUrl('tiny-engine')
     }
   }
@@ -323,8 +325,8 @@ const getCardBgStyle = (index) => {
   // PC 默认状态：图片在上层，默认渐变在下层
   return {
     backgroundImage: `url(${getImgUrl(`bg-${index + 1}`)}), ${gradients[index]}`,
-    backgroundSize: 'cover, cover',
-    backgroundPosition: 'center, right',
+    backgroundSize: 'auto 100%, cover',
+    backgroundPosition: 'bottom',
     backgroundRepeat: 'no-repeat, no-repeat'
   }
 }

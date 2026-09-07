@@ -1,18 +1,20 @@
 <template>
   <div class="home-contributor">
     <!-- 新增深色区块 -->
-    <div class="explore-section">
-      <div class="explore-title">一起探索更多</div>
-      <div class="explore-desc">智能化操作的底层实现路径，如何让AI"动起来"？</div>
-      <div class="explore-actions">
-        <tiny-button size="medium" round class="explore-btn" @click="docsFn">
-          开发文档
-          <i class="btn-arrow btn-arrow-black"></i>
-        </tiny-button>
-        <tiny-button type="primary" size="medium" round class="explore-btn btn-white-border"  @click="findFn">
-          探索智能化
-          <i class="btn-arrow btn-arrow-white"></i>
-        </tiny-button>
+    <div class="explore-section-wrapper">
+      <div class="explore-section">
+        <div class="explore-title">一起探索更多</div>
+        <div class="explore-desc">智能化操作的底层实现路径，如何让AI"动起来"？</div>
+        <div class="explore-actions">
+          <tiny-button size="medium" round class="explore-btn" @click="docsFn">
+            开发文档
+            <i class="btn-arrow btn-arrow-black"></i>
+          </tiny-button>
+          <tiny-button type="primary" size="medium" round class="explore-btn btn-white-border" @click="findFn">
+            探索智能化
+            <i class="btn-arrow btn-arrow-white"></i>
+          </tiny-button>
+        </div>
       </div>
     </div>
 
@@ -44,7 +46,7 @@ const docsFn = () => {
 }
 
 const findFn = () => {
-  router.push('/next-page')
+  router.push({ name: 'next-page' })
 }
 
 </script>

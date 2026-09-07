@@ -1,7 +1,4 @@
 .product-suite {
-  // ========================================
-  // 外层容器变量
-  // ========================================
   --ps-pad-y: 100px;
   --ps-pad-x: 200px;
   --ps-max-w: 1600px;
@@ -9,12 +6,9 @@
   --ps-title-lh: 66px;
   --ps-desc-size: 20px;
   --ps-desc-lh: 28px;
-  --ps-grid-gap: 16px;
+  --ps-grid-gap: 20px;
   --ps-grid-mt: 60px;
 
-  // ========================================
-  // 卡片基础变量
-  // ========================================
   --card-pad: 0px;
   --card-default-w: 320px;
   --card-expanded-w: 1022px;
@@ -32,9 +26,6 @@
   --collapsed-name-size: 16px;
   --collapsed-summary-size: 12px;
 
-  // ========================================
-  // AI 区域变量（亮色卡片）
-  // ========================================
   --ai-preview-pad: 0 24px 35px;
   --ai-top-gap: 16px;
   --ai-bottom-gap: 16px;
@@ -57,9 +48,6 @@
   --ai-desc-max-w: 40%;
   --ai-link-pb: 16px;
 
-  // ========================================
-  // AI 区域变量（暗色卡片）
-  // ========================================
   --ai-dark-radius: 12px;
   --ai-dark-pad: 30px 0px 0px 28px;
   --ai-dark-header-gap: 18px;
@@ -76,15 +64,12 @@
   --ai-subdesc-lh: 22px;
   --ai-sublink-pt: 8px;
 
-  // ========================================
-  // 模板区域变量
-  // ========================================
   --tmpl-preview-pad: 0 24px 30px;
   --tmpl-gap: 16px;
   --tmpl-card-min-h: 400px;
   --tmpl-card-radius: 20px;
   --tmpl-card-pad: 40px 24px 0px;
-  --tmpl-header-gap: 0px;        // 通过 margin 控制
+  --tmpl-header-gap: 0px;
   --tmpl-icon-size: 24px;
   --tmpl-icon-mr: 18px;
   --tmpl-brand-size: 20px;
@@ -100,9 +85,6 @@
   --tmpl-desc-lh: 22px;
   --tmpl-link-mt: 12px;
 
-  // ========================================
-  // UI 区域变量
-  // ========================================
   --ui-preview-pad: 0 30px 27px;
   --ui-grid-gap: 24px;
   --ui-grid-min-h: 388px;
@@ -125,9 +107,6 @@
   --ui-desc-lh: 22px;
   --ui-link-mt: 12px;
 
-  // ========================================
-  // 引擎区域变量
-  // ========================================
   --eng-preview-pad: 0px 30px 24px;
   --eng-card-min-h: 420px;
   --eng-card-radius: 20px;
@@ -136,20 +115,17 @@
   --eng-icon-size: 24px;
   --eng-icon-mr: 16px;
   --eng-brand-size: 20px;
-  --eng-brand-lh: 22px;
+  --eng-brand-lh: 28px;
   --eng-brand-weight: 700;
-  --eng-title-mt: 16px;
+  --eng-title-mt: 24px;
   --eng-title-size: 20px;
   --eng-title-lh: 28px;
   --eng-title-weight: 550;
   --eng-desc-mt: 20px;
   --eng-desc-size: 16px;
   --eng-desc-lh: 29px;
-  --eng-link-mt: 12px;
+  --eng-link-mt: 30px;
 
-  // ========================================
-  // 通用链接变量
-  // ========================================
   --link-size: 14px;
   --link-lh: 16px;
   --link-ls: 1px;
@@ -158,11 +134,6 @@
   --arrow-ml: 6px;
   --arrow-mt: 2px;
 
-  // ========================================
-  // 媒体查询：1690px
-  // 验证@1440px: 4*280 + 3*12 + 2*80 = 1316 <= 1440
-  // 展开@1440px: 854 + 3*130 + 3*12 + 160 = 1440
-  // ========================================
   @media (max-width: 1690px) {
     --ps-pad-y: 80px;
     --ps-pad-x: 80px;
@@ -178,7 +149,6 @@
     --card-name-size: 24px;
     --card-name-lh: 34px;
 
-    // AI 亮色
     --ai-top-max-h: 170px;
     --ai-bottom-max-h: 170px;
     --ai-light-pad: 24px 0 0 20px;
@@ -194,7 +164,6 @@
     --ai-desc-lh: 20px;
     --ai-link-pb: 14px;
 
-    // AI 暗色
     --ai-dark-pad: 16px 12px 12px;
     --ai-dark-header-gap: 6px;
     --ai-dark-icon-size: 22px;
@@ -208,7 +177,6 @@
     --ai-subdesc-lh: 20px;
     --ai-sublink-pt: 6px;
 
-    // 模板
     --tmpl-card-min-h: 340px;
     --tmpl-card-pad: 32px 20px 0px;
     --tmpl-icon-size: 22px;
@@ -222,7 +190,6 @@
     --tmpl-desc-lh: 20px;
     --tmpl-link-mt: 16px;
 
-    // UI
     --ui-grid-min-h: 320px;
     --ui-grid-gap: 16px;
     --ui-card-pad: 24px 20px 0px;
@@ -236,12 +203,11 @@
     --ui-desc-lh: 20px;
     --ui-link-mt: 16px;
 
-    // 引擎
     --eng-card-min-h: 360px;
     --eng-card-pad: 24px 32px 0 20px;
     --eng-icon-size: 22px;
     --eng-brand-size: 16px;
-    --eng-brand-lh: 20px;
+    --eng-brand-lh: 28px;
     --eng-title-mt: 20px;
     --eng-title-size: 18px;
     --eng-title-lh: 26px;
@@ -251,11 +217,6 @@
     --eng-link-mt: 16px;
   }
 
-  // ========================================
-  // 媒体查询：1440px
-  // 验证@1280px: 4*240 + 3*10 + 2*48 = 1086 <= 1280
-  // 展开@1280px: 824 + 3*110 + 3*10 + 96 = 1280
-  // ========================================
   @media (max-width: 1440px) {
     --ps-pad-y: 60px;
     --ps-pad-x: 48px;
@@ -279,7 +240,6 @@
     --collapsed-pad: 16px 10px;
     --collapsed-name-size: 13px;
 
-    // AI 亮色
     --ai-top-max-h: 150px;
     --ai-bottom-max-h: 150px;
     --ai-preview-pad: 0 16px 24px;
@@ -295,7 +255,6 @@
     --ai-desc-lh: 18px;
     --ai-link-pb: 12px;
 
-    // AI 暗色
     --ai-dark-pad: 14px 10px 10px;
     --ai-dark-header-gap: 6px;
     --ai-dark-icon-size: 20px;
@@ -308,7 +267,6 @@
     --ai-subdesc-lh: 18px;
     --ai-sublink-pt: 6px;
 
-    // 模板
     --tmpl-preview-pad: 0 16px 24px;
     --tmpl-gap: 12px;
     --tmpl-card-min-h: 300px;
@@ -324,7 +282,6 @@
     --tmpl-desc-lh: 18px;
     --tmpl-link-mt: 12px;
 
-    // UI
     --ui-card-min-h: 150px;
     --ui-preview-pad: 0 20px 20px;
     --ui-grid-gap: 16px;
@@ -340,13 +297,12 @@
     --ui-desc-lh: 18px;
     --ui-link-mt: 12px;
 
-    // 引擎
     --eng-card-min-h: 310px;
     --eng-preview-pad: 0px 20px 20px;
     --eng-card-pad: 20px 24px 0 16px;
     --eng-icon-size: 20px;
     --eng-brand-size: 15px;
-    --eng-brand-lh: 20px;
+    --eng-brand-lh: 24px;
     --eng-title-mt: 16px;
     --eng-title-size: 16px;
     --eng-title-lh: 24px;
@@ -358,11 +314,6 @@
     --link-size: 10px;
   }
 
-  // ========================================
-  // 媒体查询：1280px
-  // 验证@1024px: 4*200 + 3*8 + 2*32 = 888 <= 1024
-  // 展开@1024px: 666 + 3*90 + 3*8 + 64 = 1024
-  // ========================================
   @media (max-width: 1280px) {
     --ps-pad-y: 50px;
     --ps-pad-x: 32px;
@@ -380,7 +331,6 @@
     --collapsed-pad: 12px 8px;
     --collapsed-name-size: 12px;
 
-    // AI 亮色
     --ai-top-max-h: 130px;
     --ai-bottom-max-h: 130px;
     --ai-top-gap: 10px;
@@ -398,7 +348,6 @@
     --ai-desc-lh: 16px;
     --ai-link-pb: 10px;
 
-    // AI 暗色
     --ai-dark-pad: 12px 8px 8px;
     --ai-dark-radius: 10px;
     --ai-dark-header-gap: 4px;
@@ -412,7 +361,6 @@
     --ai-subdesc-lh: 16px;
     --ai-sublink-pt: 4px;
 
-    // 模板
     --tmpl-gap: 10px;
     --tmpl-card-min-h: 260px;
     --tmpl-card-radius: 16px;
@@ -428,7 +376,6 @@
     --tmpl-desc-lh: 16px;
     --tmpl-link-mt: 10px;
 
-    // UI
     --ui-card-min-h: 130px;
     --ui-grid-gap: 12px;
     --ui-grid-min-h: 240px;
@@ -444,13 +391,12 @@
     --ui-desc-lh: 16px;
     --ui-link-mt: 10px;
 
-    // 引擎
     --eng-card-min-h: 260px;
     --eng-card-radius: 16px;
     --eng-card-pad: 16px 16px 0 12px;
     --eng-icon-size: 18px;
     --eng-brand-size: 13px;
-    --eng-brand-lh: 18px;
+    --eng-brand-lh: 24px;
     --eng-title-mt: 12px;
     --eng-title-size: 14px;
     --eng-title-lh: 20px;
@@ -460,11 +406,6 @@
     --eng-link-mt: 10px;
   }
 
-  // ========================================
-  // 媒体查询：1024px
-  // 验证@820px: 4*180 + 3*6 + 2*24 = 786 <= 820
-  // 展开@820px: 544 + 3*70 + 3*6 + 48 = 820
-  // ========================================
   @media (max-width: 1024px) {
     --ps-pad-y: 40px;
     --ps-pad-x: 24px;
@@ -481,7 +422,6 @@
 
     --collapsed-pad: 10px 6px;
 
-    // AI 亮色
     --ai-top-max-h: 130px;
     --ai-bottom-max-h: 100px;
     --ai-light-pad: 14px 0 0 10px;
@@ -496,7 +436,6 @@
     --ai-desc-lh: 15px;
     --ai-link-pb: 8px;
 
-    // AI 暗色
     --ai-dark-pad: 10px;
     --ai-dark-header-gap: 4px;
     --ai-dark-icon-size: 16px;
@@ -509,7 +448,6 @@
     --ai-subdesc-lh: 10px;
     --ai-sublink-pt: 4px;
 
-    // 模板
     --tmpl-card-pad: 16px 10px 0px;
     --tmpl-icon-size: 16px;
     --tmpl-brand-size: 12px;
@@ -523,7 +461,6 @@
     --tmpl-link-mt: 8px;
     --tmpl-card-min-h: 240px;
 
-    // UI
     --ui-card-min-h: 115px;
     --ui-card-pad: 14px 10px 0px;
     --ui-icon-size: 16px;
@@ -536,12 +473,11 @@
     --ui-desc-lh: 15px;
     --ui-link-mt: 8px;
 
-    // 引擎
     --eng-card-min-h: 240px;
     --eng-card-pad: 16px 12px 0 10px;
     --eng-icon-size: 16px;
     --eng-brand-size: 12px;
-    --eng-brand-lh: 18px;
+    --eng-brand-lh: 20px;
     --eng-title-mt: 10px;
     --eng-title-size: 12px;
     --eng-title-lh: 18px;
@@ -551,9 +487,6 @@
     --eng-link-mt: 8px;
   }
 
-  // ========================================
-  // 媒体查询：768px（平板竖屏，2x2 网格）
-  // ========================================
   @media (max-width: 768px) {
     --ps-pad-y: 40px;
     --ps-pad-x: 24px;
@@ -580,23 +513,12 @@
     --collapsed-name-size: 18px;
     --collapsed-summary-size: 14px;
 
-    // AI 亮色
     --ai-top-max-h: 240px;
-
-    // AI 暗色
     --ai-bottom-max-h: 360px;
-
-    // 模板
     --tmpl-card-min-h: 160px;
-
-    // 引擎
     --eng-card-min-h: 400px;
-
   }
 
-  // ========================================
-  // 媒体查询：480px（移动端单列）
-  // ========================================
   @media (max-width: 480px) {
     --ps-pad-y: 32px;
     --ps-pad-x: 16px;
@@ -613,7 +535,6 @@
     --card-name-size: 17px;
     --card-name-lh: 24px;
 
-    // AI 亮色
     --ai-light-pad: 16px 0 0 12px;
     --ai-header-gap: 10px;
     --ai-icon-size: 18px;
@@ -625,7 +546,6 @@
     --ai-desc-size: 12px;
     --ai-desc-lh: 16px;
 
-    // AI 暗色
     --ai-dark-pad: 12px;
     --ai-dark-header-gap: 6px;
     --ai-dark-icon-size: 18px;
@@ -637,7 +557,6 @@
     --ai-subdesc-size: 12px;
     --ai-subdesc-lh: 16px;
 
-    // 模板
     --tmpl-card-pad: 20px 12px 12px;
     --tmpl-icon-size: 18px;
     --tmpl-brand-size: 14px;
@@ -648,7 +567,6 @@
     --tmpl-desc-size: 12px;
     --tmpl-desc-lh: 16px;
 
-    // UI
     --ui-card-pad: 16px 12px 12px;
     --ui-icon-size: 18px;
     --ui-brand-size: 14px;
@@ -659,7 +577,6 @@
     --ui-desc-size: 12px;
     --ui-desc-lh: 16px;
 
-    // 引擎
     --eng-card-pad: 20px 12px 16px;
     --eng-icon-size: 18px;
     --eng-brand-size: 14px;
@@ -671,15 +588,11 @@
     --eng-desc-lh: 18px;
   }
 
-  // ========================================
-  // 基础样式
-  // ========================================
   padding: var(--ps-pad-y) var(--ps-pad-x);
   font-size: 14px;
   font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   border-top: 1px solid rgba(240, 240, 240, 1);
 
-  // 强制所有子元素继承 PingFang SC 字体，防止浏览器默认字体覆盖
   *, *::before, *::after {
     font-family: inherit;
   }
@@ -711,6 +624,7 @@
     display: flex;
     justify-content: center;
     gap: var(--ps-grid-gap);
+    pointer-events: none;
 
     @media (max-width: 768px) {
       flex-wrap: wrap;
@@ -719,7 +633,8 @@
     .suite-card {
       display: flex;
       flex-direction: column;
-      flex: 0 0 var(--card-default-w);
+      flex: 0 1 var(--card-default-w);
+      min-width: 0;
       min-height: var(--card-min-h);
       padding: var(--card-pad);
       border-radius: var(--card-radius);
@@ -728,8 +643,12 @@
       overflow: hidden;
       position: relative;
       z-index: 1;
+      pointer-events: auto;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      transition: flex-basis 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
 
-      &:nth-child(1) { background-color: #f3f4fb; }
+      &:nth-child(1) { background-color: #f3f4fb; background-size: 335px 680px !important;}
       &:nth-child(2) { background-color: #f3f4fb; }
       &:nth-child(3) { background-color: #f3f4fb; }
       &:nth-child(4) { background-color: #f5f1ff; }
@@ -768,6 +687,7 @@
         inset: 0;
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         transition: opacity 0.4s ease, visibility 0.4s ease;
 
         .ai-card-light,
@@ -785,6 +705,7 @@
           visibility: visible;
           inset: auto;
           margin-top: var(--card-preview-mt);
+          pointer-events: auto;
 
           .ai-card-light,
           .ai-card-dark,
@@ -799,11 +720,11 @@
     }
 
     .suite-card.is-collapsed {
-      flex-basis: var(--card-collapsed-w);
+      flex: 0 1 var(--card-collapsed-w);
+      min-width: 180px;
       padding: var(--collapsed-pad);
       z-index: 1;
 
-      // 每张卡片单独调整背景图片位置：向左、向下，展示约一半，避免挤压标签
       &:nth-child(1) {
         background-position: 25% !important;
         background-size: auto 100%, cover !important;
@@ -866,13 +787,18 @@
     }
 
     .suite-card.is-expanded {
-      flex-basis: var(--card-expanded-w);
+      flex: 0 0 var(--card-expanded-w);
       z-index: 10;
+
+      &:nth-child(1) {
+        background-size: auto 100%, cover !important;
+      }
 
       .card-preview {
         margin-top: var(--card-preview-mt);
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
 
         .ai-card-light,
         .ai-card-dark,
@@ -886,7 +812,6 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .product-suite{
     .suite-grid {
@@ -895,7 +820,6 @@
         max-height: var(--card-max-h);
         cursor: default;
 
-        // 移动端强制始终显示展开内容，不受 is-collapsed / is-expanded 影响
         &.is-collapsed,
         &.is-expanded {
           .card-preview {
@@ -904,6 +828,7 @@
             visibility: visible;
             inset: auto;
             margin-top: var(--card-preview-mt);
+            pointer-events: auto;
 
             .ai-card-light,
             .ai-card-dark,
@@ -925,20 +850,19 @@
     .suite-grid {
         .suite-card {
             min-height: 680px;
+            min-width: 335px;
         }
     }
   }
 
   .preview-engine {
     .engine-card.engine-card {
-      min-height: 450px;
+      min-height: 400px;
+      margin-top: 20px;
     }
   }
 }
 
-/* ============================================================
-   AI 应用开发 —— 全部使用变量，无硬编码
-   ============================================================ */
 .preview-ai {
   display: flex;
   flex-direction: column;
@@ -949,7 +873,6 @@
   @media (max-width: 768px) {
     gap: var(--ai-bottom-gap);
   }
-
 
   @media (min-width: 1920px) {
     gap: 20px;
@@ -1159,13 +1082,11 @@
         overflow-wrap: break-word;
       }
 
-
       @media (max-width: 1280px) {
         .ai-card-sublink.ai-card-sublink.ai-card-sublink { 
           margin-top: 0px;
         }
       }
-
 
       .ai-card-sublink {
         margin-top: 12px;
@@ -1209,9 +1130,6 @@
   }
 }
 
-/* ============================================================
-   前端应用模板 —— 全部使用变量
-   ============================================================ */
 .preview-template {
   display: flex;
   gap: var(--tmpl-gap);
@@ -1275,9 +1193,9 @@
       word-break: break-all;
       overflow-wrap: break-word;
 
-        @media (max-width: 768px) {
-          width: 60%;
-        }
+      @media (max-width: 768px) {
+        width: 60%;
+      }
     }
 
     .template-link {
@@ -1321,9 +1239,6 @@
   }
 }
 
-/* ============================================================
-   跨端 UI 组件库 —— 全部使用变量
-   ============================================================ */
 .preview-ui {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1335,7 +1250,6 @@
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-
 
   .ui-card {
     min-height: var(--ui-card-min-h);
@@ -1429,9 +1343,6 @@
   }
 }
 
-/* ============================================================
-   低代码应用搭建 —— 全部使用变量
-   ============================================================ */
 .preview-engine {
   height: 100%;
   padding: var(--eng-preview-pad);

@@ -147,15 +147,16 @@
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     .top-menu {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 108px;
+      width: auto;
       height: 44px;
+      padding: 0 4px;
       margin-right: clamp(8px, 2.5vw, 60px);
       border-bottom: 2px solid transparent;
       border-radius: 8px;
@@ -177,13 +178,32 @@
         .top-menu-svg { transform: rotateZ(180deg); }
 
         .dropdown-menu {
-          opacity: 1;
+          opacity: 1; 
+          box-shadow:  0 4px 16px 0 rgba(0, 0, 0, 0.08);
+          background-color: rgba(255, 255, 255, 1);
           transform: translateY(0) scaleY(1);
           visibility: visible;
           pointer-events: auto;
-          max-height: 800px;
-          min-height: 526px;
+          max-height: 9999px;
+          min-height: auto;
           transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0s linear, max-height 0s linear;
+        }
+      }
+      &.collapsed {
+        background-color: transparent;
+
+        .top-menu-title { font-weight: 400; }
+        .top-menu-svg { transform: rotateZ(0); }
+
+        .dropdown-menu {
+          max-height: 0;
+          min-height: 0;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          box-shadow: none;
+          transform: translateY(-8px) scaleY(0.98);
+          transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0s linear 0.25s, max-height 0s linear 0.25s;
         }
       }
 
@@ -213,7 +233,7 @@
     }
 
     .mg-r {
-      margin-right: 60px;
+      margin-right: 20px;
     }
 
     .dropdown-menu {
@@ -241,11 +261,21 @@
 
       .dropdown-content-title {
         width: 100%;
-        padding: 24px 48px 8px;
+        padding: 12px 48px 8px 262px;
         margin: 0;
         font-size: 16px;
         font-weight: 400;
         line-height: 14px;
+        color: @color-text-secondary;
+      }
+
+      .app-title-link {
+        width: 100%;
+        padding: 16px 48px 0 284px;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
         color: @color-text-secondary;
       }
 
@@ -256,7 +286,7 @@
         align-items: flex-start;
         gap: 124px;
         width: 100%;
-        padding: 100px 240px 80px;
+        padding: 16px 160px 24px 276px;
         margin-left: 0;
         transform: translateZ(0);
 
@@ -281,7 +311,7 @@
           border-radius: 8px;
 
           > .app-title {
-            margin-bottom: 48px;
+            margin-bottom: 32px;
             margin-left: 8px;
             font-size: 16px;
             font-weight: 600;
@@ -299,7 +329,7 @@
               width: 100%;
               height: 54px;
               padding: 8px;
-              margin-bottom: 24px;
+              margin-bottom:16px;
               border-radius: 8px;
               text-decoration: none;
               transition: background-color 0.2s;
@@ -325,6 +355,37 @@
                 line-height: 1.4;
                 color: @color-text;
               }
+            }
+          }
+        }
+
+        // ============================================
+        // 横向排列模式（如：智能化解决方案）
+        // ============================================
+        > .dropdown-app-part > .dropdown-app.is-horizontal,
+        > .dropdown-app.is-horizontal {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: stretch;
+          gap: 16px 24px;
+          min-width: 100%;
+          max-width: none;
+
+          > .app-title {
+            width: 100%;
+            margin-bottom: 24px;
+            flex-shrink: 0;
+          }
+
+          > .app-data {
+            width: auto;
+            flex: 1 1 220px;
+            max-width: 280px;
+
+            > a.dropdown-app {
+              height: auto;
+              min-height: 54px;
+              margin-bottom: 0;
             }
           }
         }
@@ -555,7 +616,8 @@
 // 大桌面 (≥1666px)
 @media (min-width: 1666px) {
   .opentiny-design-header {
-    .dropdown-content-title { padding-left: 48px; }
+    .dropdown-content-title { padding-left: 262px; }
+    .app-title-link { padding-left: 284px; }
   }
 }
 
@@ -564,8 +626,14 @@
     .nav-left { margin-right: clamp(48px, 4vw, 64px); }
 
     .nav-center {
-      .top-menu { margin-right: clamp(20px, 2.5vw, 40px); }
+      .top-menu { width: auto; padding: 0 16px; margin-right: clamp(20px, 2.5vw, 40px); }
       .mg-r { margin-right: clamp(20px, 2.5vw, 40px); }
+
+      .dropdown-menu {
+        width: 100vw;
+        left: 0;
+        border-radius: 0 0 12px 12px;
+      }
     }
   }
 }
@@ -591,19 +659,27 @@
       }
 
       .dropdown-menu {
+        width: 100vw;
+        left: 0;
+        border-radius: 0 0 12px 12px;
+
         .dropdown-content {
           gap: 48px;
-          padding: 48px 80px 64px;
+          padding: 16px 80px 24px;
           justify-content: center;
 
           .dropdown-app-part {
             gap: 24px;
-            justify-content: center;
+            justify-content: flex-start;
           }
         }
 
         .dropdown-content-title {
           padding: 16px 80px 8px;
+        }
+
+        .app-title-link {
+          padding: 16px 80px 0 88px;
         }
       }
     }
@@ -648,7 +724,7 @@
 
         .dropdown-content {
           gap: 24px;
-          padding: 24px 40px 40px;
+          padding: 12px 40px 20px;
 
           .dropdown-app-part {
             gap: 16px;
@@ -684,6 +760,11 @@
           padding: 12px 40px 8px;
           font-size: 14px;
         }
+
+        .app-title-link {
+          padding: 12px 40px 0 48px;
+          font-size: 14px;
+        }
       }
     }
 
@@ -694,6 +775,108 @@
 
       .github-space {
         display: none;
+      }
+    }
+  }
+
+  .opentiny-design-header {
+    .nav-center {
+      .dropdown-menu {
+        .dropdown-content {
+          > .dropdown-app-part > .dropdown-app.is-horizontal,
+          > .dropdown-app.is-horizontal {
+            gap: 12px 16px;
+
+            > .app-title {
+              margin-bottom: 16px;
+            }
+
+            > .app-data {
+              flex: 1 1 180px;
+              max-width: 240px;
+
+              > a.dropdown-app {
+                min-height: 48px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .opentiny-design-header {
+    .nav-center {
+      .top-menu {
+        &:hover,
+        &.active {
+          .dropdown-menu {
+            max-height: 9999px;
+            min-height: auto;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        width: clamp(900px, 78vw, 1500px);
+        left: clamp(62px, 11vw, 218px);
+        border-radius: 0 0 12px 12px;
+
+        .dropdown-content {
+          justify-content: center;
+          gap: 64px;
+          padding: 16px 64px 24px;
+
+          .dropdown-app-part {
+            justify-content: flex-start;
+            gap: 48px;
+          }
+
+          > .dropdown-app-part > .dropdown-app,
+          > .dropdown-app {
+            min-width: 220px;
+            max-width: 280px;
+            padding: 12px 0;
+
+            > .app-title {
+              margin-bottom: 32px;
+            }
+
+            > .app-data {
+              > a.dropdown-app {
+                margin-bottom: 16px;
+              }
+            }
+          }
+        }
+
+        .dropdown-content-title {
+          padding: 16px 60px 8px;
+        }
+
+        .app-title-link {
+          padding: 16px 60px 0 72px;
+        }
+      }
+    }
+  }
+
+  .opentiny-design-header {
+    .nav-center {
+      .dropdown-menu {
+        .dropdown-content {
+          > .dropdown-app-part > .dropdown-app.is-horizontal,
+          > .dropdown-app.is-horizontal {
+            gap: 20px 32px;
+
+            > .app-data {
+              flex: 1 1 240px;
+              max-width: 300px;
+            }
+          }
+        }
       }
     }
   }

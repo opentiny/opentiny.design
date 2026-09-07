@@ -78,7 +78,7 @@ const menuItems = [
   // },
   {
     type: 'other',
-    name: '产品',
+    name: '前端智能化',
     url: '',
     children: [
       {
@@ -135,7 +135,14 @@ const menuItems = [
             github: 'https://github.com/opentiny/webmcp-sdk'
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    type: 'other',
+    name: '前端应用开发',
+    url: '',
+    children: [
       {
         title: '场景化解决方案',
         data: [      
@@ -199,7 +206,7 @@ const menuItems = [
           {
             name: 'TinyEditor',
             desc: '富文本编辑器',
-            url: `https://docs.opentiny.design/tiny-editor/guide/quick-start.html`,
+            url: location.hostname === 'opentiny.design' ? `https://docs.opentiny.design/tiny-editor/guide/quick-start.html` : 'https://opentiny.github.io/tiny-editor',
             logo: tinyEditor,
             hide: false,
             new: true,
@@ -212,12 +219,12 @@ const menuItems = [
         data: [      
           {
             name: 'TinyEngine',
-            url: '/tiny-engine',
+            url: '/opentiny-design/tiny-engine',
             children: [],
             logo: tinyEngine,
             desc: '低代码智能搭建平台',
             github: 'https://github.com/opentiny/tiny-engine',
-            isUnderline: createIsUnderline('/opentiny-design/tiny-engine')
+            isUnderline: createIsUnderline('/tiny-engine')
           }
         ]
       }
@@ -227,6 +234,7 @@ const menuItems = [
     type: 'other',
     name: '文档',
     url: '',
+    linkTitle: '查看全部文档',
     children: [
       {
         title: '智能化解决方案',

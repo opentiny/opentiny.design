@@ -182,6 +182,14 @@
     padding: 16px 0 16px 16px;
     border-radius: @radius-sm;
   }
+
+  &:nth-child(2).card-light .card-bg-image {
+    background-size: auto 65%, cover;
+  }
+  &:nth-child(3) .card-bg-image {
+    background-size: auto 96%, cover;
+    background-position: top;
+  }
 }
 
 // ==================== 卡片右上角小图标 ====================
@@ -391,6 +399,7 @@
 .card-desc-large.card-desc-large {
   width: max-content;
   max-width: none;
+  max-height: fit-content;
   @media (max-width: 575px) {
     max-width: 108px;
   }
@@ -400,7 +409,7 @@
 .card-desc-large {
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   flex: 1;
   max-width: 63%;
   max-height: 48px;

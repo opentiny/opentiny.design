@@ -6,9 +6,7 @@
       <p class="page-desc">产品矩阵，确保开发一站落地</p>
     </div>
 
-    <!-- 卡片网格：上 3 下 2 -->
     <div class="grid-container">
-      <!-- 上排：3 个浅色卡片 -->
       <div class="grid-row grid-row-top">
         <div
           class="grid-card card-light"
@@ -16,12 +14,10 @@
           :key="'top-' + i"
           :style="getLightStyle(i)"
         >
-          <!-- 右上角小图标（每个卡片独立） -->
           <div class="card-badge">
             <img :src="getIconUrl('part-three-f')" alt="badge" />
           </div>
 
-          <!-- 右侧背景图 -->
           <div
             class="card-bg-image"
             :style="{ backgroundImage: `url(${card.bgImage})` }"
@@ -46,7 +42,6 @@
         </div>
       </div>
 
-      <!-- 下排：2 个深色卡片 -->
       <div class="grid-row grid-row-bottom">
         <div
           class="grid-card card-dark"
@@ -54,7 +49,6 @@
           :key="'bottom-' + i"
           :style="getDarkStyle(i)"
         >
-          <!-- 右侧背景图 -->
           <div
             class="card-bg-image"
             :style="{ backgroundImage: `url(${card.bgImage})` }"
@@ -79,21 +73,22 @@
         </div>
       </div>
     </div>
-    <!-- TODO:查看更多 -->
-    <!-- <div class="more-link">
+    <div class="more-link">
       <a
         class="card-link"
-        href="https://docs.opentiny.design/next-sdk/guide/quick-start"
         target="_blank"
         rel="noopener noreferrer"
+        @click="hrefGo"
       >
         查看更多产品
       </a>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const getBgUrl = (name: string) => 
   new URL(`../../../../assets/images/new-icon/next-page/${name}.png`, import.meta.url).href
 const getIconUrl = (name: string) => 
@@ -104,7 +99,6 @@ const isGitHubRuntime = typeof window !== 'undefined' && window.location.hostnam
 const isGitHub = isGitHubRuntime || isGitHubBuild
 const basePath = isGitHub ? '/opentiny.design/' : '/'
 
-// ========== 数据 ==========
 const topCards = [
   {
     brand: 'TinyRobot',
@@ -120,7 +114,7 @@ const topCards = [
     desc: '根据对话数据动态生成交互界面',
     link: `https://docs.opentiny.design/genui-sdk/guide/quick-start`,
     icon: getIconAppUrl('genui-sdk'),
-    bgImage: getBgUrl('part-three-b'),
+    bgImage: getIconUrl('part-three-b'),
   },
   {
     brand: 'NEXT SDKs',
@@ -151,7 +145,6 @@ const bottomCards = [
   },
 ]
 
-// ========== 样式 ==========
 const lightGradients = [
   'linear-gradient(-64.43deg, rgba(199, 219, 255, 1) 0%, rgba(239, 245, 255, 1) 68.75%)',
   'linear-gradient(116.57deg, rgba(251, 245, 255, 1) 10.987%, rgba(218, 199, 255, 1) 100%)',
@@ -170,6 +163,10 @@ const getLightStyle = (index: number) => ({
 const getDarkStyle = (index: number) => ({
   background: darkGradients[index],
 })
+
+const hrefGo = () => {
+  router.push({ name: `all-products` })
+}
 </script>
 
 <style lang="less" scoped>

@@ -25,6 +25,21 @@ onMounted(() => {
     }
   }, 200);
 });
+
+const handleExperienceClick = () => {
+  const hostname = location.hostname;
+  const isTargetDomain = hostname === 'opentiny.design'
+  const isLocales = hostname === 'localhost' || hostname === '127.0.0.1'
+  if (isTargetDomain) {
+    // opentiny.design 或 github.io 域名：直接跳转 /tinyvue
+    location.href = '/tinyvue';
+  } else if(isLocales) {
+    location.href = `/`;
+  }else {
+    // 其他域名：当前域名 + /tinyvue
+    location.href = `${location.protocol}//${hostname}/tinyvue`;
+  }
+}
 </script>
 
 <template>
@@ -34,7 +49,7 @@ onMounted(() => {
       <p class="subtitle">轻量 高性能 智能化</p>
       <p class="description">一款支持主流前端框架、AI对话框、MCP Host 和智能体搭建平台</p>
       <div class="cta-group">
-        <a href="/tiny-vue" target="_blank" class="btn primary"
+        <a href="javascript:void(0)" class="btn primary" @click="handleExperienceClick"
           >立即体验</a
         >
         <a
