@@ -157,7 +157,7 @@ const sections = [
         desc: '跨端、跨框架的企业级 UI 组件库',
         icon: getIconAppUrl('tiny-vue'),
         docs: `https://docs.opentiny.design/tiny-vue/guide/introduce.html`,
-        site: isTargetDomain ? `${basePath}tiny-vue` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tinyvue`
+        site: isTargetDomain ? `${basePath}tiny-vue` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tiny-vue`
       },
       {
         title: 'TinyNg',

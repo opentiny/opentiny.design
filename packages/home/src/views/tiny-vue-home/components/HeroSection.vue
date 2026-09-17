@@ -31,13 +31,13 @@ const handleExperienceClick = () => {
   const isTargetDomain = hostname === 'opentiny.design'
   const isLocales = hostname === 'localhost' || hostname === '127.0.0.1'
   if (isTargetDomain) {
-    // opentiny.design 或 github.io 域名：直接跳转 /tinyvue
-    location.href = '/tinyvue';
+    // opentiny.design 或 github.io 域名：直接跳转 /tiny-vue
+    location.href = '/tiny-vue';
   } else if(isLocales) {
     location.href = `/`;
   }else {
     // 其他域名：当前域名 + /tinyvue
-    location.href = `${location.protocol}//${hostname}/tinyvue`;
+    location.href = `${location.protocol}//${hostname}/tiny-vue`;
   }
 }
 </script>
