@@ -211,7 +211,7 @@ const menuItems = [
         data: [      
           {
             name: 'TinyEngine',
-            url: '/opentiny-design/tiny-engine',
+            url: '/tiny-engine',
             children: [],
             logo: tinyEngine,
             desc: '低代码智能搭建平台',
