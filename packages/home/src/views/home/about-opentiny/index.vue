@@ -243,7 +243,7 @@ const cardOptions = [
         brand: 'TinyVue',
         title: '企业级 Vue 组件库',
         desc: '跨端、跨框架的企业级 UI 组件库',
-        link: isTargetDomain ? `${basePath}tiny-vue` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tinyvue`,
+        link: isTargetDomain ? `${basePath}tiny-vue` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tiny-vue`,
         icon: getIconAppUrl('tiny-vue')
       },
       {

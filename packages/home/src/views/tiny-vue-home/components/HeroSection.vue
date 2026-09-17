@@ -37,7 +37,7 @@ const handleExperienceClick = () => {
     location.href = `/`;
   }else {
     // 其他域名：当前域名 + /tinyvue
-    location.href = `${location.protocol}//${hostname}/tinyvue`;
+    location.href = `${location.protocol}//${hostname}/tiny-vue`;
   }
 }
 </script>
