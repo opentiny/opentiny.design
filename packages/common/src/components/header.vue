@@ -62,6 +62,8 @@ const subLogoConfig = {
 }
 const subLogo = subLogoConfig[currApp] || null
 
+const hideNavCenter = /tiny-charts|tiny-cli|tiny-vue/.test(location.pathname)
+
 interface UserInfo { userId: string; userIcon: string }
 const state = reactive({
    headerInfo: (props.options?.customMenus || headerInfo.filter(item =>
@@ -117,6 +119,21 @@ function enterDropdown(item: any) {
 
 function leaveDropdown(item: any) {
   leaveTopMenu(item)
+}
+
+function toggleDropdown(ev: MouseEvent, item: any) {
+  ev.stopPropagation()
+  if (_closeTimer) {
+    clearTimeout(_closeTimer)
+    _closeTimer = null
+  }
+  if (item.collapsed) {
+    item.collapsed = false
+    item.active = true
+    _lastHoverItem = item
+  } else {
+    item.collapsed = true
+  }
 }
 
 function toDocs() {
@@ -336,7 +353,7 @@ const toggleTheme = (event: MouseEvent) => {
     </div>
 
     <!-- 2、大屏菜单中间 -->
-    <div class="nav-center flex-center">
+    <div  v-if="!hideNavCenter" class="nav-center flex-center">
       <div
         v-for="level1 in state.otherAppInfo"
         class="top-menu flex-center mg-r"
@@ -346,7 +363,7 @@ const toggleTheme = (event: MouseEvent) => {
       >
         <span class="top-menu-title">{{ level1.name }}</span>
         <svg v-if="level1.children?.length" class="top-menu-svg hand" width="20" height="20" viewBox="0 0 20 20"
-          fill="none" xmlns="http://www.w3.org/2000/svg">
+          fill="none" xmlns="http://www.w3.org/2000/svg" @click="toggleDropdown($event, level1)">
           <path d="M10 13.75L3.75 7.5L4.62 6.62L10 12L15.37 6.62L16.25 7.5L10 13.75Z" fill="currentColor"
             fill-opacity="1" fill-rule="evenodd" />
         </svg>
