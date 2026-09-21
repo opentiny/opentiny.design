@@ -31,7 +31,7 @@ function genuiSdkAssetPaths() {
         return null
       }
 
-      const rewrittenCode = code.replace(/(["'])\/assets\//g, `$1${assetBase}assets/`)
+      const rewrittenCode = code.replace(/(["'])\/assets\//g, `$1${assetBase}genui-sdk/assets/`)
 
       return rewrittenCode === code ? null : { code: rewrittenCode, map: null }
     }
@@ -96,7 +96,7 @@ export default defineConfig(({ command, mode }) => {
           },
           {
             src: _resolve('../../genui-sdk/sites/homepage/web/dist/assets'),
-            dest: '.'
+            dest: 'genui-sdk'
           }
         ]
       })
