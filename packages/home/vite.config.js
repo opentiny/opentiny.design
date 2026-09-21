@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, normalizePath } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 import UnoCssConfig from './uno.config'
@@ -95,7 +95,7 @@ export default defineConfig(({ command, mode }) => {
             dest: `opentiny-design/downloadFile`
           },
           {
-            src: _resolve('../../genui-sdk/sites/homepage/web/dist/assets'),
+            src: normalizePath(_resolve('../../genui-sdk/sites/homepage/web/dist/assets')),
             dest: 'genui-sdk'
           }
         ]
