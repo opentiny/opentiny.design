@@ -24,9 +24,15 @@
 // ==================== 页面容器 ====================
 .product-grid-page {
   width: 100%;
-  padding: 100px 150px;
+  max-width: 1600px;
+  padding: 100px 0;
+  margin: 0 auto;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  @media (max-width: 1669px) {
+    padding: 100px 100px;
+  }
 
   @media (max-width: 1399px) {
     padding: 64px 32px 80px;
@@ -168,7 +174,7 @@
 
   @media (max-width: 991px) {
     padding: 18px 0 18px 18px;
-    height: 236px;
+    height: 260px;
   }
 
   @media (max-width: 767px) {
@@ -181,6 +187,22 @@
   @media (max-width: 575px) {
     padding: 16px 0 16px 16px;
     border-radius: @radius-sm;
+  }
+
+  &:nth-child(2).card-light .card-bg-image {
+    background-size: auto 65%, cover;
+
+    @media (max-width: 1369px) {
+      background-size: auto 35%, cover;
+    }
+  }
+  &:nth-child(3) .card-bg-image {
+    background-size: auto 96%, cover;
+    background-position: top;
+
+    @media (max-width: 1369px) {
+      background-size: auto 85%, cover;
+    }
   }
 }
 
@@ -221,11 +243,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 50%;
-
-  @media (max-width: 1199px) {
-    max-width: 60%;
-  }
 
   @media (max-width: 991px) {
     max-width: 65%;
@@ -259,7 +276,7 @@
   }
 
   @media (max-width: 991px) {
-    width: 35%;
+    width: 50%;
     opacity: 0.9;
   }
 
@@ -372,7 +389,11 @@
   font-weight: 500;
   line-height: 28px;
   margin-bottom: 8px;
-  width: max-content;
+  width: stretch;
+
+  @media (max-width: 1669px) {
+    font-size: 20px;
+  }
 
   @media (max-width: 1199px) {
     font-size: 17px;
@@ -391,6 +412,7 @@
 .card-desc-large.card-desc-large {
   width: max-content;
   max-width: none;
+  max-height: fit-content;
   @media (max-width: 575px) {
     max-width: 108px;
   }
@@ -400,7 +422,7 @@
 .card-desc-large {
   font-size: 14px;
   line-height: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   flex: 1;
   max-width: 63%;
   max-height: 48px;

@@ -4,9 +4,6 @@
       <div class="showcase-title">OpenTiny系列产品组成的核心能力</div>
       <div class="showcase-subtitle">覆盖组件、低代码、生成式 UI、AI 对话、智能执行、浏览器增强与 Web 智能体</div>
       <div class="showcase-body">
-        <div class="compare-header">
-          <span class="compare-left">前端应用开发能力 + NEXT AI智能应用开发能力</span>
-        </div>
         <div class="compare-panels">
           <div class="panel-left">
             <div class="panel-heading">前端应用开发能力</div>
@@ -31,6 +28,7 @@
               </div>
             </div>
           </div>
+          <img class="compare-plus" :src="getImgPowerUrl('plus-icon')" />
           <div class="panel-right">
             <div class="panel-heading">AI 智能应用开发能力</div>
             <div class="panel-blocks">

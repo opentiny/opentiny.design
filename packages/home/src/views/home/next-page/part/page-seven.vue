@@ -149,6 +149,7 @@ const docsFn = () => {
   }
   .hero-banner {
     height: 260px;
+    padding: 32px;
   }
   .banner-title {
     font-size: 28px;

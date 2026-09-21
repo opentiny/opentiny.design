@@ -1,0 +1,81 @@
+<svg viewBox="0 0 1920 650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920.000000" height="650.000000" fill="none" customFrame="#000000">
+	<mask id="mask_3" width="1920.000000" height="650.000000" x="0.000000" y="0.000000" maskUnits="userSpaceOnUse">
+		<g filter="url(#pixso_custom_mask_type_alpha)">
+			<g id="mask_0">
+				<rect id="矩形 77692" width="1920.000000" height="650.000000" x="0.000000" y="0.000000" fill="url(#paint_linear_31)" />
+			</g>
+		</g>
+	</mask>
+	<defs>
+		<clipPath id="clipPath_6">
+			<rect width="1920.000000" height="650.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" />
+		</clipPath>
+		<linearGradient id="paint_linear_31" x1="960" x2="960" y1="0" y2="650" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(250,250,250)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(250,250,250)" offset="1" stop-opacity="0" />
+		</linearGradient>
+		<filter id="pixso_custom_mask_type_alpha">
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 " />
+		</filter>
+		<linearGradient id="paint_linear_32" x1="959.000366" x2="959.021912" y1="0" y2="649.999939" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(245,245,245)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<g id="pixso_custom_effect_17">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="200" />
+		</g>
+		<filter id="filter_17" width="1825.000000" height="1281.235962" x="-254.000000" y="-410.225830" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_17)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="66.6666641" result="effect_layerBlur_1" />
+		</filter>
+		<linearGradient id="paint_linear_33" x1="-26.5908203" x2="1217.65125" y1="-368.228271" y2="1011.18799" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(128,192,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(200.509,244.783,255)" offset="0.513474047" stop-opacity="0.529999971" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</linearGradient>
+		<g id="pixso_custom_effect_18">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="100" />
+		</g>
+		<filter id="filter_18" width="1280.000000" height="958.341553" x="320.000000" y="-278.079834" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_18)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="33.3333321" result="effect_layerBlur_1" />
+		</filter>
+		<linearGradient id="paint_linear_34" x1="960" x2="960" y1="-278.079834" y2="680.261719" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(164,230,239)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</linearGradient>
+		<g id="pixso_custom_effect_19">
+			<effect visibility="visible" effectType="gaussianBlur" stdDeviation="200" />
+		</g>
+		<filter id="filter_19" width="1684.000000" height="1142.196045" x="729.000000" y="-271.184387" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_19)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+			<feGaussianBlur stdDeviation="66.6666641" result="effect_layerBlur_1" />
+		</filter>
+		<linearGradient id="paint_linear_35" x1="847.527405" x2="1887.60962" y1="805.072571" y2="-423.005188" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0" />
+			<stop stop-color="rgb(196,199,255)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<g id="banner02">
+		<g id="banner_PC 1" customFrame="url(#clipPath_6)">
+			<rect id="banner_PC 1" width="1920.000000" height="650.000000" x="0.000000" y="0.000000" />
+			<g id="mask" mask="url(#mask_3)">
+				<g id="banner">
+					<rect id="矩形 77688" width="1920.000000" height="650.000000" x="-1.000000" y="0.000000" fill="url(#paint_linear_32)" />
+					<g id="组合 2" filter="url(#filter_17)">
+						<ellipse id="椭圆 2392" rx="912.500000" ry="640.617981" cx="658.5" cy="230.392151" fill="url(#paint_linear_33)" />
+					</g>
+					<g id="组合 3" filter="url(#filter_18)">
+						<ellipse id="椭圆 2394" rx="640.000000" ry="479.170776" cx="960" cy="201.090942" fill="url(#paint_linear_34)" />
+					</g>
+					<g id="组合 4" filter="url(#filter_19)">
+						<ellipse id="椭圆 2393" rx="842.000000" ry="571.098022" cx="1571" cy="299.913635" fill="url(#paint_linear_35)" />
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

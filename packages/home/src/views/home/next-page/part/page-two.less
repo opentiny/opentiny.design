@@ -1,4 +1,3 @@
-// ==================== 变量 ====================
 @gap-xl: 24px;
 @gap-lg: 20px;
 @gap-md: 16px;
@@ -10,13 +9,18 @@
 @radius-md: 12px;
 @radius-sm: 8px;
 
-// ==================== 基础区域 ====================
 .agent-capability-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 150px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 100px 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  @media (max-width: 1669px) {
+    padding: 100px 100px;
+  }
 
   @media (max-width: 1399px) {
     padding: 80px 32px;
@@ -28,6 +32,7 @@
 
   @media (max-width: 991px) {
     padding: 56px 24px;
+    border-top: 1px solid rgba(240, 240, 240, 1);
   }
 
   @media (max-width: 767px) {
@@ -39,7 +44,6 @@
   }
 }
 
-// ==================== 标题 ====================
 .main-title {
   font-size: 40px;
   font-weight: 600;
@@ -110,7 +114,6 @@
   }
 }
 
-// ==================== 卡片容器 ====================
 .cards-wrapper {
   display: flex;
   gap: @gap-xl;
@@ -118,18 +121,13 @@
   justify-content: center;
   width: 100%;
 
-  @media (max-width: 1399px) {
-    gap: @gap-lg;
-  }
-
-  @media (max-width: 1199px) {
+  @media (max-width: 1669px) {
     flex-wrap: wrap;
-    gap: @gap-md;
+    gap: @gap-lg;
   }
 
   @media (max-width: 767px) {
     flex-direction: column;
-    align-items: center;
     gap: @gap-md;
   }
 
@@ -144,28 +142,21 @@
   align-items: center;
   flex-shrink: 0;
 
-  @media (max-width: 1199px) {
-    flex: 1 1 calc(50% - @gap-md / 2);
-    min-width: 320px;
+  @media (max-width: 1669px) {
+    flex: 1 1 calc(50% - @gap-lg / 2);
+    min-width: 0;
 
     &:last-child {
       flex: 1 1 100%;
-      max-width: 100%;
     }
   }
 
   @media (max-width: 767px) {
     width: 100%;
-    max-width: 100%;
     flex: none;
-
-    &:last-child {
-      flex: none;
-    }
   }
 }
 
-// ==================== Tag 公共 ====================
 .section-tag.section-tag {
   border-radius: 999px;
   margin-bottom: 32px;
@@ -202,7 +193,6 @@
   }
 }
 
-// ==================== 问题 Tag ====================
 .tag-problem {
   width: 160px;
   height: 44px;
@@ -229,7 +219,6 @@
   }
 }
 
-// ==================== 方案 Tag ====================
 .tag-solution {
   width: 160px;
   height: 44px;
@@ -252,7 +241,6 @@
   }
 }
 
-// ==================== 效果 Tag ====================
 .tag-effect {
   justify-content: center;
   width: 222px;
@@ -280,7 +268,6 @@
   }
 }
 
-// ==================== 卡片公共 ====================
 .card {
   border-radius: @radius-xl;
   padding: 42px 42px 0;
@@ -311,19 +298,13 @@
   }
 }
 
-// ==================== 小卡片 ====================
 .card-small {
   width: 376px;
   height: 600px;
   background-color: rgba(247, 248, 251, 1);
   background-repeat: no-repeat;
 
-  @media (max-width: 1399px) {
-    width: 340px;
-    height: 540px;
-  }
-
-  @media (max-width: 1199px) {
+  @media (max-width: 1669px) {
     width: 100%;
     height: auto;
     min-height: 440px;
@@ -343,80 +324,69 @@
 }
 
 .card-problem-bg {
-  background-position: 0 320px;
+  background-position: 0 265px;
   background-size: contain;
 
   @media (max-width: 1399px) {
     background-position: 0 280px;
   }
 
-  @media (max-width: 1199px) {
-    background-position: right bottom;
-    background-size: 260px auto;
-  }
-
-  @media (max-width: 767px) {
-    background-size: 220px auto;
+  @media (max-width: 1669px) {
+    background-position: center bottom;
+    background-size: 324px auto;
   }
 
   @media (max-width: 575px) {
-    background-size: 90% 50%, cover;
+    background-size: 240px auto;
   }
 }
 
 .card-solution-bg {
-  background-position: 4px 276px;
+  background-position: 0px 270px;
   background-size: contain;
 
   @media (max-width: 1399px) {
     background-position: 4px 240px;
   }
 
-  @media (max-width: 1199px) {
-    background-position: right bottom;
-    background-size: 260px auto;
-  }
-
-  @media (max-width: 767px) {
-    background-size: 220px auto;
+  @media (max-width: 1669px) {
+    background-position: center bottom;
+    background-size: 324px auto;
   }
 
   @media (max-width: 575px) {
-    background-size: 90% 60%, cover;
+    background-size: 240px auto;
   }
 }
 
-// ==================== 大卡片 ====================
 .card-large {
   width: 800px;
   height: 600px;
   background: linear-gradient(229.40deg, rgba(250, 243, 255, 1) 2.454%, rgba(240, 246, 255, 1) 99.304%);
 
-  @media (max-width: 1399px) {
-    width: 720px;
-    height: 540px;
-  }
-
-  @media (max-width: 1199px) {
+  @media (max-width: 1669px) {
     width: 100%;
     height: auto;
-    min-height: 480px;
+    min-height: 860px;
+  }
+  
+  @media (max-width: 1199px) {
+    min-height: 730px;
   }
 
   @media (max-width: 991px) {
-    min-height: 440px;
+    min-height: 620px;
   }
 
   @media (max-width: 767px) {
-    min-height: 400px;
+    min-height: 470px;
   }
 
   @media (max-width: 575px) {
-    min-height: 360px;
+    min-height: 440px;
   }
 }
 
-// ==================== 卡片内容 ====================
 .card-label {
   max-width: fit-content;
   margin-bottom: 14px;
@@ -434,6 +404,10 @@
   letter-spacing: 1px;
   color: rgba(25, 25, 25, 1);
   margin-bottom: 12px;
+
+  @media (max-width: 1669px) {
+    font-size: 18px;
+  }
 
   @media (max-width: 1399px) {
     font-size: 22px;
@@ -486,35 +460,29 @@
   }
 }
 
-// ==================== 卡片内视频触发区 ====================
 .video-player-wrap {
   height: 420px;
   cursor: pointer;
   position: relative;
 
-  @media (max-width: 1399px) {
-    min-height: 240px;
+  @media (max-width: 1669px) {
+    height: 680px;
   }
 
   @media (max-width: 1199px) {
-    min-height: 320px;
-    height: 320px;
-    flex: none;
+    height: 560px;
   }
 
   @media (max-width: 991px) {
-    min-height: 280px;
-    height: 280px;
+    height: 460px;
   }
 
   @media (max-width: 767px) {
-    min-height: 220px;
-    height: 220px;
+    height: 320px;
   }
 
   @media (max-width: 575px) {
-    min-height: 180px;
-    height: 180px;
+    height: 300px;
   }
 
   .video-frame {
@@ -547,6 +515,14 @@
     align-items: center;
     justify-content: center;
     border-radius: @radius-md;
+
+    @media (max-width: 1669px) {
+      background-size: 100% 100%, cover;
+    }
+
+    @media (max-width: 767px) {
+      // background-size: auto 67%, cover;
+    }
   }
 
   .play-icon {
@@ -570,7 +546,6 @@
   }
 }
 
-// ==================== 视频模态框 ====================
 .video-modal {
   position: fixed;
   top: 0;
@@ -662,7 +637,6 @@
   }
 }
 
-// ==================== 骨架屏 ====================
 .video-skeleton {
   position: absolute;
   inset: 0;
@@ -726,7 +700,6 @@
   }
 }
 
-// ==================== 模态框播放按钮 ====================
 .modal-play-btn {
   position: absolute;
   inset: 0;
@@ -780,7 +753,6 @@
   100% { transform: scale(1); opacity: 0; }
 }
 
-// ==================== 过渡动画 ====================
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.3s ease;

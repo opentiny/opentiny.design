@@ -2,15 +2,15 @@
   <div class="resources-page">
     <h1 class="main-title">相关资源</h1>
     <p class="sub-title">WebMCP全场景实践指南，轻松从浏览器连接到多端应用落地</p>
-    
+
     <div class="cards-container">
       <div class="resource-card" v-for="(item, index) in cards" :key="index">
         <h3 class="card-title">{{ item.title }}</h3>
         <p class="card-desc">
           <template v-for="(link, i) in item.desc" :key="i">
-            <a 
-              :href="link.url" 
-              target="_blank" 
+            <a
+              :href="link.url"
+              target="_blank"
               rel="noopener noreferrer"
               class="desc-link"
             >{{ link.text }}</a>
@@ -51,7 +51,7 @@ const cards = [
   {
     title: 'SDK',
     desc: [
-      { text: 'npm i @opentiny/next-sdk'}
+      { text: 'npm i @opentiny/next-sdk' }
     ]
   }
 ]
@@ -66,11 +66,34 @@ const cards = [
 
 .resources-page {
   background-color: rgba(255, 255, 255, 1);
-  padding: 100px 150px;
+  max-width: 1600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  padding: 100px 0;
   align-items: center;
   border-top: 1px solid rgba(240, 240, 240, 1);
+  box-sizing: border-box;
+
+  @media (max-width: 1669px) {
+    padding: 80px 64px;
+  }
+
+  @media (max-width: 1199px) {
+    padding: 64px 28px;
+  }
+
+  @media (max-width: 991px) {
+    padding: 56px 24px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 48px 20px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 40px 16px;
+  }
 }
 
 .main-title {
@@ -80,6 +103,33 @@ const cards = [
   color: #191919;
   margin-bottom: 16px;
   text-align: center;
+
+  @media (max-width: 1399px) {
+    font-size: 38px;
+    line-height: 56px;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  @media (max-width: 991px) {
+    font-size: 30px;
+    line-height: 44px;
+    margin-bottom: 14px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 26px;
+    line-height: 38px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 22px;
+    line-height: 32px;
+  }
 }
 
 .sub-title {
@@ -90,19 +140,64 @@ const cards = [
   color: rgba(128, 128, 128, 1);
   margin-bottom: 60px;
   text-align: center;
+  max-width: 720px;
+
+  @media (max-width: 1399px) {
+    font-size: 19px;
+    margin-bottom: 52px;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 18px;
+    margin-bottom: 44px;
+  }
+
+  @media (max-width: 991px) {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 28px;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
 }
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(4, 368px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 42px;
   justify-content: center;
   width: 100%;
-  max-width: 1598px;
+
+  @media (max-width: 1669px) {
+    gap: 24px;
+  }
+
+  @media (max-width: 1199px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 575px) {
+    gap: 12px;
+  }
 }
 
 .resource-card {
-  width: 368px;
+  width: 100%;
   height: 150px;
   padding: 24px 32px;
   border-radius: 20px;
@@ -110,6 +205,33 @@ const cards = [
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 1399px) {
+    padding: 22px 28px;
+  }
+
+  @media (max-width: 1199px) {
+    padding: 20px 24px;
+    border-radius: 16px;
+  }
+
+  @media (max-width: 991px) {
+    height: 140px;
+    padding: 18px 22px;
+  }
+
+  @media (max-width: 767px) {
+    height: auto;
+    min-height: 130px;
+    padding: 16px 20px;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 575px) {
+    min-height: 120px;
+    padding: 14px 16px;
+    border-radius: 8px;
+  }
 }
 
 .card-title {
@@ -118,6 +240,21 @@ const cards = [
   color: #191919;
   font-weight: 600;
   margin-bottom: 8px;
+
+  @media (max-width: 1199px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .card-desc {
@@ -129,9 +266,25 @@ const cards = [
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media (max-width: 1669px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 1199px) {
+    line-height: 28px;
+  }
+
+  @media (max-width: 767px) {
+    line-height: 26px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 13px;
+    line-height: 24px;
+  }
 }
 
-/* 链接样式 */
 .desc-link {
   color: rgba(89, 89, 89, 1);
   text-decoration: none;
@@ -144,43 +297,7 @@ const cards = [
   text-decoration: underline;
 }
 
-/* 分隔符保持原文字颜色 */
 .divider {
   color: rgba(89, 89, 89, 1);
-}
-
-/* ========== 中等屏幕：一行两个 ========== */
-@media (max-width: 1200px) {
-  .resources-page {
-    padding: 80px 60px;
-  }
-  .cards-container {
-    grid-template-columns: repeat(2, 368px);
-    max-width: 778px;
-  }
-}
-
-/* ========== 小屏幕：一行一个 ========== */
-@media (max-width: 768px) {
-  .resources-page {
-    padding: 60px 20px;
-  }
-  .main-title {
-    font-size: 32px;
-    line-height: 48px;
-  }
-  .sub-title {
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 40px;
-  }
-  .cards-container {
-    grid-template-columns: 1fr;
-  }
-  .resource-card {
-    width: 100%;
-    height: auto;
-    min-height: 150px;
-  }
 }
 </style>

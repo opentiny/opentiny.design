@@ -124,51 +124,17 @@
       margin-top: 24px;
     }
 
-    .compare-header {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 32px;
-
-      @media (max-width: 1440px) {
-        font-size: 28px;
-        line-height: 28px;
-        margin-bottom: 32px;
-      }
-      @media (max-width: 1200px) {
-        font-size: 24px;
-        margin-bottom: 28px;
-      }
-      @media (max-width: 768px) {
-        font-size: 20px;
-        margin-bottom: 24px;
-      }
-
-      .compare-left {
-        color: transparent;
-        background: linear-gradient(90deg, #cb43a8, #2c5fef 56%);
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-    }
-
     .compare-panels {
       display: flex;
-      gap: 40px;
+      gap: 20px;
       justify-content: center;
       align-items: stretch;
-
-      @media (max-width: 1440px) {
-        gap: 32px;
-      }
-      @media (max-width: 1200px) {
-        gap: 24px;
-      }
+      position: relative;
+      width: fit-content;
+      margin: 0 auto;
       @media (max-width: 1169px) {
         flex-direction: column;
         align-items: center;
-        gap: 24px;
       }
 
       // ---------- 公共面板基础 ----------
@@ -262,11 +228,14 @@
         }
         @media (max-width: 1169px) {
           width: 100%;
-          max-width: 720px;
+          min-width: 720px;
           min-height: auto;
         }
         @media (max-width: 768px) {
-          max-width: 100%;
+          min-width: 540px;
+        }
+        @media (max-width: 600px) {
+          min-width: 320px;
         }
 
         .capability-block {
@@ -373,6 +342,29 @@
         }
       }
 
+      .compare-plus {
+        position: absolute;
+        left: 40.15%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 56px;
+        height: 56px;
+        z-index: 10;
+        pointer-events: none;
+        user-select: none;    
+
+        @media (max-width: 1440px) { width: 48px; height: 48px; }
+        @media (max-width: 1200px) { width: 44px; height: 44px; }
+        @media (max-width: 1169px) {
+          position: static;
+          transform: none;
+          width: 40px;
+          height: 40px;
+        }
+        @media (max-width: 768px) { width: 36px; height: 36px; }
+        @media (max-width: 480px) { width: 32px; height: 32px; }
+      }   
+
       // ---------- 右侧面板 ----------
       .panel-right {
         width: 840px;
@@ -393,13 +385,15 @@
         }
         @media (max-width: 1169px) {
           width: 100%;
-          max-width: 720px;
+          min-width: 720px;
           min-height: auto;
-          background-position: top right, center;
+          background-image: radial-gradient(ellipse at center, #f5fcff 0%, rgba(208, 236, 255, 0.5) 100%) !important;
         }
         @media (max-width: 768px) {
-          max-width: 100%;
-          background-size: auto 50%, cover;
+          min-width: 540px;
+        }
+        @media (max-width: 600px) {
+          min-width: 320px;
         }
 
         .capability-block {

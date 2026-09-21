@@ -9,6 +9,8 @@ import './index.less'
 const { isMobile, width } = useWindowSize()
 const carouselRef = ref()
 
+const showCarousel = computed(() => isMobile.value || width.value < 1024)
+
 const userList = ref([...USERS_DATA, ...USERS_DATA])
 
 const chunkArr = (arr, size) => {
@@ -20,11 +22,11 @@ const chunkArr = (arr, size) => {
   return result
 }
 
-const mobileUserList = computed(() => chunkArr(USERS_DATA, width.value < 600 ? 1 : 2))
+const mobileUserList = computed(() => chunkArr(USERS_DATA, width.value < 600 ? 1 : 1))
 
 const carouselHeight = computed(() => {
   if (width.value < 600) return '180px'
-  if (width.value < 820) return '280px'
+  if (width.value < 820) return '200px'
   return '204px'
 })
 
@@ -38,7 +40,7 @@ const rightList = computed(() => {
   return [...half, ...half]
 })
 
-watch([carouselHeight, mobileUserList], () => {
+watch([carouselHeight, mobileUserList, showCarousel], () => {
   if (!carouselRef.value) return
   nextTick(() => {
     carouselRef.value?.resize?.()
@@ -98,7 +100,7 @@ watch([carouselHeight, mobileUserList], () => {
       </div>
     </div>
     <tiny-carousel
-      v-if="isMobile"
+      v-if="showCarousel"
       ref="carouselRef"
       :height="carouselHeight"
       :aspect-ratio="false"

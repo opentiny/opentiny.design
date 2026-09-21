@@ -102,7 +102,7 @@ const searchClick = () => {
 
 const handleClick = (msg) => {
   if (msg === 'find') {
-    router.push('/next-page')
+    router.push({ name: 'next-page' })
   } else {
     window.open(`/opentiny-design/tiny-vue`, '_blank', 'noopener=yes,noreferrer=yes')
   }

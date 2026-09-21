@@ -109,18 +109,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { TinyTag } from '@opentiny/vue'
-import useWindowSize from '@/tools/useWindowSize.js'
 import './index.less'
 
 const isGitHubBuild = import.meta.env.MODE === 'github'
 const isGitHubRuntime = typeof window !== 'undefined' && window.location.hostname.includes('opentiny.github.io')
 const isGitHub = isGitHubRuntime || isGitHubBuild
 const basePath = isGitHub ? '/opentiny.design/' : '/'
+const isTargetDomain = location.hostname === 'opentiny.design'
+const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 
-// 移动端检测
-const { isMobile } = useWindowSize()
+const BREAKPOINT = 1365
+const SMALL_BREAKPOINT = 478
+const isMobile = ref(false)
+const isSmallScreen = ref(false)
+const updateLayoutMode = () => {
+  isMobile.value = window.innerWidth < BREAKPOINT
+  isSmallScreen.value = window.innerWidth <= SMALL_BREAKPOINT
+}
+onMounted(() => {
+  updateLayoutMode()
+  window.addEventListener('resize', updateLayoutMode)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateLayoutMode)
+})
 
 const hoveredIndex = ref(-1)
 let hoverTimer = null
@@ -138,7 +152,7 @@ const handleMouseLeave = () => {
   clearTimeout(hoverTimer)
   hoverTimer = setTimeout(() => {
     hoveredIndex.value = -1
-  }, 100)
+  }, 500)
 }
 
 const handleFocusIn = (index) => {
@@ -156,8 +170,8 @@ const getIconAppUrl = (name) => new URL(`../../../../../common/src/assets/appIco
 
 const cardOptions = [
   {
-    title: 'AI应用开发',
-    subTitle: 'AI交互组件/AI应用开发SDK/生成式界面SDK/AI扩展插件/MCP接入服务',
+    title: 'AI 应用开发',
+    subTitle: 'AI 交互组件/AI 应用开发SDK /生成式界面SDK /AI 扩展插件/MCP 接入服务',
     tag: '加速企业应用智能化改造',
     topCards: [
       {
@@ -205,18 +219,11 @@ const cardOptions = [
     tag: '开箱即用、前后台分离',
     cards: [
       {
-        brand: 'TinyPro Vue',
+        brand: 'TinyPro',
         title: 'Vue 技术栈企业级开发应用模板',
         desc: '基于 TinyVue 组件库企业级中后台前端/设计解决方案',
         link: 'https://opentiny.design/vue-pro',
         icon: getIconAppUrl('tiny-pro')
-      },
-      {
-        brand: 'TinyPro Angular',
-        title: 'Angular 技术栈企业级开发应用模板',
-        desc: '基于 TinyNG 组件库企业级中后台前端/设计解决方案',
-        link: 'https://opentiny.design/ng-pro',
-        icon: getIconAppUrl('tiny-pro-ng')
       },
       {
         brand: 'TinyCLI',
@@ -236,7 +243,7 @@ const cardOptions = [
         brand: 'TinyVue',
         title: '企业级 Vue 组件库',
         desc: '跨端、跨框架的企业级 UI 组件库',
-        link: `${basePath}tiny-vue`,
+        link: isTargetDomain ? `${basePath}tiny-vue` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tiny-vue`,
         icon: getIconAppUrl('tiny-vue')
       },
       {
@@ -257,7 +264,7 @@ const cardOptions = [
         brand: 'TinyEditor',
         title: '富文本编辑器',
         desc: '支持 JS/Vue/React/Angular',
-        link: 'https://docs.opentiny.design/tiny-editor/guide/quick-start.html',
+        link: location.hostname === 'opentiny.design' ? `https://docs.opentiny.design/tiny-editor/guide/quick-start.html` : 'https://opentiny.github.io/tiny-editor',
         icon: getIconAppUrl('tiny-editor')
       }
     ]
@@ -270,7 +277,7 @@ const cardOptions = [
       brand: 'TinyEngine',
       title: '开源低代码引擎',
       desc: '支持在线实时构建<br/>支持设计器命令二次开发<br/>支持插件灵活扩展',
-      link: `${basePath}tiny-engine`,
+      link:  isTargetDomain ? `${basePath}tiny-engine` : isLocal ? '/' : `${location.protocol}//${location.hostname}/tiny-engine`,
       icon: getIconAppUrl('tiny-engine')
     }
   }
@@ -310,7 +317,7 @@ const getCardBgStyle = (index) => {
     }
   }
 
-  // 移动端：去掉背景图，只保留渐变
+  // 平铺布局（1365px 及以下）：去掉背景图，只保留渐变
   if (isMobile.value) {
     return {
       backgroundImage: gradients[index],
@@ -323,21 +330,30 @@ const getCardBgStyle = (index) => {
   // PC 默认状态：图片在上层，默认渐变在下层
   return {
     backgroundImage: `url(${getImgUrl(`bg-${index + 1}`)}), ${gradients[index]}`,
-    backgroundSize: 'cover, cover',
-    backgroundPosition: 'center, right',
+    backgroundSize: 'auto 100%, cover',
+    backgroundPosition: 'bottom',
     backgroundRepeat: 'no-repeat, no-repeat'
   }
 }
 
+// 'linear-gradient(135deg, rgba(255, 243, 230, 0.6) 20%, rgba(255, 243, 230, 0.6) 20%, rgba(255, 207, 207, 0.6) 100%)',
 // 每个卡片的渐变色
 const gradientsFronts = [
   'linear-gradient(135deg, rgba(238, 245, 255, 0.6) 20%, rgba(238, 245, 255, 0.6) 20%, rgba(228, 248, 230, 0.6) 90%)',
-  'linear-gradient(135deg, rgba(255, 243, 230, 0.6) 20%, rgba(255, 243, 230, 0.6) 20%, rgba(255, 207, 207, 0.6) 100%)',
   'linear-gradient(135deg, rgba(225, 236, 255, 0.6) 20%, rgba(225, 236, 255, 0.6) 20%, rgba(222, 224, 255, 0.6) 100%)'
 ]
 
 const getFrontBgStyle = (index) => {
   const gradientFront = gradientsFronts[index]
+
+  if (isSmallScreen.value) {
+    return {
+      backgroundImage: gradientFront,
+      backgroundSize: 'cover !important',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }
+  }
 
   if (isMobile.value) {
     return {
@@ -351,7 +367,7 @@ const getFrontBgStyle = (index) => {
   return {
     backgroundImage: `url(${getImgFrontUrl(`front-bg-${index + 1}`)}), ${gradientFront}`,
     backgroundSize: 'auto 99%, cover',
-    backgroundPosition: 'center, center',
+    backgroundPosition: 'right bottom',
     backgroundRepeat: 'no-repeat, no-repeat'
   }
 }
@@ -366,6 +382,16 @@ const gradientsUIs = [
 
 const getUIBgStyle = (index) => {
   const gradientsUI = gradientsUIs[index]
+
+  if (isSmallScreen.value) {
+    return {
+      backgroundImage: gradientsUI,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }
+  }
+
   // 默认状态：图片在上层，渐变在下层（多层背景）
   return {
     backgroundImage: `url(${getImgFrontUrl(`ui-bg-${index + 1}`)}), ${gradientsUI}`,
@@ -376,6 +402,15 @@ const getUIBgStyle = (index) => {
 }
 
 const getEngineBgStyle = () => {
+  if (isSmallScreen.value) {
+    return {
+      backgroundImage: 'linear-gradient(-45deg, rgba(222, 224, 255, 1) 0%, rgba(230, 238, 253, 1) 99.917%)',
+      backgroundSize: 'cover !important',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }
+  }
+
   if (isMobile.value) {
     return {
       backgroundImage: `url(${getImgFrontUrl('engine-bg-1')}), linear-gradient(-45deg, rgba(222, 224, 255, 1) 0%, rgba(230, 238, 253, 1) 99.917%)`,

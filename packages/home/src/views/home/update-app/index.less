@@ -3,9 +3,15 @@
 .ai-guide {
   display: flex;
   width: 100%;
+  margin: 0 auto;
   background: #fff;
   border-top: 1px solid rgba(240, 240, 240, 1);
-  .pcPadding(100, 150);
+  box-sizing: border-box;
+  .pcPadding(150, 240);
+
+  @media (max-width: 1670px) {
+    .pcPadding(120, 160);
+  }
 
   // ==================== 1440px ====================
   @media (max-width: 1440px) {
@@ -35,7 +41,7 @@
   .guide-inner {
     width: 100%;
     margin: 0 auto;
-    .pcRem(max-width, 1600);
+    .pcRem(max-width, 1440);
 
     @media (max-width: 1440px) {
       max-width: 1320px;
@@ -115,7 +121,7 @@
     gap: 20px;
     height: 600px;
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px 0px;
     box-sizing: border-box;
 
     @media (max-width: 1440px) {
@@ -627,9 +633,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('../../../assets/images/new-icon/floor4/update-bg-2.webp');
-            background-size: auto 80%;
-            background-position: 50% 38px;
+            background: url('../../../assets/images/new-icon/floor4/update-bg-2.png');
+            background-size: auto 95%;
+            background-position: 50% 8px;
             background-repeat: no-repeat;   
 
             @media (max-width: 1660px) {

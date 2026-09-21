@@ -7,7 +7,7 @@
     <div class="content-wrapper">
       <img 
         class="overlay-img"
-        :src="getImgUrl('part-one-b')" 
+        :src="getSvgUrl('part-one-b')" 
         alt="overlay"
       />
       <tiny-tag class="tag-item" type="info">加速企业应用的智能化改造</tiny-tag>
@@ -38,6 +38,9 @@ import useWindowSize from '@/tools/useWindowSize.js'
 const { isMobile } = useWindowSize()
 
 const getImgUrl = (name: string) => 
+  new URL(`../../../../assets/images/new-icon/next-page/${name}.jpg`, import.meta.url).href
+
+const getSvgUrl = (name: string) => 
   new URL(`../../../../assets/images/new-icon/next-page/${name}.svg`, import.meta.url).href
 
 const bgUrl = getImgUrl('part-one-a')
