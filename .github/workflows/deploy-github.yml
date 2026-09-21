@@ -6,6 +6,7 @@ on:
     paths:
       - 'packages/common/**'
       - 'packages/home/**'
+      - 'genui-sdk'
 
   workflow_dispatch: {}
 

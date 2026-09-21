@@ -16,6 +16,28 @@ function _resolve(dir) {
   return path.resolve(__dirname, dir)
 }
 
+function genuiSdkAssetPaths() {
+  const genuiSdkDist = _resolve('../../genui-sdk/sites/homepage/web/dist')
+  let assetBase = '/'
+
+  return {
+    name: 'genui-sdk-asset-paths',
+    enforce: 'pre',
+    configResolved(config) {
+      assetBase = config.base.endsWith('/') ? config.base : `${config.base}/`
+    },
+    transform(code, id) {
+      if (!id.startsWith(genuiSdkDist) || !/\.js(?:\?|$)/.test(id)) {
+        return null
+      }
+
+      const rewrittenCode = code.replace(/(["'])\/assets\//g, `$1${assetBase}assets/`)
+
+      return rewrittenCode === code ? null : { code: rewrittenCode, map: null }
+    }
+  }
+}
+
 export default defineConfig(({ command, mode }) => {
   return {
     envDir: './env',
@@ -65,11 +87,16 @@ export default defineConfig(({ command, mode }) => {
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         exclude: [/node_module/]
       }),
+      genuiSdkAssetPaths(),
       viteStaticCopy({
         targets: [
           {
             src: '../home/public/downloadFile/*',
             dest: `opentiny-design/downloadFile`
+          },
+          {
+            src: _resolve('../../genui-sdk/sites/homepage/web/dist/assets'),
+            dest: '.'
           }
         ]
       })
