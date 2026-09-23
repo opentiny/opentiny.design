@@ -2,12 +2,12 @@
 <h1 id='overview'>总览</h1>
 
 ---
- **TinyPro of Vue**是基于华为云TinyVue组件库一整套企业级中后台前端/设计解决方案，致力于在设计规范和基础组件的基础上，
+ **TinyPro of Vue** 是基于TinyVue组件库一整套企业级中后台前端/设计解决方案，致力于在设计规范和基础组件的基础上，
  继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的『用户』和『设计者』的体验。
- 除此之外，为更好的使用云服务的资源，它集成了[`云服务客户端库`](/vue-pro/docs/advanced/library)
- 用于打通华为云和[`云服务插件`](/vue-pro/docs/advanced/plugin)用于管理和使用您的各类云服务资源。
  <br/>
 
+你可以通过访问以下演示站点体验 TinyPro：[https://opentiny.github.io/tiny-pro](https://opentiny.github.io/tiny-pro)
+ 
  <h2 id='knowledge'>背景知识</h2>
 
 `TinyPro of Vue`作为一个前端脚手架，默认读者已经懂了一些前端的基础知识，并且了解[`Vue`](https://cn.vuejs.org/)、[`Tiny Vue`](/tiny-vue)和[`TinyCLI`](/tiny-cli/home)。
