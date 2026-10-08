@@ -263,7 +263,7 @@ const menuItems = [
         data: [      
           {
             name: 'TinyPro',
-            url: `/vue-pro`,
+            url: `https://docs.opentiny.design/tiny-pro/guide/start.html`,
             children: [],
             logo: tinyPro,
             desc: '中后台应用开发模板',

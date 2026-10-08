@@ -13,9 +13,13 @@ const docList = [
   'mcp',
   'theme-dark'
 ]
-docList.forEach((docName) => {
-  fs.copy(
-    `./node_modules/@opentiny/vue-docs/demos/pc/webdoc/${docName}.md`,
-    `./tinydoc-design/guide/zh-CN/${docName}.md`
-  )
-})
+for (const docName of docList) {
+  const from = `./node_modules/@opentiny/vue-docs/demos/pc/webdoc/${docName}.md`
+  const to = `./tinydoc-design/guide/zh-CN/${docName}.md`
+  // vue-docs 3.29+ 已移除 mcp.md，缺文件时跳过，避免启动失败
+  if (!fs.existsSync(from)) {
+    console.warn(`[copy-docs] 源文件不存在，已跳过: ${from}`)
+    continue
+  }
+  fs.copySync(from, to)
+}
