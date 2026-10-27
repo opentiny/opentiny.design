@@ -15,6 +15,7 @@ const Tools = () => import('@/views/tools/index.vue')
 const IconPage = () => import('@/views/icon/index.vue')
 const tinyVueHome = () => import('@/views/tiny-vue-home/index.vue')
 const tinyRobotHome = () => import('@/views/tiny-robot-home/index.vue')
+const tinyProHome = () => import('@/views/tiny-pro-home/index.vue')
 const aiExtensionHome = () => import('@/views/ai-extension-home/index.vue')
 const nextSdksHome = () => import('@/views/next-sdks-home/index.vue')
 const genuiSdkHome = () => import('@/genui-sdk/index.js')
@@ -37,6 +38,12 @@ export const rootRoutes = [
         path: 'tiny-robot',
         component: tinyRobotHome,
         name: 'tiny-robot',
+        meta: { title: geneTitle('') }
+      },
+      {
+        path: 'vue-pro',
+        component: tinyProHome,
+        name: 'vue-pro',
         meta: { title: geneTitle('') }
       },
       {
