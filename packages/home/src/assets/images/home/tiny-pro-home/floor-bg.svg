@@ -1,0 +1,14 @@
+<svg viewBox="0 0 442.398 539.399" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="442.398438" height="539.399414" fill="none" clip-path="url(#clipPath_0)" customFrame="url(#clipPath_0)">
+	<defs>
+		<linearGradient id="paint_linear_4" x1="221.199219" x2="221.199219" y1="1.20019531" y2="538.200195" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(238,247,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(218,239,254)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<clipPath id="clipPath_0">
+			<rect width="442.399994" height="539.400024" x="-0.000781" y="0.000195" rx="17.200001" fill="rgb(255,255,255)" />
+		</clipPath>
+	</defs>
+	<rect id="floor1-04" width="440.000000" height="537.000000" x="1.199219" y="1.200195" rx="16.000000" fill="rgb(250,250,252)" fill-opacity="0" />
+	<rect id="floor1-04" width="440.000000" height="537.000000" x="1.199219" y="1.200195" rx="16.000000" fill="url(#paint_linear_4)" fill-opacity="0.25" />
+	<rect id="floor1-04" width="441.200012" height="538.200012" x="0.599219" y="0.600195" rx="16.600000" stroke="rgb(232,237,255)" stroke-width="1.200000" />
+</svg>

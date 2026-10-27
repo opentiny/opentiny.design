@@ -1,0 +1,25 @@
+<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.000000" height="20.000000" fill="none">
+	<defs>
+		<linearGradient id="paint_linear_100" x1="3.28997183" x2="15.5664158" y1="6.01062441" y2="13.5698223" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(140,163,250)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(32,112,243)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<radialGradient id="paint_radial_21" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,-3.01875,9.58333,0,9.99935,16.5637)">
+			<stop stop-color="rgb(102,140,247)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(176,191,253)" offset="1" stop-opacity="1" />
+		</radialGradient>
+		<linearGradient id="paint_linear_101" x1="9.99934864" x2="9.99934864" y1="13.5449219" y2="19.5824203" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</linearGradient>
+	</defs>
+	<rect id="floor3-01" width="20.000000" height="20.000000" x="0.000000" y="0.000000" />
+	<g id="ic_digital_-power_distribution_material-配电箱_质感图标">
+		<rect id="矩形" width="20.000000" height="20.000000" x="0.000000" y="0.000000" />
+		<rect id="矩形" width="19.166666" height="19.166666" x="0.416016" y="0.416016" rx="4.000000" fill="url(#paint_linear_100)" />
+		<path id="矩形" d="M0.416016 13.5449L19.5827 13.5449L19.5827 17.0824C19.5827 18.4631 18.4634 19.5824 17.0827 19.5824L2.91602 19.5824C1.5353 19.5824 0.416016 18.4631 0.416016 17.0824L0.416016 13.5449Z" fill="url(#paint_radial_21)" fill-rule="evenodd" />
+		<path id="矩形" d="M19.5827 13.5449L19.5827 17.0824C19.5827 18.4631 18.4634 19.5824 17.0827 19.5824L2.91602 19.5824C1.5353 19.5824 0.416016 18.4631 0.416016 17.0824L0.416016 13.5449L19.5827 13.5449Z" fill-rule="evenodd" stroke="url(#paint_linear_101)" stroke-width="0.500000" />
+		<line id="路径-74" x1="12.5" x2="16.666666" y1="17.0839844" y2="17.0839844" opacity="0.600000024" stroke="rgb(255,255,255)" stroke-linecap="round" stroke-width="0.833333" />
+		<path id="路径-32" d="M2.51367 7.12485L8.33853 7.12485L10.0005 10.6882L12.9388 3.41602L14.5838 7.25708L17.9068 7.25708" opacity="0.600000024" fill-rule="evenodd" stroke="rgb(255,255,255)" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.833333" />
+	</g>
+</svg>

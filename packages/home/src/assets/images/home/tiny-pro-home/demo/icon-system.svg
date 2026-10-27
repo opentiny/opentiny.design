@@ -1,0 +1,41 @@
+<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.000000" height="20.000000" fill="none">
+	<mask id="mask_8" width="19.583332" height="17.083332" x="0.208984" y="1.250000" maskUnits="userSpaceOnUse">
+		<g filter="url(#pixso_custom_mask_type_luminance)">
+			<g id="mask-3">
+				<path id="path-2" d="M16.8756 1.25C18.4865 1.25 19.7923 2.55584 19.7923 4.16667L19.7923 12.5C19.7923 14.1108 18.4865 15.4167 16.8756 15.4167L10.834 15.4167L10.834 16.6667L16.459 16.6667C16.8608 16.6667 17.2006 16.9523 17.2783 17.3586L17.2888 17.4274L17.2923 17.5C17.2923 17.9602 16.9192 18.3333 16.459 18.3333L3.54232 18.3333C3.08208 18.3333 2.70898 17.9602 2.70898 17.5C2.70898 17.0398 3.08208 16.6667 3.54232 16.6667L9.16732 16.6667L9.16732 15.4167L3.12565 15.4167C1.54838 15.4167 0.263527 14.1647 0.210676 12.6003L0.208984 12.5L0.208984 4.16667C0.208984 2.55584 1.51482 1.25 3.12565 1.25L16.8756 1.25Z" fill="rgb(255,255,255)" fill-rule="evenodd" />
+			</g>
+		</g>
+	</mask>
+	<defs>
+		<linearGradient id="paint_linear_110" x1="3.14541793" x2="14.6917181" y1="6.23649836" y2="14.3865433" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(140,163,250)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(32,112,243)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<filter id="pixso_custom_mask_type_luminance">
+			<feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 " />
+		</filter>
+		<radialGradient id="paint_radial_23" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-2.23621,5.74332,-5.67639,-2.21016,13.3327,15.056)">
+			<stop stop-color="rgb(85,49,235)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(85,49,235)" offset="1" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="paint_radial_24" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,-5,5,0,15,15)">
+			<stop stop-color="rgb(102,140,247)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(176,191,253)" offset="1" stop-opacity="1" />
+		</radialGradient>
+		<linearGradient id="paint_linear_111" x1="15" x2="15" y1="10" y2="20" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</linearGradient>
+	</defs>
+	<rect id="floor3-05" width="20.000000" height="20.000000" x="0.000000" y="0.000000" />
+	<g id="ic_huawei_cloud_peak_concurrency-峰值并发_质感图标">
+		<rect id="矩形" width="20.000000" height="20.000000" x="0.000000" y="0.000000" />
+		<path id="path-2" d="M16.8756 1.25C18.4865 1.25 19.7923 2.55584 19.7923 4.16667L19.7923 12.5C19.7923 14.1108 18.4865 15.4167 16.8756 15.4167L10.834 15.4167L10.834 16.6667L16.459 16.6667C16.8608 16.6667 17.2006 16.9523 17.2783 17.3586L17.2888 17.4274L17.2923 17.5C17.2923 17.9602 16.9192 18.3333 16.459 18.3333L3.54232 18.3333C3.08208 18.3333 2.70898 17.9602 2.70898 17.5C2.70898 17.0398 3.08208 16.6667 3.54232 16.6667L9.16732 16.6667L9.16732 15.4167L3.12565 15.4167C1.54838 15.4167 0.263527 14.1647 0.210676 12.6003L0.208984 12.5L0.208984 4.16667C0.208984 2.55584 1.51482 1.25 3.12565 1.25L16.8756 1.25Z" fill="url(#paint_linear_110)" fill-rule="nonzero" />
+		<g id="mask" opacity="0.900000036" mask="url(#mask_8)">
+			<path id="形状结合" d="M13.3327 8.33398C17.0146 8.33398 19.9993 11.3188 19.9993 15.0007C19.9993 16.992 19.1262 18.7795 17.7419 20.0011L8.92343 20.0011C7.53913 18.7795 6.66602 16.992 6.66602 15.0007C6.66602 11.3188 9.65078 8.33398 13.3327 8.33398Z" fill="url(#paint_radial_23)" fill-rule="nonzero" />
+		</g>
+		<path id="path" d="M15 10C12.2386 10 10 12.2386 10 15C10 17.7614 12.2386 20 15 20C17.7614 20 20 17.7614 20 15C20 12.2386 17.7614 10 15 10Z" fill="url(#paint_radial_24)" fill-rule="nonzero" />
+		<path id="path" d="M10 15C10 17.7614 12.2386 20 15 20C17.7614 20 20 17.7614 20 15C20 12.2386 17.7614 10 15 10C12.2386 10 10 12.2386 10 15Z" fill-rule="nonzero" stroke="url(#paint_linear_111)" stroke-width="0.500000" />
+		<path id="path11" d="M1.83967 0L0.0244077 1.81526C-0.00813643 1.8478 -0.00813643 1.90057 0.0244077 1.93311L1.8413 3.75M4.50715 1.875L0.340482 1.875" fill-rule="evenodd" stroke="rgb(255,255,255)" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.833333" transform="matrix(-0.707107,0.707107,0.707107,0.707107,15.2559,12.0918)" />
+	</g>
+</svg>
