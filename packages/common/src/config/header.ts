@@ -148,7 +148,7 @@ const menuItems = [
         data: [      
           {
             name: 'TinyPro',
-            url: `/vue-pro`,
+            url: `${basePath}tiny-pro`,
             logo: tinyPro,
             desc: '中后台应用开发模板',
             hide: false,
