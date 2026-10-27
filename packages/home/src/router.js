@@ -41,9 +41,9 @@ export const rootRoutes = [
         meta: { title: geneTitle('') }
       },
       {
-        path: 'vue-pro',
+        path: 'tiny-pro',
         component: tinyProHome,
-        name: 'vue-pro',
+        name: 'tiny-pro',
         meta: { title: geneTitle('') }
       },
       {
