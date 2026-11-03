@@ -17,7 +17,7 @@
   </div>
 </template>
 <script setup>
-import floor1 from '@/assets/images/home/tiny-pro-home/floor1.svg'
+import floor1 from '@/assets/images/home/tiny-pro-home/floor1.png'
 import floor2 from '@/assets/images/home/tiny-pro-home/floor2.svg'
 import floor3 from '@/assets/images/home/tiny-pro-home/floor3.svg'
 
