@@ -113,9 +113,10 @@ const current = computed(() => info.list[activeIndex.value])
   }
   .demo-card-img {
     width: 100%;
-    height: 930px;
-    margin-top: 60px;
-    padding: 40px;
+    max-width: 1200px;
+    height: 760px;
+    margin: 40px auto 0;
+    padding: 20px;
     box-sizing: border-box;
     background: #F7F8FA;
     border-radius: 20px;

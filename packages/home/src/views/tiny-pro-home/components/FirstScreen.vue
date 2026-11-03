@@ -34,7 +34,8 @@ const state = {
 .first-screen {
   background-image: url(@/assets/images/home/tiny-pro-home/top_banner.svg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center center;
+  background-size: 100% 100%;
   .first-screen-wrap {
     margin: auto;
     display: flex;

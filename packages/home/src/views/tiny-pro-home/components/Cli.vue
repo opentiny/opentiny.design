@@ -197,8 +197,8 @@ const copyCommands = () => {
       cursor: pointer;
       color: #808080;
       svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         color: #808080;
       }
       span {
