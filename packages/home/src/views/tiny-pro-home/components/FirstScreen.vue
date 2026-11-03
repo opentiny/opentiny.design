@@ -34,7 +34,6 @@ const state = {
 .first-screen {
   background-image: url(@/assets/images/home/tiny-pro-home/top_banner.svg);
   background-repeat: no-repeat;
-  background-position: center center;
   background-size: cover;
   .first-screen-wrap {
     margin: auto;
@@ -42,9 +41,9 @@ const state = {
     justify-content: space-between;
     align-items: center;
     padding-top: 120px;
-    padding-bottom: 130px;
+    padding-bottom: 100px;
     .first-screen-content {
-      max-width: 682px;
+      max-width: 825px;
       .first-screen-content-title {
         font-size: 54px;
         font-weight: 700;
@@ -107,7 +106,7 @@ const state = {
       }
     }
     .first-screen-image {
-      max-width: 682px;
+      max-width: 825px;
       img {
         width: 100%;
       }

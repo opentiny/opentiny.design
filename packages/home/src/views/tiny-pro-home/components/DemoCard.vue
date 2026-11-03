@@ -59,14 +59,14 @@ const current = computed(() => info.list[activeIndex.value])
   margin: 0 auto;
   padding: 100px 0 120px;
   .demo-card-title {
-    font-size: 44px;
+    font-size: 36px;
     line-height: 64px;
     text-align: center;
     font-weight: 700;
     color: #191919;
   }
   .demo-card-subtitle {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
@@ -84,6 +84,7 @@ const current = computed(() => info.list[activeIndex.value])
     align-items: center;
     justify-content: space-between;
     .demo-card-button-item {
+      background: #f5f5f5;
       width: 141px;
       height: 44px;
       padding: 0 8px;
@@ -112,11 +113,11 @@ const current = computed(() => info.list[activeIndex.value])
   }
   .demo-card-img {
     width: 100%;
-    height: 1000px;
+    height: 930px;
     margin-top: 60px;
     padding: 40px;
     box-sizing: border-box;
-    background: #eff5ff;
+    background: #F7F8FA;
     border-radius: 20px;
     img {
       width: 100%;

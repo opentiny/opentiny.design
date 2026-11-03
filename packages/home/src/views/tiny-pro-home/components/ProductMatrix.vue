@@ -48,13 +48,13 @@ const info = {
     margin: 40px auto 0;
     padding: 100px 0;
     .product-matrix-title {
-      font-size: 44px;
+      font-size: 36px;
       line-height: 64px;
       text-align: center;
       font-weight: 700;
     }
     .product-matrix-subtitle {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 28px;
       margin-top: 16px;
       text-align: center;
@@ -67,10 +67,10 @@ const info = {
       gap: 45px;
       .item {
         background: #fff;
-        border-radius: 8px;
+        border-radius: 16px;
         box-shadow: 0 2px 12px 0 rgba(194, 206, 225, 0.05);
         width: calc((100% - 90px) / 3);
-        padding: 20px 20px 54px;
+        padding: 20px 20px 30px;
         box-sizing: border-box;
         .item-image {
           img {
@@ -78,23 +78,23 @@ const info = {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 16px;
           }
         }
         .item-content {
-          margin-top: 34px;
+          margin-top: 24px;
           margin-left: 12px;
           .item-title {
             color: #191919;
             font-weight: 600;
-            font-size: 24px;
+            font-size: 20px;
             line-height: 30px;
           }
           .item-description {
             color: #808080;
             font-size: 16px;
             line-height: 28px;
-            margin-top: 20px;
+            margin-top: 8px;
           }
         }
       }
@@ -135,14 +135,14 @@ const info = {
             .item-description {
               font-size: 12px;
               line-height: 20px;
-              margin-top: 12px;
+              margin-top: 8px;
               color: #808080;
             }
           }
           .item-image {
             width: 100%;
             img {
-              height: 160px;
+              height: 100%;
             }
           }
         }
@@ -179,7 +179,7 @@ const info = {
             .item-description {
               font-size: 13px;
               line-height: 21px;
-              margin-top: 10px;
+              margin-top: 8px;
             }
           }
           .item-image {
