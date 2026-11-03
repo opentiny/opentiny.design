@@ -50,14 +50,13 @@ const info = {
 .technical-core {
   margin: 0 auto;
   .technical-core-title {
-    font-size: 44px;
+    font-size: 36px;
     line-height: 64px;
     text-align: center;
-    margin-top: 120px;
     font-weight: 700;
   }
   .technical-core-subtitle {
-    font-size: 20px;
+    font-size: 18x;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
@@ -73,17 +72,15 @@ const info = {
       width: 0;
       height: 537px;
       box-sizing: border-box;
-      padding: 32px 24px 24px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
-      background: #fff;
-      border: 1px solid #f0f0f0;
+      background-color: #fff;
       border-radius: 16px;
-      box-shadow: 0 4px 26px 0 rgba(234, 233, 237, 0.9);
       background-image: url(@/assets/images/home/tiny-pro-home/floor-bg.svg);
-      background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
       .technical-core-item-title {
         color: #191919;
         font-size: 24px;
@@ -105,7 +102,6 @@ const info = {
           padding-left: 16px;
           color: #191919;
           font-size: 16px;
-          font-weight: 600;
           line-height: 26px;
           & + li {
             margin-top: 8px;
@@ -118,7 +114,7 @@ const info = {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #1476ff;
+            background: #000;
           }
         }
       }
@@ -134,7 +130,8 @@ const info = {
         border-radius: 8px;
       }
       .technical-core-item-image {
-        width: 95%;
+        width: 380px;
+        height: 212px;
         object-fit: cover;
         object-position: center;
         display: block;
@@ -165,6 +162,7 @@ const info = {
         width: 100%;
         height: auto;
         padding: 24px;
+        overflow: hidden;
         .technical-core-item-title {
           font-size: 16px;
           line-height: 22px;

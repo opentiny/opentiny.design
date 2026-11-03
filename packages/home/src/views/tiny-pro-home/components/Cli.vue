@@ -19,7 +19,16 @@
           <ul class="cli-init-list">
             <li v-for="command in info.commands" :key="command">{{ command }}</li>
           </ul>
-          <button type="button" class="cli-init-copy" @click="copyCommands">复制</button>
+          <tiny-button type="primary" class="cli-init-copy" round>
+            <span>复制</span>
+            <svg viewBox="0 0 14 13.9956" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                d="M8.5 2.99567C9.88071 2.99567 11 4.11495 11 5.49567L11 11.4957C11 12.8764 9.88071 13.9957 8.5 13.9957L2.5 13.9957C1.11929 13.9957 0 12.8764 0 11.4957L0 5.49567C0 4.11495 1.11929 2.99567 2.5 2.99567L8.5 2.99567ZM8.5 3.99567L2.5 3.99567C1.67157 3.99567 1 4.66724 1 5.49567L1 11.4957C1 12.3241 1.67157 12.9957 2.5 12.9957L8.5 12.9957C9.32843 12.9957 10 12.3241 10 11.4957L10 5.49567C10 4.66724 9.32843 3.99567 8.5 3.99567ZM11.5 0C12.8807 0 14 1.11929 14 2.5L14 7.5C14 7.77614 13.7761 8 13.5 8C13.2239 8 13 7.77614 13 7.5L13 2.5C13 1.67157 12.3284 1 11.5 1L6.5 1C6.22386 1 6 0.776142 6 0.5C6 0.223858 6.22386 0 6.5 0L11.5 0Z"
+                fill="currentColor"
+                fill-rule="nonzero"
+              />
+            </svg>
+          </tiny-button>
         </div>
         <div class="cli-init-tip">{{ info.tip }}</div>
         <a class="cli-init-link" :href="info.docUrl" target="_blank" rel="noopener noreferrer">{{ info.docText }}</a>
@@ -31,7 +40,7 @@
   </div>
 </template>
 <script setup>
-import { Message } from '@opentiny/vue'
+import { Message, TinyButton } from '@opentiny/vue'
 
 const info = {
   title: '快速开始',
@@ -80,14 +89,14 @@ const copyCommands = () => {
     padding: 40px 0 120px;
   }
   .cli-title {
-    font-size: 44px;
+    font-size: 36px;
     line-height: 64px;
     text-align: center;
     font-weight: 700;
     color: #191919;
   }
   .cli-subtitle {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 28px;
     margin-top: 16px;
     text-align: center;
@@ -103,14 +112,14 @@ const copyCommands = () => {
       height: 160px;
       box-sizing: border-box;
       padding: 16px 24px;
-      border-radius: 12px;
+      border-radius: 16px;
       background: #fff;
       border: 1px solid #f0f0f0;
       .cli-card-head {
         display: flex;
         align-items: center;
         gap: 12px;
-        background: linear-gradient(180deg, rgba(132, 132, 132, 0.2), rgba(140, 140, 140, 0.05));
+        background: linear-gradient(90deg, rgba(132, 132, 132, 0.2), rgba(140, 140, 140, 0.05));
         border-radius: 100px;
       }
       .cli-card-badge {
@@ -143,14 +152,14 @@ const copyCommands = () => {
       }
       .cli-card-desc {
         margin-top: 16px;
-        color: #808080;
+        color: #595959;
         font-size: 14px;
         line-height: 22px;
       }
     }
   }
   .cli-init {
-    margin-top: 40px;
+    margin-top: 24px;
     background: #fff;
     border: 1px solid #f0f0f0;
     border-radius: 12px;
@@ -183,15 +192,28 @@ const copyCommands = () => {
       position: absolute;
       top: 24px;
       right: 24px;
-      height: 32px;
-      padding: 0 14px;
-      border: 1px solid #fff;
-      border-radius: 8px;
+      border: 1px solid #808080;
       background: transparent;
-      color: #fff;
-      font-size: 14px;
-      line-height: 30px;
       cursor: pointer;
+      color: #808080;
+      svg {
+        width: 16px;
+        height: 16px;
+        color: #808080;
+      }
+      span {
+        height: 14px;
+        line-height: 14px;
+        margin-right: 4px;
+      }
+    }
+    .cli-init-copy:hover {
+      border-color: #fff;
+      color: #fff;
+
+    }
+    .cli-init-copy:hover svg {
+      color: #fff;
     }
     .cli-init-tip {
       margin: 16px 0;
