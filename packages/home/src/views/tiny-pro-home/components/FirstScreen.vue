@@ -32,10 +32,11 @@ const state = {
 </script>
 <style lang="less" scoped>
 .first-screen {
+  width: 100%;
   background-image: url(@/assets/images/home/tiny-pro-home/top_banner.svg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 100% 100%;
+  background-size: cover;
   .first-screen-wrap {
     margin: auto;
     display: flex;
